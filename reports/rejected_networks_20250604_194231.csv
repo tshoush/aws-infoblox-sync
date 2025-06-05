@@ -1,0 +1,18 @@
+AccountId,Region,VpcId,Name,CidrBlock,Reason,Details
+45155701822,us-east-1,vpc-0007019fc7ef7c946,mi-lz-mpg-prod-us-east-1-vpc,10.212.230.0/23,Unknown error,404 Client Error: Not Found for url: https://10.82.108.28/wapi/v2.13.1/network
+14498642181,us-east-1,vpc-078e8685d06b311fa,mi-lz-tech-svcs-prod-us-east-1-vpc,10.215.248.0/23,Unknown error,404 Client Error: Not Found for url: https://10.82.108.28/wapi/v2.13.1/network
+47659599919,us-east-1,vpc-083c99f0a54576328,mi-lz-ocp-prod-us-east-1-vpc,10.212.252.0/23,Unknown error,404 Client Error: Not Found for url: https://10.82.108.28/wapi/v2.13.1/network
+47659599919,us-west-2,vpc-0b07d46b6bb8d9560,mi-lz-ocp-prod-us-west-2-vpc,10.213.160.0/23,Unknown error,404 Client Error: Not Found for url: https://10.82.108.28/wapi/v2.13.1/network
+47659599919,eu-west-2,vpc-0f7c905114497cee6,mi-lz-ocp-prod-eu-west-2-vpc,15.86.136.0/23,Unknown error,404 Client Error: Not Found for url: https://10.82.108.28/wapi/v2.13.1/network
+24453401885,us-east-1,vpc-055bca7586ab6cee3,mi-lz-dc-finance-test-us-east-1-vpc,12.212.88.0/24,Unknown error,404 Client Error: Not Found for url: https://10.82.108.28/wapi/v2.13.1/network
+25472518909,us-east-1,vpc-09ca502111aa1a60a,mi-lz-network-test-us-east-1-vpc,112.212.4.0/24,Unknown error,404 Client Error: Not Found for url: https://10.82.108.28/wapi/v2.13.1/network
+7710834192,us-east-1,vpc-03380da9924618762,mi-lz-icd-core-team-hold-prod-pci-us-east-1-vpc,15.212.224.0/23,Unknown error,404 Client Error: Not Found for url: https://10.82.108.28/wapi/v2.13.1/network
+7710834192,us-west-2,vpc-03c2708b7cb46148f,mi-lz-icd-core-team-hold-prod-pci-us-west-2-vpc,12.216.140.0/23,Unknown error,404 Client Error: Not Found for url: https://10.82.108.28/wapi/v2.13.1/network
+47270958358,us-east-1,vpc-09f08ecfabd8a5a9d,mi-lz-devops-ss-us-east-1-vpc,10.212.226.0/23,Unknown error,404 Client Error: Not Found for url: https://10.82.108.28/wapi/v2.13.1/network
+47270958358,us-west-2,vpc-0bd4000739077b166,mi-lz-devops-ss-prod-us-west-2-vpc,10.216.248.0/23,Unknown error,404 Client Error: Not Found for url: https://10.82.108.28/wapi/v2.13.1/network
+47270958358,eu-west-2,vpc-01ba98e7bf3558222,mi-lz-devops-ss-prod-eu-west-2-vpc,10.86.150.0/23,Unknown error,404 Client Error: Not Found for url: https://10.82.108.28/wapi/v2.13.1/network
+15223062308,us-east-1,vpc-0766434e9b97c0607,mi-lz-mpg-dev-us-east-1-vpc,10.215.33.0/24,Unknown error,404 Client Error: Not Found for url: https://10.82.108.28/wapi/v2.13.1/network
+156931719,us-east-1,vpc-0a55d95d59874d7e4,mi-lz-data-migration-gateway-dev-us-east-1-vpc,10.212.5.0/24,Unknown error,404 Client Error: Not Found for url: https://10.82.108.28/wapi/v2.13.1/network
+11528291507,us-east-1,vpc-088629d17b8c2e609,mi-lz-tech-svcs-dev-us-east-1-vpc,15.212.118.0/25,Unknown error,404 Client Error: Not Found for url: https://10.82.108.28/wapi/v2.13.1/network
+34362027756,us-east-1,vpc-080c7679bbf4c51cd,mi-lz-pms-dev-us-east-1-vpc,10.212.118.128/25,Unknown error,404 Client Error: Not Found for url: https://10.82.108.28/wapi/v2.13.1/network
+25472518909,us-east-1,vpc-0ae16c521a462ca1c,mi-lz-network-test-default,10.212.19.128/25,Unknown error,404 Client Error: Not Found for url: https://10.82.108.28/wapi/v2.13.1/network
