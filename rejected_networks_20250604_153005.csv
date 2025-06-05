@@ -1,0 +1,6 @@
+AccountId,Region,VpcId,Name,CidrBlock,RejectionReason,ErrorDetails
+336942569330,us-west-2,vpc-0917c67c9e9d8e8d3,mi-lz-na-loyalty-prod-us-west-2-vpc,10.216.136.0/23,Unknown error,400 Client Error: Bad Request for url: https://10.82.108.28/wapi/v2.13.1/network
+301220284239,us-west-2,vpc-0658f5b90ff429354,Unnamed,10.0.0.0/22,Unknown error,400 Client Error: Bad Request for url: https://10.82.108.28/wapi/v2.13.1/network
+332645427436,us-west-2,vpc-0bacb1c05fc2b91b9,Unnamed,10.0.0.0/22,Unknown error,400 Client Error: Bad Request for url: https://10.82.108.28/wapi/v2.13.1/network
+777050211007,us-east-1,vpc-05b4ff9c5639a47bf,mi-lz-dc-hotelops-test-us-east-1-vpc,10.212.76.0/24,Unknown error,400 Client Error: Bad Request for url: https://10.82.108.28/wapi/v2.13.1/network
+125720579239,us-east-1,vpc-0f21645a3e1d1bc06,mi-lz-dc-sales-dev-us-east-1-vpc,10.212.74.0/24,Unknown error,400 Client Error: Bad Request for url: https://10.82.108.28/wapi/v2.13.1/network

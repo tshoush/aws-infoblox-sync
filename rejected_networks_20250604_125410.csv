@@ -1,0 +1,25 @@
+AccountId,Region,VpcId,Name,CidrBlock,RejectionReason,ErrorDetails
+482478851458,us-east-1,vpc-0b73de28b457b6d03,CL-PrimaryStack/ESVPC,10.0.0.0/16,Unknown error,400 Client Error: Bad Request for url: https://192.168.1.222/wapi/v2.13.1/network
+109271064203,us-east-1,vpc-039734d70d1af71b0,s3-sftp-public-nacl,10.0.0.0/16,Unknown error,400 Client Error: Bad Request for url: https://192.168.1.222/wapi/v2.13.1/network
+90635704012,us-west-2,vpc-0a05c2208064b4b97,project-vpc,10.0.0.0/16,Unknown error,400 Client Error: Bad Request for url: https://192.168.1.222/wapi/v2.13.1/network
+346680195314,us-west-2,vpc-0bf56d96f3d66600a,project-vpc,10.0.0.0/16,Unknown error,400 Client Error: Bad Request for url: https://192.168.1.222/wapi/v2.13.1/network
+481426791384,us-east-1,vpc-064100be0926e88df,RlSecTestVPC,10.0.0.0/16,Unknown error,400 Client Error: Bad Request for url: https://192.168.1.222/wapi/v2.13.1/network
+481426791384,us-east-1,vpc-0235f93c49cea09f2,MyVPC,10.0.0.0/16,Unknown error,400 Client Error: Bad Request for url: https://192.168.1.222/wapi/v2.13.1/network
+481426791384,us-east-2,vpc-09404f40d257109e4,lesson02-vpc,10.0.0.0/16,Unknown error,400 Client Error: Bad Request for url: https://192.168.1.222/wapi/v2.13.1/network
+481426791384,us-east-2,vpc-030c6a564e1f26c22,Unnamed,10.0.0.0/16,Unknown error,400 Client Error: Bad Request for url: https://192.168.1.222/wapi/v2.13.1/network
+481426791384,us-west-1,vpc-0dd4377e61065c5f6,Unnamed,10.0.0.0/16,Unknown error,400 Client Error: Bad Request for url: https://192.168.1.222/wapi/v2.13.1/network
+481426791384,us-west-2,vpc-0f17d0ab6e001045f,my-vpc,10.0.0.0/16,Unknown error,400 Client Error: Bad Request for url: https://192.168.1.222/wapi/v2.13.1/network
+481426791384,us-west-2,vpc-0821c3949bf761ba5,MyVPC,10.0.0.0/16,Unknown error,400 Client Error: Bad Request for url: https://192.168.1.222/wapi/v2.13.1/network
+684837204429,ap-southeast-1,vpc-0f75b0acd9a271f99,Unnamed,10.0.0.0/16,Unknown error,400 Client Error: Bad Request for url: https://192.168.1.222/wapi/v2.13.1/network
+690872919680,us-west-2,vpc-0196d071de4ec65d8,project-vpc,10.0.0.0/16,Unknown error,400 Client Error: Bad Request for url: https://192.168.1.222/wapi/v2.13.1/network
+780727336067,us-east-1,vpc-0ee0a7e20122740bd,mi-s3-sftp-public-nacl,10.0.0.0/16,Unknown error,400 Client Error: Bad Request for url: https://192.168.1.222/wapi/v2.13.1/network
+780727336067,us-east-1,vpc-0ef33405ae4a5c8fe,mi-na-druva-restore-public-dmz,10.0.0.0/16,Unknown error,400 Client Error: Bad Request for url: https://192.168.1.222/wapi/v2.13.1/network
+883113265457,us-west-2,vpc-0edcf91ff4670aeda,Unified-VPC,10.0.0.0/16,Unknown error,400 Client Error: Bad Request for url: https://192.168.1.222/wapi/v2.13.1/network
+883113265457,us-west-2,vpc-0d386ea48402c39fc,Unnamed,10.0.0.0/16,Unknown error,400 Client Error: Bad Request for url: https://192.168.1.222/wapi/v2.13.1/network
+883113265457,us-west-2,vpc-04653ba922d95dcc9,Shirong-Network-Firewall-POC-Automation-Inspection-VPC,192.168.0.0/16,Unknown error,400 Client Error: Bad Request for url: https://192.168.1.222/wapi/v2.13.1/network
+871216462967,us-east-1,vpc-0cbff289dc334981f,SecurityAutomation,10.0.0.0/16,Unknown error,400 Client Error: Bad Request for url: https://192.168.1.222/wapi/v2.13.1/network
+336942569330,us-west-2,vpc-0917c67c9e9d8e8d3,mi-lz-na-loyalty-prod-us-west-2-vpc,10.216.136.0/23,Unknown error,400 Client Error: Bad Request for url: https://192.168.1.222/wapi/v2.13.1/network
+301220284239,us-west-2,vpc-0658f5b90ff429354,Unnamed,10.0.0.0/22,Unknown error,400 Client Error: Bad Request for url: https://192.168.1.222/wapi/v2.13.1/network
+332645427436,us-west-2,vpc-0bacb1c05fc2b91b9,Unnamed,10.0.0.0/22,Unknown error,400 Client Error: Bad Request for url: https://192.168.1.222/wapi/v2.13.1/network
+777050211007,us-east-1,vpc-05b4ff9c5639a47bf,mi-lz-dc-hotelops-test-us-east-1-vpc,10.212.76.0/24,Unknown error,400 Client Error: Bad Request for url: https://192.168.1.222/wapi/v2.13.1/network
+125720579239,us-east-1,vpc-0f21645a3e1d1bc06,mi-lz-dc-sales-dev-us-east-1-vpc,10.212.74.0/24,Unknown error,400 Client Error: Bad Request for url: https://192.168.1.222/wapi/v2.13.1/network

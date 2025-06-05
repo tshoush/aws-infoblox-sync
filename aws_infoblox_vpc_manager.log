@@ -1,0 +1,17 @@
+--- Log file test write at 2025-06-04 16:13:21.413350 ---
+2025-06-04 16:13:23,921 - INFO - Loading VPC data from vpc_dataReduced.csv...
+2025-06-04 16:13:23,928 - INFO - Loaded 23 VPC records from vpc_dataReduced.csv
+2025-06-04 16:13:23,942 - INFO - Comparing AWS VPCs with InfoBlox networks...
+2025-06-04 16:13:28,603 - INFO - CIDR 172.31.0.0/16 exists as network container in InfoBlox
+2025-06-04 16:13:28,921 - INFO - CIDR 172.16.0.0/16 exists as network container in InfoBlox
+2025-06-04 16:13:29,321 - INFO - Analyzing required Extended Attributes...
+2025-06-04 16:13:29,325 - INFO - Found 26 unique Extended Attributes required
+2025-06-04 16:13:29,569 - INFO - Creating missing Extended Attribute: aws_stnostatus2_vpcassociation2
+2025-06-04 16:13:29,791 - INFO - Created Extended Attribute definition: aws_stnostatus2_vpcassociation2
+2025-06-04 16:13:29,795 - INFO - Generated Extended Attributes summary: reports\extended_attributes_summary_20250604_161329.txt
+2025-06-04 16:13:29,975 - INFO - Created network 175.31.0.0/16 in view AWSTesting
+2025-06-04 16:13:30,192 - INFO - Created network 15.86.136.0/23 in view AWSTesting
+2025-06-04 16:13:30,375 - INFO - Created network 15.212.224.0/23 in view AWSTesting
+2025-06-04 16:13:30,595 - INFO - Created network 15.216.140.0/23 in view AWSTesting
+2025-06-04 16:13:30,784 - INFO - Created network 105.212.118.128/25 in view AWSTesting
+2025-06-04 16:13:31,024 - INFO - Created network 175.0.0.0/28 in view AWSTesting
