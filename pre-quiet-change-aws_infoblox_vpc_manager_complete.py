@@ -85,18 +85,14 @@ def parse_arguments():
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 Examples:
-  # Basic comparison (quiet mode - uses config defaults)
+  # Basic comparison
   python %(prog)s
   
-  # Interactive mode - configure settings interactively
-  python %(prog)s -i
-  python %(prog)s --interactive
-  
-  # Create missing networks (quiet mode)
+  # Create missing networks
   python %(prog)s --create-missing
   
-  # Dry run mode with interactive config
-  python %(prog)s -i --create-missing --dry-run
+  # Dry run mode
+  python %(prog)s --create-missing --dry-run
   
   # Specify CSV file
   python %(prog)s --csv-file vpc_data_custom.csv
@@ -104,12 +100,6 @@ Examples:
   # Specify network view
   python %(prog)s --network-view "AWS Networks"
 """
-    )
-    
-    parser.add_argument(
-        '-i', '--interactive',
-        action='store_true',
-        help='Run in interactive mode to configure settings (default: quiet mode using config.env)'
     )
     
     parser.add_argument(
@@ -368,17 +358,10 @@ def main():
     args = parse_arguments()
     
     try:
-        config_override = None
+        # Show and optionally edit configuration
+        config_override = show_and_edit_config()
         
-        # Check if interactive mode is requested
-        if args.interactive:
-            # Show and optionally edit configuration
-            config_override = show_and_edit_config()
-        else:
-            # Quiet mode - just load from config.env
-            logger.info("Running in quiet mode. Use -i for interactive configuration.")
-        
-        # Get configuration (no prompting in quiet mode)
+        # Get configuration (no more prompting, just validation)
         grid_master, network_view, username, password, csv_file, container_prefixes, container_mode = get_config(
             config_override=config_override
         )

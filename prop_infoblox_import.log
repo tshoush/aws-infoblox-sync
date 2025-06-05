@@ -1,0 +1,598 @@
+2025-06-05 14:55:13,483 - INFO - Running in quiet mode. Use -i for interactive configuration.
+2025-06-05 14:55:13,487 - INFO - Loading property data from modified_properties_file.csv...
+2025-06-05 14:55:13,494 - INFO - Loaded 8 property records from modified_properties_file.csv
+2025-06-05 14:55:13,502 - INFO - Expanded 8 property records to 8 network records
+2025-06-05 14:55:13,503 - INFO - Comparing property networks with InfoBlox...
+2025-06-05 14:55:13,506 - DEBUG - Starting new HTTPS connection (1): 10.82.108.28:443
+2025-06-05 14:55:13,752 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=10.101.224.0%2F22&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-05 14:55:13,753 - DEBUG - Network 10.101.224.0/22 not found in view AWSTesting
+2025-06-05 14:55:13,755 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 14:55:13,932 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/networkcontainer?network=10.101.224.0%2F22&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-05 14:55:13,933 - DEBUG - Network container 10.101.224.0/22 not found in view AWSTesting
+2025-06-05 14:55:13,934 - DEBUG - Network 10.101.224.0/22 (site_id: 16540968605520072) not found in InfoBlox
+2025-06-05 14:55:13,935 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 14:55:14,091 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=10.99.116.0%2F22&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-05 14:55:14,092 - DEBUG - Network 10.99.116.0/22 not found in view AWSTesting
+2025-06-05 14:55:14,094 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 14:55:14,257 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/networkcontainer?network=10.99.116.0%2F22&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-05 14:55:14,258 - DEBUG - Network container 10.99.116.0/22 not found in view AWSTesting
+2025-06-05 14:55:14,259 - DEBUG - Network 10.99.116.0/22 (site_id: 16534423216510206) not found in InfoBlox
+2025-06-05 14:55:14,261 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 14:55:14,450 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=10.107.20.0%2F22&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-05 14:55:14,451 - DEBUG - Network 10.107.20.0/22 not found in view AWSTesting
+2025-06-05 14:55:14,453 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 14:55:14,663 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/networkcontainer?network=10.107.20.0%2F22&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-05 14:55:14,666 - DEBUG - Network container 10.107.20.0/22 not found in view AWSTesting
+2025-06-05 14:55:14,668 - DEBUG - Network 10.107.20.0/22 (site_id: 16534424701980039) not found in InfoBlox
+2025-06-05 14:55:14,670 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 14:55:14,832 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=10.98.56.0%2F22&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-05 14:55:14,840 - DEBUG - Network 10.98.56.0/22 not found in view AWSTesting
+2025-06-05 14:55:14,843 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 14:55:15,011 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/networkcontainer?network=10.98.56.0%2F22&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-05 14:55:15,012 - DEBUG - Network container 10.98.56.0/22 not found in view AWSTesting
+2025-06-05 14:55:15,013 - DEBUG - Network 10.98.56.0/22 (site_id: 1654697781058018296) not found in InfoBlox
+2025-06-05 14:55:15,015 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 14:55:15,196 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=10.104.8.0%2F22&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-05 14:55:15,198 - DEBUG - Network 10.104.8.0/22 not found in view AWSTesting
+2025-06-05 14:55:15,200 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 14:55:15,401 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/networkcontainer?network=10.104.8.0%2F22&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-05 14:55:15,403 - DEBUG - Network container 10.104.8.0/22 not found in view AWSTesting
+2025-06-05 14:55:15,404 - DEBUG - Network 10.104.8.0/22 (site_id: 1655386596360012096) not found in InfoBlox
+2025-06-05 14:55:15,405 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 14:55:15,610 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=10.98.64.0%2F22&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-05 14:55:15,611 - DEBUG - Network 10.98.64.0/22 not found in view AWSTesting
+2025-06-05 14:55:15,613 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 14:55:15,792 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/networkcontainer?network=10.98.64.0%2F22&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-05 14:55:15,793 - DEBUG - Network container 10.98.64.0/22 not found in view AWSTesting
+2025-06-05 14:55:15,795 - DEBUG - Network 10.98.64.0/22 (site_id: 1655386775177021896) not found in InfoBlox
+2025-06-05 14:55:15,797 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 14:55:15,997 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=10.108.144.0%2F22&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-05 14:55:15,998 - DEBUG - Network 10.108.144.0/22 not found in view AWSTesting
+2025-06-05 14:55:16,001 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 14:55:16,195 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/networkcontainer?network=10.108.144.0%2F22&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-05 14:55:16,196 - DEBUG - Network container 10.108.144.0/22 not found in view AWSTesting
+2025-06-05 14:55:16,197 - DEBUG - Network 10.108.144.0/22 (site_id: 1655479735345004796) not found in InfoBlox
+2025-06-05 14:55:16,199 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 14:55:16,353 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=10.105.152.0%2F22&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-05 14:55:16,354 - DEBUG - Network 10.105.152.0/22 not found in view AWSTesting
+2025-06-05 14:55:16,356 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 14:55:16,510 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/networkcontainer?network=10.105.152.0%2F22&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-05 14:55:16,511 - DEBUG - Network container 10.105.152.0/22 not found in view AWSTesting
+2025-06-05 14:55:16,512 - DEBUG - Network 10.105.152.0/22 (site_id: 1655746324503019096) not found in InfoBlox
+2025-06-05 14:55:16,519 - INFO - Generated network status report: reports\property_network_status_report_2025-06-05.md
+2025-06-05 14:55:31,088 - INFO - Loading property data from modified_properties_file.csv...
+2025-06-05 14:55:31,095 - INFO - Loaded 8 property records from modified_properties_file.csv
+2025-06-05 14:55:31,118 - INFO - Expanded 8 property records to 8 network records
+2025-06-05 14:55:31,121 - INFO - Comparing property networks with InfoBlox...
+2025-06-05 14:55:31,125 - DEBUG - Starting new HTTPS connection (1): 10.82.108.28:443
+2025-06-05 14:55:31,378 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=10.101.224.0%2F22&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-05 14:55:31,380 - DEBUG - Network 10.101.224.0/22 not found in view AWSTesting
+2025-06-05 14:55:31,383 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 14:55:31,569 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/networkcontainer?network=10.101.224.0%2F22&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-05 14:55:31,571 - DEBUG - Network container 10.101.224.0/22 not found in view AWSTesting
+2025-06-05 14:55:31,572 - DEBUG - Network 10.101.224.0/22 (site_id: 16540968605520072) not found in InfoBlox
+2025-06-05 14:55:31,574 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 14:55:31,767 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=10.99.116.0%2F22&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-05 14:55:31,779 - DEBUG - Network 10.99.116.0/22 not found in view AWSTesting
+2025-06-05 14:55:31,783 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 14:55:31,981 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/networkcontainer?network=10.99.116.0%2F22&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-05 14:55:31,983 - DEBUG - Network container 10.99.116.0/22 not found in view AWSTesting
+2025-06-05 14:55:31,984 - DEBUG - Network 10.99.116.0/22 (site_id: 16534423216510206) not found in InfoBlox
+2025-06-05 14:55:31,985 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 14:55:32,211 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=10.107.20.0%2F22&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-05 14:55:32,212 - DEBUG - Network 10.107.20.0/22 not found in view AWSTesting
+2025-06-05 14:55:32,214 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 14:55:32,420 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/networkcontainer?network=10.107.20.0%2F22&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-05 14:55:32,421 - DEBUG - Network container 10.107.20.0/22 not found in view AWSTesting
+2025-06-05 14:55:32,423 - DEBUG - Network 10.107.20.0/22 (site_id: 16534424701980039) not found in InfoBlox
+2025-06-05 14:55:32,425 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 14:55:32,634 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=10.98.56.0%2F22&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-05 14:55:32,635 - DEBUG - Network 10.98.56.0/22 not found in view AWSTesting
+2025-06-05 14:55:32,638 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 14:55:32,821 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/networkcontainer?network=10.98.56.0%2F22&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-05 14:55:32,826 - DEBUG - Network container 10.98.56.0/22 not found in view AWSTesting
+2025-06-05 14:55:32,827 - DEBUG - Network 10.98.56.0/22 (site_id: 1654697781058018296) not found in InfoBlox
+2025-06-05 14:55:32,829 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 14:55:33,028 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=10.104.8.0%2F22&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-05 14:55:33,049 - DEBUG - Network 10.104.8.0/22 not found in view AWSTesting
+2025-06-05 14:55:33,105 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 14:55:33,422 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/networkcontainer?network=10.104.8.0%2F22&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-05 14:55:33,423 - DEBUG - Network container 10.104.8.0/22 not found in view AWSTesting
+2025-06-05 14:55:33,425 - DEBUG - Network 10.104.8.0/22 (site_id: 1655386596360012096) not found in InfoBlox
+2025-06-05 14:55:33,427 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 14:55:33,620 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=10.98.64.0%2F22&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-05 14:55:33,622 - DEBUG - Network 10.98.64.0/22 not found in view AWSTesting
+2025-06-05 14:55:33,625 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 14:55:33,807 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/networkcontainer?network=10.98.64.0%2F22&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-05 14:55:33,809 - DEBUG - Network container 10.98.64.0/22 not found in view AWSTesting
+2025-06-05 14:55:33,810 - DEBUG - Network 10.98.64.0/22 (site_id: 1655386775177021896) not found in InfoBlox
+2025-06-05 14:55:33,812 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 14:55:33,977 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=10.108.144.0%2F22&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-05 14:55:33,978 - DEBUG - Network 10.108.144.0/22 not found in view AWSTesting
+2025-06-05 14:55:33,980 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 14:55:34,144 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/networkcontainer?network=10.108.144.0%2F22&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-05 14:55:34,145 - DEBUG - Network container 10.108.144.0/22 not found in view AWSTesting
+2025-06-05 14:55:34,146 - DEBUG - Network 10.108.144.0/22 (site_id: 1655479735345004796) not found in InfoBlox
+2025-06-05 14:55:34,148 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 14:55:34,313 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=10.105.152.0%2F22&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-05 14:55:34,314 - DEBUG - Network 10.105.152.0/22 not found in view AWSTesting
+2025-06-05 14:55:34,316 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 14:55:34,473 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/networkcontainer?network=10.105.152.0%2F22&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-05 14:55:34,474 - DEBUG - Network container 10.105.152.0/22 not found in view AWSTesting
+2025-06-05 14:55:34,475 - DEBUG - Network 10.105.152.0/22 (site_id: 1655746324503019096) not found in InfoBlox
+2025-06-05 14:55:34,479 - INFO - Generated network status report: reports\property_network_status_report_2025-06-05.md
+2025-06-05 14:55:37,538 - INFO - Running in quiet mode. Use -i for interactive configuration.
+2025-06-05 14:55:37,544 - INFO - Loading property data from modified_properties_file.csv...
+2025-06-05 14:55:37,561 - INFO - Loaded 8 property records from modified_properties_file.csv
+2025-06-05 14:55:37,570 - INFO - Expanded 8 property records to 8 network records
+2025-06-05 14:55:37,576 - INFO - Comparing property networks with InfoBlox...
+2025-06-05 14:55:37,615 - DEBUG - Starting new HTTPS connection (1): 10.82.108.28:443
+2025-06-05 14:55:37,822 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=10.101.224.0%2F22&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-05 14:55:37,824 - DEBUG - Network 10.101.224.0/22 not found in view AWSTesting
+2025-06-05 14:55:37,826 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 14:55:37,988 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/networkcontainer?network=10.101.224.0%2F22&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-05 14:55:37,993 - DEBUG - Network container 10.101.224.0/22 not found in view AWSTesting
+2025-06-05 14:55:37,994 - DEBUG - Network 10.101.224.0/22 (site_id: 16540968605520072) not found in InfoBlox
+2025-06-05 14:55:37,997 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 14:55:38,169 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=10.99.116.0%2F22&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-05 14:55:38,170 - DEBUG - Network 10.99.116.0/22 not found in view AWSTesting
+2025-06-05 14:55:38,172 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 14:55:38,343 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/networkcontainer?network=10.99.116.0%2F22&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-05 14:55:38,344 - DEBUG - Network container 10.99.116.0/22 not found in view AWSTesting
+2025-06-05 14:55:38,362 - DEBUG - Network 10.99.116.0/22 (site_id: 16534423216510206) not found in InfoBlox
+2025-06-05 14:55:38,364 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 14:55:38,541 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=10.107.20.0%2F22&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-05 14:55:38,542 - DEBUG - Network 10.107.20.0/22 not found in view AWSTesting
+2025-06-05 14:55:38,545 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 14:55:38,725 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/networkcontainer?network=10.107.20.0%2F22&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-05 14:55:38,730 - DEBUG - Network container 10.107.20.0/22 not found in view AWSTesting
+2025-06-05 14:55:38,732 - DEBUG - Network 10.107.20.0/22 (site_id: 16534424701980039) not found in InfoBlox
+2025-06-05 14:55:38,735 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 14:55:38,921 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=10.98.56.0%2F22&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-05 14:55:38,922 - DEBUG - Network 10.98.56.0/22 not found in view AWSTesting
+2025-06-05 14:55:38,924 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 14:55:39,081 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/networkcontainer?network=10.98.56.0%2F22&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-05 14:55:39,082 - DEBUG - Network container 10.98.56.0/22 not found in view AWSTesting
+2025-06-05 14:55:39,083 - DEBUG - Network 10.98.56.0/22 (site_id: 1654697781058018296) not found in InfoBlox
+2025-06-05 14:55:39,085 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 14:55:39,255 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=10.104.8.0%2F22&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-05 14:55:39,256 - DEBUG - Network 10.104.8.0/22 not found in view AWSTesting
+2025-06-05 14:55:39,258 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 14:55:39,439 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/networkcontainer?network=10.104.8.0%2F22&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-05 14:55:39,440 - DEBUG - Network container 10.104.8.0/22 not found in view AWSTesting
+2025-06-05 14:55:39,441 - DEBUG - Network 10.104.8.0/22 (site_id: 1655386596360012096) not found in InfoBlox
+2025-06-05 14:55:39,442 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 14:55:39,625 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=10.98.64.0%2F22&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-05 14:55:39,626 - DEBUG - Network 10.98.64.0/22 not found in view AWSTesting
+2025-06-05 14:55:39,629 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 14:55:39,822 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/networkcontainer?network=10.98.64.0%2F22&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-05 14:55:39,823 - DEBUG - Network container 10.98.64.0/22 not found in view AWSTesting
+2025-06-05 14:55:39,824 - DEBUG - Network 10.98.64.0/22 (site_id: 1655386775177021896) not found in InfoBlox
+2025-06-05 14:55:39,826 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 14:55:40,128 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=10.108.144.0%2F22&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-05 14:55:40,129 - DEBUG - Network 10.108.144.0/22 not found in view AWSTesting
+2025-06-05 14:55:40,131 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 14:55:40,290 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/networkcontainer?network=10.108.144.0%2F22&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-05 14:55:40,292 - DEBUG - Network container 10.108.144.0/22 not found in view AWSTesting
+2025-06-05 14:55:40,293 - DEBUG - Network 10.108.144.0/22 (site_id: 1655479735345004796) not found in InfoBlox
+2025-06-05 14:55:40,295 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 14:55:40,469 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=10.105.152.0%2F22&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-05 14:55:40,470 - DEBUG - Network 10.105.152.0/22 not found in view AWSTesting
+2025-06-05 14:55:40,472 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 14:55:40,662 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/networkcontainer?network=10.105.152.0%2F22&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-05 14:55:40,663 - DEBUG - Network container 10.105.152.0/22 not found in view AWSTesting
+2025-06-05 14:55:40,664 - DEBUG - Network 10.105.152.0/22 (site_id: 1655746324503019096) not found in InfoBlox
+2025-06-05 14:55:40,666 - INFO - Ensuring 4 Extended Attributes exist in InfoBlox
+2025-06-05 14:55:40,667 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 14:55:40,849 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/extensibleattributedef HTTP/1.1" 200 None
+2025-06-05 14:55:40,869 - INFO - Creating missing Extended Attribute: source
+2025-06-05 14:55:40,886 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 14:55:41,092 - DEBUG - https://10.82.108.28:443 "POST /wapi/v2.13.1/extensibleattributedef HTTP/1.1" 201 None
+2025-06-05 14:55:41,093 - INFO - Created Extended Attribute definition: source
+2025-06-05 14:55:41,095 - INFO - Creating missing Extended Attribute: import_date
+2025-06-05 14:55:41,096 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 14:55:41,302 - DEBUG - https://10.82.108.28:443 "POST /wapi/v2.13.1/extensibleattributedef HTTP/1.1" 201 None
+2025-06-05 14:55:41,303 - INFO - Created Extended Attribute definition: import_date
+2025-06-05 14:55:41,307 - INFO - Generated Extended Attributes summary: reports\property_extended_attributes_summary_20250605_145541.txt
+2025-06-05 14:55:41,324 - DEBUG - Creating network with data: {
+  "network": "10.101.224.0/22",
+  "network_view": "AWSTesting",
+  "comment": "Property Network: IADXMP01 (Site ID: 16540968605520072)",
+  "extattrs": {
+    "site_id": {
+      "value": "16540968605520072"
+    },
+    "m_host": {
+      "value": "IADXMP01"
+    },
+    "source": {
+      "value": "properties_file"
+    },
+    "import_date": {
+      "value": "2025-06-05 14:55:37"
+    }
+  }
+}
+2025-06-05 14:55:41,338 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 14:55:41,567 - DEBUG - https://10.82.108.28:443 "POST /wapi/v2.13.1/network HTTP/1.1" 201 None
+2025-06-05 14:55:41,568 - INFO - Created network 10.101.224.0/22 in view AWSTesting
+2025-06-05 14:55:41,569 - INFO - Created network: 10.101.224.0/22 (site_id: 16540968605520072)
+2025-06-05 14:55:41,570 - DEBUG - Creating network with data: {
+  "network": "10.99.116.0/22",
+  "network_view": "AWSTesting",
+  "comment": "Property Network: WASCTP01 (Site ID: 16534423216510206)",
+  "extattrs": {
+    "site_id": {
+      "value": "16534423216510206"
+    },
+    "m_host": {
+      "value": "WASCTP01"
+    },
+    "source": {
+      "value": "properties_file"
+    },
+    "import_date": {
+      "value": "2025-06-05 14:55:37"
+    }
+  }
+}
+2025-06-05 14:55:41,579 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 14:55:41,833 - DEBUG - https://10.82.108.28:443 "POST /wapi/v2.13.1/network HTTP/1.1" 201 None
+2025-06-05 14:55:41,835 - INFO - Created network 10.99.116.0/22 in view AWSTesting
+2025-06-05 14:55:41,836 - INFO - Created network: 10.99.116.0/22 (site_id: 16534423216510206)
+2025-06-05 14:55:41,836 - DEBUG - Creating network with data: {
+  "network": "10.107.20.0/22",
+  "network_view": "AWSTesting",
+  "comment": "Property Network: WASNHP01 (Site ID: 16534424701980039)",
+  "extattrs": {
+    "site_id": {
+      "value": "16534424701980039"
+    },
+    "m_host": {
+      "value": "WASNHP01"
+    },
+    "source": {
+      "value": "properties_file"
+    },
+    "import_date": {
+      "value": "2025-06-05 14:55:38"
+    }
+  }
+}
+2025-06-05 14:55:41,844 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 14:55:42,079 - DEBUG - https://10.82.108.28:443 "POST /wapi/v2.13.1/network HTTP/1.1" 201 None
+2025-06-05 14:55:42,081 - INFO - Created network 10.107.20.0/22 in view AWSTesting
+2025-06-05 14:55:42,083 - INFO - Created network: 10.107.20.0/22 (site_id: 16534424701980039)
+2025-06-05 14:55:42,083 - DEBUG - Creating network with data: {
+  "network": "10.98.56.0/22",
+  "network_view": "AWSTesting",
+  "comment": "Property Network: WASGWP01 (Site ID: 1654697781058018296)",
+  "extattrs": {
+    "site_id": {
+      "value": "1654697781058018296"
+    },
+    "m_host": {
+      "value": "WASGWP01"
+    },
+    "source": {
+      "value": "properties_file"
+    },
+    "import_date": {
+      "value": "2025-06-05 14:55:38"
+    }
+  }
+}
+2025-06-05 14:55:42,091 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 14:55:42,302 - DEBUG - https://10.82.108.28:443 "POST /wapi/v2.13.1/network HTTP/1.1" 201 None
+2025-06-05 14:55:42,303 - INFO - Created network 10.98.56.0/22 in view AWSTesting
+2025-06-05 14:55:42,305 - INFO - Created network: 10.98.56.0/22 (site_id: 1654697781058018296)
+2025-06-05 14:55:42,305 - DEBUG - Creating network with data: {
+  "network": "10.104.8.0/22",
+  "network_view": "AWSTesting",
+  "comment": "Property Network: WASPCP01 (Site ID: 1655386596360012096)",
+  "extattrs": {
+    "site_id": {
+      "value": "1655386596360012096"
+    },
+    "m_host": {
+      "value": "WASPCP01"
+    },
+    "source": {
+      "value": "properties_file"
+    },
+    "import_date": {
+      "value": "2025-06-05 14:55:39"
+    }
+  }
+}
+2025-06-05 14:55:42,313 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 14:55:42,549 - DEBUG - https://10.82.108.28:443 "POST /wapi/v2.13.1/network HTTP/1.1" 201 None
+2025-06-05 14:55:42,552 - INFO - Created network 10.104.8.0/22 in view AWSTesting
+2025-06-05 14:55:42,555 - INFO - Created network: 10.104.8.0/22 (site_id: 1655386596360012096)
+2025-06-05 14:55:42,564 - DEBUG - Creating network with data: {
+  "network": "10.98.64.0/22",
+  "network_view": "AWSTesting",
+  "comment": "Property Network: WASTCP01 (Site ID: 1655386775177021896)",
+  "extattrs": {
+    "site_id": {
+      "value": "1655386775177021896"
+    },
+    "m_host": {
+      "value": "WASTCP01"
+    },
+    "source": {
+      "value": "properties_file"
+    },
+    "import_date": {
+      "value": "2025-06-05 14:55:39"
+    }
+  }
+}
+2025-06-05 14:55:42,590 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 14:55:42,854 - DEBUG - https://10.82.108.28:443 "POST /wapi/v2.13.1/network HTTP/1.1" 201 None
+2025-06-05 14:55:42,856 - INFO - Created network 10.98.64.0/22 in view AWSTesting
+2025-06-05 14:55:42,862 - INFO - Created network: 10.98.64.0/22 (site_id: 1655386775177021896)
+2025-06-05 14:55:42,864 - DEBUG - Creating network with data: {
+  "network": "10.108.144.0/22",
+  "network_view": "AWSTesting",
+  "comment": "Property Network: WASVAP01 (Site ID: 1655479735345004796)",
+  "extattrs": {
+    "site_id": {
+      "value": "1655479735345004796"
+    },
+    "m_host": {
+      "value": "WASVAP01"
+    },
+    "source": {
+      "value": "properties_file"
+    },
+    "import_date": {
+      "value": "2025-06-05 14:55:39"
+    }
+  }
+}
+2025-06-05 14:55:42,885 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 14:55:43,211 - DEBUG - https://10.82.108.28:443 "POST /wapi/v2.13.1/network HTTP/1.1" 201 None
+2025-06-05 14:55:43,228 - INFO - Created network 10.108.144.0/22 in view AWSTesting
+2025-06-05 14:55:43,231 - INFO - Created network: 10.108.144.0/22 (site_id: 1655479735345004796)
+2025-06-05 14:55:43,245 - DEBUG - Creating network with data: {
+  "network": "10.105.152.0/22",
+  "network_view": "AWSTesting",
+  "comment": "Property Network: IADFXP01 (Site ID: 1655746324503019096)",
+  "extattrs": {
+    "site_id": {
+      "value": "1655746324503019096"
+    },
+    "m_host": {
+      "value": "IADFXP01"
+    },
+    "source": {
+      "value": "properties_file"
+    },
+    "import_date": {
+      "value": "2025-06-05 14:55:40"
+    }
+  }
+}
+2025-06-05 14:55:43,253 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 14:55:43,494 - DEBUG - https://10.82.108.28:443 "POST /wapi/v2.13.1/network HTTP/1.1" 201 None
+2025-06-05 14:55:43,497 - INFO - Created network 10.105.152.0/22 in view AWSTesting
+2025-06-05 14:55:43,501 - INFO - Created network: 10.105.152.0/22 (site_id: 1655746324503019096)
+2025-06-05 14:55:43,531 - INFO - Generated network creation status report: property_network_creation_status_20250605_145543.csv
+2025-06-05 14:55:43,543 - INFO - Generated network status report: reports\property_network_status_report_2025-06-05.md
+2025-06-05 14:55:46,997 - INFO - Running in quiet mode. Use -i for interactive configuration.
+2025-06-05 14:55:47,002 - INFO - Loading property data from modified_properties_file.csv...
+2025-06-05 14:55:47,020 - INFO - Loaded 8 property records from modified_properties_file.csv
+2025-06-05 14:55:47,046 - INFO - Expanded 8 property records to 8 network records
+2025-06-05 14:55:47,053 - INFO - Comparing property networks with InfoBlox...
+2025-06-05 14:55:47,063 - DEBUG - Starting new HTTPS connection (1): 10.82.108.28:443
+2025-06-05 14:55:47,350 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=10.101.224.0%2F22&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-05 14:55:47,352 - DEBUG - Found network 10.101.224.0/22 in view AWSTesting
+2025-06-05 14:55:47,353 - DEBUG - Network 10.101.224.0/22 (site_id: 16540968605520072) found in InfoBlox
+2025-06-05 14:55:47,353 - INFO - Network 10.101.224.0/22 (site_id: 16540968605520072) has EA discrepancies
+2025-06-05 14:55:47,355 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 14:55:47,512 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=10.99.116.0%2F22&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-05 14:55:47,514 - DEBUG - Found network 10.99.116.0/22 in view AWSTesting
+2025-06-05 14:55:47,515 - DEBUG - Network 10.99.116.0/22 (site_id: 16534423216510206) found in InfoBlox
+2025-06-05 14:55:47,516 - INFO - Network 10.99.116.0/22 (site_id: 16534423216510206) has EA discrepancies
+2025-06-05 14:55:47,517 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 14:55:47,690 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=10.107.20.0%2F22&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-05 14:55:47,691 - DEBUG - Found network 10.107.20.0/22 in view AWSTesting
+2025-06-05 14:55:47,692 - DEBUG - Network 10.107.20.0/22 (site_id: 16534424701980039) found in InfoBlox
+2025-06-05 14:55:47,693 - INFO - Network 10.107.20.0/22 (site_id: 16534424701980039) has EA discrepancies
+2025-06-05 14:55:47,694 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 14:55:47,864 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=10.98.56.0%2F22&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-05 14:55:47,866 - DEBUG - Found network 10.98.56.0/22 in view AWSTesting
+2025-06-05 14:55:47,867 - DEBUG - Network 10.98.56.0/22 (site_id: 1654697781058018296) found in InfoBlox
+2025-06-05 14:55:47,867 - INFO - Network 10.98.56.0/22 (site_id: 1654697781058018296) has EA discrepancies
+2025-06-05 14:55:47,869 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 14:55:48,036 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=10.104.8.0%2F22&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-05 14:55:48,037 - DEBUG - Found network 10.104.8.0/22 in view AWSTesting
+2025-06-05 14:55:48,038 - DEBUG - Network 10.104.8.0/22 (site_id: 1655386596360012096) found in InfoBlox
+2025-06-05 14:55:48,038 - INFO - Network 10.104.8.0/22 (site_id: 1655386596360012096) has EA discrepancies
+2025-06-05 14:55:48,040 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 14:55:48,223 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=10.98.64.0%2F22&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-05 14:55:48,224 - DEBUG - Found network 10.98.64.0/22 in view AWSTesting
+2025-06-05 14:55:48,225 - DEBUG - Network 10.98.64.0/22 (site_id: 1655386775177021896) found in InfoBlox
+2025-06-05 14:55:48,226 - INFO - Network 10.98.64.0/22 (site_id: 1655386775177021896) has EA discrepancies
+2025-06-05 14:55:48,227 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 14:55:48,395 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=10.108.144.0%2F22&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-05 14:55:48,396 - DEBUG - Found network 10.108.144.0/22 in view AWSTesting
+2025-06-05 14:55:48,397 - DEBUG - Network 10.108.144.0/22 (site_id: 1655479735345004796) found in InfoBlox
+2025-06-05 14:55:48,397 - INFO - Network 10.108.144.0/22 (site_id: 1655479735345004796) has EA discrepancies
+2025-06-05 14:55:48,398 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 14:55:48,583 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=10.105.152.0%2F22&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-05 14:55:48,584 - DEBUG - Found network 10.105.152.0/22 in view AWSTesting
+2025-06-05 14:55:48,585 - DEBUG - Network 10.105.152.0/22 (site_id: 1655746324503019096) found in InfoBlox
+2025-06-05 14:55:48,586 - INFO - Network 10.105.152.0/22 (site_id: 1655746324503019096) has EA discrepancies
+2025-06-05 14:55:48,591 - INFO - Ensuring 4 Extended Attributes exist in InfoBlox
+2025-06-05 14:55:48,593 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 14:55:48,808 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/extensibleattributedef HTTP/1.1" 200 None
+2025-06-05 14:55:48,834 - INFO - No new or missing Extended Attributes to report.
+2025-06-05 14:55:48,835 - INFO - [DRY RUN] Would update EAs for network: 10.101.224.0/22 (site_id: 16540968605520072)
+2025-06-05 14:55:48,835 - INFO - [DRY RUN] Would update EAs for network: 10.99.116.0/22 (site_id: 16534423216510206)
+2025-06-05 14:55:48,836 - INFO - [DRY RUN] Would update EAs for network: 10.107.20.0/22 (site_id: 16534424701980039)
+2025-06-05 14:55:48,836 - INFO - [DRY RUN] Would update EAs for network: 10.98.56.0/22 (site_id: 1654697781058018296)
+2025-06-05 14:55:48,836 - INFO - [DRY RUN] Would update EAs for network: 10.104.8.0/22 (site_id: 1655386596360012096)
+2025-06-05 14:55:48,837 - INFO - [DRY RUN] Would update EAs for network: 10.98.64.0/22 (site_id: 1655386775177021896)
+2025-06-05 14:55:48,837 - INFO - [DRY RUN] Would update EAs for network: 10.108.144.0/22 (site_id: 1655479735345004796)
+2025-06-05 14:55:48,838 - INFO - [DRY RUN] Would update EAs for network: 10.105.152.0/22 (site_id: 1655746324503019096)
+2025-06-05 14:55:48,846 - INFO - Generated EA discrepancies report: reports\property_ea_discrepancies_2025-06-05.md
+2025-06-05 14:55:48,849 - INFO - Generated network status report: reports\property_network_status_report_2025-06-05.md
+2025-06-05 14:56:09,774 - INFO - Running in quiet mode. Use -i for interactive configuration.
+2025-06-05 14:56:09,776 - INFO - Loading property data from modified_properties_file.csv...
+2025-06-05 14:56:09,782 - INFO - Loaded 8 property records from modified_properties_file.csv
+2025-06-05 14:56:09,797 - INFO - Expanded 8 property records to 8 network records
+2025-06-05 14:56:09,799 - INFO - Comparing property networks with InfoBlox...
+2025-06-05 14:56:09,800 - DEBUG - Starting new HTTPS connection (1): 10.82.108.28:443
+2025-06-05 14:56:10,038 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=10.101.224.0%2F22&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-05 14:56:10,039 - DEBUG - Found network 10.101.224.0/22 in view AWSTesting
+2025-06-05 14:56:10,040 - DEBUG - Network 10.101.224.0/22 (site_id: 16540968605520072) found in InfoBlox
+2025-06-05 14:56:10,041 - INFO - Network 10.101.224.0/22 (site_id: 16540968605520072) has EA discrepancies
+2025-06-05 14:56:10,042 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 14:56:10,230 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=10.99.116.0%2F22&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-05 14:56:10,231 - DEBUG - Found network 10.99.116.0/22 in view AWSTesting
+2025-06-05 14:56:10,232 - DEBUG - Network 10.99.116.0/22 (site_id: 16534423216510206) found in InfoBlox
+2025-06-05 14:56:10,233 - INFO - Network 10.99.116.0/22 (site_id: 16534423216510206) has EA discrepancies
+2025-06-05 14:56:10,234 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 14:56:10,383 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=10.107.20.0%2F22&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-05 14:56:10,384 - DEBUG - Found network 10.107.20.0/22 in view AWSTesting
+2025-06-05 14:56:10,385 - DEBUG - Network 10.107.20.0/22 (site_id: 16534424701980039) found in InfoBlox
+2025-06-05 14:56:10,386 - INFO - Network 10.107.20.0/22 (site_id: 16534424701980039) has EA discrepancies
+2025-06-05 14:56:10,387 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 14:56:10,564 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=10.98.56.0%2F22&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-05 14:56:10,566 - DEBUG - Found network 10.98.56.0/22 in view AWSTesting
+2025-06-05 14:56:10,567 - DEBUG - Network 10.98.56.0/22 (site_id: 1654697781058018296) found in InfoBlox
+2025-06-05 14:56:10,567 - INFO - Network 10.98.56.0/22 (site_id: 1654697781058018296) has EA discrepancies
+2025-06-05 14:56:10,568 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 14:56:10,756 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=10.104.8.0%2F22&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-05 14:56:10,757 - DEBUG - Found network 10.104.8.0/22 in view AWSTesting
+2025-06-05 14:56:10,758 - DEBUG - Network 10.104.8.0/22 (site_id: 1655386596360012096) found in InfoBlox
+2025-06-05 14:56:10,758 - INFO - Network 10.104.8.0/22 (site_id: 1655386596360012096) has EA discrepancies
+2025-06-05 14:56:10,760 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 14:56:10,935 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=10.98.64.0%2F22&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-05 14:56:10,936 - DEBUG - Found network 10.98.64.0/22 in view AWSTesting
+2025-06-05 14:56:10,937 - DEBUG - Network 10.98.64.0/22 (site_id: 1655386775177021896) found in InfoBlox
+2025-06-05 14:56:10,938 - INFO - Network 10.98.64.0/22 (site_id: 1655386775177021896) has EA discrepancies
+2025-06-05 14:56:10,939 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 14:56:11,100 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=10.108.144.0%2F22&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-05 14:56:11,101 - DEBUG - Found network 10.108.144.0/22 in view AWSTesting
+2025-06-05 14:56:11,102 - DEBUG - Network 10.108.144.0/22 (site_id: 1655479735345004796) found in InfoBlox
+2025-06-05 14:56:11,103 - INFO - Network 10.108.144.0/22 (site_id: 1655479735345004796) has EA discrepancies
+2025-06-05 14:56:11,104 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 14:56:11,281 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=10.105.152.0%2F22&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-05 14:56:11,282 - DEBUG - Found network 10.105.152.0/22 in view AWSTesting
+2025-06-05 14:56:11,283 - DEBUG - Network 10.105.152.0/22 (site_id: 1655746324503019096) found in InfoBlox
+2025-06-05 14:56:11,284 - INFO - Network 10.105.152.0/22 (site_id: 1655746324503019096) has EA discrepancies
+2025-06-05 14:56:11,291 - INFO - Ensuring 4 Extended Attributes exist in InfoBlox
+2025-06-05 14:56:11,297 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 14:56:11,594 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/extensibleattributedef HTTP/1.1" 200 None
+2025-06-05 14:56:11,612 - INFO - No new or missing Extended Attributes to report.
+2025-06-05 14:56:11,635 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 14:56:11,882 - DEBUG - https://10.82.108.28:443 "PUT /wapi/v2.13.1/network/ZG5zLm5ldHdvcmskMTAuMTAxLjIyNC4wLzIyLzEx:10.101.224.0/22/AWSTesting HTTP/1.1" 200 None
+2025-06-05 14:56:11,884 - INFO - Updated Extended Attributes for network network/ZG5zLm5ldHdvcmskMTAuMTAxLjIyNC4wLzIyLzEx:10.101.224.0/22/AWSTesting
+2025-06-05 14:56:11,886 - INFO - Updated EAs for network: 10.101.224.0/22 (site_id: 16540968605520072)
+2025-06-05 14:56:11,887 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 14:56:12,113 - DEBUG - https://10.82.108.28:443 "PUT /wapi/v2.13.1/network/ZG5zLm5ldHdvcmskMTAuOTkuMTE2LjAvMjIvMTE:10.99.116.0/22/AWSTesting HTTP/1.1" 200 None
+2025-06-05 14:56:12,118 - INFO - Updated Extended Attributes for network network/ZG5zLm5ldHdvcmskMTAuOTkuMTE2LjAvMjIvMTE:10.99.116.0/22/AWSTesting
+2025-06-05 14:56:12,124 - INFO - Updated EAs for network: 10.99.116.0/22 (site_id: 16534423216510206)
+2025-06-05 14:56:12,134 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 14:56:12,332 - DEBUG - https://10.82.108.28:443 "PUT /wapi/v2.13.1/network/ZG5zLm5ldHdvcmskMTAuMTA3LjIwLjAvMjIvMTE:10.107.20.0/22/AWSTesting HTTP/1.1" 200 None
+2025-06-05 14:56:12,333 - INFO - Updated Extended Attributes for network network/ZG5zLm5ldHdvcmskMTAuMTA3LjIwLjAvMjIvMTE:10.107.20.0/22/AWSTesting
+2025-06-05 14:56:12,334 - INFO - Updated EAs for network: 10.107.20.0/22 (site_id: 16534424701980039)
+2025-06-05 14:56:12,336 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 14:56:12,541 - DEBUG - https://10.82.108.28:443 "PUT /wapi/v2.13.1/network/ZG5zLm5ldHdvcmskMTAuOTguNTYuMC8yMi8xMQ:10.98.56.0/22/AWSTesting HTTP/1.1" 200 None
+2025-06-05 14:56:12,542 - INFO - Updated Extended Attributes for network network/ZG5zLm5ldHdvcmskMTAuOTguNTYuMC8yMi8xMQ:10.98.56.0/22/AWSTesting
+2025-06-05 14:56:12,543 - INFO - Updated EAs for network: 10.98.56.0/22 (site_id: 1654697781058018296)
+2025-06-05 14:56:12,544 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 14:56:12,766 - DEBUG - https://10.82.108.28:443 "PUT /wapi/v2.13.1/network/ZG5zLm5ldHdvcmskMTAuMTA0LjguMC8yMi8xMQ:10.104.8.0/22/AWSTesting HTTP/1.1" 200 None
+2025-06-05 14:56:12,767 - INFO - Updated Extended Attributes for network network/ZG5zLm5ldHdvcmskMTAuMTA0LjguMC8yMi8xMQ:10.104.8.0/22/AWSTesting
+2025-06-05 14:56:12,769 - INFO - Updated EAs for network: 10.104.8.0/22 (site_id: 1655386596360012096)
+2025-06-05 14:56:12,770 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 14:56:12,997 - DEBUG - https://10.82.108.28:443 "PUT /wapi/v2.13.1/network/ZG5zLm5ldHdvcmskMTAuOTguNjQuMC8yMi8xMQ:10.98.64.0/22/AWSTesting HTTP/1.1" 200 None
+2025-06-05 14:56:12,999 - INFO - Updated Extended Attributes for network network/ZG5zLm5ldHdvcmskMTAuOTguNjQuMC8yMi8xMQ:10.98.64.0/22/AWSTesting
+2025-06-05 14:56:13,000 - INFO - Updated EAs for network: 10.98.64.0/22 (site_id: 1655386775177021896)
+2025-06-05 14:56:13,001 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 14:56:13,207 - DEBUG - https://10.82.108.28:443 "PUT /wapi/v2.13.1/network/ZG5zLm5ldHdvcmskMTAuMTA4LjE0NC4wLzIyLzEx:10.108.144.0/22/AWSTesting HTTP/1.1" 200 None
+2025-06-05 14:56:13,208 - INFO - Updated Extended Attributes for network network/ZG5zLm5ldHdvcmskMTAuMTA4LjE0NC4wLzIyLzEx:10.108.144.0/22/AWSTesting
+2025-06-05 14:56:13,209 - INFO - Updated EAs for network: 10.108.144.0/22 (site_id: 1655479735345004796)
+2025-06-05 14:56:13,211 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 14:56:13,421 - DEBUG - https://10.82.108.28:443 "PUT /wapi/v2.13.1/network/ZG5zLm5ldHdvcmskMTAuMTA1LjE1Mi4wLzIyLzEx:10.105.152.0/22/AWSTesting HTTP/1.1" 200 None
+2025-06-05 14:56:13,424 - INFO - Updated Extended Attributes for network network/ZG5zLm5ldHdvcmskMTAuMTA1LjE1Mi4wLzIyLzEx:10.105.152.0/22/AWSTesting
+2025-06-05 14:56:13,425 - INFO - Updated EAs for network: 10.105.152.0/22 (site_id: 1655746324503019096)
+2025-06-05 14:56:13,428 - INFO - Generated EA discrepancies report: reports\property_ea_discrepancies_2025-06-05.md
+2025-06-05 14:56:13,431 - INFO - Generated network status report: reports\property_network_status_report_2025-06-05.md
+2025-06-05 15:10:00,214 - INFO - Running in quiet mode. Use -i for interactive configuration.
+2025-06-05 15:10:00,223 - INFO - Loading property data from modified_properties_file.csv...
+2025-06-05 15:10:00,246 - INFO - Loaded 8 property records from modified_properties_file.csv
+2025-06-05 15:10:00,280 - INFO - Expanded 8 property records to 8 network records
+2025-06-05 15:10:00,290 - INFO - Comparing property networks with InfoBlox...
+2025-06-05 15:10:00,303 - DEBUG - Starting new HTTPS connection (1): 10.82.108.28:443
+2025-06-05 15:10:00,619 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=10.101.224.0%2F22&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-05 15:10:00,621 - DEBUG - Found network 10.101.224.0/22 in view AWSTesting
+2025-06-05 15:10:00,622 - DEBUG - Network 10.101.224.0/22 (site_id: 16540968605520072) found in InfoBlox
+2025-06-05 15:10:00,622 - INFO - Network 10.101.224.0/22 (site_id: 16540968605520072) has EA discrepancies
+2025-06-05 15:10:00,624 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 15:10:00,805 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=10.99.116.0%2F22&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-05 15:10:00,806 - DEBUG - Found network 10.99.116.0/22 in view AWSTesting
+2025-06-05 15:10:00,807 - DEBUG - Network 10.99.116.0/22 (site_id: 16534423216510206) found in InfoBlox
+2025-06-05 15:10:00,807 - INFO - Network 10.99.116.0/22 (site_id: 16534423216510206) has EA discrepancies
+2025-06-05 15:10:00,810 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 15:10:01,015 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=10.107.20.0%2F22&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-05 15:10:01,016 - DEBUG - Found network 10.107.20.0/22 in view AWSTesting
+2025-06-05 15:10:01,017 - DEBUG - Network 10.107.20.0/22 (site_id: 16534424701980039) found in InfoBlox
+2025-06-05 15:10:01,018 - INFO - Network 10.107.20.0/22 (site_id: 16534424701980039) has EA discrepancies
+2025-06-05 15:10:01,019 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 15:10:01,204 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=10.98.56.0%2F22&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-05 15:10:01,208 - DEBUG - Found network 10.98.56.0/22 in view AWSTesting
+2025-06-05 15:10:01,211 - DEBUG - Network 10.98.56.0/22 (site_id: 1654697781058018296) found in InfoBlox
+2025-06-05 15:10:01,212 - INFO - Network 10.98.56.0/22 (site_id: 1654697781058018296) has EA discrepancies
+2025-06-05 15:10:01,215 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 15:10:01,449 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=10.104.8.0%2F22&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-05 15:10:01,450 - DEBUG - Found network 10.104.8.0/22 in view AWSTesting
+2025-06-05 15:10:01,452 - DEBUG - Network 10.104.8.0/22 (site_id: 1655386596360012096) found in InfoBlox
+2025-06-05 15:10:01,452 - INFO - Network 10.104.8.0/22 (site_id: 1655386596360012096) has EA discrepancies
+2025-06-05 15:10:01,455 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 15:10:04,014 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=10.98.64.0%2F22&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-05 15:10:04,015 - DEBUG - Found network 10.98.64.0/22 in view AWSTesting
+2025-06-05 15:10:04,017 - DEBUG - Network 10.98.64.0/22 (site_id: 1655386775177021896) found in InfoBlox
+2025-06-05 15:10:04,017 - INFO - Network 10.98.64.0/22 (site_id: 1655386775177021896) has EA discrepancies
+2025-06-05 15:10:04,019 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 15:10:04,201 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=10.108.144.0%2F22&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-05 15:10:04,202 - DEBUG - Found network 10.108.144.0/22 in view AWSTesting
+2025-06-05 15:10:04,203 - DEBUG - Network 10.108.144.0/22 (site_id: 1655479735345004796) found in InfoBlox
+2025-06-05 15:10:04,204 - INFO - Network 10.108.144.0/22 (site_id: 1655479735345004796) has EA discrepancies
+2025-06-05 15:10:04,205 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 15:10:04,392 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=10.105.152.0%2F22&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-05 15:10:04,393 - DEBUG - Found network 10.105.152.0/22 in view AWSTesting
+2025-06-05 15:10:04,394 - DEBUG - Network 10.105.152.0/22 (site_id: 1655746324503019096) found in InfoBlox
+2025-06-05 15:10:04,394 - INFO - Network 10.105.152.0/22 (site_id: 1655746324503019096) has EA discrepancies
+2025-06-05 15:10:04,398 - INFO - Ensuring 4 Extended Attributes exist in InfoBlox
+2025-06-05 15:10:04,400 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 15:10:04,608 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/extensibleattributedef HTTP/1.1" 200 None
+2025-06-05 15:10:04,635 - INFO - No new or missing Extended Attributes to report.
+2025-06-05 15:10:04,638 - INFO - [DRY RUN] Would update EAs for network: 10.101.224.0/22 (site_id: 16540968605520072)
+2025-06-05 15:10:04,640 - INFO - [DRY RUN] Would update EAs for network: 10.99.116.0/22 (site_id: 16534423216510206)
+2025-06-05 15:10:04,641 - INFO - [DRY RUN] Would update EAs for network: 10.107.20.0/22 (site_id: 16534424701980039)
+2025-06-05 15:10:04,641 - INFO - [DRY RUN] Would update EAs for network: 10.98.56.0/22 (site_id: 1654697781058018296)
+2025-06-05 15:10:04,642 - INFO - [DRY RUN] Would update EAs for network: 10.104.8.0/22 (site_id: 1655386596360012096)
+2025-06-05 15:10:04,642 - INFO - [DRY RUN] Would update EAs for network: 10.98.64.0/22 (site_id: 1655386775177021896)
+2025-06-05 15:10:04,643 - INFO - [DRY RUN] Would update EAs for network: 10.108.144.0/22 (site_id: 1655479735345004796)
+2025-06-05 15:10:04,643 - INFO - [DRY RUN] Would update EAs for network: 10.105.152.0/22 (site_id: 1655746324503019096)
+2025-06-05 15:10:04,646 - INFO - Generated EA discrepancies report: reports\property_ea_discrepancies_2025-06-05.md
+2025-06-05 15:10:04,649 - INFO - Generated network status report: reports\property_network_status_report_2025-06-05.md
+2025-06-05 15:10:41,963 - INFO - Loading property data from sdwan_gpns_prefix_report.csv...
+2025-06-05 15:10:42,022 - INFO - Loaded 7267 property records from sdwan_gpns_prefix_report.csv
+2025-06-05 15:10:46,473 - INFO - Expanded 7267 property records to 7407 network records
+2025-06-05 15:10:46,530 - INFO - Comparing property networks with InfoBlox...
+2025-06-05 15:10:46,534 - ERROR - Unexpected error: 'm_host'
+2025-06-05 15:16:20,478 - INFO - Loading property data from sdwan_gpns_prefix_report.csv...
+2025-06-05 15:16:20,494 - INFO - Loaded 7267 property records from sdwan_gpns_prefix_report.csv
+2025-06-05 15:16:24,348 - INFO - Expanded 7267 property records to 7407 network records
+2025-06-05 15:16:24,381 - INFO - Comparing property networks with InfoBlox...
+2025-06-05 15:16:24,384 - ERROR - Unexpected error: 'm_host'
+2025-06-05 15:17:50,061 - INFO - Loading property data from sdwan_gpns_prefix_report.csv...
+2025-06-05 15:17:50,097 - INFO - Loaded 7267 property records from sdwan_gpns_prefix_report.csv
+2025-06-05 15:17:54,047 - INFO - Expanded 7267 property records to 7407 network records
+2025-06-05 15:17:54,070 - INFO - Comparing property networks with InfoBlox...
+2025-06-05 15:17:54,074 - ERROR - Unexpected error: 'm_host'

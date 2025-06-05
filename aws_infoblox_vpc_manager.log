@@ -2056,3 +2056,512 @@
 2025-06-04 23:57:24,410 - INFO - Updated EAs for network: 10.212.226.0/23 (mi-lz-devops-ss-us-east-1-vpc)
 2025-06-04 23:57:24,413 - INFO - Generated EA discrepancies report: reports\ea_discrepancies_2025-06-04.md
 2025-06-04 23:57:24,415 - INFO - Generated network status report: reports\network_status_report_2025-06-04.md
+2025-06-05 10:28:32,851 - DEBUG - Starting new HTTPS connection (1): 10.82.108.28:443
+2025-06-05 10:28:33,139 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/networkview HTTP/1.1" 200 None
+2025-06-05 10:29:10,260 - INFO - Loading VPC data from vpc_data3.csv...
+2025-06-05 10:29:10,268 - INFO - Loaded 17 VPC records from vpc_data3.csv
+2025-06-05 10:29:10,280 - INFO - Comparing AWS VPCs with InfoBlox networks...
+2025-06-05 10:29:10,282 - DEBUG - Starting new HTTPS connection (1): 10.82.108.28:443
+2025-06-05 10:29:10,504 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=15.212.224.0%2F23&network_view=Tarig_view&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-05 10:29:10,505 - DEBUG - Network 15.212.224.0/23 not found in view Tarig_view
+2025-06-05 10:29:10,508 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 10:29:10,717 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/networkcontainer?network=15.212.224.0%2F23&network_view=Tarig_view&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-05 10:29:10,718 - DEBUG - Network container 15.212.224.0/23 not found in view Tarig_view
+2025-06-05 10:29:10,720 - DEBUG - Network 15.212.224.0/23 (vpc-03380da9924618762) not found in InfoBlox
+2025-06-05 10:29:10,722 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 10:29:10,940 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=12.216.140.0%2F23&network_view=Tarig_view&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-05 10:29:10,942 - DEBUG - Network 12.216.140.0/23 not found in view Tarig_view
+2025-06-05 10:29:10,944 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 10:29:12,196 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/networkcontainer?network=12.216.140.0%2F23&network_view=Tarig_view&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-05 10:29:12,197 - DEBUG - Network container 12.216.140.0/23 not found in view Tarig_view
+2025-06-05 10:29:12,198 - DEBUG - Network 12.216.140.0/23 (vpc-03c2708b7cb46148f) not found in InfoBlox
+2025-06-05 10:29:12,202 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 10:29:13,597 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=12.212.88.0%2F24&network_view=Tarig_view&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-05 10:29:13,598 - DEBUG - Network 12.212.88.0/24 not found in view Tarig_view
+2025-06-05 10:29:13,600 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 10:29:13,765 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/networkcontainer?network=12.212.88.0%2F24&network_view=Tarig_view&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-05 10:29:13,767 - DEBUG - Network container 12.212.88.0/24 not found in view Tarig_view
+2025-06-05 10:29:13,768 - DEBUG - Network 12.212.88.0/24 (vpc-055bca7586ab6cee3) not found in InfoBlox
+2025-06-05 10:29:13,769 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 10:29:13,959 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=15.212.118.0%2F25&network_view=Tarig_view&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-05 10:29:13,962 - DEBUG - Network 15.212.118.0/25 not found in view Tarig_view
+2025-06-05 10:29:13,968 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 10:29:14,140 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/networkcontainer?network=15.212.118.0%2F25&network_view=Tarig_view&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-05 10:29:14,141 - DEBUG - Network container 15.212.118.0/25 not found in view Tarig_view
+2025-06-05 10:29:14,142 - DEBUG - Network 15.212.118.0/25 (vpc-088629d17b8c2e609) not found in InfoBlox
+2025-06-05 10:29:14,144 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 10:29:14,327 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=10.212.226.0%2F23&network_view=Tarig_view&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-05 10:29:14,329 - DEBUG - Network 10.212.226.0/23 not found in view Tarig_view
+2025-06-05 10:29:14,330 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 10:29:14,523 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/networkcontainer?network=10.212.226.0%2F23&network_view=Tarig_view&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-05 10:29:14,533 - DEBUG - Network container 10.212.226.0/23 not found in view Tarig_view
+2025-06-05 10:29:14,539 - DEBUG - Network 10.212.226.0/23 (vpc-09f08ecfabd8a5a9d) not found in InfoBlox
+2025-06-05 10:29:14,543 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 10:29:14,742 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=10.216.248.0%2F23&network_view=Tarig_view&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-05 10:29:14,743 - DEBUG - Network 10.216.248.0/23 not found in view Tarig_view
+2025-06-05 10:29:14,746 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 10:29:14,990 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/networkcontainer?network=10.216.248.0%2F23&network_view=Tarig_view&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-05 10:29:14,991 - DEBUG - Network container 10.216.248.0/23 not found in view Tarig_view
+2025-06-05 10:29:14,992 - DEBUG - Network 10.216.248.0/23 (vpc-0bd4000739077b166) not found in InfoBlox
+2025-06-05 10:29:14,995 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 10:29:15,210 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=10.86.150.0%2F23&network_view=Tarig_view&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-05 10:29:15,211 - DEBUG - Network 10.86.150.0/23 not found in view Tarig_view
+2025-06-05 10:29:15,212 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 10:29:15,395 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/networkcontainer?network=10.86.150.0%2F23&network_view=Tarig_view&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-05 10:29:15,397 - DEBUG - Network container 10.86.150.0/23 not found in view Tarig_view
+2025-06-05 10:29:15,398 - DEBUG - Network 10.86.150.0/23 (vpc-01ba98e7bf3558222) not found in InfoBlox
+2025-06-05 10:29:15,400 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 10:29:15,585 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=10.212.230.0%2F23&network_view=Tarig_view&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-05 10:29:15,587 - DEBUG - Network 10.212.230.0/23 not found in view Tarig_view
+2025-06-05 10:29:15,590 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 10:29:15,768 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/networkcontainer?network=10.212.230.0%2F23&network_view=Tarig_view&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-05 10:29:15,769 - DEBUG - Network container 10.212.230.0/23 not found in view Tarig_view
+2025-06-05 10:29:15,770 - DEBUG - Network 10.212.230.0/23 (vpc-0007019fc7ef7c946) not found in InfoBlox
+2025-06-05 10:29:15,772 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 10:29:15,947 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=10.212.19.128%2F25&network_view=Tarig_view&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-05 10:29:15,948 - DEBUG - Network 10.212.19.128/25 not found in view Tarig_view
+2025-06-05 10:29:15,950 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 10:29:16,120 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/networkcontainer?network=10.212.19.128%2F25&network_view=Tarig_view&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-05 10:29:16,122 - DEBUG - Network container 10.212.19.128/25 not found in view Tarig_view
+2025-06-05 10:29:16,123 - DEBUG - Network 10.212.19.128/25 (vpc-0ae16c521a462ca1c) not found in InfoBlox
+2025-06-05 10:29:16,125 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 10:29:16,317 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=112.212.4.0%2F24&network_view=Tarig_view&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-05 10:29:16,319 - DEBUG - Network 112.212.4.0/24 not found in view Tarig_view
+2025-06-05 10:29:16,321 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 10:29:16,487 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/networkcontainer?network=112.212.4.0%2F24&network_view=Tarig_view&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-05 10:29:16,488 - DEBUG - Network container 112.212.4.0/24 not found in view Tarig_view
+2025-06-05 10:29:16,489 - DEBUG - Network 112.212.4.0/24 (vpc-09ca502111aa1a60a) not found in InfoBlox
+2025-06-05 10:29:16,490 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 10:29:16,669 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=10.215.248.0%2F23&network_view=Tarig_view&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-05 10:29:16,671 - DEBUG - Network 10.215.248.0/23 not found in view Tarig_view
+2025-06-05 10:29:16,676 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 10:29:16,919 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/networkcontainer?network=10.215.248.0%2F23&network_view=Tarig_view&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-05 10:29:16,932 - DEBUG - Network container 10.215.248.0/23 not found in view Tarig_view
+2025-06-05 10:29:16,938 - DEBUG - Network 10.215.248.0/23 (vpc-078e8685d06b311fa) not found in InfoBlox
+2025-06-05 10:29:16,947 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 10:29:17,141 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=10.215.33.0%2F24&network_view=Tarig_view&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-05 10:29:17,142 - DEBUG - Network 10.215.33.0/24 not found in view Tarig_view
+2025-06-05 10:29:17,145 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 10:29:17,318 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/networkcontainer?network=10.215.33.0%2F24&network_view=Tarig_view&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-05 10:29:17,319 - DEBUG - Network container 10.215.33.0/24 not found in view Tarig_view
+2025-06-05 10:29:17,320 - DEBUG - Network 10.215.33.0/24 (vpc-0766434e9b97c0607) not found in InfoBlox
+2025-06-05 10:29:17,321 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 10:29:17,510 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=10.212.5.0%2F24&network_view=Tarig_view&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-05 10:29:17,515 - DEBUG - Network 10.212.5.0/24 not found in view Tarig_view
+2025-06-05 10:29:17,521 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 10:29:17,767 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/networkcontainer?network=10.212.5.0%2F24&network_view=Tarig_view&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-05 10:29:17,770 - DEBUG - Network container 10.212.5.0/24 not found in view Tarig_view
+2025-06-05 10:29:17,771 - DEBUG - Network 10.212.5.0/24 (vpc-0a55d95d59874d7e4) not found in InfoBlox
+2025-06-05 10:29:17,773 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 10:29:17,938 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=10.212.118.128%2F25&network_view=Tarig_view&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-05 10:29:17,939 - DEBUG - Network 10.212.118.128/25 not found in view Tarig_view
+2025-06-05 10:29:17,941 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 10:29:18,099 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/networkcontainer?network=10.212.118.128%2F25&network_view=Tarig_view&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-05 10:29:18,100 - DEBUG - Network container 10.212.118.128/25 not found in view Tarig_view
+2025-06-05 10:29:18,101 - DEBUG - Network 10.212.118.128/25 (vpc-080c7679bbf4c51cd) not found in InfoBlox
+2025-06-05 10:29:18,103 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 10:29:18,269 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=10.212.252.0%2F23&network_view=Tarig_view&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-05 10:29:18,271 - DEBUG - Network 10.212.252.0/23 not found in view Tarig_view
+2025-06-05 10:29:18,273 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 10:29:18,506 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/networkcontainer?network=10.212.252.0%2F23&network_view=Tarig_view&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-05 10:29:18,507 - DEBUG - Network container 10.212.252.0/23 not found in view Tarig_view
+2025-06-05 10:29:18,508 - DEBUG - Network 10.212.252.0/23 (vpc-083c99f0a54576328) not found in InfoBlox
+2025-06-05 10:29:18,510 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 10:29:18,682 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=10.213.160.0%2F23&network_view=Tarig_view&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-05 10:29:18,683 - DEBUG - Network 10.213.160.0/23 not found in view Tarig_view
+2025-06-05 10:29:18,685 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 10:29:18,869 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/networkcontainer?network=10.213.160.0%2F23&network_view=Tarig_view&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-05 10:29:18,870 - DEBUG - Network container 10.213.160.0/23 not found in view Tarig_view
+2025-06-05 10:29:18,872 - DEBUG - Network 10.213.160.0/23 (vpc-0b07d46b6bb8d9560) not found in InfoBlox
+2025-06-05 10:29:18,874 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 10:29:19,081 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=15.86.136.0%2F23&network_view=Tarig_view&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-05 10:29:19,083 - DEBUG - Network 15.86.136.0/23 not found in view Tarig_view
+2025-06-05 10:29:19,086 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 10:29:19,262 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/networkcontainer?network=15.86.136.0%2F23&network_view=Tarig_view&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-05 10:29:19,265 - DEBUG - Network container 15.86.136.0/23 not found in view Tarig_view
+2025-06-05 10:29:19,266 - DEBUG - Network 15.86.136.0/23 (vpc-0f7c905114497cee6) not found in InfoBlox
+2025-06-05 10:29:19,270 - INFO - Found 23 unique Extended Attributes in AWS tags
+2025-06-05 10:29:19,272 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 10:29:19,527 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/extensibleattributedef HTTP/1.1" 200 None
+2025-06-05 10:29:19,562 - INFO - No new or missing Extended Attributes to report.
+2025-06-05 10:29:19,565 - INFO - [DRY RUN] Would create network: 15.212.224.0/23 (mi-lz-icd-core-team-hold-prod-pci-us-east-1-vpc)
+2025-06-05 10:29:19,566 - INFO - [DRY RUN] Would create network: 12.216.140.0/23 (mi-lz-icd-core-team-hold-prod-pci-us-west-2-vpc)
+2025-06-05 10:29:19,568 - INFO - [DRY RUN] Would create network: 10.212.226.0/23 (mi-lz-devops-ss-us-east-1-vpc)
+2025-06-05 10:29:19,569 - INFO - [DRY RUN] Would create network: 10.216.248.0/23 (mi-lz-devops-ss-prod-us-west-2-vpc)
+2025-06-05 10:29:19,569 - INFO - [DRY RUN] Would create network: 10.86.150.0/23 (mi-lz-devops-ss-prod-eu-west-2-vpc)
+2025-06-05 10:29:19,572 - INFO - [DRY RUN] Would create network: 10.212.230.0/23 (mi-lz-mpg-prod-us-east-1-vpc)
+2025-06-05 10:29:19,575 - INFO - [DRY RUN] Would create network: 10.215.248.0/23 (mi-lz-tech-svcs-prod-us-east-1-vpc)
+2025-06-05 10:29:19,576 - INFO - [DRY RUN] Would create network: 10.212.252.0/23 (mi-lz-ocp-prod-us-east-1-vpc)
+2025-06-05 10:29:19,576 - INFO - [DRY RUN] Would create network: 10.213.160.0/23 (mi-lz-ocp-prod-us-west-2-vpc)
+2025-06-05 10:29:19,577 - INFO - [DRY RUN] Would create network: 15.86.136.0/23 (mi-lz-ocp-prod-eu-west-2-vpc)
+2025-06-05 10:29:19,577 - INFO - [DRY RUN] Would create network: 12.212.88.0/24 (mi-lz-dc-finance-test-us-east-1-vpc)
+2025-06-05 10:29:19,578 - INFO - [DRY RUN] Would create network: 112.212.4.0/24 (mi-lz-network-test-us-east-1-vpc)
+2025-06-05 10:29:19,578 - INFO - [DRY RUN] Would create network: 10.215.33.0/24 (mi-lz-mpg-dev-us-east-1-vpc)
+2025-06-05 10:29:19,579 - INFO - [DRY RUN] Would create network: 10.212.5.0/24 (mi-lz-data-migration-gateway-dev-us-east-1-vpc)
+2025-06-05 10:29:19,580 - INFO - [DRY RUN] Would create network: 15.212.118.0/25 (mi-lz-tech-svcs-dev-us-east-1-vpc)
+2025-06-05 10:29:19,582 - INFO - [DRY RUN] Would create network: 10.212.19.128/25 (mi-lz-network-test-default)
+2025-06-05 10:29:19,595 - INFO - [DRY RUN] Would create network: 10.212.118.128/25 (mi-lz-pms-dev-us-east-1-vpc)
+2025-06-05 10:29:19,601 - INFO - Generated network status report: reports\network_status_report_2025-06-05.md
+2025-06-05 10:36:37,037 - INFO - Running in quiet mode. Use -i for interactive configuration.
+2025-06-05 10:36:37,041 - INFO - Loading VPC data from vpc_data3.csv...
+2025-06-05 10:36:37,047 - INFO - Loaded 17 VPC records from vpc_data3.csv
+2025-06-05 10:36:37,052 - INFO - Comparing AWS VPCs with InfoBlox networks...
+2025-06-05 10:36:37,055 - DEBUG - Starting new HTTPS connection (1): 10.82.108.28:443
+2025-06-05 10:36:37,300 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=15.212.224.0%2F23&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-05 10:36:37,306 - DEBUG - Found network 15.212.224.0/23 in view AWSTesting
+2025-06-05 10:36:37,312 - DEBUG - Network 15.212.224.0/23 (vpc-03380da9924618762) found in InfoBlox
+2025-06-05 10:36:37,384 - DEBUG - Network 15.212.224.0/23 (vpc-03380da9924618762) has matching EAs
+2025-06-05 10:36:37,388 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 10:36:37,628 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=12.216.140.0%2F23&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-05 10:36:37,629 - DEBUG - Found network 12.216.140.0/23 in view AWSTesting
+2025-06-05 10:36:37,630 - DEBUG - Network 12.216.140.0/23 (vpc-03c2708b7cb46148f) found in InfoBlox
+2025-06-05 10:36:37,631 - DEBUG - Network 12.216.140.0/23 (vpc-03c2708b7cb46148f) has matching EAs
+2025-06-05 10:36:37,633 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 10:36:37,847 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=12.212.88.0%2F24&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-05 10:36:37,848 - DEBUG - Found network 12.212.88.0/24 in view AWSTesting
+2025-06-05 10:36:37,849 - DEBUG - Network 12.212.88.0/24 (vpc-055bca7586ab6cee3) found in InfoBlox
+2025-06-05 10:36:37,849 - DEBUG - Network 12.212.88.0/24 (vpc-055bca7586ab6cee3) has matching EAs
+2025-06-05 10:36:37,851 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 10:36:38,026 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=15.212.118.0%2F25&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-05 10:36:38,027 - DEBUG - Found network 15.212.118.0/25 in view AWSTesting
+2025-06-05 10:36:38,028 - DEBUG - Network 15.212.118.0/25 (vpc-088629d17b8c2e609) found in InfoBlox
+2025-06-05 10:36:38,028 - DEBUG - Network 15.212.118.0/25 (vpc-088629d17b8c2e609) has matching EAs
+2025-06-05 10:36:38,030 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 10:36:38,229 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=10.212.226.0%2F23&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-05 10:36:38,230 - DEBUG - Found network 10.212.226.0/23 in view AWSTesting
+2025-06-05 10:36:38,231 - DEBUG - Network 10.212.226.0/23 (vpc-09f08ecfabd8a5a9d) found in InfoBlox
+2025-06-05 10:36:38,231 - DEBUG - Network 10.212.226.0/23 (vpc-09f08ecfabd8a5a9d) has matching EAs
+2025-06-05 10:36:38,233 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 10:36:38,420 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=10.216.248.0%2F23&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-05 10:36:38,421 - DEBUG - Found network 10.216.248.0/23 in view AWSTesting
+2025-06-05 10:36:38,422 - DEBUG - Network 10.216.248.0/23 (vpc-0bd4000739077b166) found in InfoBlox
+2025-06-05 10:36:38,422 - DEBUG - Network 10.216.248.0/23 (vpc-0bd4000739077b166) has matching EAs
+2025-06-05 10:36:38,424 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 10:36:38,585 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=10.86.150.0%2F23&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-05 10:36:38,586 - DEBUG - Found network 10.86.150.0/23 in view AWSTesting
+2025-06-05 10:36:38,587 - DEBUG - Network 10.86.150.0/23 (vpc-01ba98e7bf3558222) found in InfoBlox
+2025-06-05 10:36:38,588 - DEBUG - Network 10.86.150.0/23 (vpc-01ba98e7bf3558222) has matching EAs
+2025-06-05 10:36:38,589 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 10:36:38,785 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=10.212.230.0%2F23&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-05 10:36:38,786 - DEBUG - Found network 10.212.230.0/23 in view AWSTesting
+2025-06-05 10:36:38,787 - DEBUG - Network 10.212.230.0/23 (vpc-0007019fc7ef7c946) found in InfoBlox
+2025-06-05 10:36:38,787 - DEBUG - Network 10.212.230.0/23 (vpc-0007019fc7ef7c946) has matching EAs
+2025-06-05 10:36:38,789 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 10:36:38,963 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=10.212.19.128%2F25&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-05 10:36:38,965 - DEBUG - Found network 10.212.19.128/25 in view AWSTesting
+2025-06-05 10:36:38,966 - DEBUG - Network 10.212.19.128/25 (vpc-0ae16c521a462ca1c) found in InfoBlox
+2025-06-05 10:36:38,967 - DEBUG - Network 10.212.19.128/25 (vpc-0ae16c521a462ca1c) has matching EAs
+2025-06-05 10:36:38,969 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 10:36:39,172 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=112.212.4.0%2F24&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-05 10:36:39,173 - DEBUG - Found network 112.212.4.0/24 in view AWSTesting
+2025-06-05 10:36:39,174 - DEBUG - Network 112.212.4.0/24 (vpc-09ca502111aa1a60a) found in InfoBlox
+2025-06-05 10:36:39,175 - DEBUG - Network 112.212.4.0/24 (vpc-09ca502111aa1a60a) has matching EAs
+2025-06-05 10:36:39,176 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 10:36:39,408 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=10.215.248.0%2F23&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-05 10:36:39,409 - DEBUG - Found network 10.215.248.0/23 in view AWSTesting
+2025-06-05 10:36:39,410 - DEBUG - Network 10.215.248.0/23 (vpc-078e8685d06b311fa) found in InfoBlox
+2025-06-05 10:36:39,410 - DEBUG - Network 10.215.248.0/23 (vpc-078e8685d06b311fa) has matching EAs
+2025-06-05 10:36:39,412 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 10:36:39,588 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=10.215.33.0%2F24&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-05 10:36:39,589 - DEBUG - Found network 10.215.33.0/24 in view AWSTesting
+2025-06-05 10:36:39,590 - DEBUG - Network 10.215.33.0/24 (vpc-0766434e9b97c0607) found in InfoBlox
+2025-06-05 10:36:39,591 - DEBUG - Network 10.215.33.0/24 (vpc-0766434e9b97c0607) has matching EAs
+2025-06-05 10:36:39,592 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 10:36:39,786 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=10.212.5.0%2F24&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-05 10:36:39,788 - DEBUG - Found network 10.212.5.0/24 in view AWSTesting
+2025-06-05 10:36:39,789 - DEBUG - Network 10.212.5.0/24 (vpc-0a55d95d59874d7e4) found in InfoBlox
+2025-06-05 10:36:39,790 - DEBUG - Network 10.212.5.0/24 (vpc-0a55d95d59874d7e4) has matching EAs
+2025-06-05 10:36:39,792 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 10:36:39,998 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=10.212.118.128%2F25&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-05 10:36:40,000 - DEBUG - Found network 10.212.118.128/25 in view AWSTesting
+2025-06-05 10:36:40,001 - DEBUG - Network 10.212.118.128/25 (vpc-080c7679bbf4c51cd) found in InfoBlox
+2025-06-05 10:36:40,001 - DEBUG - Network 10.212.118.128/25 (vpc-080c7679bbf4c51cd) has matching EAs
+2025-06-05 10:36:40,003 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 10:36:40,191 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=10.212.252.0%2F23&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-05 10:36:40,192 - DEBUG - Found network 10.212.252.0/23 in view AWSTesting
+2025-06-05 10:36:40,193 - DEBUG - Network 10.212.252.0/23 (vpc-083c99f0a54576328) found in InfoBlox
+2025-06-05 10:36:40,194 - DEBUG - Network 10.212.252.0/23 (vpc-083c99f0a54576328) has matching EAs
+2025-06-05 10:36:40,195 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 10:36:40,390 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=10.213.160.0%2F23&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-05 10:36:40,391 - DEBUG - Found network 10.213.160.0/23 in view AWSTesting
+2025-06-05 10:36:40,392 - DEBUG - Network 10.213.160.0/23 (vpc-0b07d46b6bb8d9560) found in InfoBlox
+2025-06-05 10:36:40,392 - DEBUG - Network 10.213.160.0/23 (vpc-0b07d46b6bb8d9560) has matching EAs
+2025-06-05 10:36:40,394 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 10:36:40,585 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=15.86.136.0%2F23&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-05 10:36:40,586 - DEBUG - Found network 15.86.136.0/23 in view AWSTesting
+2025-06-05 10:36:40,587 - DEBUG - Network 15.86.136.0/23 (vpc-0f7c905114497cee6) found in InfoBlox
+2025-06-05 10:36:40,588 - DEBUG - Network 15.86.136.0/23 (vpc-0f7c905114497cee6) has matching EAs
+2025-06-05 10:36:40,592 - INFO - Generated network status report: reports\network_status_report_2025-06-05.md
+2025-06-05 10:36:44,336 - INFO - Running in quiet mode. Use -i for interactive configuration.
+2025-06-05 10:36:44,347 - INFO - Loading VPC data from vpc_data3.csv...
+2025-06-05 10:36:44,394 - INFO - Loaded 17 VPC records from vpc_data3.csv
+2025-06-05 10:36:44,409 - INFO - Comparing AWS VPCs with InfoBlox networks...
+2025-06-05 10:36:44,414 - DEBUG - Starting new HTTPS connection (1): 10.82.108.28:443
+2025-06-05 10:36:44,750 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=15.212.224.0%2F23&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-05 10:36:44,752 - DEBUG - Found network 15.212.224.0/23 in view AWSTesting
+2025-06-05 10:36:44,754 - DEBUG - Network 15.212.224.0/23 (vpc-03380da9924618762) found in InfoBlox
+2025-06-05 10:36:44,755 - DEBUG - Network 15.212.224.0/23 (vpc-03380da9924618762) has matching EAs
+2025-06-05 10:36:44,758 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 10:36:45,042 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=12.216.140.0%2F23&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-05 10:36:45,044 - DEBUG - Found network 12.216.140.0/23 in view AWSTesting
+2025-06-05 10:36:45,045 - DEBUG - Network 12.216.140.0/23 (vpc-03c2708b7cb46148f) found in InfoBlox
+2025-06-05 10:36:45,046 - DEBUG - Network 12.216.140.0/23 (vpc-03c2708b7cb46148f) has matching EAs
+2025-06-05 10:36:45,048 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 10:36:45,289 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=12.212.88.0%2F24&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-05 10:36:45,291 - DEBUG - Found network 12.212.88.0/24 in view AWSTesting
+2025-06-05 10:36:45,292 - DEBUG - Network 12.212.88.0/24 (vpc-055bca7586ab6cee3) found in InfoBlox
+2025-06-05 10:36:45,293 - DEBUG - Network 12.212.88.0/24 (vpc-055bca7586ab6cee3) has matching EAs
+2025-06-05 10:36:45,295 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 10:36:45,495 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=15.212.118.0%2F25&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-05 10:36:45,496 - DEBUG - Found network 15.212.118.0/25 in view AWSTesting
+2025-06-05 10:36:45,497 - DEBUG - Network 15.212.118.0/25 (vpc-088629d17b8c2e609) found in InfoBlox
+2025-06-05 10:36:45,498 - DEBUG - Network 15.212.118.0/25 (vpc-088629d17b8c2e609) has matching EAs
+2025-06-05 10:36:45,501 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 10:36:45,706 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=10.212.226.0%2F23&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-05 10:36:45,708 - DEBUG - Found network 10.212.226.0/23 in view AWSTesting
+2025-06-05 10:36:45,709 - DEBUG - Network 10.212.226.0/23 (vpc-09f08ecfabd8a5a9d) found in InfoBlox
+2025-06-05 10:36:45,709 - DEBUG - Network 10.212.226.0/23 (vpc-09f08ecfabd8a5a9d) has matching EAs
+2025-06-05 10:36:45,711 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 10:36:45,887 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=10.216.248.0%2F23&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-05 10:36:45,888 - DEBUG - Found network 10.216.248.0/23 in view AWSTesting
+2025-06-05 10:36:45,889 - DEBUG - Network 10.216.248.0/23 (vpc-0bd4000739077b166) found in InfoBlox
+2025-06-05 10:36:45,890 - DEBUG - Network 10.216.248.0/23 (vpc-0bd4000739077b166) has matching EAs
+2025-06-05 10:36:45,891 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 10:36:46,096 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=10.86.150.0%2F23&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-05 10:36:46,098 - DEBUG - Found network 10.86.150.0/23 in view AWSTesting
+2025-06-05 10:36:46,099 - DEBUG - Network 10.86.150.0/23 (vpc-01ba98e7bf3558222) found in InfoBlox
+2025-06-05 10:36:46,100 - DEBUG - Network 10.86.150.0/23 (vpc-01ba98e7bf3558222) has matching EAs
+2025-06-05 10:36:46,102 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 10:36:46,319 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=10.212.230.0%2F23&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-05 10:36:46,320 - DEBUG - Found network 10.212.230.0/23 in view AWSTesting
+2025-06-05 10:36:46,322 - DEBUG - Network 10.212.230.0/23 (vpc-0007019fc7ef7c946) found in InfoBlox
+2025-06-05 10:36:46,322 - DEBUG - Network 10.212.230.0/23 (vpc-0007019fc7ef7c946) has matching EAs
+2025-06-05 10:36:46,324 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 10:36:46,509 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=10.212.19.128%2F25&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-05 10:36:46,510 - DEBUG - Found network 10.212.19.128/25 in view AWSTesting
+2025-06-05 10:36:46,512 - DEBUG - Network 10.212.19.128/25 (vpc-0ae16c521a462ca1c) found in InfoBlox
+2025-06-05 10:36:46,512 - DEBUG - Network 10.212.19.128/25 (vpc-0ae16c521a462ca1c) has matching EAs
+2025-06-05 10:36:46,514 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 10:36:46,743 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=112.212.4.0%2F24&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-05 10:36:46,749 - DEBUG - Found network 112.212.4.0/24 in view AWSTesting
+2025-06-05 10:36:46,753 - DEBUG - Network 112.212.4.0/24 (vpc-09ca502111aa1a60a) found in InfoBlox
+2025-06-05 10:36:46,754 - DEBUG - Network 112.212.4.0/24 (vpc-09ca502111aa1a60a) has matching EAs
+2025-06-05 10:36:46,758 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 10:36:46,968 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=10.215.248.0%2F23&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-05 10:36:46,969 - DEBUG - Found network 10.215.248.0/23 in view AWSTesting
+2025-06-05 10:36:46,970 - DEBUG - Network 10.215.248.0/23 (vpc-078e8685d06b311fa) found in InfoBlox
+2025-06-05 10:36:46,970 - DEBUG - Network 10.215.248.0/23 (vpc-078e8685d06b311fa) has matching EAs
+2025-06-05 10:36:46,972 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 10:36:47,149 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=10.215.33.0%2F24&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-05 10:36:47,150 - DEBUG - Found network 10.215.33.0/24 in view AWSTesting
+2025-06-05 10:36:47,152 - DEBUG - Network 10.215.33.0/24 (vpc-0766434e9b97c0607) found in InfoBlox
+2025-06-05 10:36:47,152 - DEBUG - Network 10.215.33.0/24 (vpc-0766434e9b97c0607) has matching EAs
+2025-06-05 10:36:47,155 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 10:36:47,476 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=10.212.5.0%2F24&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-05 10:36:47,477 - DEBUG - Found network 10.212.5.0/24 in view AWSTesting
+2025-06-05 10:36:47,478 - DEBUG - Network 10.212.5.0/24 (vpc-0a55d95d59874d7e4) found in InfoBlox
+2025-06-05 10:36:47,479 - DEBUG - Network 10.212.5.0/24 (vpc-0a55d95d59874d7e4) has matching EAs
+2025-06-05 10:36:47,480 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 10:36:47,678 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=10.212.118.128%2F25&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-05 10:36:47,679 - DEBUG - Found network 10.212.118.128/25 in view AWSTesting
+2025-06-05 10:36:47,680 - DEBUG - Network 10.212.118.128/25 (vpc-080c7679bbf4c51cd) found in InfoBlox
+2025-06-05 10:36:47,681 - DEBUG - Network 10.212.118.128/25 (vpc-080c7679bbf4c51cd) has matching EAs
+2025-06-05 10:36:47,683 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 10:36:47,887 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=10.212.252.0%2F23&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-05 10:36:47,889 - DEBUG - Found network 10.212.252.0/23 in view AWSTesting
+2025-06-05 10:36:47,891 - DEBUG - Network 10.212.252.0/23 (vpc-083c99f0a54576328) found in InfoBlox
+2025-06-05 10:36:47,892 - DEBUG - Network 10.212.252.0/23 (vpc-083c99f0a54576328) has matching EAs
+2025-06-05 10:36:47,894 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 10:36:48,087 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=10.213.160.0%2F23&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-05 10:36:48,089 - DEBUG - Found network 10.213.160.0/23 in view AWSTesting
+2025-06-05 10:36:48,090 - DEBUG - Network 10.213.160.0/23 (vpc-0b07d46b6bb8d9560) found in InfoBlox
+2025-06-05 10:36:48,091 - DEBUG - Network 10.213.160.0/23 (vpc-0b07d46b6bb8d9560) has matching EAs
+2025-06-05 10:36:48,093 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 10:36:48,323 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=15.86.136.0%2F23&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-05 10:36:48,324 - DEBUG - Found network 15.86.136.0/23 in view AWSTesting
+2025-06-05 10:36:48,325 - DEBUG - Network 15.86.136.0/23 (vpc-0f7c905114497cee6) found in InfoBlox
+2025-06-05 10:36:48,325 - DEBUG - Network 15.86.136.0/23 (vpc-0f7c905114497cee6) has matching EAs
+2025-06-05 10:36:48,328 - INFO - Found 23 unique Extended Attributes in AWS tags
+2025-06-05 10:36:48,330 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 10:36:48,534 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/extensibleattributedef HTTP/1.1" 200 None
+2025-06-05 10:36:48,558 - INFO - No new or missing Extended Attributes to report.
+2025-06-05 10:36:48,561 - INFO - Generated network status report: reports\network_status_report_2025-06-05.md
+2025-06-05 10:36:52,192 - INFO - Running in quiet mode. Use -i for interactive configuration.
+2025-06-05 10:36:52,194 - INFO - Loading VPC data from vpc_data3.csv...
+2025-06-05 10:36:52,204 - INFO - Loaded 17 VPC records from vpc_data3.csv
+2025-06-05 10:36:52,216 - INFO - Comparing AWS VPCs with InfoBlox networks...
+2025-06-05 10:36:52,221 - DEBUG - Starting new HTTPS connection (1): 10.82.108.28:443
+2025-06-05 10:36:52,483 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=15.212.224.0%2F23&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-05 10:36:52,485 - DEBUG - Found network 15.212.224.0/23 in view AWSTesting
+2025-06-05 10:36:52,486 - DEBUG - Network 15.212.224.0/23 (vpc-03380da9924618762) found in InfoBlox
+2025-06-05 10:36:52,486 - DEBUG - Network 15.212.224.0/23 (vpc-03380da9924618762) has matching EAs
+2025-06-05 10:36:52,488 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 10:36:52,664 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=12.216.140.0%2F23&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-05 10:36:52,665 - DEBUG - Found network 12.216.140.0/23 in view AWSTesting
+2025-06-05 10:36:52,666 - DEBUG - Network 12.216.140.0/23 (vpc-03c2708b7cb46148f) found in InfoBlox
+2025-06-05 10:36:52,667 - DEBUG - Network 12.216.140.0/23 (vpc-03c2708b7cb46148f) has matching EAs
+2025-06-05 10:36:52,669 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 10:36:55,062 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=12.212.88.0%2F24&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-05 10:36:55,063 - DEBUG - Found network 12.212.88.0/24 in view AWSTesting
+2025-06-05 10:36:55,064 - DEBUG - Network 12.212.88.0/24 (vpc-055bca7586ab6cee3) found in InfoBlox
+2025-06-05 10:36:55,064 - DEBUG - Network 12.212.88.0/24 (vpc-055bca7586ab6cee3) has matching EAs
+2025-06-05 10:36:55,066 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 10:36:55,296 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=15.212.118.0%2F25&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-05 10:36:55,297 - DEBUG - Found network 15.212.118.0/25 in view AWSTesting
+2025-06-05 10:36:55,299 - DEBUG - Network 15.212.118.0/25 (vpc-088629d17b8c2e609) found in InfoBlox
+2025-06-05 10:36:55,299 - DEBUG - Network 15.212.118.0/25 (vpc-088629d17b8c2e609) has matching EAs
+2025-06-05 10:36:55,301 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 10:36:55,468 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=10.212.226.0%2F23&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-05 10:36:55,469 - DEBUG - Found network 10.212.226.0/23 in view AWSTesting
+2025-06-05 10:36:55,470 - DEBUG - Network 10.212.226.0/23 (vpc-09f08ecfabd8a5a9d) found in InfoBlox
+2025-06-05 10:36:55,470 - DEBUG - Network 10.212.226.0/23 (vpc-09f08ecfabd8a5a9d) has matching EAs
+2025-06-05 10:36:55,472 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 10:36:55,662 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=10.216.248.0%2F23&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-05 10:36:55,663 - DEBUG - Found network 10.216.248.0/23 in view AWSTesting
+2025-06-05 10:36:55,664 - DEBUG - Network 10.216.248.0/23 (vpc-0bd4000739077b166) found in InfoBlox
+2025-06-05 10:36:55,664 - DEBUG - Network 10.216.248.0/23 (vpc-0bd4000739077b166) has matching EAs
+2025-06-05 10:36:55,666 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 10:36:55,843 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=10.86.150.0%2F23&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-05 10:36:55,844 - DEBUG - Found network 10.86.150.0/23 in view AWSTesting
+2025-06-05 10:36:55,845 - DEBUG - Network 10.86.150.0/23 (vpc-01ba98e7bf3558222) found in InfoBlox
+2025-06-05 10:36:55,845 - DEBUG - Network 10.86.150.0/23 (vpc-01ba98e7bf3558222) has matching EAs
+2025-06-05 10:36:55,847 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 10:36:56,020 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=10.212.230.0%2F23&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-05 10:36:56,021 - DEBUG - Found network 10.212.230.0/23 in view AWSTesting
+2025-06-05 10:36:56,022 - DEBUG - Network 10.212.230.0/23 (vpc-0007019fc7ef7c946) found in InfoBlox
+2025-06-05 10:36:56,023 - DEBUG - Network 10.212.230.0/23 (vpc-0007019fc7ef7c946) has matching EAs
+2025-06-05 10:36:56,024 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 10:36:56,236 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=10.212.19.128%2F25&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-05 10:36:56,237 - DEBUG - Found network 10.212.19.128/25 in view AWSTesting
+2025-06-05 10:36:56,238 - DEBUG - Network 10.212.19.128/25 (vpc-0ae16c521a462ca1c) found in InfoBlox
+2025-06-05 10:36:56,239 - DEBUG - Network 10.212.19.128/25 (vpc-0ae16c521a462ca1c) has matching EAs
+2025-06-05 10:36:56,240 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 10:36:56,442 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=112.212.4.0%2F24&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-05 10:36:56,443 - DEBUG - Found network 112.212.4.0/24 in view AWSTesting
+2025-06-05 10:36:56,444 - DEBUG - Network 112.212.4.0/24 (vpc-09ca502111aa1a60a) found in InfoBlox
+2025-06-05 10:36:56,445 - DEBUG - Network 112.212.4.0/24 (vpc-09ca502111aa1a60a) has matching EAs
+2025-06-05 10:36:56,446 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 10:36:56,634 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=10.215.248.0%2F23&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-05 10:36:56,635 - DEBUG - Found network 10.215.248.0/23 in view AWSTesting
+2025-06-05 10:36:56,636 - DEBUG - Network 10.215.248.0/23 (vpc-078e8685d06b311fa) found in InfoBlox
+2025-06-05 10:36:56,637 - DEBUG - Network 10.215.248.0/23 (vpc-078e8685d06b311fa) has matching EAs
+2025-06-05 10:36:56,639 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 10:36:56,833 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=10.215.33.0%2F24&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-05 10:36:56,834 - DEBUG - Found network 10.215.33.0/24 in view AWSTesting
+2025-06-05 10:36:56,835 - DEBUG - Network 10.215.33.0/24 (vpc-0766434e9b97c0607) found in InfoBlox
+2025-06-05 10:36:56,835 - DEBUG - Network 10.215.33.0/24 (vpc-0766434e9b97c0607) has matching EAs
+2025-06-05 10:36:56,837 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 10:36:57,008 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=10.212.5.0%2F24&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-05 10:36:57,010 - DEBUG - Found network 10.212.5.0/24 in view AWSTesting
+2025-06-05 10:36:57,011 - DEBUG - Network 10.212.5.0/24 (vpc-0a55d95d59874d7e4) found in InfoBlox
+2025-06-05 10:36:57,011 - DEBUG - Network 10.212.5.0/24 (vpc-0a55d95d59874d7e4) has matching EAs
+2025-06-05 10:36:57,013 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 10:36:57,215 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=10.212.118.128%2F25&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-05 10:36:57,217 - DEBUG - Found network 10.212.118.128/25 in view AWSTesting
+2025-06-05 10:36:57,219 - DEBUG - Network 10.212.118.128/25 (vpc-080c7679bbf4c51cd) found in InfoBlox
+2025-06-05 10:36:57,219 - DEBUG - Network 10.212.118.128/25 (vpc-080c7679bbf4c51cd) has matching EAs
+2025-06-05 10:36:57,222 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 10:36:57,431 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=10.212.252.0%2F23&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-05 10:36:57,433 - DEBUG - Found network 10.212.252.0/23 in view AWSTesting
+2025-06-05 10:36:57,434 - DEBUG - Network 10.212.252.0/23 (vpc-083c99f0a54576328) found in InfoBlox
+2025-06-05 10:36:57,434 - DEBUG - Network 10.212.252.0/23 (vpc-083c99f0a54576328) has matching EAs
+2025-06-05 10:36:57,437 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 10:36:57,626 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=10.213.160.0%2F23&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-05 10:36:57,627 - DEBUG - Found network 10.213.160.0/23 in view AWSTesting
+2025-06-05 10:36:57,628 - DEBUG - Network 10.213.160.0/23 (vpc-0b07d46b6bb8d9560) found in InfoBlox
+2025-06-05 10:36:57,628 - DEBUG - Network 10.213.160.0/23 (vpc-0b07d46b6bb8d9560) has matching EAs
+2025-06-05 10:36:57,630 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 10:36:57,800 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=15.86.136.0%2F23&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-05 10:36:57,801 - DEBUG - Found network 15.86.136.0/23 in view AWSTesting
+2025-06-05 10:36:57,802 - DEBUG - Network 15.86.136.0/23 (vpc-0f7c905114497cee6) found in InfoBlox
+2025-06-05 10:36:57,803 - DEBUG - Network 15.86.136.0/23 (vpc-0f7c905114497cee6) has matching EAs
+2025-06-05 10:36:57,806 - INFO - Generated network status report: reports\network_status_report_2025-06-05.md
+2025-06-05 10:37:35,708 - INFO - Loading VPC data from vpc_data3.csv...
+2025-06-05 10:37:35,715 - INFO - Loaded 17 VPC records from vpc_data3.csv
+2025-06-05 10:37:35,744 - INFO - Comparing AWS VPCs with InfoBlox networks...
+2025-06-05 10:37:35,849 - DEBUG - Starting new HTTPS connection (1): 10.82.108.28:443
+2025-06-05 10:37:36,137 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=15.212.224.0%2F23&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-05 10:37:36,138 - DEBUG - Found network 15.212.224.0/23 in view AWSTesting
+2025-06-05 10:37:36,139 - DEBUG - Network 15.212.224.0/23 (vpc-03380da9924618762) found in InfoBlox
+2025-06-05 10:37:36,140 - DEBUG - Network 15.212.224.0/23 (vpc-03380da9924618762) has matching EAs
+2025-06-05 10:37:36,142 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 10:37:36,328 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=12.216.140.0%2F23&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-05 10:37:36,329 - DEBUG - Found network 12.216.140.0/23 in view AWSTesting
+2025-06-05 10:37:36,330 - DEBUG - Network 12.216.140.0/23 (vpc-03c2708b7cb46148f) found in InfoBlox
+2025-06-05 10:37:36,331 - DEBUG - Network 12.216.140.0/23 (vpc-03c2708b7cb46148f) has matching EAs
+2025-06-05 10:37:36,333 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 10:37:36,563 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=12.212.88.0%2F24&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-05 10:37:36,564 - DEBUG - Found network 12.212.88.0/24 in view AWSTesting
+2025-06-05 10:37:36,566 - DEBUG - Network 12.212.88.0/24 (vpc-055bca7586ab6cee3) found in InfoBlox
+2025-06-05 10:37:36,566 - DEBUG - Network 12.212.88.0/24 (vpc-055bca7586ab6cee3) has matching EAs
+2025-06-05 10:37:36,569 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 10:37:36,740 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=15.212.118.0%2F25&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-05 10:37:36,741 - DEBUG - Found network 15.212.118.0/25 in view AWSTesting
+2025-06-05 10:37:36,743 - DEBUG - Network 15.212.118.0/25 (vpc-088629d17b8c2e609) found in InfoBlox
+2025-06-05 10:37:36,743 - DEBUG - Network 15.212.118.0/25 (vpc-088629d17b8c2e609) has matching EAs
+2025-06-05 10:37:36,745 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 10:37:36,922 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=10.212.226.0%2F23&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-05 10:37:36,925 - DEBUG - Found network 10.212.226.0/23 in view AWSTesting
+2025-06-05 10:37:36,929 - DEBUG - Network 10.212.226.0/23 (vpc-09f08ecfabd8a5a9d) found in InfoBlox
+2025-06-05 10:37:36,932 - DEBUG - Network 10.212.226.0/23 (vpc-09f08ecfabd8a5a9d) has matching EAs
+2025-06-05 10:37:36,935 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 10:37:37,105 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=10.216.248.0%2F23&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-05 10:37:37,106 - DEBUG - Found network 10.216.248.0/23 in view AWSTesting
+2025-06-05 10:37:37,107 - DEBUG - Network 10.216.248.0/23 (vpc-0bd4000739077b166) found in InfoBlox
+2025-06-05 10:37:37,107 - DEBUG - Network 10.216.248.0/23 (vpc-0bd4000739077b166) has matching EAs
+2025-06-05 10:37:37,109 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 10:37:37,272 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=10.86.150.0%2F23&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-05 10:37:37,274 - DEBUG - Found network 10.86.150.0/23 in view AWSTesting
+2025-06-05 10:37:37,275 - DEBUG - Network 10.86.150.0/23 (vpc-01ba98e7bf3558222) found in InfoBlox
+2025-06-05 10:37:37,276 - DEBUG - Network 10.86.150.0/23 (vpc-01ba98e7bf3558222) has matching EAs
+2025-06-05 10:37:37,277 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 10:37:37,473 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=10.212.230.0%2F23&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-05 10:37:37,474 - DEBUG - Found network 10.212.230.0/23 in view AWSTesting
+2025-06-05 10:37:37,475 - DEBUG - Network 10.212.230.0/23 (vpc-0007019fc7ef7c946) found in InfoBlox
+2025-06-05 10:37:37,476 - DEBUG - Network 10.212.230.0/23 (vpc-0007019fc7ef7c946) has matching EAs
+2025-06-05 10:37:37,478 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 10:37:37,644 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=10.212.19.128%2F25&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-05 10:37:37,645 - DEBUG - Found network 10.212.19.128/25 in view AWSTesting
+2025-06-05 10:37:37,646 - DEBUG - Network 10.212.19.128/25 (vpc-0ae16c521a462ca1c) found in InfoBlox
+2025-06-05 10:37:37,646 - DEBUG - Network 10.212.19.128/25 (vpc-0ae16c521a462ca1c) has matching EAs
+2025-06-05 10:37:37,648 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 10:37:37,826 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=112.212.4.0%2F24&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-05 10:37:37,827 - DEBUG - Found network 112.212.4.0/24 in view AWSTesting
+2025-06-05 10:37:37,828 - DEBUG - Network 112.212.4.0/24 (vpc-09ca502111aa1a60a) found in InfoBlox
+2025-06-05 10:37:37,829 - DEBUG - Network 112.212.4.0/24 (vpc-09ca502111aa1a60a) has matching EAs
+2025-06-05 10:37:37,830 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 10:37:38,004 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=10.215.248.0%2F23&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-05 10:37:38,005 - DEBUG - Found network 10.215.248.0/23 in view AWSTesting
+2025-06-05 10:37:38,006 - DEBUG - Network 10.215.248.0/23 (vpc-078e8685d06b311fa) found in InfoBlox
+2025-06-05 10:37:38,007 - DEBUG - Network 10.215.248.0/23 (vpc-078e8685d06b311fa) has matching EAs
+2025-06-05 10:37:38,008 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 10:37:38,192 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=10.215.33.0%2F24&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-05 10:37:38,193 - DEBUG - Found network 10.215.33.0/24 in view AWSTesting
+2025-06-05 10:37:38,194 - DEBUG - Network 10.215.33.0/24 (vpc-0766434e9b97c0607) found in InfoBlox
+2025-06-05 10:37:38,195 - DEBUG - Network 10.215.33.0/24 (vpc-0766434e9b97c0607) has matching EAs
+2025-06-05 10:37:38,196 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 10:37:38,403 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=10.212.5.0%2F24&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-05 10:37:38,404 - DEBUG - Found network 10.212.5.0/24 in view AWSTesting
+2025-06-05 10:37:38,406 - DEBUG - Network 10.212.5.0/24 (vpc-0a55d95d59874d7e4) found in InfoBlox
+2025-06-05 10:37:38,406 - DEBUG - Network 10.212.5.0/24 (vpc-0a55d95d59874d7e4) has matching EAs
+2025-06-05 10:37:38,408 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 10:37:38,579 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=10.212.118.128%2F25&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-05 10:37:38,580 - DEBUG - Found network 10.212.118.128/25 in view AWSTesting
+2025-06-05 10:37:38,581 - DEBUG - Network 10.212.118.128/25 (vpc-080c7679bbf4c51cd) found in InfoBlox
+2025-06-05 10:37:38,582 - DEBUG - Network 10.212.118.128/25 (vpc-080c7679bbf4c51cd) has matching EAs
+2025-06-05 10:37:38,583 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 10:37:38,764 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=10.212.252.0%2F23&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-05 10:37:38,767 - DEBUG - Found network 10.212.252.0/23 in view AWSTesting
+2025-06-05 10:37:38,769 - DEBUG - Network 10.212.252.0/23 (vpc-083c99f0a54576328) found in InfoBlox
+2025-06-05 10:37:38,770 - DEBUG - Network 10.212.252.0/23 (vpc-083c99f0a54576328) has matching EAs
+2025-06-05 10:37:38,773 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 10:37:39,042 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=10.213.160.0%2F23&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-05 10:37:39,043 - DEBUG - Found network 10.213.160.0/23 in view AWSTesting
+2025-06-05 10:37:39,044 - DEBUG - Network 10.213.160.0/23 (vpc-0b07d46b6bb8d9560) found in InfoBlox
+2025-06-05 10:37:39,045 - DEBUG - Network 10.213.160.0/23 (vpc-0b07d46b6bb8d9560) has matching EAs
+2025-06-05 10:37:39,046 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-05 10:37:39,240 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=15.86.136.0%2F23&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-05 10:37:39,241 - DEBUG - Found network 15.86.136.0/23 in view AWSTesting
+2025-06-05 10:37:39,242 - DEBUG - Network 15.86.136.0/23 (vpc-0f7c905114497cee6) found in InfoBlox
+2025-06-05 10:37:39,242 - DEBUG - Network 15.86.136.0/23 (vpc-0f7c905114497cee6) has matching EAs
+2025-06-05 10:37:39,246 - INFO - Generated network status report: reports\network_status_report_2025-06-05.md
