@@ -1,0 +1,55 @@
+================================================================================
+PROPERTY TO INFOBLOX NETWORK IMPORT REPORT - ENHANCED
+================================================================================
+Generated: 2025-06-06 12:13:14
+Mode: DRY RUN
+
+SUMMARY
+----------------------------------------
+Total Matching Networks: 0
+Total Missing Networks: 0
+Total Networks with EA Discrepancies: 8
+Total Networks Existing as Containers: 0
+Total Errors: 0
+
+NETWORKS WITH EA DISCREPANCIES
+----------------------------------------
+  CIDR: 10.101.224.0/22
+    Site ID: 16540968605520072
+    Property EAs: {'site_id': '16540968605520072', 'm_host': 'IADXMP01', 'source': 'properties_file', 'import_date': '2025-06-06 12:13:12'}
+    InfoBlox EAs: {'import_date': '2025-06-05 16:24:48', 'm_host': 'IADXMP01', 'site_id': '16540968605520072', 'source': 'properties_file'}
+
+  CIDR: 10.99.116.0/22
+    Site ID: 16534423216510206
+    Property EAs: {'site_id': '16534423216510206', 'm_host': 'WASCTP01', 'source': 'properties_file', 'import_date': '2025-06-06 12:13:12'}
+    InfoBlox EAs: {'import_date': '2025-06-05 16:24:49', 'm_host': 'WASCTP01', 'site_id': '16534423216510206', 'source': 'properties_file'}
+
+  CIDR: 10.107.20.0/22
+    Site ID: 16534424701980039
+    Property EAs: {'site_id': '16534424701980039', 'm_host': 'WASNHP01', 'source': 'properties_file', 'import_date': '2025-06-06 12:13:12'}
+    InfoBlox EAs: {'import_date': '2025-06-05 16:24:49', 'm_host': 'WASNHP01', 'site_id': '16534424701980039', 'source': 'properties_file'}
+
+  CIDR: 10.98.56.0/22
+    Site ID: 1654697781058018296
+    Property EAs: {'site_id': '1654697781058018296', 'm_host': 'WASGWP01', 'source': 'properties_file', 'import_date': '2025-06-06 12:13:13'}
+    InfoBlox EAs: {'import_date': '2025-06-05 16:24:49', 'm_host': 'WASGWP01', 'site_id': '1654697781058018296', 'source': 'properties_file'}
+
+  CIDR: 10.104.8.0/22
+    Site ID: 1655386596360012096
+    Property EAs: {'site_id': '1655386596360012096', 'm_host': 'WASPCP01', 'source': 'properties_file', 'import_date': '2025-06-06 12:13:13'}
+    InfoBlox EAs: {'import_date': '2025-06-05 16:24:49', 'm_host': 'WASPCP01', 'site_id': '1655386596360012096', 'source': 'properties_file'}
+
+  CIDR: 10.98.64.0/22
+    Site ID: 1655386775177021896
+    Property EAs: {'site_id': '1655386775177021896', 'm_host': 'WASTCP01', 'source': 'properties_file', 'import_date': '2025-06-06 12:13:13'}
+    InfoBlox EAs: {'import_date': '2025-06-05 16:24:49', 'm_host': 'WASTCP01', 'site_id': '1655386775177021896', 'source': 'properties_file'}
+
+  CIDR: 10.108.144.0/22
+    Site ID: 1655479735345004796
+    Property EAs: {'site_id': '1655479735345004796', 'm_host': 'WASVAP01', 'source': 'properties_file', 'import_date': '2025-06-06 12:13:13'}
+    InfoBlox EAs: {'import_date': '2025-06-05 16:24:50', 'm_host': 'WASVAP01', 'site_id': '1655479735345004796', 'source': 'properties_file'}
+
+  CIDR: 10.105.152.0/22
+    Site ID: 1655746324503019096
+    Property EAs: {'site_id': '1655746324503019096', 'm_host': 'IADFXP01', 'source': 'properties_file', 'import_date': '2025-06-06 12:13:14'}
+    InfoBlox EAs: {'import_date': '2025-06-05 16:24:50', 'm_host': 'IADFXP01', 'site_id': '1655746324503019096', 'source': 'properties_file'}

@@ -1,6 +1,6 @@
 # Property Networks Extended Attributes Discrepancies Report
 
-Generated: 2025-06-05 15:10:04
+Generated: 2025-06-05 16:24:52
 
 Total networks with EA discrepancies: 8
 
@@ -22,14 +22,14 @@ source: properties_file
 
 #### Expected EAs from Properties File:
 ```
-import_date: 2025-06-05 15:10:00
+import_date: 2025-06-05 16:24:48
 m_host: IADXMP01
 site_id: 16540968605520072
 source: properties_file
 ```
 
 #### Differences:
-- **import_date**: `2025-06-05 14:56:09` → `2025-06-05 15:10:00`
+- **import_date**: `2025-06-05 14:56:09` → `2025-06-05 16:24:48`
 
 ---
 
@@ -49,14 +49,14 @@ source: properties_file
 
 #### Expected EAs from Properties File:
 ```
-import_date: 2025-06-05 15:10:00
+import_date: 2025-06-05 16:24:49
 m_host: WASCTP01
 site_id: 16534423216510206
 source: properties_file
 ```
 
 #### Differences:
-- **import_date**: `2025-06-05 14:56:10` → `2025-06-05 15:10:00`
+- **import_date**: `2025-06-05 14:56:10` → `2025-06-05 16:24:49`
 
 ---
 
@@ -76,14 +76,14 @@ source: properties_file
 
 #### Expected EAs from Properties File:
 ```
-import_date: 2025-06-05 15:10:00
+import_date: 2025-06-05 16:24:49
 m_host: WASNHP01
 site_id: 16534424701980039
 source: properties_file
 ```
 
 #### Differences:
-- **import_date**: `2025-06-05 14:56:10` → `2025-06-05 15:10:00`
+- **import_date**: `2025-06-05 14:56:10` → `2025-06-05 16:24:49`
 
 ---
 
@@ -103,14 +103,14 @@ source: properties_file
 
 #### Expected EAs from Properties File:
 ```
-import_date: 2025-06-05 15:10:01
+import_date: 2025-06-05 16:24:49
 m_host: WASGWP01
 site_id: 1654697781058018296
 source: properties_file
 ```
 
 #### Differences:
-- **import_date**: `2025-06-05 14:56:10` → `2025-06-05 15:10:01`
+- **import_date**: `2025-06-05 14:56:10` → `2025-06-05 16:24:49`
 
 ---
 
@@ -130,14 +130,14 @@ source: properties_file
 
 #### Expected EAs from Properties File:
 ```
-import_date: 2025-06-05 15:10:01
+import_date: 2025-06-05 16:24:49
 m_host: WASPCP01
 site_id: 1655386596360012096
 source: properties_file
 ```
 
 #### Differences:
-- **import_date**: `2025-06-05 14:56:10` → `2025-06-05 15:10:01`
+- **import_date**: `2025-06-05 14:56:10` → `2025-06-05 16:24:49`
 
 ---
 
@@ -157,14 +157,14 @@ source: properties_file
 
 #### Expected EAs from Properties File:
 ```
-import_date: 2025-06-05 15:10:01
+import_date: 2025-06-05 16:24:49
 m_host: WASTCP01
 site_id: 1655386775177021896
 source: properties_file
 ```
 
 #### Differences:
-- **import_date**: `2025-06-05 14:56:10` → `2025-06-05 15:10:01`
+- **import_date**: `2025-06-05 14:56:10` → `2025-06-05 16:24:49`
 
 ---
 
@@ -184,14 +184,14 @@ source: properties_file
 
 #### Expected EAs from Properties File:
 ```
-import_date: 2025-06-05 15:10:04
+import_date: 2025-06-05 16:24:50
 m_host: WASVAP01
 site_id: 1655479735345004796
 source: properties_file
 ```
 
 #### Differences:
-- **import_date**: `2025-06-05 14:56:10` → `2025-06-05 15:10:04`
+- **import_date**: `2025-06-05 14:56:10` → `2025-06-05 16:24:50`
 
 ---
 
@@ -211,14 +211,14 @@ source: properties_file
 
 #### Expected EAs from Properties File:
 ```
-import_date: 2025-06-05 15:10:04
+import_date: 2025-06-05 16:24:50
 m_host: IADFXP01
 site_id: 1655746324503019096
 source: properties_file
 ```
 
 #### Differences:
-- **import_date**: `2025-06-05 14:56:11` → `2025-06-05 15:10:04`
+- **import_date**: `2025-06-05 14:56:11` → `2025-06-05 16:24:50`
 
 ---
 

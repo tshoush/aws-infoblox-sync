@@ -1,0 +1,33 @@
+Overlap Analysis Report
+Generated: 2025-06-06 14:06:13.471674
+Source file: test_overlap_data.csv
+Total networks analyzed: 13
+============================================================
+
+Networks to be created as containers: 4
+
+Container: 10.0.0.0/16
+  Contains 5 networks:
+    - 10.0.0.0/17 (Site: 3002, Host: host-overlap)
+    - 10.0.64.0/18 (Site: 3002, Host: host-overlap)
+    - 10.0.1.0/24 (Site: 1002, Host: host-sub-a1)
+    - 10.0.2.0/24 (Site: 1003, Host: host-sub-a2)
+    - 10.0.10.0/24 (Site: 1004, Host: host-sub-a3)
+
+Container: 10.0.0.0/17
+  Contains 4 networks:
+    - 10.0.64.0/18 (Site: 3002, Host: host-overlap)
+    - 10.0.1.0/24 (Site: 1002, Host: host-sub-a1)
+    - 10.0.2.0/24 (Site: 1003, Host: host-sub-a2)
+    - 10.0.10.0/24 (Site: 1004, Host: host-sub-a3)
+
+Container: 10.1.0.0/16
+  Contains 2 networks:
+    - 10.1.1.0/24 (Site: 4001, Host: host-complex)
+    - 10.1.2.0/24 (Site: 4001, Host: host-complex)
+
+Container: 192.168.0.0/16
+  Contains 2 networks:
+    - 192.168.1.0/24 (Site: 2002, Host: host-sub-b1)
+    - 192.168.2.0/24 (Site: 2003, Host: host-sub-b2)
+

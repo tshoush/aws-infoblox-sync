@@ -2565,3 +2565,2273 @@
 2025-06-05 10:37:39,242 - DEBUG - Network 15.86.136.0/23 (vpc-0f7c905114497cee6) found in InfoBlox
 2025-06-05 10:37:39,242 - DEBUG - Network 15.86.136.0/23 (vpc-0f7c905114497cee6) has matching EAs
 2025-06-05 10:37:39,246 - INFO - Generated network status report: reports\network_status_report_2025-06-05.md
+2025-06-06 12:22:19,716 - DEBUG - Starting new HTTPS connection (1): 10.82.108.28:443
+2025-06-06 12:22:19,938 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/networkview HTTP/1.1" 200 None
+2025-06-06 12:22:33,364 - INFO - Loading VPC data from vpc_data3.csv...
+2025-06-06 12:22:33,379 - INFO - Loaded 17 VPC records from vpc_data3.csv
+2025-06-06 12:22:33,397 - INFO - Comparing AWS VPCs with InfoBlox networks...
+2025-06-06 12:22:33,403 - DEBUG - Starting new HTTPS connection (1): 10.82.108.28:443
+2025-06-06 12:22:33,603 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=15.212.224.0%2F23&network_view=DelAfterTest&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-06 12:22:33,605 - DEBUG - Network 15.212.224.0/23 not found in view DelAfterTest
+2025-06-06 12:22:33,607 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-06 12:22:33,780 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/networkcontainer?network=15.212.224.0%2F23&network_view=DelAfterTest&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-06 12:22:33,781 - DEBUG - Network container 15.212.224.0/23 not found in view DelAfterTest
+2025-06-06 12:22:33,782 - DEBUG - Network 15.212.224.0/23 (vpc-03380da9924618762) not found in InfoBlox
+2025-06-06 12:22:33,783 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-06 12:22:33,952 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=12.216.140.0%2F23&network_view=DelAfterTest&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-06 12:22:33,954 - DEBUG - Network 12.216.140.0/23 not found in view DelAfterTest
+2025-06-06 12:22:33,958 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-06 12:22:34,137 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/networkcontainer?network=12.216.140.0%2F23&network_view=DelAfterTest&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-06 12:22:34,138 - DEBUG - Network container 12.216.140.0/23 not found in view DelAfterTest
+2025-06-06 12:22:34,139 - DEBUG - Network 12.216.140.0/23 (vpc-03c2708b7cb46148f) not found in InfoBlox
+2025-06-06 12:22:34,140 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-06 12:22:34,308 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=12.212.88.0%2F24&network_view=DelAfterTest&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-06 12:22:34,309 - DEBUG - Network 12.212.88.0/24 not found in view DelAfterTest
+2025-06-06 12:22:34,311 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-06 12:22:34,485 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/networkcontainer?network=12.212.88.0%2F24&network_view=DelAfterTest&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-06 12:22:34,486 - DEBUG - Network container 12.212.88.0/24 not found in view DelAfterTest
+2025-06-06 12:22:34,487 - DEBUG - Network 12.212.88.0/24 (vpc-055bca7586ab6cee3) not found in InfoBlox
+2025-06-06 12:22:34,488 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-06 12:22:34,653 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=15.212.118.0%2F25&network_view=DelAfterTest&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-06 12:22:34,655 - DEBUG - Network 15.212.118.0/25 not found in view DelAfterTest
+2025-06-06 12:22:34,658 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-06 12:22:34,851 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/networkcontainer?network=15.212.118.0%2F25&network_view=DelAfterTest&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-06 12:22:34,852 - DEBUG - Network container 15.212.118.0/25 not found in view DelAfterTest
+2025-06-06 12:22:34,853 - DEBUG - Network 15.212.118.0/25 (vpc-088629d17b8c2e609) not found in InfoBlox
+2025-06-06 12:22:34,855 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-06 12:22:35,063 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=10.212.226.0%2F23&network_view=DelAfterTest&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-06 12:22:35,067 - DEBUG - Network 10.212.226.0/23 not found in view DelAfterTest
+2025-06-06 12:22:35,069 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-06 12:22:35,235 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/networkcontainer?network=10.212.226.0%2F23&network_view=DelAfterTest&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-06 12:22:35,236 - DEBUG - Network container 10.212.226.0/23 not found in view DelAfterTest
+2025-06-06 12:22:35,237 - DEBUG - Network 10.212.226.0/23 (vpc-09f08ecfabd8a5a9d) not found in InfoBlox
+2025-06-06 12:22:35,238 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-06 12:22:35,401 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=10.216.248.0%2F23&network_view=DelAfterTest&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-06 12:22:35,402 - DEBUG - Network 10.216.248.0/23 not found in view DelAfterTest
+2025-06-06 12:22:35,405 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-06 12:22:35,570 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/networkcontainer?network=10.216.248.0%2F23&network_view=DelAfterTest&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-06 12:22:35,571 - DEBUG - Network container 10.216.248.0/23 not found in view DelAfterTest
+2025-06-06 12:22:35,572 - DEBUG - Network 10.216.248.0/23 (vpc-0bd4000739077b166) not found in InfoBlox
+2025-06-06 12:22:35,574 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-06 12:22:35,746 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=10.86.150.0%2F23&network_view=DelAfterTest&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-06 12:22:35,747 - DEBUG - Network 10.86.150.0/23 not found in view DelAfterTest
+2025-06-06 12:22:35,750 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-06 12:22:35,913 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/networkcontainer?network=10.86.150.0%2F23&network_view=DelAfterTest&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-06 12:22:35,915 - DEBUG - Network container 10.86.150.0/23 not found in view DelAfterTest
+2025-06-06 12:22:35,916 - DEBUG - Network 10.86.150.0/23 (vpc-01ba98e7bf3558222) not found in InfoBlox
+2025-06-06 12:22:35,917 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-06 12:22:36,090 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=10.212.230.0%2F23&network_view=DelAfterTest&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-06 12:22:36,091 - DEBUG - Network 10.212.230.0/23 not found in view DelAfterTest
+2025-06-06 12:22:36,093 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-06 12:22:36,238 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/networkcontainer?network=10.212.230.0%2F23&network_view=DelAfterTest&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-06 12:22:36,239 - DEBUG - Network container 10.212.230.0/23 not found in view DelAfterTest
+2025-06-06 12:22:36,240 - DEBUG - Network 10.212.230.0/23 (vpc-0007019fc7ef7c946) not found in InfoBlox
+2025-06-06 12:22:36,242 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-06 12:22:36,416 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=10.212.19.128%2F25&network_view=DelAfterTest&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-06 12:22:36,417 - DEBUG - Network 10.212.19.128/25 not found in view DelAfterTest
+2025-06-06 12:22:36,419 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-06 12:22:36,584 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/networkcontainer?network=10.212.19.128%2F25&network_view=DelAfterTest&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-06 12:22:36,585 - DEBUG - Network container 10.212.19.128/25 not found in view DelAfterTest
+2025-06-06 12:22:36,586 - DEBUG - Network 10.212.19.128/25 (vpc-0ae16c521a462ca1c) not found in InfoBlox
+2025-06-06 12:22:36,588 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-06 12:22:36,774 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=112.212.4.0%2F24&network_view=DelAfterTest&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-06 12:22:36,775 - DEBUG - Network 112.212.4.0/24 not found in view DelAfterTest
+2025-06-06 12:22:36,777 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-06 12:22:36,952 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/networkcontainer?network=112.212.4.0%2F24&network_view=DelAfterTest&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-06 12:22:36,953 - DEBUG - Network container 112.212.4.0/24 not found in view DelAfterTest
+2025-06-06 12:22:36,955 - DEBUG - Network 112.212.4.0/24 (vpc-09ca502111aa1a60a) not found in InfoBlox
+2025-06-06 12:22:36,964 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-06 12:22:37,151 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=10.215.248.0%2F23&network_view=DelAfterTest&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-06 12:22:37,152 - DEBUG - Network 10.215.248.0/23 not found in view DelAfterTest
+2025-06-06 12:22:37,155 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-06 12:22:37,374 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/networkcontainer?network=10.215.248.0%2F23&network_view=DelAfterTest&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-06 12:22:37,375 - DEBUG - Network container 10.215.248.0/23 not found in view DelAfterTest
+2025-06-06 12:22:37,376 - DEBUG - Network 10.215.248.0/23 (vpc-078e8685d06b311fa) not found in InfoBlox
+2025-06-06 12:22:37,378 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-06 12:22:37,578 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=10.215.33.0%2F24&network_view=DelAfterTest&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-06 12:22:37,579 - DEBUG - Network 10.215.33.0/24 not found in view DelAfterTest
+2025-06-06 12:22:37,582 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-06 12:22:37,781 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/networkcontainer?network=10.215.33.0%2F24&network_view=DelAfterTest&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-06 12:22:37,782 - DEBUG - Network container 10.215.33.0/24 not found in view DelAfterTest
+2025-06-06 12:22:37,784 - DEBUG - Network 10.215.33.0/24 (vpc-0766434e9b97c0607) not found in InfoBlox
+2025-06-06 12:22:37,785 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-06 12:22:37,964 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=10.212.5.0%2F24&network_view=DelAfterTest&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-06 12:22:37,965 - DEBUG - Network 10.212.5.0/24 not found in view DelAfterTest
+2025-06-06 12:22:37,967 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-06 12:22:38,144 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/networkcontainer?network=10.212.5.0%2F24&network_view=DelAfterTest&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-06 12:22:38,145 - DEBUG - Network container 10.212.5.0/24 not found in view DelAfterTest
+2025-06-06 12:22:38,146 - DEBUG - Network 10.212.5.0/24 (vpc-0a55d95d59874d7e4) not found in InfoBlox
+2025-06-06 12:22:38,148 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-06 12:22:38,307 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=10.212.118.128%2F25&network_view=DelAfterTest&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-06 12:22:38,308 - DEBUG - Network 10.212.118.128/25 not found in view DelAfterTest
+2025-06-06 12:22:38,311 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-06 12:22:38,475 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/networkcontainer?network=10.212.118.128%2F25&network_view=DelAfterTest&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-06 12:22:38,476 - DEBUG - Network container 10.212.118.128/25 not found in view DelAfterTest
+2025-06-06 12:22:38,477 - DEBUG - Network 10.212.118.128/25 (vpc-080c7679bbf4c51cd) not found in InfoBlox
+2025-06-06 12:22:38,479 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-06 12:22:38,771 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=10.212.252.0%2F23&network_view=DelAfterTest&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-06 12:22:38,773 - DEBUG - Network 10.212.252.0/23 not found in view DelAfterTest
+2025-06-06 12:22:38,775 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-06 12:22:38,965 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/networkcontainer?network=10.212.252.0%2F23&network_view=DelAfterTest&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-06 12:22:38,968 - DEBUG - Network container 10.212.252.0/23 not found in view DelAfterTest
+2025-06-06 12:22:38,970 - DEBUG - Network 10.212.252.0/23 (vpc-083c99f0a54576328) not found in InfoBlox
+2025-06-06 12:22:38,979 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-06 12:22:39,443 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=10.213.160.0%2F23&network_view=DelAfterTest&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-06 12:22:39,445 - DEBUG - Network 10.213.160.0/23 not found in view DelAfterTest
+2025-06-06 12:22:39,452 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-06 12:22:39,783 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/networkcontainer?network=10.213.160.0%2F23&network_view=DelAfterTest&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-06 12:22:39,785 - DEBUG - Network container 10.213.160.0/23 not found in view DelAfterTest
+2025-06-06 12:22:39,787 - DEBUG - Network 10.213.160.0/23 (vpc-0b07d46b6bb8d9560) not found in InfoBlox
+2025-06-06 12:22:39,789 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-06 12:22:39,990 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=15.86.136.0%2F23&network_view=DelAfterTest&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-06 12:22:39,992 - DEBUG - Network 15.86.136.0/23 not found in view DelAfterTest
+2025-06-06 12:22:39,994 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-06 12:22:40,196 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/networkcontainer?network=15.86.136.0%2F23&network_view=DelAfterTest&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-06 12:22:40,197 - DEBUG - Network container 15.86.136.0/23 not found in view DelAfterTest
+2025-06-06 12:22:40,199 - DEBUG - Network 15.86.136.0/23 (vpc-0f7c905114497cee6) not found in InfoBlox
+2025-06-06 12:22:40,205 - INFO - Found 23 unique Extended Attributes in AWS tags
+2025-06-06 12:22:40,207 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-06 12:22:40,576 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/extensibleattributedef HTTP/1.1" 200 None
+2025-06-06 12:22:40,594 - INFO - No new or missing Extended Attributes to report.
+2025-06-06 12:22:40,598 - INFO - [DRY RUN] Would create network: 15.212.224.0/23 (mi-lz-icd-core-team-hold-prod-pci-us-east-1-vpc)
+2025-06-06 12:22:40,599 - INFO - [DRY RUN] Would create network: 12.216.140.0/23 (mi-lz-icd-core-team-hold-prod-pci-us-west-2-vpc)
+2025-06-06 12:22:40,600 - INFO - [DRY RUN] Would create network: 10.212.226.0/23 (mi-lz-devops-ss-us-east-1-vpc)
+2025-06-06 12:22:40,600 - INFO - [DRY RUN] Would create network: 10.216.248.0/23 (mi-lz-devops-ss-prod-us-west-2-vpc)
+2025-06-06 12:22:40,601 - INFO - [DRY RUN] Would create network: 10.86.150.0/23 (mi-lz-devops-ss-prod-eu-west-2-vpc)
+2025-06-06 12:22:40,602 - INFO - [DRY RUN] Would create network: 10.212.230.0/23 (mi-lz-mpg-prod-us-east-1-vpc)
+2025-06-06 12:22:40,602 - INFO - [DRY RUN] Would create network: 10.215.248.0/23 (mi-lz-tech-svcs-prod-us-east-1-vpc)
+2025-06-06 12:22:40,605 - INFO - [DRY RUN] Would create network: 10.212.252.0/23 (mi-lz-ocp-prod-us-east-1-vpc)
+2025-06-06 12:22:40,608 - INFO - [DRY RUN] Would create network: 10.213.160.0/23 (mi-lz-ocp-prod-us-west-2-vpc)
+2025-06-06 12:22:40,609 - INFO - [DRY RUN] Would create network: 15.86.136.0/23 (mi-lz-ocp-prod-eu-west-2-vpc)
+2025-06-06 12:22:40,609 - INFO - [DRY RUN] Would create network: 12.212.88.0/24 (mi-lz-dc-finance-test-us-east-1-vpc)
+2025-06-06 12:22:40,610 - INFO - [DRY RUN] Would create network: 112.212.4.0/24 (mi-lz-network-test-us-east-1-vpc)
+2025-06-06 12:22:40,610 - INFO - [DRY RUN] Would create network: 10.215.33.0/24 (mi-lz-mpg-dev-us-east-1-vpc)
+2025-06-06 12:22:40,611 - INFO - [DRY RUN] Would create network: 10.212.5.0/24 (mi-lz-data-migration-gateway-dev-us-east-1-vpc)
+2025-06-06 12:22:40,611 - INFO - [DRY RUN] Would create network: 15.212.118.0/25 (mi-lz-tech-svcs-dev-us-east-1-vpc)
+2025-06-06 12:22:40,612 - INFO - [DRY RUN] Would create network: 10.212.19.128/25 (mi-lz-network-test-default)
+2025-06-06 12:22:40,613 - INFO - [DRY RUN] Would create network: 10.212.118.128/25 (mi-lz-pms-dev-us-east-1-vpc)
+2025-06-06 12:22:40,622 - INFO - Generated network status report: reports\network_status_report_2025-06-06.md
+2025-06-06 12:23:25,001 - DEBUG - Starting new HTTPS connection (1): 10.82.108.28:443
+2025-06-06 12:23:25,223 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/networkview HTTP/1.1" 200 None
+2025-06-06 12:23:33,256 - INFO - Loading VPC data from vpc_data3.csv...
+2025-06-06 12:23:33,264 - INFO - Loaded 17 VPC records from vpc_data3.csv
+2025-06-06 12:23:33,275 - INFO - Comparing AWS VPCs with InfoBlox networks...
+2025-06-06 12:23:33,276 - DEBUG - Starting new HTTPS connection (1): 10.82.108.28:443
+2025-06-06 12:23:33,471 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=15.212.224.0%2F23&network_view=DelAfterTest&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-06 12:23:33,473 - DEBUG - Network 15.212.224.0/23 not found in view DelAfterTest
+2025-06-06 12:23:33,476 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-06 12:23:33,634 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/networkcontainer?network=15.212.224.0%2F23&network_view=DelAfterTest&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-06 12:23:33,635 - DEBUG - Network container 15.212.224.0/23 not found in view DelAfterTest
+2025-06-06 12:23:33,636 - DEBUG - Network 15.212.224.0/23 (vpc-03380da9924618762) not found in InfoBlox
+2025-06-06 12:23:33,638 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-06 12:23:33,801 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=12.216.140.0%2F23&network_view=DelAfterTest&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-06 12:23:33,802 - DEBUG - Network 12.216.140.0/23 not found in view DelAfterTest
+2025-06-06 12:23:33,805 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-06 12:23:33,969 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/networkcontainer?network=12.216.140.0%2F23&network_view=DelAfterTest&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-06 12:23:33,970 - DEBUG - Network container 12.216.140.0/23 not found in view DelAfterTest
+2025-06-06 12:23:33,971 - DEBUG - Network 12.216.140.0/23 (vpc-03c2708b7cb46148f) not found in InfoBlox
+2025-06-06 12:23:33,972 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-06 12:23:34,136 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=12.212.88.0%2F24&network_view=DelAfterTest&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-06 12:23:34,137 - DEBUG - Network 12.212.88.0/24 not found in view DelAfterTest
+2025-06-06 12:23:34,139 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-06 12:23:34,302 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/networkcontainer?network=12.212.88.0%2F24&network_view=DelAfterTest&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-06 12:23:34,304 - DEBUG - Network container 12.212.88.0/24 not found in view DelAfterTest
+2025-06-06 12:23:34,305 - DEBUG - Network 12.212.88.0/24 (vpc-055bca7586ab6cee3) not found in InfoBlox
+2025-06-06 12:23:34,307 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-06 12:23:34,479 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=15.212.118.0%2F25&network_view=DelAfterTest&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-06 12:23:34,480 - DEBUG - Network 15.212.118.0/25 not found in view DelAfterTest
+2025-06-06 12:23:34,482 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-06 12:23:34,638 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/networkcontainer?network=15.212.118.0%2F25&network_view=DelAfterTest&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-06 12:23:34,639 - DEBUG - Network container 15.212.118.0/25 not found in view DelAfterTest
+2025-06-06 12:23:34,640 - DEBUG - Network 15.212.118.0/25 (vpc-088629d17b8c2e609) not found in InfoBlox
+2025-06-06 12:23:34,642 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-06 12:23:34,806 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=10.212.226.0%2F23&network_view=DelAfterTest&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-06 12:23:34,807 - DEBUG - Network 10.212.226.0/23 not found in view DelAfterTest
+2025-06-06 12:23:34,809 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-06 12:23:34,973 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/networkcontainer?network=10.212.226.0%2F23&network_view=DelAfterTest&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-06 12:23:34,974 - DEBUG - Network container 10.212.226.0/23 not found in view DelAfterTest
+2025-06-06 12:23:34,975 - DEBUG - Network 10.212.226.0/23 (vpc-09f08ecfabd8a5a9d) not found in InfoBlox
+2025-06-06 12:23:34,976 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-06 12:23:35,134 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=10.216.248.0%2F23&network_view=DelAfterTest&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-06 12:23:35,135 - DEBUG - Network 10.216.248.0/23 not found in view DelAfterTest
+2025-06-06 12:23:35,137 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-06 12:23:35,303 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/networkcontainer?network=10.216.248.0%2F23&network_view=DelAfterTest&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-06 12:23:35,304 - DEBUG - Network container 10.216.248.0/23 not found in view DelAfterTest
+2025-06-06 12:23:35,305 - DEBUG - Network 10.216.248.0/23 (vpc-0bd4000739077b166) not found in InfoBlox
+2025-06-06 12:23:35,307 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-06 12:23:35,474 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=10.86.150.0%2F23&network_view=DelAfterTest&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-06 12:23:35,475 - DEBUG - Network 10.86.150.0/23 not found in view DelAfterTest
+2025-06-06 12:23:35,477 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-06 12:23:35,642 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/networkcontainer?network=10.86.150.0%2F23&network_view=DelAfterTest&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-06 12:23:35,643 - DEBUG - Network container 10.86.150.0/23 not found in view DelAfterTest
+2025-06-06 12:23:35,644 - DEBUG - Network 10.86.150.0/23 (vpc-01ba98e7bf3558222) not found in InfoBlox
+2025-06-06 12:23:35,645 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-06 12:23:35,814 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=10.212.230.0%2F23&network_view=DelAfterTest&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-06 12:23:35,815 - DEBUG - Network 10.212.230.0/23 not found in view DelAfterTest
+2025-06-06 12:23:35,817 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-06 12:23:35,976 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/networkcontainer?network=10.212.230.0%2F23&network_view=DelAfterTest&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-06 12:23:35,977 - DEBUG - Network container 10.212.230.0/23 not found in view DelAfterTest
+2025-06-06 12:23:35,979 - DEBUG - Network 10.212.230.0/23 (vpc-0007019fc7ef7c946) not found in InfoBlox
+2025-06-06 12:23:35,980 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-06 12:23:36,145 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=10.212.19.128%2F25&network_view=DelAfterTest&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-06 12:23:36,146 - DEBUG - Network 10.212.19.128/25 not found in view DelAfterTest
+2025-06-06 12:23:36,148 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-06 12:23:36,294 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/networkcontainer?network=10.212.19.128%2F25&network_view=DelAfterTest&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-06 12:23:36,295 - DEBUG - Network container 10.212.19.128/25 not found in view DelAfterTest
+2025-06-06 12:23:36,296 - DEBUG - Network 10.212.19.128/25 (vpc-0ae16c521a462ca1c) not found in InfoBlox
+2025-06-06 12:23:36,298 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-06 12:23:36,464 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=112.212.4.0%2F24&network_view=DelAfterTest&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-06 12:23:36,465 - DEBUG - Network 112.212.4.0/24 not found in view DelAfterTest
+2025-06-06 12:23:36,467 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-06 12:23:36,627 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/networkcontainer?network=112.212.4.0%2F24&network_view=DelAfterTest&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-06 12:23:36,628 - DEBUG - Network container 112.212.4.0/24 not found in view DelAfterTest
+2025-06-06 12:23:36,629 - DEBUG - Network 112.212.4.0/24 (vpc-09ca502111aa1a60a) not found in InfoBlox
+2025-06-06 12:23:36,630 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-06 12:23:36,791 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=10.215.248.0%2F23&network_view=DelAfterTest&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-06 12:23:36,792 - DEBUG - Network 10.215.248.0/23 not found in view DelAfterTest
+2025-06-06 12:23:36,794 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-06 12:23:36,959 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/networkcontainer?network=10.215.248.0%2F23&network_view=DelAfterTest&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-06 12:23:36,961 - DEBUG - Network container 10.215.248.0/23 not found in view DelAfterTest
+2025-06-06 12:23:36,962 - DEBUG - Network 10.215.248.0/23 (vpc-078e8685d06b311fa) not found in InfoBlox
+2025-06-06 12:23:36,964 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-06 12:23:37,134 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=10.215.33.0%2F24&network_view=DelAfterTest&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-06 12:23:37,135 - DEBUG - Network 10.215.33.0/24 not found in view DelAfterTest
+2025-06-06 12:23:37,137 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-06 12:23:37,311 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/networkcontainer?network=10.215.33.0%2F24&network_view=DelAfterTest&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-06 12:23:37,312 - DEBUG - Network container 10.215.33.0/24 not found in view DelAfterTest
+2025-06-06 12:23:37,313 - DEBUG - Network 10.215.33.0/24 (vpc-0766434e9b97c0607) not found in InfoBlox
+2025-06-06 12:23:37,315 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-06 12:23:37,501 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=10.212.5.0%2F24&network_view=DelAfterTest&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-06 12:23:37,502 - DEBUG - Network 10.212.5.0/24 not found in view DelAfterTest
+2025-06-06 12:23:37,504 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-06 12:23:37,651 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/networkcontainer?network=10.212.5.0%2F24&network_view=DelAfterTest&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-06 12:23:37,652 - DEBUG - Network container 10.212.5.0/24 not found in view DelAfterTest
+2025-06-06 12:23:37,653 - DEBUG - Network 10.212.5.0/24 (vpc-0a55d95d59874d7e4) not found in InfoBlox
+2025-06-06 12:23:37,655 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-06 12:23:37,809 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=10.212.118.128%2F25&network_view=DelAfterTest&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-06 12:23:37,810 - DEBUG - Network 10.212.118.128/25 not found in view DelAfterTest
+2025-06-06 12:23:37,812 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-06 12:23:37,981 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/networkcontainer?network=10.212.118.128%2F25&network_view=DelAfterTest&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-06 12:23:37,982 - DEBUG - Network container 10.212.118.128/25 not found in view DelAfterTest
+2025-06-06 12:23:37,983 - DEBUG - Network 10.212.118.128/25 (vpc-080c7679bbf4c51cd) not found in InfoBlox
+2025-06-06 12:23:37,985 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-06 12:23:38,216 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=10.212.252.0%2F23&network_view=DelAfterTest&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-06 12:23:38,217 - DEBUG - Network 10.212.252.0/23 not found in view DelAfterTest
+2025-06-06 12:23:38,219 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-06 12:23:38,389 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/networkcontainer?network=10.212.252.0%2F23&network_view=DelAfterTest&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-06 12:23:38,390 - DEBUG - Network container 10.212.252.0/23 not found in view DelAfterTest
+2025-06-06 12:23:38,391 - DEBUG - Network 10.212.252.0/23 (vpc-083c99f0a54576328) not found in InfoBlox
+2025-06-06 12:23:38,393 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-06 12:23:38,557 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=10.213.160.0%2F23&network_view=DelAfterTest&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-06 12:23:38,558 - DEBUG - Network 10.213.160.0/23 not found in view DelAfterTest
+2025-06-06 12:23:38,560 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-06 12:23:38,722 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/networkcontainer?network=10.213.160.0%2F23&network_view=DelAfterTest&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-06 12:23:38,723 - DEBUG - Network container 10.213.160.0/23 not found in view DelAfterTest
+2025-06-06 12:23:38,724 - DEBUG - Network 10.213.160.0/23 (vpc-0b07d46b6bb8d9560) not found in InfoBlox
+2025-06-06 12:23:38,726 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-06 12:23:38,900 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=15.86.136.0%2F23&network_view=DelAfterTest&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-06 12:23:38,901 - DEBUG - Network 15.86.136.0/23 not found in view DelAfterTest
+2025-06-06 12:23:38,903 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-06 12:23:39,059 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/networkcontainer?network=15.86.136.0%2F23&network_view=DelAfterTest&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-06 12:23:39,060 - DEBUG - Network container 15.86.136.0/23 not found in view DelAfterTest
+2025-06-06 12:23:39,061 - DEBUG - Network 15.86.136.0/23 (vpc-0f7c905114497cee6) not found in InfoBlox
+2025-06-06 12:23:39,064 - INFO - Found 23 unique Extended Attributes in AWS tags
+2025-06-06 12:23:39,066 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-06 12:23:39,290 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/extensibleattributedef HTTP/1.1" 200 None
+2025-06-06 12:23:39,311 - INFO - No new or missing Extended Attributes to report.
+2025-06-06 12:23:39,312 - DEBUG - Creating network with data: {
+  "network": "15.212.224.0/23",
+  "network_view": "DelAfterTest",
+  "comment": "AWS VPC: mi-lz-icd-core-team-hold-prod-pci-us-east-1-vpc (VPC ID: vpc-03380da9924618762)",
+  "extattrs": {
+    "aws_stnostatus_vpcassociation": {
+      "value": "2023-07-21T18:25:43Z: Fayrouz VPC has been associated with the Transit Gateway Routing Table/Domain"
+    },
+    "aws_name": {
+      "value": "mi-lz-icd-core-team-hold-prod-pci-us-east-1-vpc"
+    },
+    "aws_associate_with": {
+      "value": "tgw-pci-prod-accounts-rt"
+    },
+    "aws_dud": {
+      "value": "51519542158"
+    },
+    "aws_stnostatus_vpcattachment": {
+      "value": "2023-07-21T18:24:14Z: VPC has been attached to the Transit Gateway"
+    },
+    "aws_created_by": {
+      "value": "amanj426"
+    },
+    "aws_tfc_created": {
+      "value": "true"
+    },
+    "owner": {
+      "value": "S:Public Cloud Adnan Haq"
+    },
+    "project": {
+      "value": "Backup Account in AWS for Cloud backup implementation"
+    },
+    "aws_requested_by": {
+      "value": "mosca176"
+    },
+    "aws_propagate_to": {
+      "value": "tgw-pci-prod-accounts-rt,tgw-dx-prod-rt,tgw-shared-account-rt"
+    },
+    "aws_stnostatus_vpcpropagation": {
+      "value": "2023-07-21T18:25:57Z: VPC RT propagation has been enabled to the Transit Gateway Routing Table/Domain"
+    },
+    "aws_environmenttarig": {
+      "value": "prodpci"
+    },
+    "aws_cloudservice": {
+      "value": "no_tier0_vpc"
+    },
+    "description": {
+      "value": "Prod pci Backup Account creation in AWS for Cloud backup implementation"
+    },
+    "aws_location": {
+      "value": "aws-us-east-1"
+    }
+  }
+}
+2025-06-06 12:23:39,326 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-06 12:23:39,538 - DEBUG - https://10.82.108.28:443 "POST /wapi/v2.13.1/network HTTP/1.1" 201 None
+2025-06-06 12:23:39,539 - INFO - Created network 15.212.224.0/23 in view DelAfterTest
+2025-06-06 12:23:39,540 - INFO - Created network: 15.212.224.0/23 (mi-lz-icd-core-team-hold-prod-pci-us-east-1-vpc)
+2025-06-06 12:23:39,541 - DEBUG - Creating network with data: {
+  "network": "12.216.140.0/23",
+  "network_view": "DelAfterTest",
+  "comment": "AWS VPC: mi-lz-icd-core-team-hold-prod-pci-us-west-2-vpc (VPC ID: vpc-03c2708b7cb46148f)",
+  "extattrs": {
+    "aws_tarig": {
+      "value": "51519542158"
+    },
+    "project": {
+      "value": "Tarig Backup Account creation in AWS for Cloud backup implementation"
+    },
+    "aws_stnostatus_vpcattachment": {
+      "value": "2023-07-24T16:14:06Z: VPC has been attached to the Transit Gateway"
+    },
+    "aws_tfc_created": {
+      "value": "true"
+    },
+    "aws_requested_by": {
+      "value": "mosca176"
+    },
+    "aws_stnostatus_vpcpropagation": {
+      "value": "2023-07-24T16:17:37Z: VPC RT propagation has been enabled to the Transit Gateway Routing Table/Domain"
+    },
+    "aws_stnostatus_vpcassociation": {
+      "value": "2023-07-24T16:17:35Z: VPC has been associated with the Transit Gateway Routing Table/Domain"
+    },
+    "aws_created_by": {
+      "value": "amanj426"
+    },
+    "aws_propagate_to": {
+      "value": "tgw-pci-prod-accounts-rt,tgw-dx-prod-rt,tgw-shared-account-rt"
+    },
+    "aws_name": {
+      "value": "mi-lz-icd-core-team-hold-prod-pci-us-west-2-vpc"
+    },
+    "aws_cloudservice": {
+      "value": "no_tier0_vpc"
+    },
+    "aws_location": {
+      "value": "aws-us-west-2"
+    },
+    "description": {
+      "value": "Backup Account creation in AWS for Cloud backup implementation"
+    },
+    "owner": {
+      "value": "S:Public Cloud Adnan Haq"
+    },
+    "environment": {
+      "value": "prodpci"
+    },
+    "aws_associate_with": {
+      "value": "tgw-pci-prod-accounts-rt"
+    }
+  }
+}
+2025-06-06 12:23:39,559 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-06 12:23:39,769 - DEBUG - https://10.82.108.28:443 "POST /wapi/v2.13.1/network HTTP/1.1" 201 None
+2025-06-06 12:23:39,770 - INFO - Created network 12.216.140.0/23 in view DelAfterTest
+2025-06-06 12:23:39,771 - INFO - Created network: 12.216.140.0/23 (mi-lz-icd-core-team-hold-prod-pci-us-west-2-vpc)
+2025-06-06 12:23:39,771 - DEBUG - Creating network with data: {
+  "network": "10.212.226.0/23",
+  "network_view": "DelAfterTest",
+  "comment": "AWS VPC: mi-lz-devops-ss-us-east-1-vpc (VPC ID: vpc-09f08ecfabd8a5a9d)",
+  "extattrs": {
+    "aws_requested_by": {
+      "value": "sginj220"
+    },
+    "aws_fayrouz": {
+      "value": "shared services"
+    },
+    "aws_tfe_created": {
+      "value": "true"
+    },
+    "aws_stnostatus_vpcattachment": {
+      "value": "2023-02-28T18:44:40Z: VPC has been attached to the Transit Gateway"
+    },
+    "aws_name": {
+      "value": "mi-lz-devops-ss-us-east-1-vpc"
+    },
+    "aws_stnostatus_vpcpropagation": {
+      "value": "2023-02-28T18:48:12Z: VPC RT propagation has been enabled to the Transit Gateway Routing Table/Domain"
+    },
+    "aws_location": {
+      "value": "aws-us-east-1"
+    },
+    "aws_cloudservice": {
+      "value": "no_tier0_vpc"
+    },
+    "aws_created_by": {
+      "value": "anjok224"
+    },
+    "project": {
+      "value": "lz ss account for devops team"
+    },
+    "aws_associate_with": {
+      "value": "tgw-shared-account-rt"
+    },
+    "description": {
+      "value": "shared account used for DevSecOps servers"
+    },
+    "aws_dud": {
+      "value": "51519542033"
+    },
+    "owner": {
+      "value": "H:Infra Engineering param_value Auto Adnan Haq"
+    },
+    "aws_stnostatus_vpcassociation": {
+      "value": "2023-02-28T18:48:10Z: VPC has been associated with the Transit Gateway Routing Table/Domain"
+    },
+    "aws_propagate_to": {
+      "value": "tgw-shared-account-rt,tgw-prod-accounts-rt,tgw-dx-prod-rt,tgw-nonprod-accounts-rt,tgw-virginia-oregon-peer-rt"
+    }
+  }
+}
+2025-06-06 12:23:39,793 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-06 12:23:40,003 - DEBUG - https://10.82.108.28:443 "POST /wapi/v2.13.1/network HTTP/1.1" 201 None
+2025-06-06 12:23:40,005 - INFO - Created network 10.212.226.0/23 in view DelAfterTest
+2025-06-06 12:23:40,006 - INFO - Created network: 10.212.226.0/23 (mi-lz-devops-ss-us-east-1-vpc)
+2025-06-06 12:23:40,006 - DEBUG - Creating network with data: {
+  "network": "10.216.248.0/23",
+  "network_view": "DelAfterTest",
+  "comment": "AWS VPC: mi-lz-devops-ss-prod-us-west-2-vpc (VPC ID: vpc-0bd4000739077b166)",
+  "extattrs": {
+    "aws_fayrouz": {
+      "value": "mi-lz-devops-ss-prod-us-west-2-vpc"
+    },
+    "aws_stnostatus_vpcattachment": {
+      "value": "2024-08-22T21:07:02Z: VPC has been attached to the Transit Gateway"
+    },
+    "aws_propagate_to": {
+      "value": "tgw-shared-account-rt,tgw-prod-accounts-rt,tgw-dx-prod-rt,tgw-nonprod-accounts-rt,tgw-oregon-virginia-peer-rt"
+    },
+    "aws_stnostatus_vpcassociation": {
+      "value": "2024-08-22T21:12:19Z: VPC has been associated with the Transit Gateway Routing Table/Domain"
+    },
+    "aws_dud": {
+      "value": "51519542033"
+    },
+    "aws_stnostatus_vpcpropagation": {
+      "value": "2024-08-22T21:12:21Z: VPC RT propagation has been enabled to the Transit Gateway Routing Table/Domain"
+    },
+    "aws_segment": {
+      "value": "admin"
+    },
+    "aws_associate_with": {
+      "value": "tgw-shared-account-rt"
+    }
+  }
+}
+2025-06-06 12:23:40,011 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-06 12:23:40,189 - DEBUG - https://10.82.108.28:443 "POST /wapi/v2.13.1/network HTTP/1.1" 201 None
+2025-06-06 12:23:40,190 - INFO - Created network 10.216.248.0/23 in view DelAfterTest
+2025-06-06 12:23:40,191 - INFO - Created network: 10.216.248.0/23 (mi-lz-devops-ss-prod-us-west-2-vpc)
+2025-06-06 12:23:40,191 - DEBUG - Creating network with data: {
+  "network": "10.86.150.0/23",
+  "network_view": "DelAfterTest",
+  "comment": "AWS VPC: mi-lz-devops-ss-prod-eu-west-2-vpc (VPC ID: vpc-01ba98e7bf3558222)",
+  "extattrs": {
+    "aws_segment": {
+      "value": "admin"
+    },
+    "aws_name": {
+      "value": "Tarig"
+    },
+    "aws_dud": {
+      "value": "51519542033"
+    }
+  }
+}
+2025-06-06 12:23:40,194 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-06 12:23:40,357 - DEBUG - https://10.82.108.28:443 "POST /wapi/v2.13.1/network HTTP/1.1" 201 None
+2025-06-06 12:23:40,358 - INFO - Created network 10.86.150.0/23 in view DelAfterTest
+2025-06-06 12:23:40,360 - INFO - Created network: 10.86.150.0/23 (mi-lz-devops-ss-prod-eu-west-2-vpc)
+2025-06-06 12:23:40,360 - DEBUG - Creating network with data: {
+  "network": "10.212.230.0/23",
+  "network_view": "DelAfterTest",
+  "comment": "AWS VPC: mi-lz-mpg-prod-us-east-1-vpc (VPC ID: vpc-0007019fc7ef7c946)",
+  "extattrs": {
+    "aws_cloudservice": {
+      "value": "no_tier0_vpc"
+    },
+    "description": {
+      "value": "Migration of MPG platform hosted in Rackspace private cloud"
+    },
+    "aws_requested_by": {
+      "value": "jalop838"
+    },
+    "aws_location": {
+      "value": "aws-us-east-1"
+    },
+    "project": {
+      "value": "lz foundational-tip prod account for mpg team"
+    },
+    "aws_name": {
+      "value": "mi-lz-mpg-prod-us-east-1-vpc"
+    },
+    "environment": {
+      "value": "prod"
+    },
+    "aws_propagate_to": {
+      "value": "tgw-prod-accounts-rt,tgw-dx-prod-rt,tgw-shared-account-rt,tgw-virginia-oregon-peer-rt"
+    },
+    "aws_stnostatus_vpcattachment": {
+      "value": "2023-05-24T21:00:41Z: VPC has been attached to the Transit Gateway"
+    },
+    "owner": {
+      "value": "Jesus Lopez"
+    },
+    "aws_associate_with": {
+      "value": "tgw-prod-accounts-rt"
+    },
+    "aws_stnostatus_vpcassociation": {
+      "value": "2023-05-24T21:05:08Z: VPC has been associated with the Transit Gateway Routing Table/Domain"
+    },
+    "aws_dud": {
+      "value": "51519542154"
+    },
+    "aws_tfc_created": {
+      "value": "true"
+    },
+    "aws_created_by": {
+      "value": "anjok224"
+    },
+    "aws_stnostatus_vpcpropagation": {
+      "value": "2023-05-24T21:06:06Z: VPC RT propagation has been enabled to the Transit Gateway Routing Table/Domain"
+    }
+  }
+}
+2025-06-06 12:23:40,375 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-06 12:23:40,576 - DEBUG - https://10.82.108.28:443 "POST /wapi/v2.13.1/network HTTP/1.1" 201 None
+2025-06-06 12:23:40,577 - INFO - Created network 10.212.230.0/23 in view DelAfterTest
+2025-06-06 12:23:40,578 - INFO - Created network: 10.212.230.0/23 (mi-lz-mpg-prod-us-east-1-vpc)
+2025-06-06 12:23:40,579 - DEBUG - Creating network with data: {
+  "network": "10.215.248.0/23",
+  "network_view": "DelAfterTest",
+  "comment": "AWS VPC: mi-lz-tech-svcs-prod-us-east-1-vpc (VPC ID: vpc-078e8685d06b311fa)",
+  "extattrs": {
+    "aws_location": {
+      "value": "aws-us-east-1"
+    },
+    "aws_cloudservice": {
+      "value": "Tarigno_tier0_vpc"
+    },
+    "description": {
+      "value": "prod us-east-1 VPC for Tech Services"
+    },
+    "aws_name": {
+      "value": "mi-lz-tech-svcs-prod-us-east-1-vpc"
+    },
+    "aws_tfc_created": {
+      "value": "true"
+    },
+    "environment": {
+      "value": "prod"
+    },
+    "owner": {
+      "value": "Dan Cronin"
+    },
+    "aws_requested_by": {
+      "value": "numen682"
+    },
+    "aws_stnostatus_vpcassociation": {
+      "value": "2024-07-31T19:11:38Z: VPC has been associated with the Transit Gateway Routing Table/Domain"
+    },
+    "aws_stnostatus_vpcpropagation": {
+      "value": "2024-07-31T19:14:01Z: VPC RT propagation has been enabled to the Transit Gateway Routing Table/Domain"
+    },
+    "aws_associate_with": {
+      "value": "tgw-prod-accounts-rt"
+    },
+    "aws_propagate_to": {
+      "value": "tgw-prod-accounts-rt,tgw-dx-prod-rt,tgw-shared-account-rt,tgw-virginia-oregon-peer-rt"
+    },
+    "aws_stnostatus_vpcattachment": {
+      "value": "2024-07-31T19:09:23Z: VPC has been attached to the Transit Gateway"
+    },
+    "aws_created_by": {
+      "value": "jmeht561"
+    },
+    "project": {
+      "value": "Tech Services"
+    },
+    "aws_dud": {
+      "value": "52529967325"
+    }
+  }
+}
+2025-06-06 12:23:40,595 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-06 12:23:40,774 - DEBUG - https://10.82.108.28:443 "POST /wapi/v2.13.1/network HTTP/1.1" 201 None
+2025-06-06 12:23:40,776 - INFO - Created network 10.215.248.0/23 in view DelAfterTest
+2025-06-06 12:23:40,777 - INFO - Created network: 10.215.248.0/23 (mi-lz-tech-svcs-prod-us-east-1-vpc)
+2025-06-06 12:23:40,777 - DEBUG - Creating network with data: {
+  "network": "10.212.252.0/23",
+  "network_view": "DelAfterTest",
+  "comment": "AWS VPC: mi-lz-ocp-prod-us-east-1-vpc (VPC ID: vpc-083c99f0a54576328)",
+  "extattrs": {
+    "aws_stnostatus_vpcattachment": {
+      "value": "2022-10-11T05:24:51Z: VPC has been attached to the Transit Gateway"
+    },
+    "aws_tfe_created": {
+      "value": "true"
+    },
+    "aws_location": {
+      "value": "aws-us-east-1"
+    },
+    "environment": {
+      "value": "prod"
+    },
+    "aws_stnostatus_vpcassociation": {
+      "value": "2022-10-11T05:27:27Z: VPC has been associated with the Transit Gateway Routing Table/Domain"
+    },
+    "aws_cloudservice": {
+      "value": "no_tier0_vpc"
+    },
+    "owner": {
+      "value": "ICD Public Cloud kdelt508"
+    },
+    "aws_associate_with": {
+      "value": "tgw-prod-accounts-rt"
+    },
+    "project": {
+      "value": "ocp prod account for landing zone"
+    },
+    "aws_name": {
+      "value": "mi-lz-ocp-prod-us-east-1-vpc"
+    },
+    "aws_propagate_to": {
+      "value": "tgw-prod-accounts-rt,tgw-dx-prod-rt,tgw-shared-account-rt,tgw-virginia-oregon-peer-rt"
+    },
+    "aws_created_by": {
+      "value": "tshet584"
+    },
+    "aws_dud": {
+      "value": "51519542158"
+    },
+    "aws_stnostatus_vpcpropagation": {
+      "value": "2022-10-11T05:27:41Z: VPC RT propagation has been enabled to the Transit Gateway Routing Table/Domain"
+    }
+  }
+}
+2025-06-06 12:23:40,790 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-06 12:23:40,978 - DEBUG - https://10.82.108.28:443 "POST /wapi/v2.13.1/network HTTP/1.1" 201 None
+2025-06-06 12:23:40,979 - INFO - Created network 10.212.252.0/23 in view DelAfterTest
+2025-06-06 12:23:40,980 - INFO - Created network: 10.212.252.0/23 (mi-lz-ocp-prod-us-east-1-vpc)
+2025-06-06 12:23:40,980 - DEBUG - Creating network with data: {
+  "network": "10.213.160.0/23",
+  "network_view": "DelAfterTest",
+  "comment": "AWS VPC: mi-lz-ocp-prod-us-west-2-vpc (VPC ID: vpc-0b07d46b6bb8d9560)",
+  "extattrs": {
+    "aws_name": {
+      "value": "mi-lz-ocp-prod-us-west-2-vpc"
+    },
+    "aws_associate_with": {
+      "value": "tgw-prod-accounts-rt"
+    },
+    "aws_dud": {
+      "value": "51519542158"
+    },
+    "owner": {
+      "value": "ICD Public Cloud kdelt508"
+    },
+    "aws_propagate_to": {
+      "value": "tgw-prod-accounts-rt,tgw-dx-prod-rt,tgw-shared-account-rt,tgw-oregon-virginia-peer-rt"
+    },
+    "aws_created_by": {
+      "value": "anjok224"
+    },
+    "aws_cloudservice": {
+      "value": "no_tier0_vpc"
+    },
+    "aws_location": {
+      "value": "aws-us-west-2"
+    },
+    "aws_stnostatus_vpcattachment": {
+      "value": "2023-01-30T17:00:14Z: VPC has been attached to the Transit Gateway"
+    },
+    "project": {
+      "value": "ocp prod account for landing zone"
+    },
+    "aws_stnostatus_vpcpropagation": {
+      "value": "2023-01-30T17:03:57Z: VPC RT propagation has been enabled to the Transit Gateway Routing Table/Domain"
+    },
+    "aws_stnostatus_vpcassociation": {
+      "value": "2023-01-30T17:03:55Z: VPC has been associated with the Transit Gateway Routing Table/Domain"
+    },
+    "aws_tfe_created": {
+      "value": "true"
+    },
+    "environment": {
+      "value": "prod"
+    }
+  }
+}
+2025-06-06 12:23:40,991 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-06 12:23:41,175 - DEBUG - https://10.82.108.28:443 "POST /wapi/v2.13.1/network HTTP/1.1" 201 None
+2025-06-06 12:23:41,176 - INFO - Created network 10.213.160.0/23 in view DelAfterTest
+2025-06-06 12:23:41,177 - INFO - Created network: 10.213.160.0/23 (mi-lz-ocp-prod-us-west-2-vpc)
+2025-06-06 12:23:41,177 - DEBUG - Creating network with data: {
+  "network": "15.86.136.0/23",
+  "network_view": "DelAfterTest",
+  "comment": "AWS VPC: mi-lz-ocp-prod-eu-west-2-vpc (VPC ID: vpc-0f7c905114497cee6)",
+  "extattrs": {
+    "aws_tfe_created": {
+      "value": "true"
+    },
+    "aws_dud": {
+      "value": "51519542158"
+    },
+    "aws_stnostatus_vpcassociation": {
+      "value": "2022-12-16T19:50:07Z: VPC has been associated with the Transit Gateway Routing Table/Domain"
+    },
+    "aws_location": {
+      "value": "aws-eu-west-2"
+    },
+    "aws_stnostatus_vpcattachment": {
+      "value": "2022-12-16T19:46:34Z: VPC has been attached to the Transit Gateway"
+    },
+    "aws_created_by": {
+      "value": "anjok224"
+    },
+    "aws_stnostatus_vpcpropagation": {
+      "value": "2022-12-16T19:50:10Z: VPC RT propagation has been enabled to the Transit Gateway Routing Table/Domain"
+    },
+    "owner": {
+      "value": "ICD Public Cloud kdelt508"
+    },
+    "aws_associate_with": {
+      "value": "tgw-prod-accounts-rt"
+    },
+    "aws_propagate_to": {
+      "value": "tgw-prod-accounts-rt,tgw-dx-prod-rt,tgw-shared-account-rt,tgw-london-virginia-peer-rt,tgw-london-oregon-peer-rt"
+    },
+    "project": {
+      "value": "ocp prod account for landing zone"
+    },
+    "aws_name": {
+      "value": "mi-lz-ocp-prod-eu-west-2-vpc"
+    },
+    "aws_cloudservice": {
+      "value": "no_tier0_vpc"
+    },
+    "environment": {
+      "value": "prod"
+    }
+  }
+}
+2025-06-06 12:23:41,185 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-06 12:23:41,356 - DEBUG - https://10.82.108.28:443 "POST /wapi/v2.13.1/network HTTP/1.1" 201 None
+2025-06-06 12:23:41,357 - INFO - Created network 15.86.136.0/23 in view DelAfterTest
+2025-06-06 12:23:41,358 - INFO - Created network: 15.86.136.0/23 (mi-lz-ocp-prod-eu-west-2-vpc)
+2025-06-06 12:23:41,359 - DEBUG - Creating network with data: {
+  "network": "12.212.88.0/24",
+  "network_view": "DelAfterTest",
+  "comment": "AWS VPC: mi-lz-dc-finance-test-us-east-1-vpc (VPC ID: vpc-055bca7586ab6cee3)",
+  "extattrs": {
+    "aws_tarig2": {
+      "value": "tgw-nonprod-accounts-rt"
+    },
+    "aws_name": {
+      "value": "mi-lz-dc-finance-test-us-east-1-vpc"
+    },
+    "environment": {
+      "value": "test"
+    },
+    "aws_created_by": {
+      "value": "anjok224"
+    },
+    "aws_stnostatus_vpcattachment": {
+      "value": "2023-06-05T16:47:23Z: VPC has been attached to the Transit Gateway"
+    },
+    "aws_stnostatus_vpcpropagation": {
+      "value": "2023-06-05T16:50:33Z: VPC RT propagation has been enabled to the Transit Gateway Routing Table/Domain"
+    },
+    "aws_dud": {
+      "value": "52529967389"
+    },
+    "description": {
+      "value": "test account for dc finance"
+    },
+    "project": {
+      "value": "lz test account for dc finance"
+    },
+    "aws_cloudservice": {
+      "value": "no_tier0_vpc"
+    },
+    "aws_tfc_created": {
+      "value": "true"
+    },
+    "aws_stnostatus_vpcassociation": {
+      "value": "2023-06-05T16:50:31Z: VPC has been associated with the Transit Gateway Routing Table/Domain"
+    },
+    "aws_location": {
+      "value": "aws-us-east-1"
+    },
+    "owner": {
+      "value": "I:MGP Impacted Sys Fin Sanchita Sarkar"
+    },
+    "aws_propagate_to": {
+      "value": "tgw-nonprod-accounts-rt,tgw-dx-nonprod-rt,tgw-shared-account-rt,tgw-virginia-oregon-peer-rt"
+    },
+    "aws_requested_by": {
+      "value": "amjac426"
+    }
+  }
+}
+2025-06-06 12:23:41,368 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-06 12:23:41,561 - DEBUG - https://10.82.108.28:443 "POST /wapi/v2.13.1/network HTTP/1.1" 201 None
+2025-06-06 12:23:41,563 - INFO - Created network 12.212.88.0/24 in view DelAfterTest
+2025-06-06 12:23:41,564 - INFO - Created network: 12.212.88.0/24 (mi-lz-dc-finance-test-us-east-1-vpc)
+2025-06-06 12:23:41,564 - DEBUG - Creating network with data: {
+  "network": "112.212.4.0/24",
+  "network_view": "DelAfterTest",
+  "comment": "AWS VPC: mi-lz-network-test-us-east-1-vpc (VPC ID: vpc-09ca502111aa1a60a)",
+  "extattrs": {
+    "aws_stnostatus_vpcattachment": {
+      "value": "2022-11-18T21:17:54Z: VPC has been attached to the Transit Gateway"
+    },
+    "aws_stnostatus_vpcassociation": {
+      "value": "2022-11-18T21:20:40Z: VPC has been associated with the Transit Gateway Routing Table/Domain"
+    },
+    "aws_name": {
+      "value": "mi-lz-network-test-us-east-1-vpc"
+    },
+    "project": {
+      "value": "Network test account for landing zone"
+    },
+    "aws_created_by": {
+      "value": "tshet584"
+    },
+    "aws_stnostatus_vpcpropagation": {
+      "value": "2024-08-30T15:07:46Z: VPC RT propagation has been disabled from the Transit Gateway Routing Table/Domain"
+    },
+    "aws_dud": {
+      "value": "52529967360"
+    },
+    "environment": {
+      "value": "test"
+    },
+    "aws_associate_with": {
+      "value": "tgw-nonprod-accounts-rt"
+    },
+    "aws_cloudservice": {
+      "value": "no_tier0_vpc"
+    },
+    "owner": {
+      "value": "H Network Engineering Matt Barzack"
+    },
+    "aws_location": {
+      "value": "aws-us-east-1"
+    },
+    "aws_tfe_created": {
+      "value": "true"
+    }
+  }
+}
+2025-06-06 12:23:41,571 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-06 12:23:41,761 - DEBUG - https://10.82.108.28:443 "POST /wapi/v2.13.1/network HTTP/1.1" 201 None
+2025-06-06 12:23:41,762 - INFO - Created network 112.212.4.0/24 in view DelAfterTest
+2025-06-06 12:23:41,763 - INFO - Created network: 112.212.4.0/24 (mi-lz-network-test-us-east-1-vpc)
+2025-06-06 12:23:41,764 - DEBUG - Creating network with data: {
+  "network": "10.215.33.0/24",
+  "network_view": "DelAfterTest",
+  "comment": "AWS VPC: mi-lz-mpg-dev-us-east-1-vpc (VPC ID: vpc-0766434e9b97c0607)",
+  "extattrs": {
+    "aws_tarigrequested_by": {
+      "value": "jalop838"
+    },
+    "aws_stnostatus_vpcattachment": {
+      "value": "2023-05-24T18:45:28Z: VPC has been attached to the Transit Gateway"
+    },
+    "aws_location": {
+      "value": "aws-us-east-1"
+    },
+    "description": {
+      "value": "Migration of MPG platform hosted in Rackspace private cloud"
+    },
+    "aws_cloudservice": {
+      "value": "no_tier0_vpc"
+    },
+    "environment": {
+      "value": "dev"
+    },
+    "aws_created_by": {
+      "value": "anjok224"
+    },
+    "aws_propagate_to": {
+      "value": "tgw-nonprod-accounts-rt,tgw-dx-nonprod-rt,tgw-shared-account-rt,tgw-virginia-oregon-peer-rt"
+    },
+    "aws_dud": {
+      "value": "51519542154"
+    },
+    "project": {
+      "value": "lz foundational-tip prod account for mpg team"
+    },
+    "aws_tfc_created": {
+      "value": "true"
+    },
+    "aws_associate_with": {
+      "value": "tgw-nonprod-accounts-rt"
+    },
+    "aws_name": {
+      "value": "mi-lz-mpg-dev-us-east-1-vpc"
+    },
+    "owner": {
+      "value": "Jesus Lopez"
+    },
+    "aws_stnostatus_vpcassociation": {
+      "value": "2023-05-24T18:47:30Z: VPC has been associated with the Transit Gateway Routing Table/Domain"
+    },
+    "aws_stnostatus_vpcpropagation": {
+      "value": "2023-05-24T18:47:31Z: VPC RT propagation has been enabled to the Transit Gateway Routing Table/Domain"
+    }
+  }
+}
+2025-06-06 12:23:41,772 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-06 12:23:41,956 - DEBUG - https://10.82.108.28:443 "POST /wapi/v2.13.1/network HTTP/1.1" 201 None
+2025-06-06 12:23:41,959 - INFO - Created network 10.215.33.0/24 in view DelAfterTest
+2025-06-06 12:23:41,961 - INFO - Created network: 10.215.33.0/24 (mi-lz-mpg-dev-us-east-1-vpc)
+2025-06-06 12:23:41,962 - DEBUG - Creating network with data: {
+  "network": "10.212.5.0/24",
+  "network_view": "DelAfterTest",
+  "comment": "AWS VPC: mi-lz-data-migration-gateway-dev-us-east-1-vpc (VPC ID: vpc-0a55d95d59874d7e4)",
+  "extattrs": {
+    "environment": {
+      "value": "dev"
+    },
+    "aws_dud": {
+      "value": "52529967570"
+    },
+    "aws_stnostatus_vpcpropagation": {
+      "value": "2022-12-05T12:47:54Z: VPC RT propagation has been enabled to the Transit Gateway Routing Table/Domain"
+    },
+    "project": {
+      "value": "Data Migration Gateway"
+    },
+    "aws_name": {
+      "value": "mi-lz-data-migration-gateway-dev-us-east-1-vpc"
+    },
+    "aws_stnostatus_vpcattachment": {
+      "value": "2022-12-05T12:45:58Z: VPC has been attached to the Transit Gateway"
+    },
+    "aws_propagate_to": {
+      "value": "tgw-nonprod-accounts-rt,tgw-dx-nonprod-rt,tgw-shared-account-rt,tgw-virginia-oregon-peer-rt"
+    },
+    "owner": {
+      "value": "Jennifer Mefford"
+    },
+    "aws_created_by": {
+      "value": "rjain362"
+    },
+    "aws_associate_with": {
+      "value": "tgw-nonprod-accounts-rt"
+    },
+    "aws_location": {
+      "value": "aws-us-east-1"
+    },
+    "aws_stnostatus_vpcassociation": {
+      "value": "2022-12-05T12:47:40Z: VPC has been associated with the Transit Gateway Routing Table/Domain"
+    },
+    "aws_cloudservice": {
+      "value": "no_tier0_vpc"
+    },
+    "aws_tfe_created": {
+      "value": "true"
+    }
+  }
+}
+2025-06-06 12:23:41,979 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-06 12:23:42,173 - DEBUG - https://10.82.108.28:443 "POST /wapi/v2.13.1/network HTTP/1.1" 201 None
+2025-06-06 12:23:42,174 - INFO - Created network 10.212.5.0/24 in view DelAfterTest
+2025-06-06 12:23:42,175 - INFO - Created network: 10.212.5.0/24 (mi-lz-data-migration-gateway-dev-us-east-1-vpc)
+2025-06-06 12:23:42,176 - DEBUG - Creating network with data: {
+  "network": "15.212.118.0/25",
+  "network_view": "DelAfterTest",
+  "comment": "AWS VPC: mi-lz-tech-svcs-dev-us-east-1-vpc (VPC ID: vpc-088629d17b8c2e609)",
+  "extattrs": {
+    "aws_tfc_created": {
+      "value": "true"
+    },
+    "aws_location": {
+      "value": "aws-us-east-1"
+    },
+    "description": {
+      "value": "dev us-east-1 VPC for Tech Services"
+    },
+    "aws_name": {
+      "value": "mi-lz-tech-svcs-dev-us-east-1-vpc"
+    },
+    "aws_dud": {
+      "value": "52529967325"
+    },
+    "aws_cloudservice": {
+      "value": "no_tier0_vpc"
+    },
+    "project": {
+      "value": "Tech Services"
+    },
+    "aws_stnostatus_vpcassociation": {
+      "value": "2024-07-31T15:21:38Z: VPC has been associated with the Transit Gateway Routing Table/Domain"
+    },
+    "environment": {
+      "value": "Dev"
+    },
+    "aws_requested_by": {
+      "value": "numen682"
+    },
+    "aws_associate_with": {
+      "value": "tgw-nonprod-accounts-rt"
+    },
+    "aws_propagate_to": {
+      "value": "tgw-nonprod-accounts-rt,tgw-dx-nonprod-rt,tgw-shared-account-rt,tgw-virginia-oregon-peer-rt"
+    },
+    "aws_stnostatus_vpcattachment": {
+      "value": "2024-07-31T15:17:52Z: VPC has been attached to the Transit Gateway"
+    },
+    "aws_stnostatus_vpcpropagation": {
+      "value": "2024-07-31T15:21:39Z: VPC RT propagation has been enabled to the Transit Gateway Routing Table/Domain"
+    },
+    "aws_created_by": {
+      "value": "jmeht561"
+    },
+    "owner": {
+      "value": "Dan Cronin"
+    }
+  }
+}
+2025-06-06 12:23:42,191 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-06 12:23:42,403 - DEBUG - https://10.82.108.28:443 "POST /wapi/v2.13.1/network HTTP/1.1" 201 None
+2025-06-06 12:23:42,406 - INFO - Created network 15.212.118.0/25 in view DelAfterTest
+2025-06-06 12:23:42,408 - INFO - Created network: 15.212.118.0/25 (mi-lz-tech-svcs-dev-us-east-1-vpc)
+2025-06-06 12:23:42,447 - DEBUG - Creating network with data: {
+  "network": "10.212.19.128/25",
+  "network_view": "DelAfterTest",
+  "comment": "AWS VPC: mi-lz-network-test-default (VPC ID: vpc-0ae16c521a462ca1c)",
+  "extattrs": {
+    "aws_tarig": {
+      "value": "mi-lz-network-test-default"
+    }
+  }
+}
+2025-06-06 12:23:42,461 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-06 12:23:42,672 - DEBUG - https://10.82.108.28:443 "POST /wapi/v2.13.1/network HTTP/1.1" 201 None
+2025-06-06 12:23:42,673 - INFO - Created network 10.212.19.128/25 in view DelAfterTest
+2025-06-06 12:23:42,674 - INFO - Created network: 10.212.19.128/25 (mi-lz-network-test-default)
+2025-06-06 12:23:42,674 - DEBUG - Creating network with data: {
+  "network": "10.212.118.128/25",
+  "network_view": "DelAfterTest",
+  "comment": "AWS VPC: mi-lz-pms-dev-us-east-1-vpc (VPC ID: vpc-080c7679bbf4c51cd)",
+  "extattrs": {
+    "description": {
+      "value": "Tarig dev us-east-1 vpc for pms"
+    },
+    "aws_propagate_to": {
+      "value": "tgw-nonprod-accounts-rt,tgw-dx-nonprod-rt,tgw-shared-account-rt,tgw-virginia-oregon-peer-rt"
+    },
+    "aws_dud": {
+      "value": "52529967301"
+    },
+    "aws_associate_with": {
+      "value": "tgw-nonprod-accounts-rt"
+    },
+    "aws_name": {
+      "value": "mi-lz-pms-dev-us-east-1-vpc"
+    },
+    "aws_stnostatus_vpcattachment": {
+      "value": "2024-08-12T10:14:22Z: VPC has been attached to the Transit Gateway"
+    },
+    "aws_tfc_created": {
+      "value": "true"
+    },
+    "aws_stnostatus_vpcassociation": {
+      "value": "2024-08-12T10:17:45Z: VPC has been associated with the Transit Gateway Routing Table/Domain"
+    },
+    "aws_created_by": {
+      "value": "jmeht561"
+    },
+    "aws_requested_by": {
+      "value": "numen682"
+    },
+    "project": {
+      "value": "Property Management Systems"
+    },
+    "aws_stnostatus_vpcpropagation": {
+      "value": "2024-08-12T10:17:30Z: VPC RT propagation has been enabled to the Transit Gateway Routing Table/Domain"
+    },
+    "aws_cloudservice": {
+      "value": "no_tier0_vpc"
+    },
+    "environment": {
+      "value": "dev"
+    },
+    "aws_location": {
+      "value": "aws-us-east-1"
+    },
+    "owner": {
+      "value": "Jared Spindler"
+    }
+  }
+}
+2025-06-06 12:23:42,682 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-06 12:23:42,895 - DEBUG - https://10.82.108.28:443 "POST /wapi/v2.13.1/network HTTP/1.1" 201 None
+2025-06-06 12:23:42,896 - INFO - Created network 10.212.118.128/25 in view DelAfterTest
+2025-06-06 12:23:42,897 - INFO - Created network: 10.212.118.128/25 (mi-lz-pms-dev-us-east-1-vpc)
+2025-06-06 12:23:42,900 - INFO - Generated network status report: reports\network_status_report_2025-06-06.md
+2025-06-06 14:25:17,559 - INFO - Loading VPC data from vpc_data3.csv...
+2025-06-06 14:25:17,687 - INFO - Loaded 17 VPC records from vpc_data3.csv
+2025-06-06 14:25:17,725 - INFO - Comparing AWS VPCs with InfoBlox networks...
+2025-06-06 14:25:17,754 - DEBUG - Starting new HTTPS connection (1): 10.82.108.28:443
+2025-06-06 14:25:18,295 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=15.212.224.0%2F23&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-06 14:25:18,299 - DEBUG - Network 15.212.224.0/23 not found in view AWSTesting
+2025-06-06 14:25:18,304 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-06 14:25:18,664 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/networkcontainer?network=15.212.224.0%2F23&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-06 14:25:18,666 - DEBUG - Network container 15.212.224.0/23 not found in view AWSTesting
+2025-06-06 14:25:18,670 - DEBUG - Network 15.212.224.0/23 (vpc-03380da9924618762) not found in InfoBlox
+2025-06-06 14:25:18,674 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-06 14:25:20,272 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=12.216.140.0%2F23&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-06 14:25:20,274 - DEBUG - Network 12.216.140.0/23 not found in view AWSTesting
+2025-06-06 14:25:20,277 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-06 14:25:20,538 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/networkcontainer?network=12.216.140.0%2F23&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-06 14:25:20,540 - DEBUG - Network container 12.216.140.0/23 not found in view AWSTesting
+2025-06-06 14:25:20,541 - DEBUG - Network 12.216.140.0/23 (vpc-03c2708b7cb46148f) not found in InfoBlox
+2025-06-06 14:25:20,544 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-06 14:25:21,040 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=12.212.88.0%2F24&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-06 14:25:21,086 - DEBUG - Network 12.212.88.0/24 not found in view AWSTesting
+2025-06-06 14:25:21,092 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-06 14:25:21,523 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/networkcontainer?network=12.212.88.0%2F24&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-06 14:25:21,526 - DEBUG - Network container 12.212.88.0/24 not found in view AWSTesting
+2025-06-06 14:25:21,532 - DEBUG - Network 12.212.88.0/24 (vpc-055bca7586ab6cee3) not found in InfoBlox
+2025-06-06 14:25:21,536 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-06 14:25:21,885 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=15.212.118.0%2F25&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-06 14:25:21,897 - DEBUG - Network 15.212.118.0/25 not found in view AWSTesting
+2025-06-06 14:25:21,903 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-06 14:25:22,254 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/networkcontainer?network=15.212.118.0%2F25&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-06 14:25:22,257 - DEBUG - Network container 15.212.118.0/25 not found in view AWSTesting
+2025-06-06 14:25:22,259 - DEBUG - Network 15.212.118.0/25 (vpc-088629d17b8c2e609) not found in InfoBlox
+2025-06-06 14:25:22,262 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-06 14:25:22,690 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=10.212.226.0%2F23&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-06 14:25:22,692 - DEBUG - Network 10.212.226.0/23 not found in view AWSTesting
+2025-06-06 14:25:22,696 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-06 14:25:22,981 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/networkcontainer?network=10.212.226.0%2F23&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-06 14:25:22,983 - DEBUG - Network container 10.212.226.0/23 not found in view AWSTesting
+2025-06-06 14:25:22,984 - DEBUG - Network 10.212.226.0/23 (vpc-09f08ecfabd8a5a9d) not found in InfoBlox
+2025-06-06 14:25:22,987 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-06 14:25:23,370 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=10.216.248.0%2F23&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-06 14:25:23,406 - DEBUG - Network 10.216.248.0/23 not found in view AWSTesting
+2025-06-06 14:25:23,413 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-06 14:25:23,995 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/networkcontainer?network=10.216.248.0%2F23&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-06 14:25:24,015 - DEBUG - Network container 10.216.248.0/23 not found in view AWSTesting
+2025-06-06 14:25:24,038 - DEBUG - Network 10.216.248.0/23 (vpc-0bd4000739077b166) not found in InfoBlox
+2025-06-06 14:25:24,048 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-06 14:25:24,352 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=10.86.150.0%2F23&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-06 14:25:24,356 - DEBUG - Network 10.86.150.0/23 not found in view AWSTesting
+2025-06-06 14:25:24,362 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-06 14:25:24,889 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/networkcontainer?network=10.86.150.0%2F23&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-06 14:25:24,892 - DEBUG - Network container 10.86.150.0/23 not found in view AWSTesting
+2025-06-06 14:25:24,897 - DEBUG - Network 10.86.150.0/23 (vpc-01ba98e7bf3558222) not found in InfoBlox
+2025-06-06 14:25:24,901 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-06 14:25:25,327 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=10.212.230.0%2F23&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-06 14:25:25,373 - DEBUG - Network 10.212.230.0/23 not found in view AWSTesting
+2025-06-06 14:25:25,450 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-06 14:25:25,906 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/networkcontainer?network=10.212.230.0%2F23&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-06 14:25:25,954 - DEBUG - Network container 10.212.230.0/23 not found in view AWSTesting
+2025-06-06 14:25:25,964 - DEBUG - Network 10.212.230.0/23 (vpc-0007019fc7ef7c946) not found in InfoBlox
+2025-06-06 14:25:25,970 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-06 14:25:26,274 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=10.212.19.128%2F25&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-06 14:25:26,276 - DEBUG - Network 10.212.19.128/25 not found in view AWSTesting
+2025-06-06 14:25:26,281 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-06 14:25:26,546 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/networkcontainer?network=10.212.19.128%2F25&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-06 14:25:26,550 - DEBUG - Network container 10.212.19.128/25 not found in view AWSTesting
+2025-06-06 14:25:26,554 - DEBUG - Network 10.212.19.128/25 (vpc-0ae16c521a462ca1c) not found in InfoBlox
+2025-06-06 14:25:26,557 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-06 14:25:27,010 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=112.212.4.0%2F24&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-06 14:25:27,014 - DEBUG - Network 112.212.4.0/24 not found in view AWSTesting
+2025-06-06 14:25:27,019 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-06 14:25:27,732 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/networkcontainer?network=112.212.4.0%2F24&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-06 14:25:27,799 - DEBUG - Network container 112.212.4.0/24 not found in view AWSTesting
+2025-06-06 14:25:27,856 - DEBUG - Network 112.212.4.0/24 (vpc-09ca502111aa1a60a) not found in InfoBlox
+2025-06-06 14:25:27,894 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-06 14:25:28,332 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=10.215.248.0%2F23&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-06 14:25:28,335 - DEBUG - Network 10.215.248.0/23 not found in view AWSTesting
+2025-06-06 14:25:28,342 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-06 14:25:28,635 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/networkcontainer?network=10.215.248.0%2F23&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-06 14:25:28,637 - DEBUG - Network container 10.215.248.0/23 not found in view AWSTesting
+2025-06-06 14:25:28,640 - DEBUG - Network 10.215.248.0/23 (vpc-078e8685d06b311fa) not found in InfoBlox
+2025-06-06 14:25:28,699 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-06 14:25:29,006 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=10.215.33.0%2F24&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-06 14:25:29,013 - DEBUG - Network 10.215.33.0/24 not found in view AWSTesting
+2025-06-06 14:25:29,023 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-06 14:25:29,336 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/networkcontainer?network=10.215.33.0%2F24&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-06 14:25:29,341 - DEBUG - Network container 10.215.33.0/24 not found in view AWSTesting
+2025-06-06 14:25:29,343 - DEBUG - Network 10.215.33.0/24 (vpc-0766434e9b97c0607) not found in InfoBlox
+2025-06-06 14:25:29,346 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-06 14:25:29,734 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=10.212.5.0%2F24&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-06 14:25:29,802 - DEBUG - Network 10.212.5.0/24 not found in view AWSTesting
+2025-06-06 14:25:29,809 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-06 14:25:30,190 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/networkcontainer?network=10.212.5.0%2F24&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-06 14:25:30,201 - DEBUG - Network container 10.212.5.0/24 not found in view AWSTesting
+2025-06-06 14:25:30,213 - DEBUG - Network 10.212.5.0/24 (vpc-0a55d95d59874d7e4) not found in InfoBlox
+2025-06-06 14:25:30,242 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-06 14:25:30,578 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=10.212.118.128%2F25&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-06 14:25:30,585 - DEBUG - Network 10.212.118.128/25 not found in view AWSTesting
+2025-06-06 14:25:30,590 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-06 14:25:30,933 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/networkcontainer?network=10.212.118.128%2F25&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-06 14:25:31,018 - DEBUG - Network container 10.212.118.128/25 not found in view AWSTesting
+2025-06-06 14:25:31,137 - DEBUG - Network 10.212.118.128/25 (vpc-080c7679bbf4c51cd) not found in InfoBlox
+2025-06-06 14:25:31,200 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-06 14:25:31,607 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=10.212.252.0%2F23&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-06 14:25:31,680 - DEBUG - Network 10.212.252.0/23 not found in view AWSTesting
+2025-06-06 14:25:31,685 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-06 14:25:32,319 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/networkcontainer?network=10.212.252.0%2F23&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-06 14:25:32,613 - DEBUG - Network container 10.212.252.0/23 not found in view AWSTesting
+2025-06-06 14:25:32,619 - DEBUG - Network 10.212.252.0/23 (vpc-083c99f0a54576328) not found in InfoBlox
+2025-06-06 14:25:32,622 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-06 14:25:33,079 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=10.213.160.0%2F23&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-06 14:25:33,103 - DEBUG - Network 10.213.160.0/23 not found in view AWSTesting
+2025-06-06 14:25:33,190 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-06 14:25:33,564 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/networkcontainer?network=10.213.160.0%2F23&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-06 14:25:33,581 - DEBUG - Network container 10.213.160.0/23 not found in view AWSTesting
+2025-06-06 14:25:33,620 - DEBUG - Network 10.213.160.0/23 (vpc-0b07d46b6bb8d9560) not found in InfoBlox
+2025-06-06 14:25:33,687 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-06 14:25:34,113 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=15.86.136.0%2F23&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-06 14:25:34,124 - DEBUG - Network 15.86.136.0/23 not found in view AWSTesting
+2025-06-06 14:25:34,148 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-06 14:25:34,432 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/networkcontainer?network=15.86.136.0%2F23&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-06 14:25:34,436 - DEBUG - Network container 15.86.136.0/23 not found in view AWSTesting
+2025-06-06 14:25:34,438 - DEBUG - Network 15.86.136.0/23 (vpc-0f7c905114497cee6) not found in InfoBlox
+2025-06-06 14:25:34,496 - INFO - Found 23 unique Extended Attributes in AWS tags
+2025-06-06 14:25:34,499 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-06 14:25:35,034 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/extensibleattributedef HTTP/1.1" 200 None
+2025-06-06 14:25:35,702 - INFO - No new or missing Extended Attributes to report.
+2025-06-06 14:25:36,111 - INFO - [DRY RUN] Would create network: 15.212.224.0/23 (mi-lz-icd-core-team-hold-prod-pci-us-east-1-vpc)
+2025-06-06 14:25:36,190 - INFO - [DRY RUN] Would create network: 12.216.140.0/23 (mi-lz-icd-core-team-hold-prod-pci-us-west-2-vpc)
+2025-06-06 14:25:36,270 - INFO - [DRY RUN] Would create network: 10.212.226.0/23 (mi-lz-devops-ss-us-east-1-vpc)
+2025-06-06 14:25:36,304 - INFO - [DRY RUN] Would create network: 10.216.248.0/23 (mi-lz-devops-ss-prod-us-west-2-vpc)
+2025-06-06 14:25:36,321 - INFO - [DRY RUN] Would create network: 10.86.150.0/23 (mi-lz-devops-ss-prod-eu-west-2-vpc)
+2025-06-06 14:25:36,415 - INFO - [DRY RUN] Would create network: 10.212.230.0/23 (mi-lz-mpg-prod-us-east-1-vpc)
+2025-06-06 14:25:36,460 - INFO - [DRY RUN] Would create network: 10.215.248.0/23 (mi-lz-tech-svcs-prod-us-east-1-vpc)
+2025-06-06 14:25:36,481 - INFO - [DRY RUN] Would create network: 10.212.252.0/23 (mi-lz-ocp-prod-us-east-1-vpc)
+2025-06-06 14:25:36,544 - INFO - [DRY RUN] Would create network: 10.213.160.0/23 (mi-lz-ocp-prod-us-west-2-vpc)
+2025-06-06 14:25:36,600 - INFO - [DRY RUN] Would create network: 15.86.136.0/23 (mi-lz-ocp-prod-eu-west-2-vpc)
+2025-06-06 14:25:36,674 - INFO - [DRY RUN] Would create network: 12.212.88.0/24 (mi-lz-dc-finance-test-us-east-1-vpc)
+2025-06-06 14:25:36,737 - INFO - [DRY RUN] Would create network: 112.212.4.0/24 (mi-lz-network-test-us-east-1-vpc)
+2025-06-06 14:25:36,789 - INFO - [DRY RUN] Would create network: 10.215.33.0/24 (mi-lz-mpg-dev-us-east-1-vpc)
+2025-06-06 14:25:36,921 - INFO - [DRY RUN] Would create network: 10.212.5.0/24 (mi-lz-data-migration-gateway-dev-us-east-1-vpc)
+2025-06-06 14:25:36,972 - INFO - [DRY RUN] Would create network: 15.212.118.0/25 (mi-lz-tech-svcs-dev-us-east-1-vpc)
+2025-06-06 14:25:36,990 - INFO - [DRY RUN] Would create network: 10.212.19.128/25 (mi-lz-network-test-default)
+2025-06-06 14:25:37,022 - INFO - [DRY RUN] Would create network: 10.212.118.128/25 (mi-lz-pms-dev-us-east-1-vpc)
+2025-06-06 14:25:37,082 - INFO - Generated network status report: reports\network_status_report_2025-06-06.md
+2025-06-06 14:26:13,369 - INFO - Loading VPC data from vpc_data3.csv...
+2025-06-06 14:26:13,461 - INFO - Loaded 17 VPC records from vpc_data3.csv
+2025-06-06 14:26:13,501 - INFO - Comparing AWS VPCs with InfoBlox networks...
+2025-06-06 14:26:13,517 - DEBUG - Starting new HTTPS connection (1): 10.82.108.28:443
+2025-06-06 14:26:13,916 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=15.212.224.0%2F23&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-06 14:26:13,918 - DEBUG - Network 15.212.224.0/23 not found in view AWSTesting
+2025-06-06 14:26:13,923 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-06 14:26:14,162 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/networkcontainer?network=15.212.224.0%2F23&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-06 14:26:14,164 - DEBUG - Network container 15.212.224.0/23 not found in view AWSTesting
+2025-06-06 14:26:14,166 - DEBUG - Network 15.212.224.0/23 (vpc-03380da9924618762) not found in InfoBlox
+2025-06-06 14:26:14,169 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-06 14:26:14,494 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=12.216.140.0%2F23&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-06 14:26:14,500 - DEBUG - Network 12.216.140.0/23 not found in view AWSTesting
+2025-06-06 14:26:14,513 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-06 14:26:14,812 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/networkcontainer?network=12.216.140.0%2F23&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-06 14:26:14,816 - DEBUG - Network container 12.216.140.0/23 not found in view AWSTesting
+2025-06-06 14:26:14,818 - DEBUG - Network 12.216.140.0/23 (vpc-03c2708b7cb46148f) not found in InfoBlox
+2025-06-06 14:26:14,821 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-06 14:26:15,175 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=12.212.88.0%2F24&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-06 14:26:15,212 - DEBUG - Network 12.212.88.0/24 not found in view AWSTesting
+2025-06-06 14:26:15,216 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-06 14:26:15,682 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/networkcontainer?network=12.212.88.0%2F24&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-06 14:26:15,738 - DEBUG - Network container 12.212.88.0/24 not found in view AWSTesting
+2025-06-06 14:26:15,825 - DEBUG - Network 12.212.88.0/24 (vpc-055bca7586ab6cee3) not found in InfoBlox
+2025-06-06 14:26:15,909 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-06 14:26:16,297 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=15.212.118.0%2F25&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-06 14:26:16,305 - DEBUG - Network 15.212.118.0/25 not found in view AWSTesting
+2025-06-06 14:26:16,309 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-06 14:26:16,669 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/networkcontainer?network=15.212.118.0%2F25&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-06 14:26:16,679 - DEBUG - Network container 15.212.118.0/25 not found in view AWSTesting
+2025-06-06 14:26:16,682 - DEBUG - Network 15.212.118.0/25 (vpc-088629d17b8c2e609) not found in InfoBlox
+2025-06-06 14:26:16,685 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-06 14:26:16,975 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=10.212.226.0%2F23&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-06 14:26:16,981 - DEBUG - Network 10.212.226.0/23 not found in view AWSTesting
+2025-06-06 14:26:16,990 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-06 14:26:17,294 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/networkcontainer?network=10.212.226.0%2F23&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-06 14:26:17,296 - DEBUG - Network container 10.212.226.0/23 not found in view AWSTesting
+2025-06-06 14:26:17,297 - DEBUG - Network 10.212.226.0/23 (vpc-09f08ecfabd8a5a9d) not found in InfoBlox
+2025-06-06 14:26:17,300 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-06 14:26:17,569 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=10.216.248.0%2F23&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-06 14:26:17,570 - DEBUG - Network 10.216.248.0/23 not found in view AWSTesting
+2025-06-06 14:26:17,574 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-06 14:26:17,812 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/networkcontainer?network=10.216.248.0%2F23&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-06 14:26:17,814 - DEBUG - Network container 10.216.248.0/23 not found in view AWSTesting
+2025-06-06 14:26:17,828 - DEBUG - Network 10.216.248.0/23 (vpc-0bd4000739077b166) not found in InfoBlox
+2025-06-06 14:26:17,833 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-06 14:26:18,171 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=10.86.150.0%2F23&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-06 14:26:18,191 - DEBUG - Network 10.86.150.0/23 not found in view AWSTesting
+2025-06-06 14:26:18,199 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-06 14:26:18,473 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/networkcontainer?network=10.86.150.0%2F23&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-06 14:26:18,476 - DEBUG - Network container 10.86.150.0/23 not found in view AWSTesting
+2025-06-06 14:26:18,478 - DEBUG - Network 10.86.150.0/23 (vpc-01ba98e7bf3558222) not found in InfoBlox
+2025-06-06 14:26:18,481 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-06 14:26:18,746 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=10.212.230.0%2F23&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-06 14:26:18,756 - DEBUG - Network 10.212.230.0/23 not found in view AWSTesting
+2025-06-06 14:26:18,760 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-06 14:26:19,232 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/networkcontainer?network=10.212.230.0%2F23&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-06 14:26:19,238 - DEBUG - Network container 10.212.230.0/23 not found in view AWSTesting
+2025-06-06 14:26:19,241 - DEBUG - Network 10.212.230.0/23 (vpc-0007019fc7ef7c946) not found in InfoBlox
+2025-06-06 14:26:19,262 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-06 14:26:19,519 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=10.212.19.128%2F25&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-06 14:26:19,523 - DEBUG - Network 10.212.19.128/25 not found in view AWSTesting
+2025-06-06 14:26:19,528 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-06 14:26:19,856 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/networkcontainer?network=10.212.19.128%2F25&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-06 14:26:19,859 - DEBUG - Network container 10.212.19.128/25 not found in view AWSTesting
+2025-06-06 14:26:19,864 - DEBUG - Network 10.212.19.128/25 (vpc-0ae16c521a462ca1c) not found in InfoBlox
+2025-06-06 14:26:19,871 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-06 14:26:20,655 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=112.212.4.0%2F24&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-06 14:26:20,777 - DEBUG - Network 112.212.4.0/24 not found in view AWSTesting
+2025-06-06 14:26:20,865 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-06 14:26:21,214 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/networkcontainer?network=112.212.4.0%2F24&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-06 14:26:21,218 - DEBUG - Network container 112.212.4.0/24 not found in view AWSTesting
+2025-06-06 14:26:21,220 - DEBUG - Network 112.212.4.0/24 (vpc-09ca502111aa1a60a) not found in InfoBlox
+2025-06-06 14:26:21,228 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-06 14:26:21,577 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=10.215.248.0%2F23&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-06 14:26:21,605 - DEBUG - Network 10.215.248.0/23 not found in view AWSTesting
+2025-06-06 14:26:21,609 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-06 14:26:22,037 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/networkcontainer?network=10.215.248.0%2F23&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-06 14:26:22,040 - DEBUG - Network container 10.215.248.0/23 not found in view AWSTesting
+2025-06-06 14:26:22,044 - DEBUG - Network 10.215.248.0/23 (vpc-078e8685d06b311fa) not found in InfoBlox
+2025-06-06 14:26:22,048 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-06 14:26:22,372 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=10.215.33.0%2F24&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-06 14:26:22,383 - DEBUG - Network 10.215.33.0/24 not found in view AWSTesting
+2025-06-06 14:26:22,408 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-06 14:26:22,737 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/networkcontainer?network=10.215.33.0%2F24&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-06 14:26:22,740 - DEBUG - Network container 10.215.33.0/24 not found in view AWSTesting
+2025-06-06 14:26:22,742 - DEBUG - Network 10.215.33.0/24 (vpc-0766434e9b97c0607) not found in InfoBlox
+2025-06-06 14:26:22,745 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-06 14:26:23,542 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=10.212.5.0%2F24&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-06 14:26:23,565 - DEBUG - Network 10.212.5.0/24 not found in view AWSTesting
+2025-06-06 14:26:23,594 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-06 14:26:23,980 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/networkcontainer?network=10.212.5.0%2F24&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-06 14:26:24,030 - DEBUG - Network container 10.212.5.0/24 not found in view AWSTesting
+2025-06-06 14:26:24,101 - DEBUG - Network 10.212.5.0/24 (vpc-0a55d95d59874d7e4) not found in InfoBlox
+2025-06-06 14:26:24,161 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-06 14:26:24,453 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=10.212.118.128%2F25&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-06 14:26:24,463 - DEBUG - Network 10.212.118.128/25 not found in view AWSTesting
+2025-06-06 14:26:24,470 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-06 14:26:24,879 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/networkcontainer?network=10.212.118.128%2F25&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-06 14:26:25,178 - DEBUG - Network container 10.212.118.128/25 not found in view AWSTesting
+2025-06-06 14:26:25,350 - DEBUG - Network 10.212.118.128/25 (vpc-080c7679bbf4c51cd) not found in InfoBlox
+2025-06-06 14:26:25,800 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-06 14:26:26,436 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=10.212.252.0%2F23&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-06 14:26:26,445 - DEBUG - Network 10.212.252.0/23 not found in view AWSTesting
+2025-06-06 14:26:26,453 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-06 14:26:26,812 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/networkcontainer?network=10.212.252.0%2F23&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-06 14:26:26,813 - DEBUG - Network container 10.212.252.0/23 not found in view AWSTesting
+2025-06-06 14:26:26,816 - DEBUG - Network 10.212.252.0/23 (vpc-083c99f0a54576328) not found in InfoBlox
+2025-06-06 14:26:26,819 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-06 14:26:27,078 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=10.213.160.0%2F23&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-06 14:26:27,080 - DEBUG - Network 10.213.160.0/23 not found in view AWSTesting
+2025-06-06 14:26:27,085 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-06 14:26:27,603 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/networkcontainer?network=10.213.160.0%2F23&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-06 14:26:27,616 - DEBUG - Network container 10.213.160.0/23 not found in view AWSTesting
+2025-06-06 14:26:27,619 - DEBUG - Network 10.213.160.0/23 (vpc-0b07d46b6bb8d9560) not found in InfoBlox
+2025-06-06 14:26:27,629 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-06 14:26:28,264 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/network?network=15.86.136.0%2F23&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-06 14:26:28,323 - DEBUG - Network 15.86.136.0/23 not found in view AWSTesting
+2025-06-06 14:26:28,337 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-06 14:26:28,642 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/networkcontainer?network=15.86.136.0%2F23&network_view=AWSTesting&_return_fields=network%2Ccomment%2Cextattrs HTTP/1.1" 200 None
+2025-06-06 14:26:28,647 - DEBUG - Network container 15.86.136.0/23 not found in view AWSTesting
+2025-06-06 14:26:28,657 - DEBUG - Network 15.86.136.0/23 (vpc-0f7c905114497cee6) not found in InfoBlox
+2025-06-06 14:26:28,817 - INFO - Found 23 unique Extended Attributes in AWS tags
+2025-06-06 14:26:28,989 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-06 14:26:29,749 - DEBUG - https://10.82.108.28:443 "GET /wapi/v2.13.1/extensibleattributedef HTTP/1.1" 200 None
+2025-06-06 14:26:29,836 - INFO - No new or missing Extended Attributes to report.
+2025-06-06 14:26:29,878 - DEBUG - Creating network with data: {
+  "network": "15.212.224.0/23",
+  "network_view": "AWSTesting",
+  "comment": "AWS VPC: mi-lz-icd-core-team-hold-prod-pci-us-east-1-vpc (VPC ID: vpc-03380da9924618762)",
+  "extattrs": {
+    "aws_stnostatus_vpcassociation": {
+      "value": "2023-07-21T18:25:43Z: Fayrouz VPC has been associated with the Transit Gateway Routing Table/Domain"
+    },
+    "aws_name": {
+      "value": "mi-lz-icd-core-team-hold-prod-pci-us-east-1-vpc"
+    },
+    "aws_associate_with": {
+      "value": "tgw-pci-prod-accounts-rt"
+    },
+    "aws_dud": {
+      "value": "51519542158"
+    },
+    "aws_stnostatus_vpcattachment": {
+      "value": "2023-07-21T18:24:14Z: VPC has been attached to the Transit Gateway"
+    },
+    "aws_created_by": {
+      "value": "amanj426"
+    },
+    "aws_tfc_created": {
+      "value": "true"
+    },
+    "owner": {
+      "value": "S:Public Cloud Adnan Haq"
+    },
+    "project": {
+      "value": "Backup Account in AWS for Cloud backup implementation"
+    },
+    "aws_requested_by": {
+      "value": "mosca176"
+    },
+    "aws_propagate_to": {
+      "value": "tgw-pci-prod-accounts-rt,tgw-dx-prod-rt,tgw-shared-account-rt"
+    },
+    "aws_stnostatus_vpcpropagation": {
+      "value": "2023-07-21T18:25:57Z: VPC RT propagation has been enabled to the Transit Gateway Routing Table/Domain"
+    },
+    "aws_environmenttarig": {
+      "value": "prodpci"
+    },
+    "aws_cloudservice": {
+      "value": "no_tier0_vpc"
+    },
+    "description": {
+      "value": "Prod pci Backup Account creation in AWS for Cloud backup implementation"
+    },
+    "aws_location": {
+      "value": "aws-us-east-1"
+    }
+  }
+}
+2025-06-06 14:26:29,963 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-06 14:26:30,467 - DEBUG - https://10.82.108.28:443 "POST /wapi/v2.13.1/network HTTP/1.1" 201 None
+2025-06-06 14:26:30,469 - INFO - Created network 15.212.224.0/23 in view AWSTesting
+2025-06-06 14:26:30,471 - INFO - Created network: 15.212.224.0/23 (mi-lz-icd-core-team-hold-prod-pci-us-east-1-vpc)
+2025-06-06 14:26:30,472 - DEBUG - Creating network with data: {
+  "network": "12.216.140.0/23",
+  "network_view": "AWSTesting",
+  "comment": "AWS VPC: mi-lz-icd-core-team-hold-prod-pci-us-west-2-vpc (VPC ID: vpc-03c2708b7cb46148f)",
+  "extattrs": {
+    "aws_tarig": {
+      "value": "51519542158"
+    },
+    "project": {
+      "value": "Tarig Backup Account creation in AWS for Cloud backup implementation"
+    },
+    "aws_stnostatus_vpcattachment": {
+      "value": "2023-07-24T16:14:06Z: VPC has been attached to the Transit Gateway"
+    },
+    "aws_tfc_created": {
+      "value": "true"
+    },
+    "aws_requested_by": {
+      "value": "mosca176"
+    },
+    "aws_stnostatus_vpcpropagation": {
+      "value": "2023-07-24T16:17:37Z: VPC RT propagation has been enabled to the Transit Gateway Routing Table/Domain"
+    },
+    "aws_stnostatus_vpcassociation": {
+      "value": "2023-07-24T16:17:35Z: VPC has been associated with the Transit Gateway Routing Table/Domain"
+    },
+    "aws_created_by": {
+      "value": "amanj426"
+    },
+    "aws_propagate_to": {
+      "value": "tgw-pci-prod-accounts-rt,tgw-dx-prod-rt,tgw-shared-account-rt"
+    },
+    "aws_name": {
+      "value": "mi-lz-icd-core-team-hold-prod-pci-us-west-2-vpc"
+    },
+    "aws_cloudservice": {
+      "value": "no_tier0_vpc"
+    },
+    "aws_location": {
+      "value": "aws-us-west-2"
+    },
+    "description": {
+      "value": "Backup Account creation in AWS for Cloud backup implementation"
+    },
+    "owner": {
+      "value": "S:Public Cloud Adnan Haq"
+    },
+    "environment": {
+      "value": "prodpci"
+    },
+    "aws_associate_with": {
+      "value": "tgw-pci-prod-accounts-rt"
+    }
+  }
+}
+2025-06-06 14:26:30,529 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-06 14:26:30,867 - DEBUG - https://10.82.108.28:443 "POST /wapi/v2.13.1/network HTTP/1.1" 201 None
+2025-06-06 14:26:30,872 - INFO - Created network 12.216.140.0/23 in view AWSTesting
+2025-06-06 14:26:30,874 - INFO - Created network: 12.216.140.0/23 (mi-lz-icd-core-team-hold-prod-pci-us-west-2-vpc)
+2025-06-06 14:26:30,881 - DEBUG - Creating network with data: {
+  "network": "10.212.226.0/23",
+  "network_view": "AWSTesting",
+  "comment": "AWS VPC: mi-lz-devops-ss-us-east-1-vpc (VPC ID: vpc-09f08ecfabd8a5a9d)",
+  "extattrs": {
+    "aws_requested_by": {
+      "value": "sginj220"
+    },
+    "aws_fayrouz": {
+      "value": "shared services"
+    },
+    "aws_tfe_created": {
+      "value": "true"
+    },
+    "aws_stnostatus_vpcattachment": {
+      "value": "2023-02-28T18:44:40Z: VPC has been attached to the Transit Gateway"
+    },
+    "aws_name": {
+      "value": "mi-lz-devops-ss-us-east-1-vpc"
+    },
+    "aws_stnostatus_vpcpropagation": {
+      "value": "2023-02-28T18:48:12Z: VPC RT propagation has been enabled to the Transit Gateway Routing Table/Domain"
+    },
+    "aws_location": {
+      "value": "aws-us-east-1"
+    },
+    "aws_cloudservice": {
+      "value": "no_tier0_vpc"
+    },
+    "aws_created_by": {
+      "value": "anjok224"
+    },
+    "project": {
+      "value": "lz ss account for devops team"
+    },
+    "aws_associate_with": {
+      "value": "tgw-shared-account-rt"
+    },
+    "description": {
+      "value": "shared account used for DevSecOps servers"
+    },
+    "aws_dud": {
+      "value": "51519542033"
+    },
+    "owner": {
+      "value": "H:Infra Engineering param_value Auto Adnan Haq"
+    },
+    "aws_stnostatus_vpcassociation": {
+      "value": "2023-02-28T18:48:10Z: VPC has been associated with the Transit Gateway Routing Table/Domain"
+    },
+    "aws_propagate_to": {
+      "value": "tgw-shared-account-rt,tgw-prod-accounts-rt,tgw-dx-prod-rt,tgw-nonprod-accounts-rt,tgw-virginia-oregon-peer-rt"
+    }
+  }
+}
+2025-06-06 14:26:31,035 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-06 14:26:31,498 - DEBUG - https://10.82.108.28:443 "POST /wapi/v2.13.1/network HTTP/1.1" 201 None
+2025-06-06 14:26:31,501 - INFO - Created network 10.212.226.0/23 in view AWSTesting
+2025-06-06 14:26:31,504 - INFO - Created network: 10.212.226.0/23 (mi-lz-devops-ss-us-east-1-vpc)
+2025-06-06 14:26:31,504 - DEBUG - Creating network with data: {
+  "network": "10.216.248.0/23",
+  "network_view": "AWSTesting",
+  "comment": "AWS VPC: mi-lz-devops-ss-prod-us-west-2-vpc (VPC ID: vpc-0bd4000739077b166)",
+  "extattrs": {
+    "aws_fayrouz": {
+      "value": "mi-lz-devops-ss-prod-us-west-2-vpc"
+    },
+    "aws_stnostatus_vpcattachment": {
+      "value": "2024-08-22T21:07:02Z: VPC has been attached to the Transit Gateway"
+    },
+    "aws_propagate_to": {
+      "value": "tgw-shared-account-rt,tgw-prod-accounts-rt,tgw-dx-prod-rt,tgw-nonprod-accounts-rt,tgw-oregon-virginia-peer-rt"
+    },
+    "aws_stnostatus_vpcassociation": {
+      "value": "2024-08-22T21:12:19Z: VPC has been associated with the Transit Gateway Routing Table/Domain"
+    },
+    "aws_dud": {
+      "value": "51519542033"
+    },
+    "aws_stnostatus_vpcpropagation": {
+      "value": "2024-08-22T21:12:21Z: VPC RT propagation has been enabled to the Transit Gateway Routing Table/Domain"
+    },
+    "aws_segment": {
+      "value": "admin"
+    },
+    "aws_associate_with": {
+      "value": "tgw-shared-account-rt"
+    }
+  }
+}
+2025-06-06 14:26:31,515 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-06 14:26:31,953 - DEBUG - https://10.82.108.28:443 "POST /wapi/v2.13.1/network HTTP/1.1" 201 None
+2025-06-06 14:26:32,061 - INFO - Created network 10.216.248.0/23 in view AWSTesting
+2025-06-06 14:26:32,270 - INFO - Created network: 10.216.248.0/23 (mi-lz-devops-ss-prod-us-west-2-vpc)
+2025-06-06 14:26:32,343 - DEBUG - Creating network with data: {
+  "network": "10.86.150.0/23",
+  "network_view": "AWSTesting",
+  "comment": "AWS VPC: mi-lz-devops-ss-prod-eu-west-2-vpc (VPC ID: vpc-01ba98e7bf3558222)",
+  "extattrs": {
+    "aws_segment": {
+      "value": "admin"
+    },
+    "aws_name": {
+      "value": "Tarig"
+    },
+    "aws_dud": {
+      "value": "51519542033"
+    }
+  }
+}
+2025-06-06 14:26:32,405 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-06 14:26:32,877 - DEBUG - https://10.82.108.28:443 "POST /wapi/v2.13.1/network HTTP/1.1" 201 None
+2025-06-06 14:26:32,912 - INFO - Created network 10.86.150.0/23 in view AWSTesting
+2025-06-06 14:26:33,025 - INFO - Created network: 10.86.150.0/23 (mi-lz-devops-ss-prod-eu-west-2-vpc)
+2025-06-06 14:26:33,125 - DEBUG - Creating network with data: {
+  "network": "10.212.230.0/23",
+  "network_view": "AWSTesting",
+  "comment": "AWS VPC: mi-lz-mpg-prod-us-east-1-vpc (VPC ID: vpc-0007019fc7ef7c946)",
+  "extattrs": {
+    "aws_cloudservice": {
+      "value": "no_tier0_vpc"
+    },
+    "description": {
+      "value": "Migration of MPG platform hosted in Rackspace private cloud"
+    },
+    "aws_requested_by": {
+      "value": "jalop838"
+    },
+    "aws_location": {
+      "value": "aws-us-east-1"
+    },
+    "project": {
+      "value": "lz foundational-tip prod account for mpg team"
+    },
+    "aws_name": {
+      "value": "mi-lz-mpg-prod-us-east-1-vpc"
+    },
+    "environment": {
+      "value": "prod"
+    },
+    "aws_propagate_to": {
+      "value": "tgw-prod-accounts-rt,tgw-dx-prod-rt,tgw-shared-account-rt,tgw-virginia-oregon-peer-rt"
+    },
+    "aws_stnostatus_vpcattachment": {
+      "value": "2023-05-24T21:00:41Z: VPC has been attached to the Transit Gateway"
+    },
+    "owner": {
+      "value": "Jesus Lopez"
+    },
+    "aws_associate_with": {
+      "value": "tgw-prod-accounts-rt"
+    },
+    "aws_stnostatus_vpcassociation": {
+      "value": "2023-05-24T21:05:08Z: VPC has been associated with the Transit Gateway Routing Table/Domain"
+    },
+    "aws_dud": {
+      "value": "51519542154"
+    },
+    "aws_tfc_created": {
+      "value": "true"
+    },
+    "aws_created_by": {
+      "value": "anjok224"
+    },
+    "aws_stnostatus_vpcpropagation": {
+      "value": "2023-05-24T21:06:06Z: VPC RT propagation has been enabled to the Transit Gateway Routing Table/Domain"
+    }
+  }
+}
+2025-06-06 14:26:33,356 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-06 14:26:33,819 - DEBUG - https://10.82.108.28:443 "POST /wapi/v2.13.1/network HTTP/1.1" 201 None
+2025-06-06 14:26:33,847 - INFO - Created network 10.212.230.0/23 in view AWSTesting
+2025-06-06 14:26:33,849 - INFO - Created network: 10.212.230.0/23 (mi-lz-mpg-prod-us-east-1-vpc)
+2025-06-06 14:26:33,858 - DEBUG - Creating network with data: {
+  "network": "10.215.248.0/23",
+  "network_view": "AWSTesting",
+  "comment": "AWS VPC: mi-lz-tech-svcs-prod-us-east-1-vpc (VPC ID: vpc-078e8685d06b311fa)",
+  "extattrs": {
+    "aws_location": {
+      "value": "aws-us-east-1"
+    },
+    "aws_cloudservice": {
+      "value": "Tarigno_tier0_vpc"
+    },
+    "description": {
+      "value": "prod us-east-1 VPC for Tech Services"
+    },
+    "aws_name": {
+      "value": "mi-lz-tech-svcs-prod-us-east-1-vpc"
+    },
+    "aws_tfc_created": {
+      "value": "true"
+    },
+    "environment": {
+      "value": "prod"
+    },
+    "owner": {
+      "value": "Dan Cronin"
+    },
+    "aws_requested_by": {
+      "value": "numen682"
+    },
+    "aws_stnostatus_vpcassociation": {
+      "value": "2024-07-31T19:11:38Z: VPC has been associated with the Transit Gateway Routing Table/Domain"
+    },
+    "aws_stnostatus_vpcpropagation": {
+      "value": "2024-07-31T19:14:01Z: VPC RT propagation has been enabled to the Transit Gateway Routing Table/Domain"
+    },
+    "aws_associate_with": {
+      "value": "tgw-prod-accounts-rt"
+    },
+    "aws_propagate_to": {
+      "value": "tgw-prod-accounts-rt,tgw-dx-prod-rt,tgw-shared-account-rt,tgw-virginia-oregon-peer-rt"
+    },
+    "aws_stnostatus_vpcattachment": {
+      "value": "2024-07-31T19:09:23Z: VPC has been attached to the Transit Gateway"
+    },
+    "aws_created_by": {
+      "value": "jmeht561"
+    },
+    "project": {
+      "value": "Tech Services"
+    },
+    "aws_dud": {
+      "value": "52529967325"
+    }
+  }
+}
+2025-06-06 14:26:33,880 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-06 14:26:34,352 - DEBUG - https://10.82.108.28:443 "POST /wapi/v2.13.1/network HTTP/1.1" 201 None
+2025-06-06 14:26:34,363 - INFO - Created network 10.215.248.0/23 in view AWSTesting
+2025-06-06 14:26:34,376 - INFO - Created network: 10.215.248.0/23 (mi-lz-tech-svcs-prod-us-east-1-vpc)
+2025-06-06 14:26:34,402 - DEBUG - Creating network with data: {
+  "network": "10.212.252.0/23",
+  "network_view": "AWSTesting",
+  "comment": "AWS VPC: mi-lz-ocp-prod-us-east-1-vpc (VPC ID: vpc-083c99f0a54576328)",
+  "extattrs": {
+    "aws_stnostatus_vpcattachment": {
+      "value": "2022-10-11T05:24:51Z: VPC has been attached to the Transit Gateway"
+    },
+    "aws_tfe_created": {
+      "value": "true"
+    },
+    "aws_location": {
+      "value": "aws-us-east-1"
+    },
+    "environment": {
+      "value": "prod"
+    },
+    "aws_stnostatus_vpcassociation": {
+      "value": "2022-10-11T05:27:27Z: VPC has been associated with the Transit Gateway Routing Table/Domain"
+    },
+    "aws_cloudservice": {
+      "value": "no_tier0_vpc"
+    },
+    "owner": {
+      "value": "ICD Public Cloud kdelt508"
+    },
+    "aws_associate_with": {
+      "value": "tgw-prod-accounts-rt"
+    },
+    "project": {
+      "value": "ocp prod account for landing zone"
+    },
+    "aws_name": {
+      "value": "mi-lz-ocp-prod-us-east-1-vpc"
+    },
+    "aws_propagate_to": {
+      "value": "tgw-prod-accounts-rt,tgw-dx-prod-rt,tgw-shared-account-rt,tgw-virginia-oregon-peer-rt"
+    },
+    "aws_created_by": {
+      "value": "tshet584"
+    },
+    "aws_dud": {
+      "value": "51519542158"
+    },
+    "aws_stnostatus_vpcpropagation": {
+      "value": "2022-10-11T05:27:41Z: VPC RT propagation has been enabled to the Transit Gateway Routing Table/Domain"
+    }
+  }
+}
+2025-06-06 14:26:34,480 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-06 14:26:34,890 - DEBUG - https://10.82.108.28:443 "POST /wapi/v2.13.1/network HTTP/1.1" 201 None
+2025-06-06 14:26:34,897 - INFO - Created network 10.212.252.0/23 in view AWSTesting
+2025-06-06 14:26:34,901 - INFO - Created network: 10.212.252.0/23 (mi-lz-ocp-prod-us-east-1-vpc)
+2025-06-06 14:26:34,905 - DEBUG - Creating network with data: {
+  "network": "10.213.160.0/23",
+  "network_view": "AWSTesting",
+  "comment": "AWS VPC: mi-lz-ocp-prod-us-west-2-vpc (VPC ID: vpc-0b07d46b6bb8d9560)",
+  "extattrs": {
+    "aws_name": {
+      "value": "mi-lz-ocp-prod-us-west-2-vpc"
+    },
+    "aws_associate_with": {
+      "value": "tgw-prod-accounts-rt"
+    },
+    "aws_dud": {
+      "value": "51519542158"
+    },
+    "owner": {
+      "value": "ICD Public Cloud kdelt508"
+    },
+    "aws_propagate_to": {
+      "value": "tgw-prod-accounts-rt,tgw-dx-prod-rt,tgw-shared-account-rt,tgw-oregon-virginia-peer-rt"
+    },
+    "aws_created_by": {
+      "value": "anjok224"
+    },
+    "aws_cloudservice": {
+      "value": "no_tier0_vpc"
+    },
+    "aws_location": {
+      "value": "aws-us-west-2"
+    },
+    "aws_stnostatus_vpcattachment": {
+      "value": "2023-01-30T17:00:14Z: VPC has been attached to the Transit Gateway"
+    },
+    "project": {
+      "value": "ocp prod account for landing zone"
+    },
+    "aws_stnostatus_vpcpropagation": {
+      "value": "2023-01-30T17:03:57Z: VPC RT propagation has been enabled to the Transit Gateway Routing Table/Domain"
+    },
+    "aws_stnostatus_vpcassociation": {
+      "value": "2023-01-30T17:03:55Z: VPC has been associated with the Transit Gateway Routing Table/Domain"
+    },
+    "aws_tfe_created": {
+      "value": "true"
+    },
+    "environment": {
+      "value": "prod"
+    }
+  }
+}
+2025-06-06 14:26:34,966 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-06 14:26:35,363 - DEBUG - https://10.82.108.28:443 "POST /wapi/v2.13.1/network HTTP/1.1" 201 None
+2025-06-06 14:26:35,382 - INFO - Created network 10.213.160.0/23 in view AWSTesting
+2025-06-06 14:26:35,385 - INFO - Created network: 10.213.160.0/23 (mi-lz-ocp-prod-us-west-2-vpc)
+2025-06-06 14:26:35,390 - DEBUG - Creating network with data: {
+  "network": "15.86.136.0/23",
+  "network_view": "AWSTesting",
+  "comment": "AWS VPC: mi-lz-ocp-prod-eu-west-2-vpc (VPC ID: vpc-0f7c905114497cee6)",
+  "extattrs": {
+    "aws_tfe_created": {
+      "value": "true"
+    },
+    "aws_dud": {
+      "value": "51519542158"
+    },
+    "aws_stnostatus_vpcassociation": {
+      "value": "2022-12-16T19:50:07Z: VPC has been associated with the Transit Gateway Routing Table/Domain"
+    },
+    "aws_location": {
+      "value": "aws-eu-west-2"
+    },
+    "aws_stnostatus_vpcattachment": {
+      "value": "2022-12-16T19:46:34Z: VPC has been attached to the Transit Gateway"
+    },
+    "aws_created_by": {
+      "value": "anjok224"
+    },
+    "aws_stnostatus_vpcpropagation": {
+      "value": "2022-12-16T19:50:10Z: VPC RT propagation has been enabled to the Transit Gateway Routing Table/Domain"
+    },
+    "owner": {
+      "value": "ICD Public Cloud kdelt508"
+    },
+    "aws_associate_with": {
+      "value": "tgw-prod-accounts-rt"
+    },
+    "aws_propagate_to": {
+      "value": "tgw-prod-accounts-rt,tgw-dx-prod-rt,tgw-shared-account-rt,tgw-london-virginia-peer-rt,tgw-london-oregon-peer-rt"
+    },
+    "project": {
+      "value": "ocp prod account for landing zone"
+    },
+    "aws_name": {
+      "value": "mi-lz-ocp-prod-eu-west-2-vpc"
+    },
+    "aws_cloudservice": {
+      "value": "no_tier0_vpc"
+    },
+    "environment": {
+      "value": "prod"
+    }
+  }
+}
+2025-06-06 14:26:35,575 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-06 14:26:36,080 - DEBUG - https://10.82.108.28:443 "POST /wapi/v2.13.1/network HTTP/1.1" 201 None
+2025-06-06 14:26:36,083 - INFO - Created network 15.86.136.0/23 in view AWSTesting
+2025-06-06 14:26:36,085 - INFO - Created network: 15.86.136.0/23 (mi-lz-ocp-prod-eu-west-2-vpc)
+2025-06-06 14:26:36,086 - DEBUG - Creating network with data: {
+  "network": "12.212.88.0/24",
+  "network_view": "AWSTesting",
+  "comment": "AWS VPC: mi-lz-dc-finance-test-us-east-1-vpc (VPC ID: vpc-055bca7586ab6cee3)",
+  "extattrs": {
+    "aws_tarig2": {
+      "value": "tgw-nonprod-accounts-rt"
+    },
+    "aws_name": {
+      "value": "mi-lz-dc-finance-test-us-east-1-vpc"
+    },
+    "environment": {
+      "value": "test"
+    },
+    "aws_created_by": {
+      "value": "anjok224"
+    },
+    "aws_stnostatus_vpcattachment": {
+      "value": "2023-06-05T16:47:23Z: VPC has been attached to the Transit Gateway"
+    },
+    "aws_stnostatus_vpcpropagation": {
+      "value": "2023-06-05T16:50:33Z: VPC RT propagation has been enabled to the Transit Gateway Routing Table/Domain"
+    },
+    "aws_dud": {
+      "value": "52529967389"
+    },
+    "description": {
+      "value": "test account for dc finance"
+    },
+    "project": {
+      "value": "lz test account for dc finance"
+    },
+    "aws_cloudservice": {
+      "value": "no_tier0_vpc"
+    },
+    "aws_tfc_created": {
+      "value": "true"
+    },
+    "aws_stnostatus_vpcassociation": {
+      "value": "2023-06-05T16:50:31Z: VPC has been associated with the Transit Gateway Routing Table/Domain"
+    },
+    "aws_location": {
+      "value": "aws-us-east-1"
+    },
+    "owner": {
+      "value": "I:MGP Impacted Sys Fin Sanchita Sarkar"
+    },
+    "aws_propagate_to": {
+      "value": "tgw-nonprod-accounts-rt,tgw-dx-nonprod-rt,tgw-shared-account-rt,tgw-virginia-oregon-peer-rt"
+    },
+    "aws_requested_by": {
+      "value": "amjac426"
+    }
+  }
+}
+2025-06-06 14:26:36,171 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-06 14:26:37,039 - DEBUG - https://10.82.108.28:443 "POST /wapi/v2.13.1/network HTTP/1.1" 201 None
+2025-06-06 14:26:37,162 - INFO - Created network 12.212.88.0/24 in view AWSTesting
+2025-06-06 14:26:37,285 - INFO - Created network: 12.212.88.0/24 (mi-lz-dc-finance-test-us-east-1-vpc)
+2025-06-06 14:26:37,324 - DEBUG - Creating network with data: {
+  "network": "112.212.4.0/24",
+  "network_view": "AWSTesting",
+  "comment": "AWS VPC: mi-lz-network-test-us-east-1-vpc (VPC ID: vpc-09ca502111aa1a60a)",
+  "extattrs": {
+    "aws_stnostatus_vpcattachment": {
+      "value": "2022-11-18T21:17:54Z: VPC has been attached to the Transit Gateway"
+    },
+    "aws_stnostatus_vpcassociation": {
+      "value": "2022-11-18T21:20:40Z: VPC has been associated with the Transit Gateway Routing Table/Domain"
+    },
+    "aws_name": {
+      "value": "mi-lz-network-test-us-east-1-vpc"
+    },
+    "project": {
+      "value": "Network test account for landing zone"
+    },
+    "aws_created_by": {
+      "value": "tshet584"
+    },
+    "aws_stnostatus_vpcpropagation": {
+      "value": "2024-08-30T15:07:46Z: VPC RT propagation has been disabled from the Transit Gateway Routing Table/Domain"
+    },
+    "aws_dud": {
+      "value": "52529967360"
+    },
+    "environment": {
+      "value": "test"
+    },
+    "aws_associate_with": {
+      "value": "tgw-nonprod-accounts-rt"
+    },
+    "aws_cloudservice": {
+      "value": "no_tier0_vpc"
+    },
+    "owner": {
+      "value": "H Network Engineering Matt Barzack"
+    },
+    "aws_location": {
+      "value": "aws-us-east-1"
+    },
+    "aws_tfe_created": {
+      "value": "true"
+    }
+  }
+}
+2025-06-06 14:26:37,421 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-06 14:26:37,838 - DEBUG - https://10.82.108.28:443 "POST /wapi/v2.13.1/network HTTP/1.1" 201 None
+2025-06-06 14:26:37,851 - INFO - Created network 112.212.4.0/24 in view AWSTesting
+2025-06-06 14:26:37,863 - INFO - Created network: 112.212.4.0/24 (mi-lz-network-test-us-east-1-vpc)
+2025-06-06 14:26:37,864 - DEBUG - Creating network with data: {
+  "network": "10.215.33.0/24",
+  "network_view": "AWSTesting",
+  "comment": "AWS VPC: mi-lz-mpg-dev-us-east-1-vpc (VPC ID: vpc-0766434e9b97c0607)",
+  "extattrs": {
+    "aws_tarigrequested_by": {
+      "value": "jalop838"
+    },
+    "aws_stnostatus_vpcattachment": {
+      "value": "2023-05-24T18:45:28Z: VPC has been attached to the Transit Gateway"
+    },
+    "aws_location": {
+      "value": "aws-us-east-1"
+    },
+    "description": {
+      "value": "Migration of MPG platform hosted in Rackspace private cloud"
+    },
+    "aws_cloudservice": {
+      "value": "no_tier0_vpc"
+    },
+    "environment": {
+      "value": "dev"
+    },
+    "aws_created_by": {
+      "value": "anjok224"
+    },
+    "aws_propagate_to": {
+      "value": "tgw-nonprod-accounts-rt,tgw-dx-nonprod-rt,tgw-shared-account-rt,tgw-virginia-oregon-peer-rt"
+    },
+    "aws_dud": {
+      "value": "51519542154"
+    },
+    "project": {
+      "value": "lz foundational-tip prod account for mpg team"
+    },
+    "aws_tfc_created": {
+      "value": "true"
+    },
+    "aws_associate_with": {
+      "value": "tgw-nonprod-accounts-rt"
+    },
+    "aws_name": {
+      "value": "mi-lz-mpg-dev-us-east-1-vpc"
+    },
+    "owner": {
+      "value": "Jesus Lopez"
+    },
+    "aws_stnostatus_vpcassociation": {
+      "value": "2023-05-24T18:47:30Z: VPC has been associated with the Transit Gateway Routing Table/Domain"
+    },
+    "aws_stnostatus_vpcpropagation": {
+      "value": "2023-05-24T18:47:31Z: VPC RT propagation has been enabled to the Transit Gateway Routing Table/Domain"
+    }
+  }
+}
+2025-06-06 14:26:38,001 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-06 14:26:38,721 - DEBUG - https://10.82.108.28:443 "POST /wapi/v2.13.1/network HTTP/1.1" 201 None
+2025-06-06 14:26:38,759 - INFO - Created network 10.215.33.0/24 in view AWSTesting
+2025-06-06 14:26:38,779 - INFO - Created network: 10.215.33.0/24 (mi-lz-mpg-dev-us-east-1-vpc)
+2025-06-06 14:26:38,844 - DEBUG - Creating network with data: {
+  "network": "10.212.5.0/24",
+  "network_view": "AWSTesting",
+  "comment": "AWS VPC: mi-lz-data-migration-gateway-dev-us-east-1-vpc (VPC ID: vpc-0a55d95d59874d7e4)",
+  "extattrs": {
+    "environment": {
+      "value": "dev"
+    },
+    "aws_dud": {
+      "value": "52529967570"
+    },
+    "aws_stnostatus_vpcpropagation": {
+      "value": "2022-12-05T12:47:54Z: VPC RT propagation has been enabled to the Transit Gateway Routing Table/Domain"
+    },
+    "project": {
+      "value": "Data Migration Gateway"
+    },
+    "aws_name": {
+      "value": "mi-lz-data-migration-gateway-dev-us-east-1-vpc"
+    },
+    "aws_stnostatus_vpcattachment": {
+      "value": "2022-12-05T12:45:58Z: VPC has been attached to the Transit Gateway"
+    },
+    "aws_propagate_to": {
+      "value": "tgw-nonprod-accounts-rt,tgw-dx-nonprod-rt,tgw-shared-account-rt,tgw-virginia-oregon-peer-rt"
+    },
+    "owner": {
+      "value": "Jennifer Mefford"
+    },
+    "aws_created_by": {
+      "value": "rjain362"
+    },
+    "aws_associate_with": {
+      "value": "tgw-nonprod-accounts-rt"
+    },
+    "aws_location": {
+      "value": "aws-us-east-1"
+    },
+    "aws_stnostatus_vpcassociation": {
+      "value": "2022-12-05T12:47:40Z: VPC has been associated with the Transit Gateway Routing Table/Domain"
+    },
+    "aws_cloudservice": {
+      "value": "no_tier0_vpc"
+    },
+    "aws_tfe_created": {
+      "value": "true"
+    }
+  }
+}
+2025-06-06 14:26:38,937 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-06 14:26:39,420 - DEBUG - https://10.82.108.28:443 "POST /wapi/v2.13.1/network HTTP/1.1" 201 None
+2025-06-06 14:26:39,425 - INFO - Created network 10.212.5.0/24 in view AWSTesting
+2025-06-06 14:26:39,429 - INFO - Created network: 10.212.5.0/24 (mi-lz-data-migration-gateway-dev-us-east-1-vpc)
+2025-06-06 14:26:39,432 - DEBUG - Creating network with data: {
+  "network": "15.212.118.0/25",
+  "network_view": "AWSTesting",
+  "comment": "AWS VPC: mi-lz-tech-svcs-dev-us-east-1-vpc (VPC ID: vpc-088629d17b8c2e609)",
+  "extattrs": {
+    "aws_tfc_created": {
+      "value": "true"
+    },
+    "aws_location": {
+      "value": "aws-us-east-1"
+    },
+    "description": {
+      "value": "dev us-east-1 VPC for Tech Services"
+    },
+    "aws_name": {
+      "value": "mi-lz-tech-svcs-dev-us-east-1-vpc"
+    },
+    "aws_dud": {
+      "value": "52529967325"
+    },
+    "aws_cloudservice": {
+      "value": "no_tier0_vpc"
+    },
+    "project": {
+      "value": "Tech Services"
+    },
+    "aws_stnostatus_vpcassociation": {
+      "value": "2024-07-31T15:21:38Z: VPC has been associated with the Transit Gateway Routing Table/Domain"
+    },
+    "environment": {
+      "value": "Dev"
+    },
+    "aws_requested_by": {
+      "value": "numen682"
+    },
+    "aws_associate_with": {
+      "value": "tgw-nonprod-accounts-rt"
+    },
+    "aws_propagate_to": {
+      "value": "tgw-nonprod-accounts-rt,tgw-dx-nonprod-rt,tgw-shared-account-rt,tgw-virginia-oregon-peer-rt"
+    },
+    "aws_stnostatus_vpcattachment": {
+      "value": "2024-07-31T15:17:52Z: VPC has been attached to the Transit Gateway"
+    },
+    "aws_stnostatus_vpcpropagation": {
+      "value": "2024-07-31T15:21:39Z: VPC RT propagation has been enabled to the Transit Gateway Routing Table/Domain"
+    },
+    "aws_created_by": {
+      "value": "jmeht561"
+    },
+    "owner": {
+      "value": "Dan Cronin"
+    }
+  }
+}
+2025-06-06 14:26:39,477 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-06 14:26:39,788 - DEBUG - https://10.82.108.28:443 "POST /wapi/v2.13.1/network HTTP/1.1" 201 None
+2025-06-06 14:26:39,793 - INFO - Created network 15.212.118.0/25 in view AWSTesting
+2025-06-06 14:26:39,798 - INFO - Created network: 15.212.118.0/25 (mi-lz-tech-svcs-dev-us-east-1-vpc)
+2025-06-06 14:26:39,807 - DEBUG - Creating network with data: {
+  "network": "10.212.19.128/25",
+  "network_view": "AWSTesting",
+  "comment": "AWS VPC: mi-lz-network-test-default (VPC ID: vpc-0ae16c521a462ca1c)",
+  "extattrs": {
+    "aws_tarig": {
+      "value": "mi-lz-network-test-default"
+    }
+  }
+}
+2025-06-06 14:26:39,820 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-06 14:26:40,155 - DEBUG - https://10.82.108.28:443 "POST /wapi/v2.13.1/network HTTP/1.1" 201 None
+2025-06-06 14:26:40,279 - INFO - Created network 10.212.19.128/25 in view AWSTesting
+2025-06-06 14:26:40,427 - INFO - Created network: 10.212.19.128/25 (mi-lz-network-test-default)
+2025-06-06 14:26:40,483 - DEBUG - Creating network with data: {
+  "network": "10.212.118.128/25",
+  "network_view": "AWSTesting",
+  "comment": "AWS VPC: mi-lz-pms-dev-us-east-1-vpc (VPC ID: vpc-080c7679bbf4c51cd)",
+  "extattrs": {
+    "description": {
+      "value": "Tarig dev us-east-1 vpc for pms"
+    },
+    "aws_propagate_to": {
+      "value": "tgw-nonprod-accounts-rt,tgw-dx-nonprod-rt,tgw-shared-account-rt,tgw-virginia-oregon-peer-rt"
+    },
+    "aws_dud": {
+      "value": "52529967301"
+    },
+    "aws_associate_with": {
+      "value": "tgw-nonprod-accounts-rt"
+    },
+    "aws_name": {
+      "value": "mi-lz-pms-dev-us-east-1-vpc"
+    },
+    "aws_stnostatus_vpcattachment": {
+      "value": "2024-08-12T10:14:22Z: VPC has been attached to the Transit Gateway"
+    },
+    "aws_tfc_created": {
+      "value": "true"
+    },
+    "aws_stnostatus_vpcassociation": {
+      "value": "2024-08-12T10:17:45Z: VPC has been associated with the Transit Gateway Routing Table/Domain"
+    },
+    "aws_created_by": {
+      "value": "jmeht561"
+    },
+    "aws_requested_by": {
+      "value": "numen682"
+    },
+    "project": {
+      "value": "Property Management Systems"
+    },
+    "aws_stnostatus_vpcpropagation": {
+      "value": "2024-08-12T10:17:30Z: VPC RT propagation has been enabled to the Transit Gateway Routing Table/Domain"
+    },
+    "aws_cloudservice": {
+      "value": "no_tier0_vpc"
+    },
+    "environment": {
+      "value": "dev"
+    },
+    "aws_location": {
+      "value": "aws-us-east-1"
+    },
+    "owner": {
+      "value": "Jared Spindler"
+    }
+  }
+}
+2025-06-06 14:26:40,612 - DEBUG - Resetting dropped connection: 10.82.108.28
+2025-06-06 14:26:41,257 - DEBUG - https://10.82.108.28:443 "POST /wapi/v2.13.1/network HTTP/1.1" 201 None
+2025-06-06 14:26:41,267 - INFO - Created network 10.212.118.128/25 in view AWSTesting
+2025-06-06 14:26:41,279 - INFO - Created network: 10.212.118.128/25 (mi-lz-pms-dev-us-east-1-vpc)
+2025-06-06 14:26:41,465 - INFO - Generated network status report: reports\network_status_report_2025-06-06.md

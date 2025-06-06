@@ -1,0 +1,61 @@
+================================================================================
+PROPERTY TO INFOBLOX NETWORK IMPORT REPORT - ENHANCED
+================================================================================
+Generated: 2025-06-06 14:13:00
+Mode: LIVE
+
+SUMMARY
+----------------------------------------
+Total Matching Networks: 0
+Total Missing Networks: 8
+Total Networks with EA Discrepancies: 0
+Total Networks Existing as Containers: 0
+Total Errors: 0
+
+MISSING NETWORKS (Not in InfoBlox)
+----------------------------------------
+  CIDR: 10.101.224.0/22
+    Site ID: 16540968605520072
+    M_Host: IADXMP01
+
+  CIDR: 10.99.116.0/22
+    Site ID: 16534423216510206
+    M_Host: WASCTP01
+
+  CIDR: 10.107.20.0/22
+    Site ID: 16534424701980039
+    M_Host: WASNHP01
+
+  CIDR: 10.98.56.0/22
+    Site ID: 1654697781058018296
+    M_Host: WASGWP01
+
+  CIDR: 10.104.8.0/22
+    Site ID: 1655386596360012096
+    M_Host: WASPCP01
+
+  CIDR: 10.98.64.0/22
+    Site ID: 1655386775177021896
+    M_Host: WASTCP01
+
+  CIDR: 10.108.144.0/22
+    Site ID: 1655479735345004796
+    M_Host: WASVAP01
+
+  CIDR: 10.105.152.0/22
+    Site ID: 1655746324503019096
+    M_Host: IADFXP01
+
+================================================================================
+NETWORK CREATION REPORT - ENHANCED WITH OVERLAP DETECTION
+================================================================================
+
+CREATED NETWORKS:
+  - 10.101.224.0/22 (site_id: 16540968605520072)
+  - 10.99.116.0/22 (site_id: 16534423216510206)
+  - 10.107.20.0/22 (site_id: 16534424701980039)
+  - 10.98.56.0/22 (site_id: 1654697781058018296)
+  - 10.104.8.0/22 (site_id: 1655386596360012096)
+  - 10.98.64.0/22 (site_id: 1655386775177021896)
+  - 10.108.144.0/22 (site_id: 1655479735345004796)
+  - 10.105.152.0/22 (site_id: 1655746324503019096)
