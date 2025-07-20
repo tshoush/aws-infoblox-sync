@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multi-Cloud Network Sync - Working Demo</title>
+    <style>
+        :root {
+            --marriott-red: #bd1e51;
+            --marriott-dark: #1a1a1a;
+            --marriott-gray: #6c6c6c;
+            --marriott-light-gray: #f5f5f5;
+            --marriott-white: #ffffff;
+            --success: #4caf50;
+            --warning: #ff9800;
+            --danger: #f44336;
+            --info: #2196f3;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: var(--marriott-light-gray);
+            color: var(--marriott-dark);
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            color: var(--marriott-red);
+            font-weight: 300;
+            letter-spacing: 2px;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .demo-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .panel {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .panel h2 {
+            color: var(--marriott-dark);
+            font-weight: 400;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid var(--marriott-red);
+            padding-bottom: 0.5rem;
+        }
+
+        .cloud-sources {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .cloud-card {
+            border: 1px solid #ddd;
+            padding: 1rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .cloud-card:hover {
+            border-color: var(--marriott-red);
+            transform: translateY(-2px);
+        }
+
+        .cloud-card.active {
+            background: var(--marriott-red);
+            color: white;
+            border-color: var(--marriott-red);
+        }
+
+        .network-list {
+            max-height: 300px;
+            overflow-y: auto;
+            border: 1px solid #ddd;
+            padding: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .network-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.5rem;
+            margin: 0.5rem 0;
+            background: var(--marriott-light-gray);
+            border-radius: 4px;
+        }
+
+        .btn {
+            background: var(--marriott-red);
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 300;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            background: var(--marriott-dark);
+        }
+
+        .btn-secondary {
+            background: var(--marriott-gray);
+        }
+
+        .results {
+            margin-top: 2rem;
+        }
+
+        .conflict-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+        }
+
+        .conflict-table th {
+            background: var(--marriott-dark);
+            color: white;
+            padding: 0.75rem;
+            text-align: left;
+        }
+
+        .conflict-table td {
+            padding: 0.75rem;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 1.5rem;
+            text-align: center;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            color: var(--marriott-red);
+            font-weight: 300;
+        }
+
+        .stat-label {
+            color: var(--marriott-gray);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+        }
+
+        .terminal {
+            background: #1a1a1a;
+            color: #0f0;
+            padding: 1rem;
+            font-family: monospace;
+            font-size: 0.9rem;
+            height: 200px;
+            overflow-y: auto;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+
+        .badge {
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            color: white;
+        }
+
+        .badge-aws { background: #ff9900; }
+        .badge-azure { background: #0078d4; }
+        .badge-gcp { background: #4285f4; }
+        .badge-alibaba { background: #ff6600; }
+        .badge-onprem { background: #6c6c6c; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>MULTI-CLOUD NETWORK SYNCHRONIZATION DEMO</h1>
+        
+        <div class="stats">
+            <div class="stat-card">
+                <div class="stat-number" id="totalNetworks">0</div>
+                <div class="stat-label">Total Networks</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="totalConflicts">0</div>
+                <div class="stat-label">Conflicts</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="totalOrphaned">0</div>
+                <div class="stat-label">Orphaned</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="totalSources">5</div>
+                <div class="stat-label">Sources</div>
+            </div>
+        </div>
+
+        <div class="demo-grid">
+            <div class="panel">
+                <h2>Cloud Network Sources</h2>
+                
+                <div class="cloud-sources">
+                    <div class="cloud-card active" onclick="selectCloud('all')">
+                        <div>🌐</div>
+                        <div>All Sources</div>
+                    </div>
+                    <div class="cloud-card" onclick="selectCloud('aws')">
+                        <div>☁️</div>
+                        <div>AWS</div>
+                    </div>
+                    <div class="cloud-card" onclick="selectCloud('azure')">
+                        <div>🔷</div>
+                        <div>Azure</div>
+                    </div>
+                    <div class="cloud-card" onclick="selectCloud('gcp')">
+                        <div>🔵</div>
+                        <div>GCP</div>
+                    </div>
+                    <div class="cloud-card" onclick="selectCloud('alibaba')">
+                        <div>🟠</div>
+                        <div>Alibaba</div>
+                    </div>
+                    <div class="cloud-card" onclick="selectCloud('onprem')">
+                        <div>🏢</div>
+                        <div>On-Prem</div>
+                    </div>
+                </div>
+
+                <h3>Networks from Selected Source</h3>
+                <div class="network-list" id="networkList">
+                    <!-- Networks will be populated here -->
+                </div>
+
+                <button class="btn" onclick="runAnalysis()">Run Synchronization Analysis</button>
+            </div>
+
+            <div class="panel">
+                <h2>InfoBlox Current State</h2>
+                
+                <h3>Existing Networks (All Sources)</h3>
+                <div class="network-list" id="infobloxList">
+                    <!-- InfoBlox networks will be shown here -->
+                </div>
+
+                <button class="btn btn-secondary" onclick="addRandomNetwork()">Simulate Network Addition</button>
+            </div>
+        </div>
+
+        <div class="panel results">
+            <h2>Analysis Results</h2>
+            
+            <div class="terminal" id="terminal">
+                > Ready to analyze multi-cloud networks...
+            </div>
+
+            <div id="conflictResults" style="display: none;">
+                <h3>Detected Conflicts</h3>
+                <table class="conflict-table" id="conflictTable">
+                    <thead>
+                        <tr>
+                            <th>Network</th>
+                            <th>Source 1</th>
+                            <th>Source 2</th>
+                            <th>Conflict Type</th>
+                            <th>Resolution</th>
+                        </tr>
+                    </thead>
+                    <tbody id="conflictBody">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Sample multi-cloud network data
+        const cloudNetworks = {
+            aws: [
+                { cidr: '10.0.0.0/16', name: 'vpc-prod-east', region: 'us-east-1' },
+                { cidr: '10.1.0.0/16', name: 'vpc-dev-west', region: 'us-west-2' },
+                { cidr: '172.16.0.0/24', name: 'vpc-staging', region: 'eu-west-1' },
+                { cidr: '192.168.1.0/24', name: 'vpc-test', region: 'ap-south-1' }
+            ],
+            azure: [
+                { cidr: '10.0.0.0/16', name: 'vnet-prod-eastus', region: 'East US' },
+                { cidr: '10.2.0.0/16', name: 'vnet-dev-westeu', region: 'West Europe' },
+                { cidr: '172.16.0.0/20', name: 'vnet-staging', region: 'Central US' }
+            ],
+            gcp: [
+                { cidr: '10.3.0.0/16', name: 'vpc-analytics', region: 'us-central1' },
+                { cidr: '10.4.0.0/16', name: 'vpc-ml-platform', region: 'europe-west1' },
+                { cidr: '192.168.0.0/16', name: 'vpc-shared', region: 'asia-east1' }
+            ],
+            alibaba: [
+                { cidr: '10.5.0.0/16', name: 'vpc-ecommerce', region: 'cn-hangzhou' },
+                { cidr: '172.20.0.0/16', name: 'vpc-logistics', region: 'cn-shanghai' }
+            ],
+            onprem: [
+                { cidr: '10.0.0.0/8', name: 'dc-primary', region: 'Chicago' },
+                { cidr: '192.168.0.0/16', name: 'dc-secondary', region: 'Dallas' },
+                { cidr: '172.16.0.0/12', name: 'dc-dr', region: 'Phoenix' }
+            ]
+        };
+
+        // InfoBlox current state (mix of sources)
+        let infobloxNetworks = [
+            { cidr: '10.0.0.0/16', source: 'aws', name: 'vpc-prod-east' },
+            { cidr: '10.2.0.0/16', source: 'azure', name: 'vnet-dev-westeu' },
+            { cidr: '10.3.0.0/16', source: 'gcp', name: 'vpc-analytics' },
+            { cidr: '192.168.0.0/16', source: 'onprem', name: 'dc-secondary' },
+            { cidr: '10.6.0.0/16', source: 'aws', name: 'vpc-old-deprecated' }, // Orphaned
+        ];
+
+        let selectedSource = 'all';
+
+        function selectCloud(source) {
+            selectedSource = source;
+            document.querySelectorAll('.cloud-card').forEach(card => {
+                card.classList.remove('active');
+            });
+            event.target.closest('.cloud-card').classList.add('active');
+            displayNetworks();
+        }
+
+        function displayNetworks() {
+            const networkList = document.getElementById('networkList');
+            networkList.innerHTML = '';
+            
+            let networks = [];
+            if (selectedSource === 'all') {
+                Object.entries(cloudNetworks).forEach(([source, nets]) => {
+                    nets.forEach(net => {
+                        networks.push({...net, source});
+                    });
+                });
+            } else {
+                networks = cloudNetworks[selectedSource].map(net => ({...net, source: selectedSource}));
+            }
+            
+            networks.forEach(net => {
+                networkList.innerHTML += `
+                    <div class="network-item">
+                        <span>${net.cidr} - ${net.name}</span>
+                        <span class="badge badge-${net.source}">${net.source.toUpperCase()}</span>
+                    </div>
+                `;
+            });
+            
+            updateStats();
+        }
+
+        function displayInfoBloxNetworks() {
+            const infobloxList = document.getElementById('infobloxList');
+            infobloxList.innerHTML = '';
+            
+            infobloxNetworks.forEach(net => {
+                infobloxList.innerHTML += `
+                    <div class="network-item">
+                        <span>${net.cidr} - ${net.name}</span>
+                        <span class="badge badge-${net.source}">${net.source.toUpperCase()}</span>
+                    </div>
+                `;
+            });
+        }
+
+        function updateStats() {
+            let total = 0;
+            Object.values(cloudNetworks).forEach(nets => {
+                total += nets.length;
+            });
+            document.getElementById('totalNetworks').textContent = total;
+        }
+
+        function addTerminalLine(text) {
+            const terminal = document.getElementById('terminal');
+            terminal.innerHTML += '\n> ' + text;
+            terminal.scrollTop = terminal.scrollHeight;
+        }
+
+        function runAnalysis() {
+            const terminal = document.getElementById('terminal');
+            terminal.innerHTML = '> Starting multi-cloud network synchronization analysis...';
+            
+            setTimeout(() => addTerminalLine('Connecting to cloud providers...'), 500);
+            setTimeout(() => addTerminalLine('✓ AWS: 4 networks exported'), 1000);
+            setTimeout(() => addTerminalLine('✓ Azure: 3 networks exported'), 1500);
+            setTimeout(() => addTerminalLine('✓ GCP: 3 networks exported'), 2000);
+            setTimeout(() => addTerminalLine('✓ Alibaba: 2 networks exported'), 2500);
+            setTimeout(() => addTerminalLine('✓ On-Premises: 3 networks exported'), 3000);
+            setTimeout(() => addTerminalLine(''), 3500);
+            setTimeout(() => addTerminalLine('Analyzing against InfoBlox...'), 4000);
+            setTimeout(() => addTerminalLine('⚠ Conflicts detected: 3'), 4500);
+            setTimeout(() => addTerminalLine('⚠ Orphaned networks: 1'), 5000);
+            setTimeout(() => addTerminalLine('✓ Analysis complete!'), 5500);
+            
+            setTimeout(() => {
+                detectConflicts();
+                document.getElementById('conflictResults').style.display = 'block';
+            }, 6000);
+        }
+
+        function detectConflicts() {
+            const conflicts = [
+                {
+                    network: '10.0.0.0/16',
+                    source1: 'AWS',
+                    source2: 'Azure',
+                    type: 'Exact Match',
+                    resolution: 'Review ownership'
+                },
+                {
+                    network: '192.168.0.0/16',
+                    source1: 'GCP',
+                    source2: 'On-Prem',
+                    type: 'Exact Match',
+                    resolution: 'Maintain on-prem'
+                },
+                {
+                    network: '172.16.0.0/24',
+                    source1: 'AWS',
+                    source2: 'On-Prem (172.16.0.0/12)',
+                    type: 'Contained By',
+                    resolution: 'Create hierarchy'
+                }
+            ];
+            
+            const tbody = document.getElementById('conflictBody');
+            tbody.innerHTML = '';
+            
+            conflicts.forEach(conflict => {
+                tbody.innerHTML += `
+                    <tr>
+                        <td>${conflict.network}</td>
+                        <td><span class="badge badge-${conflict.source1.toLowerCase().replace('-', '')}">${conflict.source1}</span></td>
+                        <td><span class="badge badge-${conflict.source2.toLowerCase().split(' ')[0].replace('-', '')}">${conflict.source2}</span></td>
+                        <td>${conflict.type}</td>
+                        <td>${conflict.resolution}</td>
+                    </tr>
+                `;
+            });
+            
+            document.getElementById('totalConflicts').textContent = conflicts.length;
+            document.getElementById('totalOrphaned').textContent = '1';
+        }
+
+        function addRandomNetwork() {
+            const sources = ['aws', 'azure', 'gcp', 'alibaba', 'onprem'];
+            const randomSource = sources[Math.floor(Math.random() * sources.length)];
+            const randomOctet = Math.floor(Math.random() * 100) + 100;
+            
+            const newNetwork = {
+                cidr: `10.${randomOctet}.0.0/16`,
+                source: randomSource,
+                name: `new-${randomSource}-network`
+            };
+            
+            infobloxNetworks.push(newNetwork);
+            displayInfoBloxNetworks();
+            
+            addTerminalLine(`Added new network: ${newNetwork.cidr} from ${randomSource.toUpperCase()}`);
+        }
+
+        // Initialize
+        displayNetworks();
+        displayInfoBloxNetworks();
+    </script>
+</body>
+</html>

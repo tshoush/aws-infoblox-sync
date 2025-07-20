@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marriott Multi-Cloud Network Sync - Presentation Hub</title>
+    <style>
+        :root {
+            --marriott-red: #a6192e;
+            --marriott-dark: #201e1e;
+            --marriott-gray: #4d4d4d;
+            --marriott-light-gray: #f5f4f2;
+            --marriott-white: #ffffff;
+            --marriott-black: #000000;
+            --marriott-warm-gray: #8c8279;
+            --marriott-light-red: #d9365a;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Whitney, 'Helvetica Neue', Arial, sans-serif;
+            background: var(--marriott-light-gray);
+            color: var(--marriott-dark);
+            line-height: 1.6;
+            font-weight: 300;
+        }
+
+        /* Header */
+        .header {
+            background: var(--marriott-black);
+            padding: 1.25rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            color: var(--marriott-white);
+            text-transform: uppercase;
+        }
+
+        .tagline {
+            color: #999;
+            font-size: 0.875rem;
+            font-weight: 300;
+        }
+
+        /* Tab Navigation */
+        .tab-nav {
+            background: var(--marriott-white);
+            padding: 0;
+            position: fixed;
+            width: 100%;
+            top: 70px;
+            z-index: 999;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+            border-bottom: 1px solid #e4e4e4;
+        }
+
+        .tab-nav-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .tab-button {
+            background: none;
+            border: none;
+            padding: 1rem 1.5rem;
+            cursor: pointer;
+            font-size: 0.875rem;
+            color: var(--marriott-gray);
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            position: relative;
+            font-weight: 500;
+        }
+
+        .tab-button:hover {
+            color: var(--marriott-red);
+        }
+
+        .tab-button.active {
+            color: var(--marriott-red);
+            font-weight: 400;
+        }
+
+        .tab-button.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--marriott-red);
+        }
+
+        /* Content Area */
+        .content-area {
+            margin-top: 140px;
+            min-height: calc(100vh - 140px);
+            position: relative;
+        }
+
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.5s ease;
+            height: calc(100vh - 140px);
+            position: relative;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Welcome Tab */
+        .welcome-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .welcome-content h1 {
+            font-size: 3rem;
+            font-weight: 300;
+            color: var(--marriott-dark);
+            margin-bottom: 1rem;
+            letter-spacing: -1px;
+        }
+
+        .welcome-content p {
+            font-size: 1.2rem;
+            color: var(--marriott-gray);
+            margin-bottom: 3rem;
+        }
+
+        .presentation-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .presentation-card {
+            background: white;
+            border: none;
+            border-radius: 4px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            text-align: left;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+        }
+
+        .presentation-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+        }
+
+        .presentation-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .presentation-title {
+            font-size: 1.2rem;
+            font-weight: 400;
+            color: var(--marriott-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .presentation-description {
+            color: var(--marriott-gray);
+            font-size: 0.9rem;
+        }
+
+        /* Iframe Container */
+        .iframe-container {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            background: var(--marriott-light-gray);
+        }
+
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Loading Spinner */
+        .loading {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+        }
+
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid var(--marriott-red);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 1rem;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .tab-nav-content {
+                justify-content: center;
+            }
+
+            .tab-button {
+                padding: 0.5rem 1rem;
+                font-size: 0.9rem;
+            }
+
+            .welcome-content h1 {
+                font-size: 2rem;
+            }
+
+            .content-area {
+                margin-top: 160px;
+            }
+
+            .tab-content {
+                height: calc(100vh - 160px);
+            }
+        }
+
+        /* Quick Actions */
+        .quick-actions {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            display: flex;
+            gap: 1rem;
+            z-index: 100;
+        }
+
+        .action-button {
+            background: var(--marriott-red);
+            color: white;
+            border: none;
+            padding: 0.875rem 2rem;
+            border-radius: 2px;
+            cursor: pointer;
+            font-size: 0.875rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+        }
+
+        .action-button:hover {
+            background: var(--marriott-light-red);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+
+        /* Status Indicator */
+        .status-indicator {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #4caf50;
+            margin-right: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <div class="header">
+        <div class="header-content">
+            <div class="logo">MARRIOTT NETWORK SYNC PLATFORM</div>
+            <div class="tagline">Multi-Cloud Network Management Documentation & Demos</div>
+        </div>
+    </div>
+
+    <!-- Tab Navigation -->
+    <div class="tab-nav">
+        <div class="tab-nav-content">
+            <button class="tab-button active" onclick="showTab('welcome')">
+                Welcome
+            </button>
+            <button class="tab-button" onclick="showTab('presentation')">
+                Main Presentation
+            </button>
+            <button class="tab-button" onclick="showTab('architecture')">
+                Architecture Details
+            </button>
+            <button class="tab-button" onclick="showTab('demo')">
+                Interactive Demo
+            </button>
+            <button class="tab-button" onclick="showTab('working-demo')">
+                Working Demo
+            </button>
+        </div>
+    </div>
+
+    <!-- Content Area -->
+    <div class="content-area">
+        <!-- Welcome Tab -->
+        <div id="welcome" class="tab-content active">
+            <div class="welcome-content">
+                <h1 style="font-weight: 300; font-size: 2.5rem; margin-bottom: 1.5rem;">Multi-Cloud Network Synchronization Platform</h1>
+                <p style="font-size: 1.125rem; font-weight: 300; color: var(--marriott-warm-gray); max-width: 800px; margin: 0 auto 3rem;">
+                    A comprehensive solution for managing networks across AWS, Azure, GCP, Alibaba Cloud, and on-premises infrastructure
+                </p>
+
+                <div class="presentation-grid">
+                    <div class="presentation-card" onclick="showTab('presentation')">
+                        <div class="presentation-icon">📊</div>
+                        <div class="presentation-title">Main Presentation</div>
+                        <div class="presentation-description">
+                            Executive overview with cloud-agnostic architecture, features, and business value
+                        </div>
+                    </div>
+
+                    <div class="presentation-card" onclick="showTab('architecture')">
+                        <div class="presentation-icon">🏗️</div>
+                        <div class="presentation-title">Technical Architecture</div>
+                        <div class="presentation-description">
+                            Deep dive into system design, data flow, and component architecture
+                        </div>
+                    </div>
+
+                    <div class="presentation-card" onclick="showTab('demo')">
+                        <div class="presentation-icon">🎮</div>
+                        <div class="presentation-title">Interactive Demo</div>
+                        <div class="presentation-description">
+                            Original interactive demonstration of the analysis and synchronization process
+                        </div>
+                    </div>
+
+                    <div class="presentation-card" onclick="showTab('working-demo')">
+                        <div class="presentation-icon">🚀</div>
+                        <div class="presentation-title">Working Demo</div>
+                        <div class="presentation-description">
+                            Fully functional demo with multi-source conflict detection and resolution
+                        </div>
+                    </div>
+                </div>
+
+                <div style="margin-top: 4rem; padding: 2.5rem; background: white; border-radius: 4px; box-shadow: 0 1px 3px rgba(0,0,0,0.12);">
+                    <h3 style="margin-bottom: 1rem;">Quick Links</h3>
+                    <div style="display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap;">
+                        <div>
+                            <strong>Documentation:</strong>
+                            <ul style="list-style: none; padding: 0; margin-top: 0.5rem;">
+                                <li><a href="CLOUD_AGNOSTIC_ARCHITECTURE.md" target="_blank">Architecture Guide</a></li>
+                                <li><a href="README.md" target="_blank">Implementation Guide</a></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <strong>Source Code:</strong>
+                            <ul style="list-style: none; padding: 0; margin-top: 0.5rem;">
+                                <li><a href="infoblox_aws_comprehensive_analyzer.py" target="_blank">Analyzer</a></li>
+                                <li><a href="infoblox_aws_network_updater.py" target="_blank">Updater</a></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <strong>Test Data:</strong>
+                            <ul style="list-style: none; padding: 0; margin-top: 0.5rem;">
+                                <li><a href="test_all_use_cases.csv" target="_blank">Test Scenarios</a></li>
+                                <li><a href="reports/" target="_blank">Sample Reports</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Presentation Tab -->
+        <div id="presentation" class="tab-content">
+            <div class="iframe-container">
+                <div class="loading">
+                    <div class="spinner"></div>
+                    <p>Loading presentation...</p>
+                </div>
+                <iframe src="cloud_agnostic_presentation.html" onload="hideLoading(this)"></iframe>
+            </div>
+        </div>
+
+        <!-- Architecture Tab -->
+        <div id="architecture" class="tab-content">
+            <div class="iframe-container">
+                <div class="loading">
+                    <div class="spinner"></div>
+                    <p>Loading architecture documentation...</p>
+                </div>
+                <iframe src="architecture_visualization.html" onload="hideLoading(this)"></iframe>
+            </div>
+        </div>
+
+        <!-- Interactive Demo Tab -->
+        <div id="demo" class="tab-content">
+            <div class="iframe-container">
+                <div class="loading">
+                    <div class="spinner"></div>
+                    <p>Loading interactive demo...</p>
+                </div>
+                <iframe src="interactive_demo.html" onload="hideLoading(this)"></iframe>
+            </div>
+        </div>
+
+        <!-- Working Demo Tab -->
+        <div id="working-demo" class="tab-content">
+            <div class="iframe-container">
+                <div class="loading">
+                    <div class="spinner"></div>
+                    <p>Loading working demo...</p>
+                </div>
+                <iframe src="working_demo.html" onload="hideLoading(this)"></iframe>
+            </div>
+        </div>
+    </div>
+
+    <!-- Quick Actions -->
+    <div class="quick-actions">
+        <button class="action-button" onclick="toggleFullscreen()">
+            🔳 Fullscreen
+        </button>
+        <button class="action-button" onclick="showTab('welcome')">
+            🏠 Home
+        </button>
+    </div>
+
+    <script>
+        function showTab(tabName) {
+            // Update tab buttons
+            document.querySelectorAll('.tab-button').forEach(button => {
+                button.classList.remove('active');
+            });
+            event.target.closest('.tab-button').classList.add('active');
+
+            // Update tab content
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            document.getElementById(tabName).classList.add('active');
+
+            // Update URL hash
+            window.location.hash = tabName;
+        }
+
+        function hideLoading(iframe) {
+            const loading = iframe.parentElement.querySelector('.loading');
+            if (loading) {
+                loading.style.display = 'none';
+            }
+        }
+
+        function toggleFullscreen() {
+            if (!document.fullscreenElement) {
+                document.documentElement.requestFullscreen();
+            } else {
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                }
+            }
+        }
+
+        // Load tab from URL hash
+        window.addEventListener('load', () => {
+            const hash = window.location.hash.substring(1);
+            if (hash && document.getElementById(hash)) {
+                const button = Array.from(document.querySelectorAll('.tab-button')).find(
+                    btn => btn.textContent.toLowerCase().includes(hash.replace('-', ' '))
+                );
+                if (button) {
+                    button.click();
+                }
+            }
+        });
+
+        // Keyboard shortcuts
+        document.addEventListener('keydown', (e) => {
+            if (e.ctrlKey || e.metaKey) {
+                switch(e.key) {
+                    case '1':
+                        e.preventDefault();
+                        document.querySelectorAll('.tab-button')[0].click();
+                        break;
+                    case '2':
+                        e.preventDefault();
+                        document.querySelectorAll('.tab-button')[1].click();
+                        break;
+                    case '3':
+                        e.preventDefault();
+                        document.querySelectorAll('.tab-button')[2].click();
+                        break;
+                    case '4':
+                        e.preventDefault();
+                        document.querySelectorAll('.tab-button')[3].click();
+                        break;
+                    case '5':
+                        e.preventDefault();
+                        document.querySelectorAll('.tab-button')[4].click();
+                        break;
+                    case 'f':
+                        e.preventDefault();
+                        toggleFullscreen();
+                        break;
+                }
+            }
+        });
+    </script>
+</body>
+</html>

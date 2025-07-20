@@ -1,98 +1,265 @@
 #!/bin/bash
 
-# AWS to InfoBlox VPC Manager Setup Script
-# This script creates a virtual environment and installs dependencies
+# AWS to InfoBlox Tag Mapper - Docker Setup Script
+# This script sets up and configures the Docker environment
 
-echo "=========================================="
-echo "AWS to InfoBlox VPC Manager Setup"
-echo "=========================================="
+set -e
 
-# Check if Python is installed
-if ! command -v python3 &> /dev/null; then
-    echo "❌ Python 3 is not installed. Please install Python 3.7+ first."
+# Colors for output
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+YELLOW='\033[1;33m'
+BLUE='\033[0;34m'
+NC='\033[0m' # No Color
+
+# Banner
+echo -e "${BLUE}"
+echo "═══════════════════════════════════════════════════════════════"
+echo "    AWS to InfoBlox Tag Mapper - Docker Setup"
+echo "═══════════════════════════════════════════════════════════════"
+echo -e "${NC}"
+
+# Function to print colored messages
+print_info() {
+    echo -e "${BLUE}[INFO]${NC} $1"
+}
+
+print_success() {
+    echo -e "${GREEN}[SUCCESS]${NC} $1"
+}
+
+print_warning() {
+    echo -e "${YELLOW}[WARNING]${NC} $1"
+}
+
+print_error() {
+    echo -e "${RED}[ERROR]${NC} $1"
+}
+
+# Function to check if a command exists
+command_exists() {
+    command -v "$1" >/dev/null 2>&1
+}
+
+# Function to find an available port
+find_available_port() {
+    local port=$1
+    local max_port=$((port + 100))
+    
+    while [ $port -le $max_port ]; do
+        if ! lsof -i:$port >/dev/null 2>&1 && ! netstat -tuln 2>/dev/null | grep -q ":$port "; then
+            echo $port
+            return
+        fi
+        ((port++))
+    done
+    
+    # If no port found in range, return 0
+    echo 0
+}
+
+# Check prerequisites
+print_info "Checking prerequisites..."
+
+if ! command_exists docker; then
+    print_error "Docker is not installed. Please install Docker first."
+    echo "Visit: https://docs.docker.com/get-docker/"
     exit 1
 fi
 
-echo "✅ Python 3 found: $(python3 --version)"
-
-# Create virtual environment
-echo ""
-echo "🔧 Creating virtual environment..."
-if [ -d "venv" ]; then
-    echo "⚠️  Virtual environment already exists. Removing old one..."
-    rm -rf venv
-fi
-
-python3 -m venv venv
-
-if [ $? -ne 0 ]; then
-    echo "❌ Failed to create virtual environment"
+if ! command_exists docker-compose && ! docker compose version >/dev/null 2>&1; then
+    print_error "Docker Compose is not installed. Please install Docker Compose."
+    echo "Visit: https://docs.docker.com/compose/install/"
     exit 1
 fi
 
-echo "✅ Virtual environment created successfully"
+print_success "Prerequisites check passed"
 
-# Activate virtual environment
-echo ""
-echo "🔧 Activating virtual environment..."
-source venv/bin/activate
-
-if [ $? -ne 0 ]; then
-    echo "❌ Failed to activate virtual environment"
+# Check if Docker daemon is running
+if ! docker info >/dev/null 2>&1; then
+    print_error "Docker daemon is not running. Please start Docker."
     exit 1
 fi
 
-echo "✅ Virtual environment activated"
+# Create necessary directories
+print_info "Creating necessary directories..."
+mkdir -p data reports logs static
+print_success "Directories created"
 
-# Upgrade pip
-echo ""
-echo "🔧 Upgrading pip..."
-pip install --upgrade pip
+# Check for required files
+print_info "Checking required files..."
+required_files=("tag_mapping_web_app.py" "aws_infoblox_vpc_manager_complete.py" "requirements_web.txt")
+missing_files=()
 
-# Install requirements
-echo ""
-echo "🔧 Installing Python packages..."
-pip install -r requirements.txt
+for file in "${required_files[@]}"; do
+    if [ ! -f "$file" ]; then
+        missing_files+=("$file")
+    fi
+done
 
-if [ $? -ne 0 ]; then
-    echo "❌ Failed to install requirements"
+if [ ${#missing_files[@]} -ne 0 ]; then
+    print_error "Missing required files:"
+    for file in "${missing_files[@]}"; do
+        echo "  - $file"
+    done
     exit 1
 fi
+print_success "All required files present"
 
-echo "✅ All packages installed successfully"
-
-# Create config file if it doesn't exist
-echo ""
-echo "🔧 Setting up configuration..."
+# Check for config.env
 if [ ! -f "config.env" ]; then
-    cp config.env.template config.env
-    echo "✅ Created config.env from template"
-    echo "⚠️  Please edit config.env with your InfoBlox details before running the tool"
-else
-    echo "ℹ️  config.env already exists, skipping creation"
+    print_warning "config.env not found. Creating template..."
+    cat > config.env << 'EOF'
+# InfoBlox Configuration
+GRID_MASTER=
+NETWORK_VIEW=default
+INFOBLOX_USERNAME=
+PASSWORD=
+
+# CSV File Configuration
+CSV_FILE=vpc_data.csv
+
+# Container Detection Configuration
+PARENT_CONTAINER_PREFIXES=
+CONTAINER_HIERARCHY_MODE=strict
+EOF
+    print_warning "Please edit config.env with your InfoBlox credentials"
 fi
 
+# Check for CSV file
+if [ ! -f "vpc_data.csv" ]; then
+    print_warning "vpc_data.csv not found. Make sure to add your CSV file before running."
+fi
+
+# Port configuration
+print_info "Configuring port..."
+DEFAULT_PORT=5000
+PREFERRED_PORT=${WEB_PORT:-$DEFAULT_PORT}
+
+# Find available port
+AVAILABLE_PORT=$(find_available_port $PREFERRED_PORT)
+
+if [ "$AVAILABLE_PORT" -eq 0 ]; then
+    print_error "No available ports found in range $PREFERRED_PORT-$((PREFERRED_PORT + 100))"
+    exit 1
+fi
+
+if [ "$AVAILABLE_PORT" -ne "$PREFERRED_PORT" ]; then
+    print_warning "Port $PREFERRED_PORT is not available. Using port $AVAILABLE_PORT instead."
+fi
+
+# Save port configuration
+echo "WEB_PORT=$AVAILABLE_PORT" > .env
+print_success "Web interface will run on port: $AVAILABLE_PORT"
+
+# Create management scripts
+print_info "Creating management scripts..."
+
+# Create start script
+cat > start.sh << 'EOF'
+#!/bin/bash
+source .env
+echo "Starting AWS to InfoBlox Tag Mapper..."
+docker-compose up -d
 echo ""
-echo "=========================================="
-echo "🎉 Setup Complete!"
-echo "=========================================="
+echo "Container started successfully!"
+echo "Web interface available at: http://localhost:${WEB_PORT}"
 echo ""
-echo "Next Steps:"
-echo "1. Edit config.env with your InfoBlox Grid Master details:"
-echo "   nano config.env"
+echo "To view logs: ./logs.sh"
+echo "To stop: ./stop.sh"
+EOF
+chmod +x start.sh
+
+# Create stop script
+cat > stop.sh << 'EOF'
+#!/bin/bash
+echo "Stopping AWS to InfoBlox Tag Mapper..."
+docker-compose down
+echo "Container stopped."
+EOF
+chmod +x stop.sh
+
+# Create restart script
+cat > restart.sh << 'EOF'
+#!/bin/bash
+echo "Restarting AWS to InfoBlox Tag Mapper..."
+docker-compose restart
+source .env
+echo "Container restarted."
+echo "Web interface available at: http://localhost:${WEB_PORT}"
+EOF
+chmod +x restart.sh
+
+# Create logs script
+cat > logs.sh << 'EOF'
+#!/bin/bash
+echo "Showing logs (press Ctrl+C to exit)..."
+docker-compose logs -f
+EOF
+chmod +x logs.sh
+
+# Create status script
+cat > status.sh << 'EOF'
+#!/bin/bash
+source .env
+echo "=== AWS to InfoBlox Tag Mapper Status ==="
 echo ""
-echo "2. Test the parsing functionality:"
-echo "   source venv/bin/activate"
-echo "   python example_usage.py"
+if docker-compose ps | grep -q "Up"; then
+    echo "Status: RUNNING ✓"
+    echo "Web interface: http://localhost:${WEB_PORT}"
+    echo ""
+    echo "Container details:"
+    docker-compose ps
+else
+    echo "Status: STOPPED ✗"
+fi
 echo ""
-echo "3. Run the main tool in dry-run mode (safe, no changes made):"
-echo "   python aws_infoblox_vpc_manager.py --dry-run"
+echo "Data directory: $(pwd)/data"
+echo "Logs directory: $(pwd)/logs"
+echo "Reports directory: $(pwd)/reports"
+EOF
+chmod +x status.sh
+
+# Create shell access script
+cat > shell.sh << 'EOF'
+#!/bin/bash
+echo "Accessing container shell..."
+docker-compose exec tag-mapper /bin/bash
+EOF
+chmod +x shell.sh
+
+print_success "Management scripts created"
+
+# Build Docker image
+print_info "Building Docker image..."
+docker-compose build
+print_success "Docker image built successfully"
+
+# Display summary
 echo ""
-echo "4. Run with actual changes (after testing):"
-echo "   python aws_infoblox_vpc_manager.py"
+echo -e "${GREEN}═══════════════════════════════════════════════════════════════${NC}"
+echo -e "${GREEN}    Setup Complete!${NC}"
+echo -e "${GREEN}═══════════════════════════════════════════════════════════════${NC}"
 echo ""
-echo "5. For help and options:"
-echo "   python aws_infoblox_vpc_manager.py --help"
+echo "Web interface will be available on port: $AVAILABLE_PORT"
 echo ""
-echo "🔒 Remember: Always test with --dry-run first!"
+echo "Available commands:"
+echo "  ./start.sh   - Start the container"
+echo "  ./stop.sh    - Stop the container"
+echo "  ./restart.sh - Restart the container"
+echo "  ./logs.sh    - View container logs"
+echo "  ./status.sh  - Check container status"
+echo "  ./shell.sh   - Access container shell"
 echo ""
+echo "Next steps:"
+echo "  1. Edit config.env with your InfoBlox credentials (if not done)"
+echo "  2. Ensure your CSV file (vpc_data.csv) is in place"
+echo "  3. Run ./start.sh to start the application"
+echo ""
+
+# Ask if user wants to start now
+read -p "Would you like to start the container now? (y/n) " -n 1 -r
+echo
+if [[ $REPLY =~ ^[Yy]$ ]]; then
+    ./start.sh
+fi

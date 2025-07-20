@@ -1,0 +1,20 @@
+VS Code Terminal Integration Test Results
+==================================================
+Test Date: 2025-06-07 19:58:11.177182
+Python Version: 3.13.0 (tags/v3.13.0:60403a5, Oct  7 2024, 09:38:07) [MSC v.1941 64 bit (AMD64)]
+Platform: Windows-10-10.0.19045-SP0
+Current Directory: C:\Users\tmsho448\Marriot
+Shell Environment: Not Set
+COMSPEC: C:\windows\system32\cmd.exe
+
+Environment Variables:
+  ALLUSERSPROFILE: C:\ProgramData
+  APPDATA: C:\Users\tmsho448\AppData\Roaming
+  BIOSMODELTYPE: 20L6S0XS00
+  BUNDLED_DEBUGPY_PATH: c:\Users\tmsho448\.vscode\extensions\ms-python.debugpy-2025.8.0-win32-x64\bundled\libs\debugpy
+  CHROME_CRASHPAD_PIPE_NAME: \\.\pipe\crashpad_3044_ABFRZHRBBQLHGHEH
+  COLORTERM: truecolor
+  COMMONPROGRAMFILES: C:\Program Files\Common Files
+  COMMONPROGRAMFILES(X86): C:\Program Files (x86)\Common Files
+  COMMONPROGRAMW6432: C:\Program Files\Common Files
+  COMPUTERNAME: HDQRKLT350870

@@ -4835,3 +4835,4 @@
 2025-06-06 14:26:41,267 - INFO - Created network 10.212.118.128/25 in view AWSTesting
 2025-06-06 14:26:41,279 - INFO - Created network: 10.212.118.128/25 (mi-lz-pms-dev-us-east-1-vpc)
 2025-06-06 14:26:41,465 - INFO - Generated network status report: reports\network_status_report_2025-06-06.md
+2025-07-19 11:56:03,382 - DEBUG - Starting new HTTPS connection (1): 10.82.108.28:443

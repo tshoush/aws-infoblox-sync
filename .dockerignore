@@ -1,0 +1,66 @@
+# Git files
+.git
+.gitignore
+
+# Python cache
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.so
+
+# Virtual environment
+venv/
+env/
+ENV/
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Docker files
+Dockerfile
+docker-compose.yml
+.dockerignore
+
+# Scripts
+setup.sh
+start.sh
+stop.sh
+restart.sh
+logs.sh
+status.sh
+shell.sh
+
+# Data directories (will be mounted as volumes)
+data/
+reports/
+logs/
+
+# Documentation
+*.md
+LICENSE
+
+# Environment files
+.env
+config.env.example
+
+# Test files
+test_*
+*_test.py
+
+# Backup files
+*.bak
+*.backup
+*.old
+
+# CSV files (will be mounted)
+*.csv

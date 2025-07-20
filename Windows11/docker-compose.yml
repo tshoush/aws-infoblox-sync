@@ -1,0 +1,34 @@
+version: '3.8'
+
+services:
+  tag-mapper:
+    build: .
+    container_name: infoblox-tag-mapper
+    restart: unless-stopped
+    environment:
+      - FLASK_ENV=production
+      - PORT=5000
+    ports:
+      - "${WEB_PORT:-5000}:5000"
+    volumes:
+      # Mount data directory for persistence
+      - ./reports:/app/reports
+      - ./logs:/app/logs
+      # Mount config files
+      - ./config.env:/app/config.env:ro
+      - ./tag_mappings.json:/app/data/tag_mappings.json
+      # Mount CSV files
+      - ./vpc_data.csv:/app/vpc_data.csv:ro
+      - ./*.csv:/app/*.csv:ro
+    networks:
+      - infoblox-net
+    healthcheck:
+      test: ["CMD-SHELL", "python -c 'import urllib.request; urllib.request.urlopen(\"http://localhost:5000/health\")' || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+networks:
+  infoblox-net:
+    driver: bridge

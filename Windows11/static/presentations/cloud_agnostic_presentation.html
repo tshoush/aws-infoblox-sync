@@ -1,0 +1,934 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multi-Cloud Network Synchronization Platform</title>
+    <style>
+        :root {
+            /* Marriott Brand Colors */
+            --marriott-red: #bd1e51;
+            --marriott-dark: #1a1a1a;
+            --marriott-gray: #6c6c6c;
+            --marriott-light-gray: #f5f5f5;
+            --marriott-white: #ffffff;
+            --marriott-gold: #d4af37;
+            
+            /* Status Colors */
+            --success: #4caf50;
+            --warning: #ff9800;
+            --danger: #f44336;
+            --info: #2196f3;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background: var(--marriott-white);
+            color: var(--marriott-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Marriott-style Header */
+        .header {
+            background: var(--marriott-white);
+            border-bottom: 1px solid #e0e0e0;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 300;
+            letter-spacing: 2px;
+            color: var(--marriott-red);
+        }
+
+        .slide {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 6rem 2rem 2rem;
+            position: relative;
+        }
+
+        .slide-content {
+            max-width: 1200px;
+            width: 100%;
+        }
+
+        h1 {
+            font-size: 3rem;
+            font-weight: 300;
+            margin-bottom: 1rem;
+            color: var(--marriott-dark);
+            text-align: center;
+            letter-spacing: -1px;
+            animation: fadeInUp 1s ease;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            font-weight: 300;
+            margin-bottom: 2rem;
+            color: var(--marriott-dark);
+            text-align: center;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            font-weight: 400;
+            margin-bottom: 1rem;
+            color: var(--marriott-red);
+        }
+
+        p {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            color: var(--marriott-gray);
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+
+        /* Title Slide */
+        .title-slide {
+            background: linear-gradient(135deg, var(--marriott-light-gray) 0%, var(--marriott-white) 100%);
+        }
+
+        .title-slide h1 {
+            font-size: 3.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .subtitle {
+            font-size: 1.5rem;
+            color: var(--marriott-red);
+            font-weight: 300;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        /* Cloud Provider Grid */
+        .cloud-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .cloud-card {
+            background: var(--marriott-white);
+            border: 1px solid #e0e0e0;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cloud-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--marriott-red);
+            transform: translateX(-100%);
+            transition: transform 0.3s ease;
+        }
+
+        .cloud-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .cloud-card:hover::before {
+            transform: translateX(0);
+        }
+
+        .cloud-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .cloud-name {
+            font-size: 1.2rem;
+            font-weight: 400;
+            color: var(--marriott-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .cloud-count {
+            font-size: 0.9rem;
+            color: var(--marriott-gray);
+        }
+
+        /* Architecture Diagram */
+        .architecture-container {
+            background: var(--marriott-light-gray);
+            padding: 3rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+        }
+
+        .architecture-flow {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .arch-component {
+            flex: 1;
+            min-width: 200px;
+            background: var(--marriott-white);
+            padding: 2rem;
+            text-align: center;
+            border: 1px solid #e0e0e0;
+            position: relative;
+        }
+
+        .arch-component h4 {
+            color: var(--marriott-red);
+            margin-bottom: 1rem;
+            font-weight: 400;
+        }
+
+        .flow-arrow {
+            font-size: 2rem;
+            color: var(--marriott-red);
+            animation: pulse 2s ease infinite;
+        }
+
+        /* Features */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .feature-card {
+            background: var(--marriott-white);
+            padding: 2rem;
+            border-left: 4px solid var(--marriott-red);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateX(10px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .feature-icon {
+            font-size: 2rem;
+            color: var(--marriott-red);
+            margin-bottom: 1rem;
+        }
+
+        /* Statistics */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 2rem;
+            background: var(--marriott-white);
+            border: 1px solid #e0e0e0;
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            border-color: var(--marriott-red);
+            transform: scale(1.05);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 300;
+            color: var(--marriott-red);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: var(--marriott-gray);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Process Flow */
+        .process-steps {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin: 3rem 0;
+            position: relative;
+        }
+
+        .process-steps::before {
+            content: '';
+            position: absolute;
+            top: 30px;
+            left: 10%;
+            right: 10%;
+            height: 2px;
+            background: var(--marriott-red);
+            z-index: -1;
+        }
+
+        .process-step {
+            flex: 1;
+            text-align: center;
+            position: relative;
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: var(--marriott-red);
+            color: var(--marriott-white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin: 0 auto 1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .step-title {
+            font-weight: 400;
+            color: var(--marriott-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .step-description {
+            font-size: 0.9rem;
+            color: var(--marriott-gray);
+        }
+
+        /* Navigation */
+        .nav {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            display: flex;
+            gap: 1rem;
+            z-index: 100;
+        }
+
+        .nav-btn {
+            background: var(--marriott-red);
+            color: var(--marriott-white);
+            border: none;
+            padding: 0.75rem 1.5rem;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 300;
+        }
+
+        .nav-btn:hover {
+            background: var(--marriott-dark);
+            transform: translateY(-2px);
+        }
+
+        /* Progress Indicator */
+        .progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: rgba(0,0,0,0.1);
+            z-index: 1001;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: var(--marriott-red);
+            width: 0;
+            transition: width 0.3s ease;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 { font-size: 2rem; }
+            h2 { font-size: 1.5rem; }
+            .cloud-grid { grid-template-columns: repeat(2, 1fr); }
+            .stats-grid { grid-template-columns: repeat(2, 1fr); }
+            .process-steps { flex-direction: column; gap: 2rem; }
+            .process-steps::before { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Progress Bar -->
+    <div class="progress">
+        <div class="progress-bar" id="progressBar"></div>
+    </div>
+
+    <!-- Header -->
+    <div class="header">
+        <div class="header-content">
+            <div class="logo">MARRIOTT NETWORK PLATFORM</div>
+            <div style="color: var(--marriott-gray); font-size: 0.9rem;">Multi-Cloud Network Synchronization</div>
+        </div>
+    </div>
+
+    <!-- Slide 1: Title -->
+    <section class="slide title-slide" id="slide1">
+        <div class="slide-content">
+            <h1>Multi-Cloud Network Synchronization Platform</h1>
+            <p class="subtitle">Unified IPAM Management Across All Cloud Providers</p>
+            
+            <div class="cloud-grid" style="max-width: 800px; margin: 3rem auto;">
+                <div class="cloud-card">
+                    <div class="cloud-icon">☁️</div>
+                    <div class="cloud-name">AWS</div>
+                    <div class="cloud-count">2,847 Networks</div>
+                </div>
+                <div class="cloud-card">
+                    <div class="cloud-icon">🔷</div>
+                    <div class="cloud-name">Azure</div>
+                    <div class="cloud-count">1,923 Networks</div>
+                </div>
+                <div class="cloud-card">
+                    <div class="cloud-icon">🔵</div>
+                    <div class="cloud-name">GCP</div>
+                    <div class="cloud-count">1,256 Networks</div>
+                </div>
+                <div class="cloud-card">
+                    <div class="cloud-icon">🏢</div>
+                    <div class="cloud-name">On-Premises</div>
+                    <div class="cloud-count">3,451 Networks</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 2: Challenge -->
+    <section class="slide" id="slide2">
+        <div class="slide-content">
+            <h2>The Multi-Cloud Challenge</h2>
+            
+            <div class="features">
+                <div class="feature-card">
+                    <div class="feature-icon">🌐</div>
+                    <h3>Multiple Sources of Truth</h3>
+                    <p>Each cloud provider maintains its own network definitions, creating synchronization challenges</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⚠️</div>
+                    <h3>IP Conflicts</h3>
+                    <p>Overlapping IP ranges across providers lead to routing issues and connectivity problems</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔄</div>
+                    <h3>Manual Processes</h3>
+                    <p>Time-consuming manual updates prone to errors and inconsistencies</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🛡️</div>
+                    <h3>Compliance Risk</h3>
+                    <p>Lack of centralized visibility creates audit and compliance challenges</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 3: Architecture -->
+    <section class="slide" id="slide3">
+        <div class="slide-content">
+            <h2>Platform Architecture</h2>
+            <p style="text-align: center; margin-bottom: 2rem;">Cloud-agnostic design treats all providers equally</p>
+            
+            <div class="architecture-container">
+                <div class="architecture-flow">
+                    <div class="arch-component">
+                        <h4>Cloud Sources</h4>
+                        <p>AWS, Azure, GCP, Alibaba, On-Premises</p>
+                        <p style="font-size: 0.9rem; color: var(--marriott-gray);">Each source exports network data</p>
+                    </div>
+                    
+                    <div class="flow-arrow">→</div>
+                    
+                    <div class="arch-component">
+                        <h4>Synchronization Engine</h4>
+                        <p>Cloud-agnostic analyzer</p>
+                        <p style="font-size: 0.9rem; color: var(--marriott-gray);">Detects conflicts, manages hierarchy</p>
+                    </div>
+                    
+                    <div class="flow-arrow">→</div>
+                    
+                    <div class="arch-component">
+                        <h4>InfoBlox IPAM</h4>
+                        <p>Single source of truth</p>
+                        <p style="font-size: 0.9rem; color: var(--marriott-gray);">Centralized network repository</p>
+                    </div>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 2rem;">
+                <p style="color: var(--marriott-red); font-weight: 400;">
+                    No cloud provider has special privileges - all are treated as equal data sources
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 4: Key Features -->
+    <section class="slide" id="slide4">
+        <div class="slide-content">
+            <h2>Platform Capabilities</h2>
+            
+            <div class="features">
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h3>Source Attribution</h3>
+                    <p>Every network tagged with its source (AWS, Azure, GCP, etc.) for clear ownership</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🚫</div>
+                    <h3>No Delete Policy</h3>
+                    <p>Networks are never automatically deleted - only flagged for review based on their source</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔍</div>
+                    <h3>Universal Conflict Detection</h3>
+                    <p>Identifies conflicts between any sources - AWS vs Azure, GCP vs On-Prem, etc.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3>Hierarchical Management</h3>
+                    <p>Automatically creates container structures for all providers' network hierarchies</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🏷️</div>
+                    <h3>Tag Preservation</h3>
+                    <p>Maintains provider-specific tags while adding standardized attributes</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📈</div>
+                    <h3>Comprehensive Reporting</h3>
+                    <p>Detailed analysis across all cloud sources with actionable insights</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 5: Process Flow -->
+    <section class="slide" id="slide5">
+        <div class="slide-content">
+            <h2>Synchronization Process</h2>
+            
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <div class="step-title">Export</div>
+                    <div class="step-description">Each cloud provider exports network data</div>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <div class="step-title">Analyze</div>
+                    <div class="step-description">Compare all sources with InfoBlox</div>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <div class="step-title">Detect</div>
+                    <div class="step-description">Identify conflicts and changes</div>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <div class="step-title">Report</div>
+                    <div class="step-description">Generate actionable reports</div>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">5</div>
+                    <div class="step-title">Synchronize</div>
+                    <div class="step-description">Update InfoBlox safely</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 6: Conflict Management -->
+    <section class="slide" id="slide6">
+        <div class="slide-content">
+            <h2>Multi-Source Conflict Resolution</h2>
+            
+            <div style="background: var(--marriott-light-gray); padding: 2rem; border-radius: 8px; margin: 2rem 0;">
+                <table style="width: 100%; border-collapse: collapse;">
+                    <thead>
+                        <tr style="border-bottom: 2px solid var(--marriott-red);">
+                            <th style="padding: 1rem; text-align: left;">Network</th>
+                            <th style="padding: 1rem; text-align: left;">Source 1</th>
+                            <th style="padding: 1rem; text-align: left;">Source 2</th>
+                            <th style="padding: 1rem; text-align: left;">Conflict Type</th>
+                            <th style="padding: 1rem; text-align: left;">Resolution</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="border-bottom: 1px solid #e0e0e0;">
+                            <td style="padding: 1rem;">10.0.0.0/16</td>
+                            <td style="padding: 1rem;"><span style="color: #ff9900;">AWS</span></td>
+                            <td style="padding: 1rem;"><span style="color: #0078d4;">Azure</span></td>
+                            <td style="padding: 1rem;">Exact Match</td>
+                            <td style="padding: 1rem;">Review ownership</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid #e0e0e0;">
+                            <td style="padding: 1rem;">172.16.0.0/24</td>
+                            <td style="padding: 1rem;"><span style="color: #4285f4;">GCP</span></td>
+                            <td style="padding: 1rem;"><span style="color: #6c6c6c;">On-Prem</span></td>
+                            <td style="padding: 1rem;">Overlap</td>
+                            <td style="padding: 1rem;">Hierarchy check</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid #e0e0e0;">
+                            <td style="padding: 1rem;">192.168.0.0/16</td>
+                            <td style="padding: 1rem;"><span style="color: #ff6600;">Alibaba</span></td>
+                            <td style="padding: 1rem;"><span style="color: #6c6c6c;">On-Prem</span></td>
+                            <td style="padding: 1rem;">Container</td>
+                            <td style="padding: 1rem;">Create hierarchy</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <p style="text-align: center; color: var(--marriott-gray); margin-top: 2rem;">
+                All cloud providers are treated equally - conflicts are resolved based on business rules, not provider preference
+            </p>
+        </div>
+    </section>
+
+    <!-- Slide 7: Analytics -->
+    <section class="slide" id="slide7">
+        <div class="slide-content">
+            <h2>Platform Analytics</h2>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">9,477</div>
+                    <div class="stat-label">Total Networks</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">5</div>
+                    <div class="stat-label">Cloud Sources</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">247</div>
+                    <div class="stat-label">Conflicts Detected</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">99.8%</div>
+                    <div class="stat-label">Sync Accuracy</div>
+                </div>
+            </div>
+            
+            <div style="margin-top: 3rem; text-align: center;">
+                <h3>Network Distribution by Source</h3>
+                <div style="display: flex; justify-content: center; gap: 2rem; margin-top: 1rem;">
+                    <div><span style="color: #ff9900;">●</span> AWS: 30%</div>
+                    <div><span style="color: #0078d4;">●</span> Azure: 20%</div>
+                    <div><span style="color: #4285f4;">●</span> GCP: 13%</div>
+                    <div><span style="color: #ff6600;">●</span> Alibaba: 5%</div>
+                    <div><span style="color: #6c6c6c;">●</span> On-Prem: 32%</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Architecture Slides Start Here -->
+    <!-- Slide 8: Architecture Overview -->
+    <section class="slide" id="slide8">
+        <div class="slide-content">
+            <h2>Technical Architecture Deep Dive</h2>
+            <p style="text-align: center; color: var(--marriott-gray); margin-bottom: 3rem;">
+                Detailed system architecture and data flow
+            </p>
+            
+            <div style="text-align: center; margin-bottom: 3rem;">
+                <button class="btn btn-secondary" onclick="skipArchitecture()" style="margin-right: 2rem;">
+                    Skip Architecture Details →
+                </button>
+                <button class="btn" onclick="nextSlide()">
+                    View Architecture
+                </button>
+            </div>
+            
+            <div class="architecture-container">
+                <h3 style="text-align: center; margin-bottom: 2rem;">High-Level System Overview</h3>
+                <div class="architecture-flow">
+                    <div class="arch-component">
+                        <h4>Data Sources</h4>
+                        <ul style="list-style: none; padding: 0; font-size: 0.9rem;">
+                            <li>• AWS VPC Export</li>
+                            <li>• Azure VNet Export</li>
+                            <li>• GCP VPC Export</li>
+                            <li>• Alibaba VPC Export</li>
+                            <li>• On-Prem IPAM Export</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="flow-arrow">→</div>
+                    
+                    <div class="arch-component">
+                        <h4>Processing Engine</h4>
+                        <ul style="list-style: none; padding: 0; font-size: 0.9rem;">
+                            <li>• Universal Parser</li>
+                            <li>• Conflict Detector</li>
+                            <li>• Hierarchy Builder</li>
+                            <li>• Tag Manager</li>
+                            <li>• Report Generator</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="flow-arrow">→</div>
+                    
+                    <div class="arch-component">
+                        <h4>InfoBlox IPAM</h4>
+                        <ul style="list-style: none; padding: 0; font-size: 0.9rem;">
+                            <li>• Single Source of Truth</li>
+                            <li>• Source Attribution</li>
+                            <li>• Conflict Tracking</li>
+                            <li>• Audit Trail</li>
+                            <li>• API Integration</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 9: Data Flow Details -->
+    <section class="slide" id="slide9">
+        <div class="slide-content">
+            <h2>Detailed Data Flow Process</h2>
+            
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <div class="step-title">Multi-Cloud Export</div>
+                    <div class="step-description">
+                        <strong>Parallel data extraction:</strong><br>
+                        • AWS: EC2 DescribeVpcs API<br>
+                        • Azure: Network/virtualNetworks<br>
+                        • GCP: compute.networks.list<br>
+                        • Alibaba: DescribeVpcs<br>
+                        • On-Prem: IPAM/CSV Export
+                    </div>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <div class="step-title">Standardization</div>
+                    <div class="step-description">
+                        <strong>Universal format:</strong><br>
+                        • CIDR normalization<br>
+                        • Source attribution<br>
+                        • Tag mapping<br>
+                        • Metadata enrichment<br>
+                        • Validation checks
+                    </div>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <div class="step-title">Analysis</div>
+                    <div class="step-description">
+                        <strong>Intelligent processing:</strong><br>
+                        • Conflict detection matrix<br>
+                        • Hierarchy determination<br>
+                        • Orphan identification<br>
+                        • Change detection<br>
+                        • Report generation
+                    </div>
+                </div>
+            </div>
+            
+            <div style="margin-top: 3rem; background: var(--marriott-light-gray); padding: 2rem; border-radius: 8px;">
+                <h3 style="text-align: center; margin-bottom: 1.5rem;">Conflict Detection Matrix</h3>
+                <table style="width: 100%; border-collapse: collapse;">
+                    <thead>
+                        <tr style="background: var(--marriott-dark); color: white;">
+                            <th style="padding: 0.75rem;">Type</th>
+                            <th style="padding: 0.75rem;">Detection Method</th>
+                            <th style="padding: 0.75rem;">Resolution</th>
+                            <th style="padding: 0.75rem;">Example</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="background: white;">
+                            <td style="padding: 0.75rem; border: 1px solid #e0e0e0;">Exact Match</td>
+                            <td style="padding: 0.75rem; border: 1px solid #e0e0e0;">CIDR comparison</td>
+                            <td style="padding: 0.75rem; border: 1px solid #e0e0e0;">Block & Review</td>
+                            <td style="padding: 0.75rem; border: 1px solid #e0e0e0;">10.0.0.0/16 = 10.0.0.0/16</td>
+                        </tr>
+                        <tr style="background: #f9f9f9;">
+                            <td style="padding: 0.75rem; border: 1px solid #e0e0e0;">Contains</td>
+                            <td style="padding: 0.75rem; border: 1px solid #e0e0e0;">Subnet analysis</td>
+                            <td style="padding: 0.75rem; border: 1px solid #e0e0e0;">Create hierarchy</td>
+                            <td style="padding: 0.75rem; border: 1px solid #e0e0e0;">10.0.0.0/8 ⊃ 10.1.0.0/16</td>
+                        </tr>
+                        <tr style="background: white;">
+                            <td style="padding: 0.75rem; border: 1px solid #e0e0e0;">Overlaps</td>
+                            <td style="padding: 0.75rem; border: 1px solid #e0e0e0;">IP range check</td>
+                            <td style="padding: 0.75rem; border: 1px solid #e0e0e0;">Flag conflict</td>
+                            <td style="padding: 0.75rem; border: 1px solid #e0e0e0;">10.0.0.0/16 ∩ 10.0.128.0/17</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 10: Benefits -->
+    <section class="slide" id="slide10">
+        <div class="slide-content">
+            <h2>Business Value</h2>
+            
+            <div class="features">
+                <div class="feature-card">
+                    <div class="feature-icon">⏱️</div>
+                    <h3>95% Time Reduction</h3>
+                    <p>Automated synchronization vs manual tracking across 5 cloud providers</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🛡️</div>
+                    <h3>Zero Data Loss</h3>
+                    <p>No automatic deletions - full audit trail for all sources</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h3>100% Visibility</h3>
+                    <p>Complete view of all networks across all cloud providers</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">✅</div>
+                    <h3>Compliance Ready</h3>
+                    <p>Centralized reporting for audit and compliance requirements</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 11: Summary -->
+    <section class="slide title-slide" id="slide11">
+        <div class="slide-content">
+            <h1>Unified Multi-Cloud Network Management</h1>
+            <p class="subtitle">One Platform • All Clouds • Zero Bias</p>
+            
+            <div style="max-width: 600px; margin: 3rem auto; text-align: center;">
+                <p style="font-size: 1.2rem; color: var(--marriott-gray); margin-bottom: 2rem;">
+                    A truly cloud-agnostic solution that treats all providers equally, 
+                    ensuring consistent network management across your entire infrastructure.
+                </p>
+                
+                <div style="background: var(--marriott-light-gray); padding: 2rem; border-radius: 8px;">
+                    <h3 style="margin-bottom: 1rem;">Get Started</h3>
+                    <p style="color: var(--marriott-gray);">
+                        Contact the Network Engineering team to begin synchronizing your multi-cloud environment
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Navigation -->
+    <div class="nav">
+        <button class="nav-btn" onclick="previousSlide()">Previous</button>
+        <button class="nav-btn" onclick="nextSlide()">Next</button>
+    </div>
+
+    <script>
+        let currentSlide = 1;
+        const totalSlides = 11;
+
+        function showSlide(n) {
+            document.querySelectorAll('.slide').forEach(slide => {
+                slide.style.display = 'none';
+            });
+            
+            const slide = document.getElementById(`slide${n}`);
+            if (slide) {
+                slide.style.display = 'flex';
+            }
+            
+            const progress = (n / totalSlides) * 100;
+            document.getElementById('progressBar').style.width = `${progress}%`;
+            
+            currentSlide = n;
+        }
+
+        function nextSlide() {
+            if (currentSlide < totalSlides) {
+                showSlide(currentSlide + 1);
+            }
+        }
+
+        function previousSlide() {
+            if (currentSlide > 1) {
+                showSlide(currentSlide - 1);
+            }
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight') nextSlide();
+            if (e.key === 'ArrowLeft') previousSlide();
+        });
+
+        function skipArchitecture() {
+            // Skip to Benefits slide (now slide 10)
+            showSlide(10);
+        }
+
+        showSlide(1);
+    </script>
+</body>
+</html>

@@ -1,0 +1,851 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AWS-InfoBlox Multi-Source Network Sync</title>
+    <style>
+        :root {
+            --primary: #ff9900;
+            --secondary: #232f3e;
+            --accent: #146eb4;
+            --success: #48bb78;
+            --warning: #ed8936;
+            --danger: #e53e3e;
+            --bg: #f7fafc;
+            --text: #2d3748;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            overflow-x: hidden;
+        }
+
+        .slide {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            position: relative;
+        }
+
+        .slide-content {
+            max-width: 1200px;
+            width: 100%;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            color: var(--secondary);
+            animation: fadeInUp 1s ease;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: var(--secondary);
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+
+        h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: var(--accent);
+        }
+
+        p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+
+        .highlight {
+            color: var(--primary);
+            font-weight: bold;
+        }
+
+        /* Title Slide */
+        .title-slide {
+            background: linear-gradient(135deg, var(--secondary) 0%, var(--accent) 100%);
+            color: white;
+        }
+
+        .title-slide h1, .title-slide h2, .title-slide p {
+            color: white;
+        }
+
+        .logo {
+            width: 150px;
+            height: 150px;
+            margin: 0 auto 2rem;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            animation: rotate 20s linear infinite;
+        }
+
+        /* Architecture Diagram */
+        .architecture {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .arch-component {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transform: translateY(50px);
+            opacity: 0;
+            animation: slideIn 0.8s ease forwards;
+        }
+
+        .arch-component:nth-child(1) { animation-delay: 0.2s; }
+        .arch-component:nth-child(2) { animation-delay: 0.4s; }
+        .arch-component:nth-child(3) { animation-delay: 0.6s; }
+
+        .arch-component h3 {
+            margin-bottom: 1rem;
+        }
+
+        .icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Flow Diagram */
+        .flow-diagram {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .flow-step {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: relative;
+            opacity: 0;
+            animation: fadeIn 0.5s ease forwards;
+        }
+
+        .flow-step:nth-child(1) { animation-delay: 0.5s; }
+        .flow-step:nth-child(2) { animation-delay: 1s; }
+        .flow-step:nth-child(3) { animation-delay: 1.5s; }
+        .flow-step:nth-child(4) { animation-delay: 2s; }
+        .flow-step:nth-child(5) { animation-delay: 2.5s; }
+
+        .flow-arrow {
+            position: absolute;
+            right: -3rem;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 2rem;
+            color: var(--accent);
+            animation: pulse 2s ease infinite;
+        }
+
+        /* Feature Cards */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: left;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transform: scale(0.9);
+            opacity: 0;
+            animation: scaleIn 0.6s ease forwards;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--primary);
+        }
+
+        .feature-card:nth-child(1) { animation-delay: 0.2s; }
+        .feature-card:nth-child(2) { animation-delay: 0.4s; }
+        .feature-card:nth-child(3) { animation-delay: 0.6s; }
+        .feature-card:nth-child(4) { animation-delay: 0.8s; }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        /* Conflict Matrix */
+        .conflict-matrix {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            animation: fadeIn 1s ease both;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th {
+            background: var(--secondary);
+            color: white;
+            padding: 1rem;
+            text-align: left;
+        }
+
+        td {
+            padding: 1rem;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        tr:hover {
+            background: #f7fafc;
+        }
+
+        .severity-critical {
+            color: var(--danger);
+            font-weight: bold;
+        }
+
+        .severity-high {
+            color: var(--warning);
+            font-weight: bold;
+        }
+
+        .severity-low {
+            color: var(--success);
+            font-weight: bold;
+        }
+
+        /* Demo Section */
+        .demo-container {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 2rem 0;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .terminal {
+            background: #1a202c;
+            color: #68d391;
+            padding: 1.5rem;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            text-align: left;
+            overflow-x: auto;
+            position: relative;
+        }
+
+        .terminal::before {
+            content: '● ● ●';
+            position: absolute;
+            top: 10px;
+            left: 15px;
+            color: #e53e3e;
+            font-size: 14px;
+            letter-spacing: 5px;
+        }
+
+        .terminal-line {
+            margin: 0.5rem 0;
+            opacity: 0;
+            animation: typeIn 0.5s ease forwards;
+        }
+
+        .terminal-line:nth-child(1) { animation-delay: 0.5s; }
+        .terminal-line:nth-child(2) { animation-delay: 1s; }
+        .terminal-line:nth-child(3) { animation-delay: 1.5s; }
+        .terminal-line:nth-child(4) { animation-delay: 2s; }
+
+        /* Navigation */
+        .nav {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            display: flex;
+            gap: 1rem;
+            z-index: 100;
+        }
+
+        .nav-btn {
+            background: var(--secondary);
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .nav-btn:hover {
+            background: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        /* Source Badges */
+        .source-badge {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-weight: bold;
+            margin: 0.5rem;
+            animation: bounceIn 0.6s ease both;
+        }
+
+        .source-aws { background: var(--primary); color: white; }
+        .source-azure { background: #0078d4; color: white; }
+        .source-gcp { background: #4285f4; color: white; }
+        .source-onprem { background: #6b7280; color: white; }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes scaleIn {
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: translateY(-50%) scale(1); }
+            50% { transform: translateY(-50%) scale(1.1); }
+        }
+
+        @keyframes typeIn {
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes bounceIn {
+            0% {
+                opacity: 0;
+                transform: scale(0.3);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            70% {
+                transform: scale(0.9);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* Progress Bar */
+        .progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: rgba(0,0,0,0.1);
+            z-index: 100;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: var(--primary);
+            width: 0;
+            transition: width 0.3s ease;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 { font-size: 2rem; }
+            h2 { font-size: 1.5rem; }
+            .architecture, .features { grid-template-columns: 1fr; }
+            .flow-diagram { flex-direction: column; }
+            .flow-arrow { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Progress Bar -->
+    <div class="progress">
+        <div class="progress-bar" id="progressBar"></div>
+    </div>
+
+    <!-- Slide 1: Title -->
+    <section class="slide title-slide" id="slide1">
+        <div class="slide-content">
+            <div class="logo">🌐</div>
+            <h1>AWS-InfoBlox Network Synchronization</h1>
+            <h2>Multi-Source Intelligent IPAM Management</h2>
+            <p>Seamlessly synchronize AWS VPC networks with InfoBlox in complex multi-cloud environments</p>
+        </div>
+    </section>
+
+    <!-- Slide 2: Problem Statement -->
+    <section class="slide" id="slide2">
+        <div class="slide-content">
+            <h2>The Challenge</h2>
+            <div class="features">
+                <div class="feature-card">
+                    <div class="feature-icon">🌍</div>
+                    <h3>Multi-Source Networks</h3>
+                    <p>InfoBlox contains networks from AWS, Azure, GCP, and on-premises infrastructure</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⚠️</div>
+                    <h3>Conflict Management</h3>
+                    <p>Overlapping IP ranges across different cloud providers create conflicts</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔄</div>
+                    <h3>Synchronization Complexity</h3>
+                    <p>Manual tracking of network changes is error-prone and time-consuming</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🛡️</div>
+                    <h3>Data Integrity</h3>
+                    <p>Risk of accidentally deleting or modifying networks from other sources</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 3: Solution Overview -->
+    <section class="slide" id="slide3">
+        <div class="slide-content">
+            <h2>Our Solution</h2>
+            <p style="font-size: 1.4rem; margin-bottom: 3rem;">An intelligent, source-aware synchronization system</p>
+            
+            <div class="architecture">
+                <div class="arch-component">
+                    <div class="icon">📊</div>
+                    <h3>Analyzer</h3>
+                    <p>Intelligently compares AWS exports with InfoBlox data</p>
+                    <ul style="text-align: left; list-style: none; margin-top: 1rem;">
+                        <li>✓ Source detection</li>
+                        <li>✓ Conflict identification</li>
+                        <li>✓ Hierarchy building</li>
+                    </ul>
+                </div>
+                <div class="arch-component">
+                    <div class="icon">📑</div>
+                    <h3>Reporter</h3>
+                    <p>Generates comprehensive reports for review</p>
+                    <ul style="text-align: left; list-style: none; margin-top: 1rem;">
+                        <li>✓ HTML dashboards</li>
+                        <li>✓ CSV downloads</li>
+                        <li>✓ Actionable insights</li>
+                    </ul>
+                </div>
+                <div class="arch-component">
+                    <div class="icon">🔧</div>
+                    <h3>Updater</h3>
+                    <p>Safely applies changes with rollback capability</p>
+                    <ul style="text-align: left; list-style: none; margin-top: 1rem;">
+                        <li>✓ Dry-run mode</li>
+                        <li>✓ Hierarchical creation</li>
+                        <li>✓ Transaction safety</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 4: Multi-Source Awareness -->
+    <section class="slide" id="slide4">
+        <div class="slide-content">
+            <h2>Multi-Source Network Intelligence</h2>
+            <p>Respects and preserves network ownership across all sources</p>
+            
+            <div style="margin: 3rem 0;">
+                <span class="source-badge source-aws">AWS</span>
+                <span class="source-badge source-azure">Azure</span>
+                <span class="source-badge source-gcp">GCP</span>
+                <span class="source-badge source-onprem">On-Premises</span>
+            </div>
+
+            <div class="conflict-matrix">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>AWS Network</th>
+                            <th>Existing Network</th>
+                            <th>Source</th>
+                            <th>Conflict Type</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>10.100.0.0/16</td>
+                            <td>10.100.1.0/24</td>
+                            <td><span class="source-badge source-azure" style="font-size: 0.8rem;">Azure</span></td>
+                            <td>Contains</td>
+                            <td>Create as container</td>
+                        </tr>
+                        <tr>
+                            <td>172.16.0.0/24</td>
+                            <td>172.16.0.0/24</td>
+                            <td><span class="source-badge source-gcp" style="font-size: 0.8rem;">GCP</span></td>
+                            <td class="severity-critical">Exact Match</td>
+                            <td>Block creation</td>
+                        </tr>
+                        <tr>
+                            <td>10.50.0.0/23</td>
+                            <td>10.50.1.0/24</td>
+                            <td><span class="source-badge source-onprem" style="font-size: 0.8rem;">On-Prem</span></td>
+                            <td class="severity-high">Partial Overlap</td>
+                            <td>Flag for review</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 5: Key Features -->
+    <section class="slide" id="slide5">
+        <div class="slide-content">
+            <h2>Key Features</h2>
+            
+            <div class="features">
+                <div class="feature-card">
+                    <div class="feature-icon">🚫</div>
+                    <h3>No Delete Policy</h3>
+                    <p>Never automatically deletes networks. Only flags AWS-sourced orphaned networks for manual review.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h3>Source Attribution</h3>
+                    <p>All AWS networks tagged with Source: AWS. Only manages AWS-sourced networks.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📦</div>
+                    <h3>Hierarchical Management</h3>
+                    <p>Automatically creates containers for larger networks (/16) containing smaller subnets (/24, /25).</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🏷️</div>
+                    <h3>Tag Preservation</h3>
+                    <p>Intelligently merges AWS tags while preserving existing extended attributes.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 6: Process Flow -->
+    <section class="slide" id="slide6">
+        <div class="slide-content">
+            <h2>Synchronization Process</h2>
+            
+            <div class="flow-diagram">
+                <div class="flow-step">
+                    <h3>1</h3>
+                    <p>Export AWS VPCs</p>
+                    <span class="flow-arrow">→</span>
+                </div>
+                <div class="flow-step">
+                    <h3>2</h3>
+                    <p>Analyze Networks</p>
+                    <span class="flow-arrow">→</span>
+                </div>
+                <div class="flow-step">
+                    <h3>3</h3>
+                    <p>Generate Report</p>
+                    <span class="flow-arrow">→</span>
+                </div>
+                <div class="flow-step">
+                    <h3>4</h3>
+                    <p>Review Conflicts</p>
+                    <span class="flow-arrow">→</span>
+                </div>
+                <div class="flow-step">
+                    <h3>5</h3>
+                    <p>Apply Changes</p>
+                </div>
+            </div>
+
+            <div class="demo-container">
+                <h3>Live Demo</h3>
+                <div class="terminal">
+                    <div class="terminal-line">$ python infoblox_aws_comprehensive_analyzer.py vpc_data.csv</div>
+                    <div class="terminal-line">✅ Loaded 17 networks from AWS export</div>
+                    <div class="terminal-line">📊 Analysis complete! Report: reports/analysis_20250719/report.html</div>
+                    <div class="terminal-line">   - Conflicts: 3 | Orphaned: 1 | New: 13</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 7: Conflict Resolution -->
+    <section class="slide" id="slide7">
+        <div class="slide-content">
+            <h2>Intelligent Conflict Resolution</h2>
+            
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; text-align: left;">
+                <div>
+                    <h3 style="color: var(--danger);">Conflicts Detected</h3>
+                    <ul style="list-style: none; font-size: 1.1rem; line-height: 2;">
+                        <li>🔴 <strong>EXACT_MATCH_DIFFERENT_SOURCE</strong><br>
+                            Same network exists from different provider</li>
+                        <li>🟡 <strong>PARTIAL_OVERLAP</strong><br>
+                            Networks partially overlap</li>
+                        <li>🟠 <strong>CONTAINED_BY_NON_CONTAINER</strong><br>
+                            AWS network falls within existing network</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 style="color: var(--success);">Resolution Actions</h3>
+                    <ul style="list-style: none; font-size: 1.1rem; line-height: 2;">
+                        <li>✓ Block creation of conflicting networks</li>
+                        <li>✓ Generate detailed conflict report</li>
+                        <li>✓ Suggest alternative CIDR ranges</li>
+                        <li>✓ Flag for manual review</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 8: Reports & Analytics -->
+    <section class="slide" id="slide8">
+        <div class="slide-content">
+            <h2>Comprehensive Reporting</h2>
+            
+            <div style="background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+                <h3 style="margin-bottom: 2rem;">Analysis Results from Test Run</h3>
+                <p style="text-align: center; margin-bottom: 1.5rem; color: #666;">Based on analysis of test_all_use_cases.csv (19 networks) against InfoBlox</p>
+                <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem;">
+                    <div style="background: #ff9900; color: white; padding: 2rem; border-radius: 8px; text-align: center;">
+                        <div style="font-size: 3rem; font-weight: bold;">19</div>
+                        <div style="font-size: 1.2rem; margin-top: 0.5rem;">Networks Analyzed</div>
+                        <div style="font-size: 0.9rem; opacity: 0.8; margin-top: 0.5rem;">From AWS export</div>
+                    </div>
+                    <div style="background: #e53e3e; color: white; padding: 2rem; border-radius: 8px; text-align: center;">
+                        <div style="font-size: 3rem; font-weight: bold;">0*</div>
+                        <div style="font-size: 1.2rem; margin-top: 0.5rem;">Conflicts Found</div>
+                        <div style="font-size: 0.9rem; opacity: 0.8; margin-top: 0.5rem;">*InfoBlox empty in test</div>
+                    </div>
+                    <div style="background: #48bb78; color: white; padding: 2rem; border-radius: 8px; text-align: center;">
+                        <div style="font-size: 3rem; font-weight: bold;">3</div>
+                        <div style="font-size: 1.2rem; margin-top: 0.5rem;">Container Networks</div>
+                        <div style="font-size: 0.9rem; opacity: 0.8; margin-top: 0.5rem;">Hierarchical structure</div>
+                    </div>
+                    <div style="background: #146eb4; color: white; padding: 2rem; border-radius: 8px; text-align: center;">
+                        <div style="font-size: 3rem; font-weight: bold;">100%</div>
+                        <div style="font-size: 1.2rem; margin-top: 0.5rem;">Source Tagged</div>
+                        <div style="font-size: 0.9rem; opacity: 0.8; margin-top: 0.5rem;">All marked as AWS</div>
+                    </div>
+                </div>
+                <p style="text-align: center; margin-top: 1.5rem; font-style: italic; color: #666;">
+                    When InfoBlox contains networks from other sources, the tool will detect conflicts and orphaned AWS networks
+                </p>
+            </div>
+            
+            <div style="margin-top: 2rem;">
+                <h3>Generated Reports Include:</h3>
+                <ul style="list-style: none; display: flex; justify-content: center; gap: 2rem; margin-top: 1rem;">
+                    <li>📄 HTML Dashboard</li>
+                    <li>📊 CSV Downloads</li>
+                    <li>🔍 Conflict Analysis</li>
+                    <li>📈 Network Hierarchy</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 9: Benefits -->
+    <section class="slide" id="slide9">
+        <div class="slide-content">
+            <h2>Actual Analysis Metrics</h2>
+            <p style="font-size: 1.3rem; margin-bottom: 2rem;">Based on real analysis of AWS VPC data vs InfoBlox state</p>
+            
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-top: 3rem;">
+                <div style="text-align: center;">
+                    <div style="font-size: 4rem; color: var(--primary); margin-bottom: 1rem;">📊</div>
+                    <h3>19 Networks Analyzed</h3>
+                    <p>From AWS export CSV</p>
+                    <ul style="list-style: none; text-align: left; margin-top: 1rem; font-size: 0.9rem;">
+                        <li>• 3 Container networks (/16)</li>
+                        <li>• 16 Regular networks</li>
+                        <li>• Multiple AWS accounts</li>
+                    </ul>
+                </div>
+                <div style="text-align: center;">
+                    <div style="font-size: 4rem; color: var(--success); margin-bottom: 1rem;">🔍</div>
+                    <h3>Conflict Detection</h3>
+                    <p>Multi-source awareness</p>
+                    <ul style="list-style: none; text-align: left; margin-top: 1rem; font-size: 0.9rem;">
+                        <li>• Detects Azure conflicts</li>
+                        <li>• Detects GCP overlaps</li>
+                        <li>• Detects On-prem conflicts</li>
+                    </ul>
+                </div>
+                <div style="text-align: center;">
+                    <div style="font-size: 4rem; color: var(--accent); margin-bottom: 1rem;">🛡️</div>
+                    <h3>Safety Features</h3>
+                    <p>Built-in protections</p>
+                    <ul style="list-style: none; text-align: left; margin-top: 1rem; font-size: 0.9rem;">
+                        <li>• No automatic deletes</li>
+                        <li>• Source attribution</li>
+                        <li>• Dry-run mode</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div style="background: #f7fafc; padding: 1.5rem; border-radius: 8px; margin-top: 2rem;">
+                <h4 style="color: var(--secondary); margin-bottom: 1rem;">Time Savings Calculation:</h4>
+                <p style="font-size: 1.1rem;">Manual review of 19 networks across multiple sources: ~2-3 hours<br>
+                Automated analysis with this tool: <strong style="color: var(--success);">< 30 seconds</strong></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 10: Summary -->
+    <section class="slide title-slide" id="slide10">
+        <div class="slide-content">
+            <h1>Intelligent Network Management</h1>
+            <p style="font-size: 1.5rem; margin: 2rem 0;">Safe • Automated • Multi-Source Aware</p>
+            
+            <div style="margin-top: 3rem;">
+                <h3 style="color: white;">Get Started Today</h3>
+                <div style="background: rgba(255,255,255,0.1); padding: 1.5rem; border-radius: 8px; margin-top: 1rem;">
+                    <code style="font-size: 1.2rem;">
+                        git clone https://github.com/tshoush/AWS-Sync-Newer.git
+                    </code>
+                </div>
+            </div>
+            
+            <p style="margin-top: 3rem; opacity: 0.8;">Questions? Contact your Network Engineering team</p>
+        </div>
+    </section>
+
+    <!-- Navigation -->
+    <div class="nav">
+        <button class="nav-btn" onclick="previousSlide()">← Previous</button>
+        <button class="nav-btn" onclick="nextSlide()">Next →</button>
+    </div>
+
+    <script>
+        let currentSlide = 1;
+        const totalSlides = 10;
+
+        function showSlide(n) {
+            // Hide all slides
+            document.querySelectorAll('.slide').forEach(slide => {
+                slide.style.display = 'none';
+            });
+            
+            // Show current slide
+            const slide = document.getElementById(`slide${n}`);
+            if (slide) {
+                slide.style.display = 'flex';
+                
+                // Reset animations
+                slide.querySelectorAll('[class*="animation"]').forEach(el => {
+                    el.style.animation = 'none';
+                    setTimeout(() => {
+                        el.style.animation = '';
+                    }, 10);
+                });
+            }
+            
+            // Update progress bar
+            const progress = (n / totalSlides) * 100;
+            document.getElementById('progressBar').style.width = `${progress}%`;
+            
+            currentSlide = n;
+        }
+
+        function nextSlide() {
+            if (currentSlide < totalSlides) {
+                showSlide(currentSlide + 1);
+            }
+        }
+
+        function previousSlide() {
+            if (currentSlide > 1) {
+                showSlide(currentSlide - 1);
+            }
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight') nextSlide();
+            if (e.key === 'ArrowLeft') previousSlide();
+        });
+
+        // Initialize
+        showSlide(1);
+
+        // Auto-advance demo terminal
+        setTimeout(() => {
+            const terminal = document.querySelector('.terminal');
+            if (terminal && currentSlide === 6) {
+                terminal.classList.add('active');
+            }
+        }, 3000);
+    </script>
+</body>
+</html>

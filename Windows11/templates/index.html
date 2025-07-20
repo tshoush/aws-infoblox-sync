@@ -1,0 +1,1580 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marriott | DDI Sync Portal</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Marriott Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --marriott-burgundy: #8B1538;
+            --marriott-dark-burgundy: #6B0F2B;
+            --marriott-light-burgundy: #A51940;
+            --marriott-black: #000000;
+            --marriott-gray-dark: #2C2C2C;
+            --marriott-gray-medium: #666666;
+            --marriott-gray-light: #E5E5E5;
+            --marriott-gray-lighter: #F5F5F5;
+            --marriott-white: #FFFFFF;
+            --marriott-gold: #D4AF37;
+        }
+
+        * {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        }
+
+        body {
+            background-color: var(--marriott-gray-lighter);
+            color: var(--marriott-gray-dark);
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        /* Marriott Header */
+        .marriott-header {
+            background-color: var(--marriott-white);
+            border-bottom: 1px solid var(--marriott-gray-light);
+            padding: 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .marriott-logo-bar {
+            background-color: var(--marriott-black);
+            padding: 12px 0;
+        }
+
+        .marriott-logo {
+            font-weight: 700;
+            font-size: 24px;
+            color: var(--marriott-white);
+            text-decoration: none;
+            letter-spacing: 2px;
+        }
+
+        .marriott-nav {
+            background-color: var(--marriott-white);
+            padding: 20px 0;
+        }
+
+        .page-title {
+            font-size: 32px;
+            font-weight: 300;
+            color: var(--marriott-black);
+            margin: 0;
+            letter-spacing: -0.5px;
+        }
+
+        /* Wizard Styles */
+        .wizard-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .wizard-steps {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 40px;
+            padding: 0;
+            list-style: none;
+            background: var(--marriott-white);
+            border-radius: 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            overflow: hidden;
+        }
+
+        .wizard-step {
+            flex: 1;
+            padding: 20px;
+            text-align: center;
+            position: relative;
+            background: var(--marriott-white);
+            transition: all 0.3s ease;
+        }
+
+        .wizard-step:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            right: 0;
+            transform: translateY(-50%);
+            width: 0;
+            height: 0;
+            border-top: 30px solid transparent;
+            border-bottom: 30px solid transparent;
+            border-left: 20px solid var(--marriott-white);
+            z-index: 2;
+        }
+
+        .wizard-step.active {
+            background: var(--marriott-burgundy);
+            color: var(--marriott-white);
+        }
+
+        .wizard-step.active::after {
+            border-left-color: var(--marriott-burgundy);
+        }
+
+        .wizard-step.completed {
+            background: var(--marriott-gray-dark);
+            color: var(--marriott-white);
+        }
+
+        .wizard-step.completed::after {
+            border-left-color: var(--marriott-gray-dark);
+        }
+
+        .wizard-step-number {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            line-height: 30px;
+            border-radius: 50%;
+            background: var(--marriott-gray-light);
+            color: var(--marriott-gray-dark);
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .wizard-step.active .wizard-step-number,
+        .wizard-step.completed .wizard-step-number {
+            background: var(--marriott-white);
+            color: var(--marriott-burgundy);
+        }
+
+        .wizard-step.completed .wizard-step-number {
+            color: var(--marriott-gray-dark);
+        }
+
+        .wizard-step-title {
+            font-size: 14px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin: 0;
+        }
+
+        .wizard-content {
+            background: var(--marriott-white);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            padding: 40px;
+            min-height: 400px;
+        }
+
+        .wizard-pane {
+            display: none;
+        }
+
+        .wizard-pane.active {
+            display: block;
+        }
+
+        /* Marriott Form Styles */
+        .marriott-form-group {
+            margin-bottom: 24px;
+        }
+
+        .marriott-form-label {
+            font-weight: 600;
+            color: var(--marriott-black);
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .marriott-form-control {
+            border: 1px solid var(--marriott-gray-light);
+            border-radius: 0;
+            padding: 12px 16px;
+            font-size: 14px;
+            transition: all 0.2s ease;
+            width: 100%;
+        }
+
+        .marriott-form-control:focus {
+            border-color: var(--marriott-burgundy);
+            box-shadow: 0 0 0 0.2rem rgba(139, 21, 56, 0.1);
+            outline: none;
+        }
+
+        .form-text {
+            font-size: 12px;
+            color: var(--marriott-gray-medium);
+            margin-top: 4px;
+        }
+
+        /* Marriott Buttons */
+        .btn-marriott-primary {
+            background-color: var(--marriott-burgundy);
+            border: 1px solid var(--marriott-burgundy);
+            color: var(--marriott-white);
+            font-weight: 500;
+            padding: 12px 32px;
+            text-transform: uppercase;
+            font-size: 12px;
+            letter-spacing: 0.5px;
+            border-radius: 0;
+            transition: all 0.2s ease;
+        }
+
+        .btn-marriott-primary:hover {
+            background-color: var(--marriott-dark-burgundy);
+            border-color: var(--marriott-dark-burgundy);
+            color: var(--marriott-white);
+            transform: translateY(-1px);
+        }
+
+        .btn-marriott-secondary {
+            background-color: var(--marriott-white);
+            border: 1px solid var(--marriott-gray-dark);
+            color: var(--marriott-gray-dark);
+            font-weight: 500;
+            padding: 12px 32px;
+            text-transform: uppercase;
+            font-size: 12px;
+            letter-spacing: 0.5px;
+            border-radius: 0;
+            transition: all 0.2s ease;
+        }
+
+        .btn-marriott-secondary:hover {
+            background-color: var(--marriott-gray-dark);
+            border-color: var(--marriott-gray-dark);
+            color: var(--marriott-white);
+        }
+
+        /* Status Messages */
+        .marriott-alert {
+            border-radius: 0;
+            border: 1px solid;
+            padding: 16px 20px;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        .marriott-alert-info {
+            background-color: #F0F8FF;
+            border-color: #B8D4E8;
+            color: #1A5490;
+        }
+
+        .marriott-alert-success {
+            background-color: #F0F9F0;
+            border-color: #B8E0B8;
+            color: #2D6B2D;
+        }
+
+        .marriott-alert-warning {
+            background-color: #FFF9E6;
+            border-color: #F5E0A3;
+            color: #856404;
+        }
+
+        .marriott-alert-danger {
+            background-color: #FFF0F0;
+            border-color: #F5B8B8;
+            color: #8B1538;
+        }
+
+        /* File Upload Area */
+        .file-upload-area {
+            border: 2px dashed var(--marriott-gray-light);
+            padding: 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            background: var(--marriott-gray-lighter);
+        }
+
+        .file-upload-area:hover {
+            border-color: var(--marriott-burgundy);
+            background: #FFF;
+        }
+
+        .file-upload-area.dragover {
+            border-color: var(--marriott-burgundy);
+            background: #FFF;
+            transform: scale(1.02);
+        }
+
+        .file-info {
+            margin-top: 20px;
+            padding: 20px;
+            background: var(--marriott-gray-lighter);
+            border: 1px solid var(--marriott-gray-light);
+        }
+
+        /* Tag Mapping Section */
+        .mapping-category {
+            margin-bottom: 30px;
+            border: 1px solid var(--marriott-gray-light);
+            background: var(--marriott-white);
+        }
+
+        .mapping-category-header {
+            background: var(--marriott-gray-lighter);
+            padding: 16px 20px;
+            border-bottom: 1px solid var(--marriott-gray-light);
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 12px;
+            letter-spacing: 0.5px;
+        }
+
+        .mapping-category-body {
+            padding: 20px;
+        }
+
+        .mapping-item {
+            display: flex;
+            align-items: center;
+            padding: 12px;
+            border-bottom: 1px solid var(--marriott-gray-light);
+        }
+
+        .mapping-item:last-child {
+            border-bottom: none;
+        }
+
+        .mapping-arrow {
+            color: var(--marriott-burgundy);
+            margin: 0 20px;
+            font-size: 18px;
+        }
+
+        /* Progress Bar */
+        .import-progress {
+            margin-top: 30px;
+        }
+
+        .progress {
+            height: 30px;
+            border-radius: 0;
+            background-color: var(--marriott-gray-light);
+        }
+
+        .progress-bar {
+            background-color: var(--marriott-burgundy);
+            font-weight: 600;
+            line-height: 30px;
+        }
+
+        /* Loading Spinner */
+        .spinner-border {
+            color: var(--marriott-burgundy);
+        }
+
+        /* Navigation Buttons */
+        .wizard-navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 1px solid var(--marriott-gray-light);
+        }
+
+        /* Connection Status */
+        .connection-status {
+            display: inline-block;
+            padding: 4px 12px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .connection-status.connected {
+            background: #F0F9F0;
+            color: #2D6B2D;
+            border: 1px solid #B8E0B8;
+        }
+
+        .connection-status.disconnected {
+            background: #FFF0F0;
+            color: #8B1538;
+            border: 1px solid #F5B8B8;
+        }
+
+        /* Results Table */
+        .results-table {
+            margin-top: 20px;
+        }
+
+        .results-table table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .results-table th {
+            background: var(--marriott-gray-lighter);
+            padding: 12px;
+            text-align: left;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 12px;
+            letter-spacing: 0.5px;
+            border-bottom: 2px solid var(--marriott-gray-light);
+        }
+
+        .results-table td {
+            padding: 12px;
+            border-bottom: 1px solid var(--marriott-gray-light);
+        }
+
+        .status-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .status-badge.success {
+            background: #F0F9F0;
+            color: #2D6B2D;
+        }
+
+        .status-badge.warning {
+            background: #FFF9E6;
+            color: #856404;
+        }
+
+        .status-badge.error {
+            background: #FFF0F0;
+            color: #8B1538;
+        }
+    </style>
+</head>
+<body>
+    <!-- Marriott Header -->
+    <header class="marriott-header">
+        <div class="marriott-logo-bar">
+            <div class="container">
+                <a href="#" class="marriott-logo">MARRIOTT</a>
+            </div>
+        </div>
+        <div class="marriott-nav">
+            <div class="container">
+                <div class="d-flex justify-content-between align-items-center">
+                    <h1 class="page-title">Marriott - DDI Sync Portal</h1>
+                    <nav>
+                        <a href="https://github.com/anthropics/marriott-infoblox-sync/wiki/Presentations" class="btn btn-sm btn-outline-secondary" target="_blank">
+                            <i class="bi bi-easel me-1"></i>View Documentation
+                        </a>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="wizard-container">
+        <!-- Wizard Steps -->
+        <ul class="wizard-steps">
+            <li class="wizard-step active" data-step="1">
+                <div class="wizard-step-number">1</div>
+                <div class="wizard-step-title">InfoBlox Configuration</div>
+            </li>
+            <li class="wizard-step" data-step="2">
+                <div class="wizard-step-number">2</div>
+                <div class="wizard-step-title">Upload AWS Export</div>
+            </li>
+            <li class="wizard-step" data-step="3">
+                <div class="wizard-step-number">3</div>
+                <div class="wizard-step-title">Tag Mapping</div>
+            </li>
+            <li class="wizard-step" data-step="4">
+                <div class="wizard-step-number">4</div>
+                <div class="wizard-step-title">Review & Import</div>
+            </li>
+        </ul>
+
+        <!-- Wizard Content -->
+        <div class="wizard-content">
+            <!-- Step 1: InfoBlox Configuration -->
+            <div class="wizard-pane active" data-step="1">
+                <h3 class="mb-4">InfoBlox Connection Settings</h3>
+                <p class="text-muted mb-4">Configure your InfoBlox Grid Master connection details.</p>
+                
+                <form id="infoblox-config-form">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="marriott-form-group">
+                                <label for="grid-master-ip" class="marriott-form-label">Grid Master IP Address</label>
+                                <input type="text" class="form-control marriott-form-control" id="grid-master-ip" 
+                                       value="192.168.1.222" required onchange="loadNetworkViews()">
+                                <div class="form-text">Enter the IP address of your InfoBlox Grid Master</div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="marriott-form-group">
+                                <label for="network-view" class="marriott-form-label">Network View</label>
+                                <div class="input-group">
+                                    <select class="form-select marriott-form-control" id="network-view">
+                                        <option value="default">default</option>
+                                    </select>
+                                    <button class="btn btn-outline-secondary" type="button" onclick="loadNetworkViews()" title="Refresh network views">
+                                        <i class="bi bi-arrow-clockwise"></i>
+                                    </button>
+                                </div>
+                                <div class="form-text">Select the network view to use</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="marriott-form-group">
+                                <label for="admin-username" class="marriott-form-label">Admin Username</label>
+                                <input type="text" class="form-control marriott-form-control" id="admin-username" 
+                                       value="admin" required onchange="loadNetworkViews()">
+                                <div class="form-text">InfoBlox administrator username</div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="marriott-form-group">
+                                <label for="admin-password" class="marriott-form-label">Admin Password</label>
+                                <input type="password" class="form-control marriott-form-control" id="admin-password" 
+                                       value="infoblox" required onchange="loadNetworkViews()">
+                                <div class="form-text">InfoBlox administrator password</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-4">
+                        <button type="button" class="btn btn-marriott-secondary me-3" onclick="testConnection()">
+                            <i class="bi bi-plug me-2"></i>Test Connection
+                        </button>
+                        <span id="connection-status" class="connection-status disconnected">
+                            Not Connected
+                        </span>
+                    </div>
+                    
+                    <div id="connection-message" class="mt-3"></div>
+                </form>
+            </div>
+
+            <!-- Step 2: Upload AWS Export -->
+            <div class="wizard-pane" data-step="2">
+                <h3 class="mb-4">Upload AWS Export File</h3>
+                <p class="text-muted mb-4">Select your AWS export CSV file containing VPC and subnet information.</p>
+                
+                <div class="file-upload-area" id="file-upload-area" onclick="document.getElementById('aws-file').click();">
+                    <i class="bi bi-cloud-upload" style="font-size: 48px; color: var(--marriott-burgundy);"></i>
+                    <h5 class="mt-3">Drop AWS export file here or click to browse</h5>
+                    <p class="text-muted">Supported format: CSV (.csv)</p>
+                    <input type="file" id="aws-file" accept=".csv" style="display: none;" onchange="handleFileSelect(event)">
+                </div>
+                
+                <div id="file-info" class="file-info" style="display: none;">
+                    <h6>Selected File:</h6>
+                    <p class="mb-1"><strong>Name:</strong> <span id="file-name"></span></p>
+                    <p class="mb-1"><strong>Size:</strong> <span id="file-size"></span></p>
+                    <p class="mb-0"><strong>Rows:</strong> <span id="file-rows"></span></p>
+                </div>
+                
+                <div id="file-preview" class="mt-4"></div>
+            </div>
+
+            <!-- Step 3: Tag Mapping -->
+            <div class="wizard-pane" data-step="3">
+                <h3 class="mb-4">AWS Tag to InfoBlox EA Mapping</h3>
+                <p class="text-muted mb-4">Review and configure how AWS tags will be mapped to InfoBlox Extended Attributes.</p>
+                
+                <div id="mapping-results">
+                    <!-- 100% Matches -->
+                    <div class="mapping-category" id="exact-matches" style="display: none;">
+                        <div class="mapping-category-header">
+                            <i class="bi bi-check-circle-fill text-success me-2"></i>
+                            Exact Matches <span class="badge bg-success ms-2" id="exact-count">0</span>
+                        </div>
+                        <div class="mapping-category-body" id="exact-matches-list">
+                            <!-- Exact matches will be populated here -->
+                        </div>
+                    </div>
+                    
+                    <!-- Best Effort Matches -->
+                    <div class="mapping-category" id="best-effort-matches" style="display: none;">
+                        <div class="mapping-category-header">
+                            <i class="bi bi-info-circle-fill text-info me-2"></i>
+                            Best Effort Matches <span class="badge bg-info ms-2" id="best-effort-count">0</span>
+                        </div>
+                        <div class="mapping-category-body" id="best-effort-matches-list">
+                            <!-- Best effort matches will be populated here -->
+                        </div>
+                    </div>
+                    
+                    <!-- Manual Mapping Required -->
+                    <div class="mapping-category" id="manual-mapping" style="display: none;">
+                        <div class="mapping-category-header">
+                            <i class="bi bi-exclamation-triangle-fill text-warning me-2"></i>
+                            Manual Mapping Required <span class="badge bg-warning ms-2" id="manual-count">0</span>
+                        </div>
+                        <div class="mapping-category-body" id="manual-mapping-list">
+                            <!-- Manual mappings will be populated here -->
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mt-4">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="create-missing-eas" checked>
+                        <label class="form-check-label" for="create-missing-eas">
+                            Automatically create missing Extended Attributes in InfoBlox
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 4: Review & Import -->
+            <div class="wizard-pane" data-step="4">
+                <h3 class="mb-4">Review & Execute Import</h3>
+                <p class="text-muted mb-4">Review your configuration and start the import process.</p>
+                
+                <div class="row mb-4">
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <h6 class="text-uppercase text-muted mb-3">Import Summary</h6>
+                                <p class="mb-2"><strong>AWS File:</strong> <span id="review-file-name">-</span></p>
+                                <p class="mb-2"><strong>Total Networks:</strong> <span id="review-total-networks">0</span></p>
+                                <p class="mb-2"><strong>Total Tags:</strong> <span id="review-total-tags">0</span></p>
+                                <p class="mb-0"><strong>Create Missing EAs:</strong> <span id="review-create-eas">Yes</span></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <h6 class="text-uppercase text-muted mb-3">InfoBlox Connection</h6>
+                                <p class="mb-2"><strong>Grid Master:</strong> <span id="review-grid-master">-</span></p>
+                                <p class="mb-2"><strong>Network View:</strong> <span id="review-network-view">-</span></p>
+                                <p class="mb-0"><strong>Status:</strong> <span class="connection-status connected">Connected</span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="text-center mb-4">
+                    <button type="button" class="btn btn-marriott-primary btn-lg" onclick="startImport()">
+                        <i class="bi bi-play-circle me-2"></i>Start Import
+                    </button>
+                    <button type="button" class="btn btn-outline-secondary btn-lg ms-3" onclick="downloadJSONReport()">
+                        <i class="bi bi-download me-2"></i>Download JSON Report
+                    </button>
+                </div>
+                
+                <div id="import-progress" class="import-progress" style="display: none;">
+                    <h6 class="mb-3">Import Progress</h6>
+                    <div class="progress">
+                        <div class="progress-bar" role="progressbar" style="width: 0%;" id="progress-bar">0%</div>
+                    </div>
+                    <p class="text-muted mt-2" id="progress-status">Initializing...</p>
+                </div>
+                
+                <div id="import-results" class="results-table" style="display: none;">
+                    <h6 class="mb-3">Import Results</h6>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Network</th>
+                                <th>Status</th>
+                                <th>Details</th>
+                            </tr>
+                        </thead>
+                        <tbody id="results-tbody">
+                            <!-- Results will be populated here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="wizard-navigation">
+            <button type="button" class="btn btn-marriott-secondary" id="prev-btn" onclick="previousStep()" style="display: none;">
+                <i class="bi bi-arrow-left me-2"></i>Previous
+            </button>
+            <button type="button" class="btn btn-marriott-primary" id="next-btn" onclick="nextStep()">
+                Next<i class="bi bi-arrow-right ms-2"></i>
+            </button>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        // Global variables
+        let currentStep = 1;
+        let infobloxConfig = {};
+        let awsData = null;
+        let tagMappings = {};
+        let infobloxEAs = [];
+        let isConnected = false;
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', async function() {
+            setupDragAndDrop();
+            updateNavigationButtons();
+            
+            // Load network views on page load
+            await loadNetworkViews();
+        });
+
+        // Wizard Navigation
+        function nextStep() {
+            if (validateCurrentStep()) {
+                if (currentStep < 4) {
+                    currentStep++;
+                    showStep(currentStep);
+                    
+                    // Execute step-specific actions
+                    if (currentStep === 3) {
+                        performTagMapping();
+                    } else if (currentStep === 4) {
+                        prepareReview();
+                    }
+                }
+            }
+        }
+
+        function previousStep() {
+            if (currentStep > 1) {
+                // If on step 2, 3, or 4, go back to step 1 (connection settings)
+                if (currentStep >= 2) {
+                    currentStep = 1;
+                } else {
+                    currentStep--;
+                }
+                showStep(currentStep);
+            }
+        }
+
+        function showStep(step) {
+            // Update wizard steps
+            document.querySelectorAll('.wizard-step').forEach(el => {
+                el.classList.remove('active', 'completed');
+                const stepNum = parseInt(el.dataset.step);
+                if (stepNum < step) {
+                    el.classList.add('completed');
+                } else if (stepNum === step) {
+                    el.classList.add('active');
+                }
+            });
+
+            // Update wizard panes
+            document.querySelectorAll('.wizard-pane').forEach(el => {
+                el.classList.remove('active');
+                if (parseInt(el.dataset.step) === step) {
+                    el.classList.add('active');
+                }
+            });
+
+            updateNavigationButtons();
+        }
+
+        function updateNavigationButtons() {
+            const prevBtn = document.getElementById('prev-btn');
+            const nextBtn = document.getElementById('next-btn');
+
+            // Always allow going back to change settings
+            prevBtn.style.display = currentStep > 1 ? 'block' : 'none';
+            nextBtn.style.display = currentStep < 4 ? 'block' : 'none';
+            
+            // Change button text based on step
+            if (currentStep === 2 || currentStep === 3 || currentStep === 4) {
+                prevBtn.innerHTML = '<i class="bi bi-gear me-2"></i>Change Connection Settings';
+            } else {
+                prevBtn.innerHTML = '<i class="bi bi-arrow-left me-2"></i>Previous';
+            }
+        }
+
+        function validateCurrentStep() {
+            switch (currentStep) {
+                case 1:
+                    if (!isConnected) {
+                        showError('Please test and verify the InfoBlox connection before proceeding.');
+                        return false;
+                    }
+                    return true;
+                case 2:
+                    if (!awsData) {
+                        showError('Please upload an AWS export file before proceeding.');
+                        return false;
+                    }
+                    return true;
+                case 3:
+                    // Validate manual mappings
+                    const unmappedTags = document.querySelectorAll('.manual-mapping-select');
+                    for (let select of unmappedTags) {
+                        if (!select.value) {
+                            showError('Please complete all manual tag mappings before proceeding.');
+                            return false;
+                        }
+                    }
+                    return true;
+                default:
+                    return true;
+            }
+        }
+
+        // Load network views
+        async function loadNetworkViews() {
+            try {
+                // Use current form values or defaults
+                const config = {
+                    grid_master: document.getElementById('grid-master-ip').value || '192.168.1.222',
+                    username: document.getElementById('admin-username').value || 'admin',
+                    password: document.getElementById('admin-password').value || 'infoblox'
+                };
+                
+                const response = await fetch('/api/network-views', {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify(config)
+                });
+                
+                const result = await response.json();
+                if (result.success && result.network_views) {
+                    updateNetworkViews(result.network_views);
+                }
+            } catch (error) {
+                console.error('Failed to load network views:', error);
+                // Ensure at least default is available
+                updateNetworkViews(['default']);
+            }
+        }
+        
+        // Step 1: InfoBlox Configuration
+        async function testConnection() {
+            const config = {
+                grid_master: document.getElementById('grid-master-ip').value,
+                username: document.getElementById('admin-username').value,
+                password: document.getElementById('admin-password').value,
+                network_view: document.getElementById('network-view').value
+            };
+
+            const statusEl = document.getElementById('connection-status');
+            const messageEl = document.getElementById('connection-message');
+
+            statusEl.textContent = 'Testing...';
+            statusEl.className = 'connection-status disconnected';
+
+            try {
+                const response = await fetch('/api/test-connection', {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify(config)
+                });
+
+                const result = await response.json();
+
+                if (result.success) {
+                    isConnected = true;
+                    infobloxConfig = config;
+                    statusEl.textContent = 'Connected';
+                    statusEl.className = 'connection-status connected';
+                    messageEl.innerHTML = `<div class="marriott-alert marriott-alert-success">Successfully connected to InfoBlox Grid Master</div>`;
+                    
+                    // Load network views
+                    if (result.network_views) {
+                        console.log('Network views received:', result.network_views);
+                        updateNetworkViews(result.network_views);
+                    } else {
+                        console.warn('No network views in response');
+                    }
+                    
+                    // Store EAs for later use
+                    if (result.extended_attributes) {
+                        infobloxEAs = result.extended_attributes;
+                    }
+                } else {
+                    isConnected = false;
+                    statusEl.textContent = 'Connection Failed';
+                    statusEl.className = 'connection-status disconnected';
+                    messageEl.innerHTML = `<div class="marriott-alert marriott-alert-danger">${result.error || 'Failed to connect to InfoBlox'}</div>`;
+                }
+            } catch (error) {
+                isConnected = false;
+                statusEl.textContent = 'Connection Failed';
+                statusEl.className = 'connection-status disconnected';
+                messageEl.innerHTML = `<div class="marriott-alert marriott-alert-danger">Error: ${error.message}</div>`;
+            }
+        }
+
+        function updateNetworkViews(views) {
+            console.log('Updating network views:', views);
+            const select = document.getElementById('network-view');
+            const currentValue = select.value || 'default';
+            select.innerHTML = '';
+            
+            // Add all network views
+            if (!Array.isArray(views)) {
+                console.error('Views is not an array:', views);
+                return;
+            }
+            
+            views.forEach(view => {
+                const option = document.createElement('option');
+                option.value = view;
+                option.textContent = view;
+                if (view === currentValue) {
+                    option.selected = true;
+                }
+                select.appendChild(option);
+            });
+            
+            // If current value not in list, select first option
+            if (!views.includes(currentValue) && select.options.length > 0) {
+                select.selectedIndex = 0;
+            }
+            
+            // Update stored config
+            if (infobloxConfig.grid_master) {
+                infobloxConfig.network_view = select.value;
+            }
+        }
+
+        // Step 2: File Upload
+        function setupDragAndDrop() {
+            const dropArea = document.getElementById('file-upload-area');
+
+            ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+                dropArea.addEventListener(eventName, preventDefaults, false);
+            });
+
+            function preventDefaults(e) {
+                e.preventDefault();
+                e.stopPropagation();
+            }
+
+            ['dragenter', 'dragover'].forEach(eventName => {
+                dropArea.addEventListener(eventName, highlight, false);
+            });
+
+            ['dragleave', 'drop'].forEach(eventName => {
+                dropArea.addEventListener(eventName, unhighlight, false);
+            });
+
+            function highlight(e) {
+                dropArea.classList.add('dragover');
+            }
+
+            function unhighlight(e) {
+                dropArea.classList.remove('dragover');
+            }
+
+            dropArea.addEventListener('drop', handleDrop, false);
+        }
+
+        function handleDrop(e) {
+            const dt = e.dataTransfer;
+            const files = dt.files;
+            handleFiles(files);
+        }
+
+        function handleFileSelect(e) {
+            const files = e.target.files;
+            handleFiles(files);
+        }
+
+        async function handleFiles(files) {
+            if (files.length > 0) {
+                const file = files[0];
+                
+                if (!file.name.endsWith('.csv')) {
+                    showError('Please select a CSV file');
+                    return;
+                }
+
+                // Update file info
+                document.getElementById('file-name').textContent = file.name;
+                document.getElementById('file-size').textContent = formatFileSize(file.size);
+                document.getElementById('file-info').style.display = 'block';
+
+                // Parse CSV
+                const text = await file.text();
+                awsData = parseCSV(text);
+                
+                document.getElementById('file-rows').textContent = awsData.length;
+                
+                // Show preview
+                showFilePreview(awsData.slice(0, 5));
+            }
+        }
+
+        function formatFileSize(bytes) {
+            if (bytes === 0) return '0 Bytes';
+            const k = 1024;
+            const sizes = ['Bytes', 'KB', 'MB', 'GB'];
+            const i = Math.floor(Math.log(bytes) / Math.log(k));
+            return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+        }
+
+        function parseCSV(text) {
+            // Parse CSV properly handling quoted fields with commas
+            const rows = [];
+            const lines = text.split('\n');
+            
+            // Parse headers
+            const headers = parseCSVLine(lines[0]);
+            
+            // Parse data rows
+            for (let i = 1; i < lines.length; i++) {
+                if (lines[i].trim()) {
+                    const values = parseCSVLine(lines[i]);
+                    const row = {};
+                    headers.forEach((header, index) => {
+                        row[header] = values[index] || '';
+                    });
+                    
+                    // Parse Tags column if it exists
+                    if (row.Tags) {
+                        try {
+                            // Remove outer quotes and parse as JSON
+                            let tagsStr = row.Tags;
+                            if (tagsStr.startsWith('"') && tagsStr.endsWith('"')) {
+                                tagsStr = tagsStr.slice(1, -1).replace(/""/g, '"');
+                            }
+                            const tagList = JSON.parse(tagsStr.replace(/'/g, '"'));
+                            const tagDict = {};
+                            tagList.forEach(tag => {
+                                if (tag.Key && tag.Value) {
+                                    tagDict[tag.Key] = tag.Value;
+                                }
+                            });
+                            row.ParsedTags = tagDict;
+                        } catch (e) {
+                            console.warn('Failed to parse tags:', e);
+                            row.ParsedTags = {};
+                        }
+                    }
+                    
+                    rows.push(row);
+                }
+            }
+            
+            return rows;
+        }
+        
+        function parseCSVLine(line) {
+            const result = [];
+            let current = '';
+            let inQuotes = false;
+            
+            for (let i = 0; i < line.length; i++) {
+                const char = line[i];
+                const nextChar = line[i + 1];
+                
+                if (char === '"') {
+                    if (inQuotes && nextChar === '"') {
+                        // Escaped quote
+                        current += '"';
+                        i++;
+                    } else {
+                        // Toggle quote state
+                        inQuotes = !inQuotes;
+                    }
+                } else if (char === ',' && !inQuotes) {
+                    // End of field
+                    result.push(current.trim());
+                    current = '';
+                } else {
+                    current += char;
+                }
+            }
+            
+            // Add last field
+            result.push(current.trim());
+            
+            return result;
+        }
+
+        function showFilePreview(data) {
+            const previewEl = document.getElementById('file-preview');
+            let html = '<div class="d-flex justify-content-between align-items-center mb-3">';
+            html += '<h6 class="mb-0">File Preview (First 5 rows):</h6>';
+            html += '<div class="btn-group btn-group-sm" role="group">';
+            html += '<button type="button" class="btn btn-outline-secondary active" onclick="showTableView()">Table View</button>';
+            html += '<button type="button" class="btn btn-outline-secondary" onclick="showJSONView()">JSON View</button>';
+            html += '</div></div>';
+            html += '<div id="preview-table-view">';
+            html += '<div class="table-responsive"><table class="table table-sm"><thead><tr>';
+            
+            // Headers (exclude ParsedTags)
+            const headers = Object.keys(data[0]).filter(h => h !== 'ParsedTags');
+            headers.forEach(header => {
+                html += `<th>${header}</th>`;
+            });
+            html += '</tr></thead><tbody>';
+            
+            // Rows
+            data.forEach(row => {
+                html += '<tr>';
+                headers.forEach(header => {
+                    if (header === 'Tags' && row.ParsedTags) {
+                        // Show parsed tags count instead of raw JSON
+                        const tagCount = Object.keys(row.ParsedTags).length;
+                        html += `<td>${tagCount} tags</td>`;
+                    } else if (header === 'ParsedTags') {
+                        // Skip showing ParsedTags column
+                    } else {
+                        let value = row[header] || '-';
+                        // Truncate long values
+                        if (value.length > 50) {
+                            value = value.substring(0, 47) + '...';
+                        }
+                        html += `<td>${value}</td>`;
+                    }
+                });
+                html += '</tr>';
+            });
+            
+            html += '</tbody></table></div></div>';
+            
+            // Add JSON view (hidden by default)
+            html += '<div id="preview-json-view" style="display: none;">';
+            html += '<pre class="bg-light p-3 rounded" style="max-height: 400px; overflow-y: auto;">';
+            const jsonData = data.map(row => {
+                const cleanRow = {...row};
+                delete cleanRow.ParsedTags; // Remove internal field
+                if (row.ParsedTags) {
+                    cleanRow.Tags = row.ParsedTags; // Replace with parsed tags
+                }
+                return cleanRow;
+            });
+            html += JSON.stringify(jsonData, null, 2);
+            html += '</pre>';
+            html += '<button class="btn btn-sm btn-secondary mt-2" onclick="downloadPreviewJSON()">';
+            html += '<i class="bi bi-download me-1"></i>Download JSON</button>';
+            html += '</div>';
+            
+            previewEl.innerHTML = html;
+            window.previewData = jsonData; // Store for download
+        }
+
+        // Step 3: Tag Mapping
+        async function performTagMapping() {
+            if (!awsData || awsData.length === 0) return;
+
+            // Extract unique tags from AWS data
+            const awsTags = extractAWSTags(awsData);
+            
+            // Perform mapping
+            const mappingResults = await mapTags(awsTags);
+            
+            // Display results
+            displayMappingResults(mappingResults);
+        }
+
+        function extractAWSTags(data) {
+            const tags = new Set();
+            
+            data.forEach(row => {
+                // Check for parsed tags
+                if (row.ParsedTags && typeof row.ParsedTags === 'object') {
+                    Object.keys(row.ParsedTags).forEach(key => {
+                        tags.add(key);
+                    });
+                }
+                // Also check direct tag columns
+                const tagColumns = ['Name', 'environment', 'Environment', 'owner', 'Owner', 
+                                  'project', 'Project', 'location', 'Location', 'Description',
+                                  'cloudservice', 'createdby', 'RequestedBy'];
+                tagColumns.forEach(col => {
+                    if (row[col] && row[col].trim()) {
+                        tags.add(col);
+                    }
+                });
+            });
+            
+            return Array.from(tags).sort();
+        }
+
+        async function mapTags(awsTags) {
+            const results = {
+                exact: [],
+                bestEffort: [],
+                manual: []
+            };
+
+            awsTags.forEach(tag => {
+                // Check for exact match
+                const exactMatch = infobloxEAs.find(ea => ea.toLowerCase() === tag.toLowerCase());
+                if (exactMatch) {
+                    results.exact.push({ aws: tag, infoblox: exactMatch });
+                    tagMappings[tag] = exactMatch;
+                } else {
+                    // Try best effort matching
+                    const bestMatch = findBestMatch(tag, infobloxEAs);
+                    if (bestMatch.score > 0.7) {
+                        results.bestEffort.push({ aws: tag, infoblox: bestMatch.ea, score: bestMatch.score });
+                        tagMappings[tag] = bestMatch.ea;
+                    } else {
+                        // Requires manual mapping
+                        results.manual.push({ aws: tag, suggested: suggestEAName(tag) });
+                    }
+                }
+            });
+
+            return results;
+        }
+
+        function findBestMatch(tag, eas) {
+            let bestMatch = { ea: null, score: 0 };
+            
+            const normalizedTag = tag.toLowerCase().replace(/[-_]/g, '');
+            
+            eas.forEach(ea => {
+                const normalizedEA = ea.toLowerCase().replace(/[-_]/g, '');
+                const score = similarity(normalizedTag, normalizedEA);
+                
+                if (score > bestMatch.score) {
+                    bestMatch = { ea, score };
+                }
+            });
+            
+            return bestMatch;
+        }
+
+        function similarity(s1, s2) {
+            let longer = s1;
+            let shorter = s2;
+            if (s1.length < s2.length) {
+                longer = s2;
+                shorter = s1;
+            }
+            const longerLength = longer.length;
+            if (longerLength === 0) {
+                return 1.0;
+            }
+            const editDistance = computeEditDistance(longer, shorter);
+            return (longerLength - editDistance) / parseFloat(longerLength);
+        }
+
+        function computeEditDistance(s1, s2) {
+            s1 = s1.toLowerCase();
+            s2 = s2.toLowerCase();
+            const costs = [];
+            for (let i = 0; i <= s1.length; i++) {
+                let lastValue = i;
+                for (let j = 0; j <= s2.length; j++) {
+                    if (i === 0) {
+                        costs[j] = j;
+                    } else if (j > 0) {
+                        let newValue = costs[j - 1];
+                        if (s1.charAt(i - 1) !== s2.charAt(j - 1)) {
+                            newValue = Math.min(Math.min(newValue, lastValue), costs[j]) + 1;
+                        }
+                        costs[j - 1] = lastValue;
+                        lastValue = newValue;
+                    }
+                }
+                if (i > 0) {
+                    costs[s2.length] = lastValue;
+                }
+            }
+            return costs[s2.length];
+        }
+
+        function suggestEAName(tag) {
+            // Convert AWS tag to suggested InfoBlox EA name
+            return 'aws_' + tag.toLowerCase().replace(/[^a-z0-9]/g, '_');
+        }
+
+        function displayMappingResults(results) {
+            // Exact matches
+            if (results.exact.length > 0) {
+                document.getElementById('exact-matches').style.display = 'block';
+                document.getElementById('exact-count').textContent = results.exact.length;
+                const listEl = document.getElementById('exact-matches-list');
+                listEl.innerHTML = results.exact.map(m => `
+                    <div class="mapping-item">
+                        <span class="flex-grow-1">${m.aws}</span>
+                        <i class="bi bi-arrow-right mapping-arrow"></i>
+                        <span class="flex-grow-1">${m.infoblox}</span>
+                    </div>
+                `).join('');
+            }
+
+            // Best effort matches
+            if (results.bestEffort.length > 0) {
+                document.getElementById('best-effort-matches').style.display = 'block';
+                document.getElementById('best-effort-count').textContent = results.bestEffort.length;
+                const listEl = document.getElementById('best-effort-matches-list');
+                listEl.innerHTML = results.bestEffort.map(m => `
+                    <div class="mapping-item">
+                        <span class="flex-grow-1">${m.aws}</span>
+                        <i class="bi bi-arrow-right mapping-arrow"></i>
+                        <span class="flex-grow-1">${m.infoblox} <small class="text-muted">(${Math.round(m.score * 100)}% match)</small></span>
+                    </div>
+                `).join('');
+            }
+
+            // Manual mapping required
+            if (results.manual.length > 0) {
+                document.getElementById('manual-mapping').style.display = 'block';
+                document.getElementById('manual-count').textContent = results.manual.length;
+                const listEl = document.getElementById('manual-mapping-list');
+                listEl.innerHTML = results.manual.map(m => `
+                    <div class="mapping-item">
+                        <span class="flex-grow-1">${m.aws}</span>
+                        <i class="bi bi-arrow-right mapping-arrow"></i>
+                        <select class="form-select marriott-form-control manual-mapping-select" 
+                                data-aws-tag="${m.aws}" onchange="updateManualMapping(this)">
+                            <option value="">Select EA...</option>
+                            <option value="${m.suggested}" selected>${m.suggested} (suggested)</option>
+                            ${infobloxEAs.map(ea => `<option value="${ea}">${ea}</option>`).join('')}
+                            <option value="__create_new__">Create new EA...</option>
+                        </select>
+                    </div>
+                `).join('');
+                
+                // Set initial mappings for suggested values
+                results.manual.forEach(m => {
+                    tagMappings[m.aws] = m.suggested;
+                });
+            }
+        }
+
+        function updateManualMapping(selectEl) {
+            const awsTag = selectEl.dataset.awsTag;
+            const value = selectEl.value;
+            
+            if (value === '__create_new__') {
+                const newEA = prompt('Enter new Extended Attribute name:');
+                if (newEA) {
+                    const option = document.createElement('option');
+                    option.value = newEA;
+                    option.textContent = newEA;
+                    option.selected = true;
+                    selectEl.insertBefore(option, selectEl.lastElementChild);
+                    tagMappings[awsTag] = newEA;
+                } else {
+                    selectEl.value = '';
+                }
+            } else {
+                tagMappings[awsTag] = value;
+            }
+        }
+
+        // Generate JSON report
+        function generateJSONReport() {
+            const report = {
+                timestamp: new Date().toISOString(),
+                infoblox_config: {
+                    grid_master: infobloxConfig.grid_master,
+                    network_view: infobloxConfig.network_view,
+                    username: infobloxConfig.username
+                },
+                aws_data_summary: {
+                    total_networks: awsData.length,
+                    unique_tags_found: extractAWSTags(awsData).length
+                },
+                tag_mappings: tagMappings,
+                networks: awsData.map(row => ({
+                    name: row.Name || '',
+                    cidr: row.CidrBlock || row.IPv4CIDRBlock || '',
+                    vpc_id: row.VpcId || '',
+                    account_id: row.AccountId || '',
+                    region: row.Region || '',
+                    tags: row.ParsedTags || {}
+                }))
+            };
+            
+            return report;
+        }
+        
+        // Step 4: Review & Import
+        function prepareReview() {
+            document.getElementById('review-file-name').textContent = document.getElementById('file-name').textContent;
+            document.getElementById('review-total-networks').textContent = awsData.length;
+            document.getElementById('review-total-tags').textContent = Object.keys(tagMappings).length;
+            document.getElementById('review-create-eas').textContent = document.getElementById('create-missing-eas').checked ? 'Yes' : 'No';
+            document.getElementById('review-grid-master').textContent = infobloxConfig.grid_master;
+            document.getElementById('review-network-view').textContent = infobloxConfig.network_view;
+        }
+
+        async function startImport() {
+            const progressEl = document.getElementById('import-progress');
+            const resultsEl = document.getElementById('import-results');
+            const progressBar = document.getElementById('progress-bar');
+            const progressStatus = document.getElementById('progress-status');
+            const startBtn = event.target;
+            
+            // Disable start button
+            startBtn.disabled = true;
+            progressEl.style.display = 'block';
+            resultsEl.style.display = 'none';
+            
+            try {
+                // Prepare import data
+                const importData = {
+                    config: infobloxConfig,
+                    aws_data: awsData,
+                    tag_mappings: tagMappings,
+                    create_missing_eas: document.getElementById('create-missing-eas').checked
+                };
+                
+                // Start import
+                const response = await fetch('/api/import', {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify(importData)
+                });
+                
+                if (!response.ok) {
+                    throw new Error('Import failed');
+                }
+                
+                // Read streaming response
+                const reader = response.body.getReader();
+                const decoder = new TextDecoder();
+                let buffer = '';
+                
+                while (true) {
+                    const { done, value } = await reader.read();
+                    
+                    if (done) break;
+                    
+                    buffer += decoder.decode(value, { stream: true });
+                    const lines = buffer.split('\n');
+                    buffer = lines.pop();
+                    
+                    for (const line of lines) {
+                        if (line.trim()) {
+                            try {
+                                const data = JSON.parse(line);
+                                
+                                if (data.progress !== undefined) {
+                                    progressBar.style.width = data.progress + '%';
+                                    progressBar.textContent = data.progress + '%';
+                                    progressStatus.textContent = data.status || 'Processing...';
+                                }
+                                
+                                if (data.result) {
+                                    addResultRow(data.result);
+                                }
+                                
+                                if (data.complete) {
+                                    progressStatus.textContent = 'Import completed!';
+                                    resultsEl.style.display = 'block';
+                                    showSuccess(`Import completed! Processed ${data.total} networks.`);
+                                }
+                            } catch (e) {
+                                console.error('Error parsing response:', e);
+                            }
+                        }
+                    }
+                }
+            } catch (error) {
+                showError('Import failed: ' + error.message);
+                progressStatus.textContent = 'Import failed';
+            } finally {
+                startBtn.disabled = false;
+            }
+        }
+
+        function addResultRow(result) {
+            const tbody = document.getElementById('results-tbody');
+            const row = document.createElement('tr');
+            
+            const statusClass = result.status === 'success' ? 'success' : 
+                               result.status === 'warning' ? 'warning' : 'error';
+            
+            row.innerHTML = `
+                <td>${result.network}</td>
+                <td><span class="status-badge ${statusClass}">${result.status}</span></td>
+                <td>${result.message}</td>
+            `;
+            
+            tbody.appendChild(row);
+        }
+
+        // View switching functions
+        function showTableView() {
+            document.getElementById('preview-table-view').style.display = 'block';
+            document.getElementById('preview-json-view').style.display = 'none';
+            document.querySelectorAll('#file-preview .btn-group button').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            document.querySelectorAll('#file-preview .btn-group button')[0].classList.add('active');
+        }
+        
+        function showJSONView() {
+            document.getElementById('preview-table-view').style.display = 'none';
+            document.getElementById('preview-json-view').style.display = 'block';
+            document.querySelectorAll('#file-preview .btn-group button').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            document.querySelectorAll('#file-preview .btn-group button')[1].classList.add('active');
+        }
+        
+        // Download preview JSON
+        function downloadPreviewJSON() {
+            if (!window.previewData) return;
+            const blob = new Blob([JSON.stringify(window.previewData, null, 2)], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `aws-vpc-preview-${new Date().toISOString().split('T')[0]}.json`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
+        
+        // Download JSON report
+        function downloadJSONReport() {
+            const report = generateJSONReport();
+            const blob = new Blob([JSON.stringify(report, null, 2)], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `infoblox-import-report-${new Date().toISOString().split('T')[0]}.json`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
+        
+        // Utility functions
+        function showSuccess(message) {
+            Swal.fire({
+                icon: 'success',
+                title: message,
+                toast: true,
+                position: 'top-end',
+                showConfirmButton: false,
+                timer: 3000
+            });
+        }
+
+        function showError(message) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: message
+            });
+        }
+
+        function showInfo(message) {
+            Swal.fire({
+                icon: 'info',
+                title: message,
+                toast: true,
+                position: 'top-end',
+                showConfirmButton: false,
+                timer: 3000
+            });
+        }
+    </script>
+</body>
+</html>

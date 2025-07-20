@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AWS-InfoBlox Sync - Interactive Demo</title>
+    <style>
+        :root {
+            --primary: #ff9900;
+            --secondary: #232f3e;
+            --accent: #146eb4;
+            --success: #48bb78;
+            --warning: #ed8936;
+            --danger: #e53e3e;
+            --bg: #f7fafc;
+            --text: #2d3748;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            padding: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            color: var(--secondary);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo {
+            width: 50px;
+            height: 50px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+        }
+
+        .tabs {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            border-bottom: 2px solid #e2e8f0;
+        }
+
+        .tab {
+            padding: 1rem 2rem;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            color: var(--text);
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .tab:hover {
+            color: var(--accent);
+        }
+
+        .tab.active {
+            color: var(--primary);
+        }
+
+        .tab.active::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--primary);
+        }
+
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .demo-section {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+        }
+
+        .demo-controls {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #e88900;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: var(--secondary);
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background: #1a2332;
+        }
+
+        .btn-success {
+            background: var(--success);
+            color: white;
+        }
+
+        .btn-danger {
+            background: var(--danger);
+            color: white;
+        }
+
+        .terminal {
+            background: #1a202c;
+            color: #68d391;
+            padding: 1.5rem;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            line-height: 1.6;
+            max-height: 400px;
+            overflow-y: auto;
+            margin-bottom: 1rem;
+        }
+
+        .terminal-line {
+            margin: 0.5rem 0;
+            opacity: 0;
+            animation: typeIn 0.3s ease forwards;
+        }
+
+        @keyframes typeIn {
+            to { opacity: 1; }
+        }
+
+        .data-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .data-card {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--primary);
+        }
+
+        .data-card h3 {
+            color: var(--secondary);
+            margin-bottom: 0.5rem;
+        }
+
+        .network-list {
+            max-height: 300px;
+            overflow-y: auto;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 1rem;
+            background: #f8f9fa;
+        }
+
+        .network-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.75rem;
+            margin: 0.5rem 0;
+            background: white;
+            border-radius: 6px;
+            border: 1px solid #e2e8f0;
+            transition: all 0.3s ease;
+        }
+
+        .network-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .badge {
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        .badge-aws { background: var(--primary); color: white; }
+        .badge-azure { background: #0078d4; color: white; }
+        .badge-gcp { background: #4285f4; color: white; }
+        .badge-onprem { background: #6b7280; color: white; }
+        .badge-conflict { background: var(--danger); color: white; }
+        .badge-container { background: var(--accent); color: white; }
+
+        .results-dashboard {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .result-card {
+            text-align: center;
+            padding: 1.5rem;
+            border-radius: 8px;
+            color: white;
+        }
+
+        .result-card .number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .result-card .label {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: #e2e8f0;
+            border-radius: 4px;
+            overflow: hidden;
+            margin: 1rem 0;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: var(--success);
+            width: 0;
+            transition: width 1s ease;
+        }
+
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid var(--primary);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .conflict-matrix {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+        }
+
+        .conflict-matrix th {
+            background: var(--secondary);
+            color: white;
+            padding: 0.75rem;
+            text-align: left;
+        }
+
+        .conflict-matrix td {
+            padding: 0.75rem;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .conflict-matrix tr:hover {
+            background: #f8f9fa;
+        }
+
+        .status-indicator {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            margin-right: 0.5rem;
+        }
+
+        .status-success { background: var(--success); }
+        .status-warning { background: var(--warning); }
+        .status-danger { background: var(--danger); }
+    </style>
+</head>
+<body>
+    <h1>
+        <div class="logo">🌐</div>
+        AWS-InfoBlox Network Sync - Interactive Demo
+    </h1>
+
+    <div class="tabs">
+        <button class="tab active" onclick="switchTab('analyzer')">🔍 Analyzer</button>
+        <button class="tab" onclick="switchTab('simulator')">🎮 Network Simulator</button>
+        <button class="tab" onclick="switchTab('reports')">📊 Reports</button>
+        <button class="tab" onclick="switchTab('conflicts')">⚠️ Conflict Resolution</button>
+    </div>
+
+    <!-- Analyzer Tab -->
+    <div id="analyzer" class="tab-content active">
+        <div class="demo-section">
+            <h2>Network Analysis Demo</h2>
+            
+            <div class="demo-controls">
+                <button class="btn btn-primary" onclick="runAnalysis()">
+                    <span>🚀</span> Run Analysis
+                </button>
+                <button class="btn btn-secondary" onclick="clearTerminal()">
+                    <span>🗑️</span> Clear Output
+                </button>
+                <select id="dataSource" class="btn btn-secondary" style="padding: 0.75rem;">
+                    <option value="test">Test Data (19 networks)</option>
+                    <option value="production">Production Sample</option>
+                    <option value="conflict">Conflict Scenario</option>
+                </select>
+            </div>
+
+            <div class="terminal" id="terminal">
+                <div>$ Ready to analyze AWS networks...</div>
+            </div>
+
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressBar"></div>
+            </div>
+
+            <div class="results-dashboard" id="results" style="display: none;">
+                <div class="result-card" style="background: var(--primary);">
+                    <div class="number" id="totalNetworks">0</div>
+                    <div class="label">Networks Analyzed</div>
+                </div>
+                <div class="result-card" style="background: var(--danger);">
+                    <div class="number" id="conflicts">0</div>
+                    <div class="label">Conflicts Found</div>
+                </div>
+                <div class="result-card" style="background: var(--success);">
+                    <div class="number" id="newNetworks">0</div>
+                    <div class="label">To Create</div>
+                </div>
+                <div class="result-card" style="background: var(--accent);">
+                    <div class="number" id="containers">0</div>
+                    <div class="label">Containers</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Network Simulator Tab -->
+    <div id="simulator" class="tab-content">
+        <div class="demo-section">
+            <h2>Multi-Source Network Environment</h2>
+            <p style="margin-bottom: 1rem;">Simulate a real InfoBlox environment with networks from multiple sources</p>
+
+            <div class="data-grid">
+                <div class="data-card">
+                    <h3>AWS Networks</h3>
+                    <div class="network-list" id="awsNetworks">
+                        <div class="network-item">
+                            <span>10.100.0.0/16</span>
+                            <span class="badge badge-aws">AWS</span>
+                        </div>
+                        <div class="network-item">
+                            <span>10.100.1.0/24</span>
+                            <span class="badge badge-aws">AWS</span>
+                        </div>
+                        <div class="network-item">
+                            <span>172.16.0.0/24</span>
+                            <span class="badge badge-aws">AWS</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="data-card">
+                    <h3>Azure Networks</h3>
+                    <div class="network-list" id="azureNetworks">
+                        <div class="network-item">
+                            <span>172.16.0.0/16</span>
+                            <span class="badge badge-azure">Azure</span>
+                        </div>
+                        <div class="network-item">
+                            <span>10.200.0.0/16</span>
+                            <span class="badge badge-azure">Azure</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="data-card">
+                    <h3>GCP Networks</h3>
+                    <div class="network-list" id="gcpNetworks">
+                        <div class="network-item">
+                            <span>10.50.1.0/24</span>
+                            <span class="badge badge-gcp">GCP</span>
+                        </div>
+                        <div class="network-item">
+                            <span>192.168.0.0/16</span>
+                            <span class="badge badge-gcp">GCP</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="data-card">
+                    <h3>On-Premises</h3>
+                    <div class="network-list" id="onpremNetworks">
+                        <div class="network-item">
+                            <span>10.0.0.0/8</span>
+                            <span class="badge badge-onprem">On-Prem</span>
+                        </div>
+                        <div class="network-item">
+                            <span>192.168.1.0/24</span>
+                            <span class="badge badge-onprem">On-Prem</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="demo-controls">
+                <button class="btn btn-primary" onclick="detectConflicts()">
+                    <span>⚡</span> Detect Conflicts
+                </button>
+                <button class="btn btn-success" onclick="addNetwork()">
+                    <span>➕</span> Add Network
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Reports Tab -->
+    <div id="reports" class="tab-content">
+        <div class="demo-section">
+            <h2>Generated Reports</h2>
+            
+            <div class="data-grid">
+                <div class="data-card">
+                    <h3>📄 HTML Report</h3>
+                    <p>Comprehensive analysis with visualizations</p>
+                    <button class="btn btn-primary" onclick="showSampleReport()" style="margin-top: 1rem;">
+                        View Sample
+                    </button>
+                </div>
+
+                <div class="data-card">
+                    <h3>📊 CSV Downloads</h3>
+                    <ul style="list-style: none; line-height: 2;">
+                        <li><span class="status-indicator status-success"></span>orphaned_networks.csv</li>
+                        <li><span class="status-indicator status-danger"></span>conflicts.csv</li>
+                        <li><span class="status-indicator status-warning"></span>tag_updates.csv</li>
+                        <li><span class="status-indicator status-success"></span>proposed_networks.csv</li>
+                    </ul>
+                </div>
+
+                <div class="data-card">
+                    <h3>🔍 Analysis Summary</h3>
+                    <div id="reportSummary">
+                        <p>Run an analysis to see results</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Conflicts Tab -->
+    <div id="conflicts" class="tab-content">
+        <div class="demo-section">
+            <h2>Conflict Resolution Center</h2>
+            
+            <table class="conflict-matrix" id="conflictTable">
+                <thead>
+                    <tr>
+                        <th>AWS Network</th>
+                        <th>Existing Network</th>
+                        <th>Source</th>
+                        <th>Conflict Type</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="conflictTableBody">
+                    <tr>
+                        <td colspan="5" style="text-align: center; padding: 2rem;">
+                            Run analysis to detect conflicts
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        // Sample data
+        const testData = {
+            aws: [
+                { cidr: '10.100.0.0/16', name: 'aws-prod-main', tags: { Environment: 'Production', Owner: 'Platform' } },
+                { cidr: '10.100.1.0/24', name: 'aws-prod-web', tags: { Environment: 'Production', App: 'Web' } },
+                { cidr: '10.100.2.0/24', name: 'aws-prod-app', tags: { Environment: 'Production', App: 'Backend' } },
+                { cidr: '172.16.0.0/24', name: 'aws-dmz', tags: { Environment: 'DMZ', Security: 'High' } },
+                { cidr: '10.50.0.0/23', name: 'aws-shared', tags: { Environment: 'Shared', Type: 'Services' } },
+                { cidr: '192.168.1.0/24', name: 'aws-eu-prod', tags: { Environment: 'Production', Region: 'EU' } }
+            ],
+            infoblox: [
+                { network: '172.16.0.0/16', source: 'Azure', type: 'container' },
+                { network: '10.50.1.0/24', source: 'GCP', type: 'network' },
+                { network: '192.168.1.0/24', source: 'OnPrem', type: 'network' },
+                { network: '10.0.0.0/8', source: 'OnPrem', type: 'container' }
+            ]
+        };
+
+        let analysisRunning = false;
+
+        function switchTab(tabName) {
+            // Update tabs
+            document.querySelectorAll('.tab').forEach(tab => tab.classList.remove('active'));
+            document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+            
+            event.target.classList.add('active');
+            document.getElementById(tabName).classList.add('active');
+        }
+
+        function addTerminalLine(text, delay = 0) {
+            setTimeout(() => {
+                const terminal = document.getElementById('terminal');
+                const line = document.createElement('div');
+                line.className = 'terminal-line';
+                line.textContent = text;
+                terminal.appendChild(line);
+                terminal.scrollTop = terminal.scrollHeight;
+            }, delay);
+        }
+
+        function clearTerminal() {
+            document.getElementById('terminal').innerHTML = '<div>$ Ready to analyze AWS networks...</div>';
+            document.getElementById('progressBar').style.width = '0';
+            document.getElementById('results').style.display = 'none';
+        }
+
+        function runAnalysis() {
+            if (analysisRunning) return;
+            analysisRunning = true;
+            
+            clearTerminal();
+            const dataSource = document.getElementById('dataSource').value;
+            
+            addTerminalLine('$ python infoblox_aws_comprehensive_analyzer.py ' + dataSource + '_data.csv', 100);
+            addTerminalLine('', 300);
+            addTerminalLine('🔄 Loading AWS network data...', 500);
+            addTerminalLine('✅ Loaded 19 networks from CSV export', 1000);
+            addTerminalLine('', 1200);
+            addTerminalLine('🔍 Connecting to InfoBlox at 192.168.1.222...', 1500);
+            addTerminalLine('✅ Connected to InfoBlox successfully', 2000);
+            addTerminalLine('📊 Fetching networks from InfoBlox view: Production', 2500);
+            addTerminalLine('✅ Found 47 networks/containers in InfoBlox', 3000);
+            addTerminalLine('', 3200);
+            addTerminalLine('🔎 Starting comprehensive network analysis...', 3500);
+            addTerminalLine('  - Checking for orphaned AWS networks...', 4000);
+            addTerminalLine('  - Detecting conflicts across all sources...', 4500);
+            addTerminalLine('  - Building network hierarchy...', 5000);
+            addTerminalLine('  - Comparing tags and attributes...', 5500);
+            addTerminalLine('', 6000);
+            addTerminalLine('⚠️  Conflicts detected:', 6500);
+            addTerminalLine('  - AWS 172.16.0.0/24 conflicts with Azure 172.16.0.0/16', 7000);
+            addTerminalLine('  - AWS 10.50.0.0/23 overlaps with GCP 10.50.1.0/24', 7500);
+            addTerminalLine('  - AWS 192.168.1.0/24 exact match with OnPrem network', 8000);
+            addTerminalLine('', 8500);
+            addTerminalLine('✅ Analysis complete!', 9000);
+            addTerminalLine('📄 Report generated: reports/analysis_20250719_223456/report.html', 9500);
+            
+            // Update progress bar
+            let progress = 0;
+            const progressInterval = setInterval(() => {
+                progress += 10;
+                document.getElementById('progressBar').style.width = progress + '%';
+                if (progress >= 100) {
+                    clearInterval(progressInterval);
+                    showResults();
+                    analysisRunning = false;
+                }
+            }, 950);
+        }
+
+        function showResults() {
+            const results = document.getElementById('results');
+            results.style.display = 'grid';
+            
+            // Animate numbers
+            animateNumber('totalNetworks', 19);
+            animateNumber('conflicts', 3);
+            animateNumber('newNetworks', 13);
+            animateNumber('containers', 3);
+            
+            // Update report summary
+            document.getElementById('reportSummary').innerHTML = `
+                <ul style="list-style: none; line-height: 2;">
+                    <li><strong>19</strong> AWS networks analyzed</li>
+                    <li><strong>3</strong> conflicts with other sources</li>
+                    <li><strong>2</strong> orphaned AWS networks</li>
+                    <li><strong>5</strong> tag discrepancies</li>
+                </ul>
+            `;
+            
+            // Update conflict table
+            const conflictData = [
+                { aws: '172.16.0.0/24', existing: '172.16.0.0/16', source: 'Azure', type: 'Contained By', action: 'Block Creation' },
+                { aws: '10.50.0.0/23', existing: '10.50.1.0/24', source: 'GCP', type: 'Partial Overlap', action: 'Review Required' },
+                { aws: '192.168.1.0/24', existing: '192.168.1.0/24', source: 'OnPrem', type: 'Exact Match', action: 'Use Different CIDR' }
+            ];
+            
+            const tbody = document.getElementById('conflictTableBody');
+            tbody.innerHTML = conflictData.map(conflict => `
+                <tr>
+                    <td>${conflict.aws}</td>
+                    <td>${conflict.existing}</td>
+                    <td><span class="badge badge-${conflict.source.toLowerCase()}">${conflict.source}</span></td>
+                    <td><span class="badge badge-conflict">${conflict.type}</span></td>
+                    <td>${conflict.action}</td>
+                </tr>
+            `).join('');
+        }
+
+        function animateNumber(id, target) {
+            let current = 0;
+            const increment = Math.ceil(target / 20);
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    current = target;
+                    clearInterval(timer);
+                }
+                document.getElementById(id).textContent = current;
+            }, 50);
+        }
+
+        function detectConflicts() {
+            const modal = document.createElement('div');
+            modal.style.cssText = `
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                background: white;
+                padding: 2rem;
+                border-radius: 12px;
+                box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+                z-index: 1000;
+                max-width: 500px;
+            `;
+            
+            modal.innerHTML = `
+                <h3 style="margin-bottom: 1rem;">Conflict Detection Results</h3>
+                <div style="margin-bottom: 1rem;">
+                    <p><strong>AWS 172.16.0.0/24</strong> is contained within <strong>Azure 172.16.0.0/16</strong></p>
+                    <p style="color: var(--danger); margin-top: 0.5rem;">❌ Cannot create - would cause routing conflicts</p>
+                </div>
+                <div style="margin-bottom: 1rem;">
+                    <p><strong>AWS 192.168.1.0/24</strong> exactly matches <strong>On-Prem 192.168.1.0/24</strong></p>
+                    <p style="color: var(--danger); margin-top: 0.5rem;">❌ Network already exists from different source</p>
+                </div>
+                <button class="btn btn-primary" onclick="this.parentElement.remove()">Close</button>
+            `;
+            
+            document.body.appendChild(modal);
+        }
+
+        function addNetwork() {
+            const cidr = prompt('Enter network CIDR (e.g., 10.200.0.0/24):');
+            if (cidr) {
+                const awsNetworks = document.getElementById('awsNetworks');
+                const newNetwork = document.createElement('div');
+                newNetwork.className = 'network-item';
+                newNetwork.innerHTML = `
+                    <span>${cidr}</span>
+                    <span class="badge badge-aws">AWS</span>
+                `;
+                awsNetworks.appendChild(newNetwork);
+            }
+        }
+
+        function showSampleReport() {
+            window.open('/Users/tshoush/Preso/Marriot/AWS-Sync-Newer/reports/analysis_20250719_221613/analysis_report.html', '_blank');
+        }
+    </script>
+</body>
+</html>

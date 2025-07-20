@@ -1,0 +1,1330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multi-Cloud Network Sync - Architecture</title>
+    <style>
+        :root {
+            --marriott-red: #bd1e51;
+            --marriott-dark: #1a1a1a;
+            --marriott-gray: #6c6c6c;
+            --marriott-light-gray: #f5f5f5;
+            --marriott-white: #ffffff;
+            --aws-orange: #ff9900;
+            --azure-blue: #0078d4;
+            --gcp-blue: #4285f4;
+            --alibaba-orange: #ff6600;
+            --onprem-gray: #6c6c6c;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background: var(--marriott-white);
+            color: var(--marriott-dark);
+            line-height: 1.6;
+        }
+
+        .header {
+            background: var(--marriott-white);
+            border-bottom: 1px solid #e0e0e0;
+            padding: 2rem;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .header h1 {
+            font-weight: 300;
+            letter-spacing: 2px;
+            color: var(--marriott-red);
+            margin-bottom: 0.5rem;
+        }
+
+        .header p {
+            color: var(--marriott-gray);
+        }
+
+        .nav-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .nav-tab {
+            padding: 0.5rem 1.5rem;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--marriott-gray);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+        }
+
+        .nav-tab:hover {
+            color: var(--marriott-red);
+        }
+
+        .nav-tab.active {
+            color: var(--marriott-red);
+        }
+
+        .nav-tab.active::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--marriott-red);
+        }
+
+        .content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .section {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .section.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* High-Level Architecture Diagram */
+        .architecture-diagram {
+            background: var(--marriott-light-gray);
+            padding: 3rem;
+            border-radius: 12px;
+            margin: 2rem 0;
+        }
+
+        .layer {
+            background: white;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 2rem;
+            margin: 1rem 0;
+            position: relative;
+        }
+
+        .layer-title {
+            position: absolute;
+            top: -15px;
+            left: 20px;
+            background: white;
+            padding: 0 1rem;
+            color: var(--marriott-red);
+            font-weight: 500;
+            font-size: 1.1rem;
+        }
+
+        .cloud-sources {
+            display: flex;
+            justify-content: space-around;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .cloud-box {
+            text-align: center;
+            padding: 1.5rem;
+            background: var(--marriott-light-gray);
+            border-radius: 8px;
+            min-width: 120px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .cloud-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .cloud-icon {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .cloud-name {
+            font-weight: 500;
+            margin-bottom: 0.25rem;
+        }
+
+        .cloud-count {
+            font-size: 0.9rem;
+            color: var(--marriott-gray);
+        }
+
+        /* Flow Diagram */
+        .flow-container {
+            position: relative;
+            padding: 2rem 0;
+        }
+
+        .flow-step {
+            background: white;
+            border: 2px solid var(--marriott-red);
+            border-radius: 8px;
+            padding: 2rem;
+            margin: 2rem 0;
+            position: relative;
+        }
+
+        .flow-step::after {
+            content: '↓';
+            position: absolute;
+            bottom: -35px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 2rem;
+            color: var(--marriott-red);
+        }
+
+        .flow-step:last-child::after {
+            display: none;
+        }
+
+        .flow-step-number {
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            width: 40px;
+            height: 40px;
+            background: var(--marriott-red);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        .flow-step h3 {
+            color: var(--marriott-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        /* Component Architecture */
+        .components-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .component-card {
+            background: white;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .component-card:hover {
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transform: translateY(-5px);
+        }
+
+        .component-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .component-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--marriott-red);
+            color: white;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        .component-title {
+            font-size: 1.2rem;
+            font-weight: 500;
+        }
+
+        .component-features {
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        .component-features li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .component-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--marriott-red);
+        }
+
+        /* Data Flow Animation */
+        .data-flow-visual {
+            position: relative;
+            height: 400px;
+            margin: 3rem 0;
+            background: var(--marriott-light-gray);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .data-node {
+            position: absolute;
+            background: white;
+            border: 2px solid var(--marriott-red);
+            border-radius: 8px;
+            padding: 1rem;
+            text-align: center;
+            min-width: 150px;
+            transition: all 0.3s ease;
+        }
+
+        .data-line {
+            position: absolute;
+            height: 2px;
+            background: var(--marriott-red);
+            transform-origin: left center;
+        }
+
+        .data-packet {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: var(--marriott-red);
+            border-radius: 50%;
+            animation: flow 3s linear infinite;
+        }
+
+        @keyframes flow {
+            0% { opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { opacity: 0; }
+        }
+
+        /* Conflict Matrix */
+        .conflict-matrix-container {
+            overflow-x: auto;
+            margin: 2rem 0;
+        }
+
+        .conflict-matrix {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+        }
+
+        .conflict-matrix th,
+        .conflict-matrix td {
+            padding: 1rem;
+            text-align: center;
+            border: 1px solid #e0e0e0;
+        }
+
+        .conflict-matrix th {
+            background: var(--marriott-dark);
+            color: white;
+            font-weight: 500;
+        }
+
+        .conflict-matrix .source-header {
+            background: var(--marriott-red);
+        }
+
+        .conflict-cell {
+            position: relative;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .conflict-cell:hover {
+            background: var(--marriott-light-gray);
+        }
+
+        .conflict-cell.has-conflict {
+            background: #ffebee;
+            color: var(--marriott-red);
+            font-weight: 500;
+        }
+
+        /* Security Architecture */
+        .security-layers {
+            position: relative;
+            margin: 2rem 0;
+        }
+
+        .security-layer {
+            background: white;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            position: relative;
+            padding-left: 4rem;
+        }
+
+        .security-layer::before {
+            content: '🔒';
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.5rem;
+        }
+
+        .security-layer h4 {
+            color: var(--marriott-red);
+            margin-bottom: 0.5rem;
+        }
+
+        /* Deployment Options */
+        .deployment-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .deployment-card {
+            background: white;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .deployment-header {
+            background: var(--marriott-red);
+            color: white;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .deployment-content {
+            padding: 2rem;
+        }
+
+        .deployment-diagram {
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--marriott-light-gray);
+            margin: 1rem 0;
+            border-radius: 8px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .cloud-sources {
+                flex-direction: column;
+            }
+            
+            .nav-tabs {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+            
+            .data-flow-visual {
+                height: 600px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>MULTI-CLOUD NETWORK SYNCHRONIZATION PLATFORM</h1>
+        <p>Technical Architecture & System Design</p>
+        
+        <div class="nav-tabs">
+            <button class="nav-tab active" onclick="showSection('overview')">Overview</button>
+            <button class="nav-tab" onclick="showSection('architecture')">System Architecture</button>
+            <button class="nav-tab" onclick="showSection('dataflow')">Data Flow</button>
+            <button class="nav-tab" onclick="showSection('components')">Components</button>
+            <button class="nav-tab" onclick="showSection('deployment')">Deployment</button>
+        </div>
+    </div>
+
+    <div class="content">
+        <!-- Overview Section -->
+        <section id="overview" class="section active">
+            <h2>System Overview</h2>
+            <p style="font-size: 1.2rem; color: var(--marriott-gray); margin-bottom: 2rem;">
+                A cloud-agnostic network synchronization platform that treats all cloud providers equally, 
+                ensuring consistent network management across AWS, Azure, GCP, Alibaba Cloud, and on-premises infrastructure.
+            </p>
+
+            <div class="architecture-diagram">
+                <h3 style="text-align: center; margin-bottom: 2rem;">High-Level Architecture</h3>
+                
+                <!-- Data Sources Layer -->
+                <div class="layer">
+                    <div class="layer-title">Data Sources Layer</div>
+                    <div class="cloud-sources">
+                        <div class="cloud-box" style="border-left: 4px solid var(--aws-orange);">
+                            <div class="cloud-icon">☁️</div>
+                            <div class="cloud-name">AWS</div>
+                            <div class="cloud-count">VPC Networks</div>
+                        </div>
+                        <div class="cloud-box" style="border-left: 4px solid var(--azure-blue);">
+                            <div class="cloud-icon">🔷</div>
+                            <div class="cloud-name">Azure</div>
+                            <div class="cloud-count">VNet Networks</div>
+                        </div>
+                        <div class="cloud-box" style="border-left: 4px solid var(--gcp-blue);">
+                            <div class="cloud-icon">🔵</div>
+                            <div class="cloud-name">GCP</div>
+                            <div class="cloud-count">VPC Networks</div>
+                        </div>
+                        <div class="cloud-box" style="border-left: 4px solid var(--alibaba-orange);">
+                            <div class="cloud-icon">🟠</div>
+                            <div class="cloud-name">Alibaba</div>
+                            <div class="cloud-count">VPC Networks</div>
+                        </div>
+                        <div class="cloud-box" style="border-left: 4px solid var(--onprem-gray);">
+                            <div class="cloud-icon">🏢</div>
+                            <div class="cloud-name">On-Premises</div>
+                            <div class="cloud-count">Data Centers</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Processing Layer -->
+                <div class="layer">
+                    <div class="layer-title">Processing Layer</div>
+                    <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; text-align: center;">
+                        <div>
+                            <div style="font-size: 2rem; margin-bottom: 0.5rem;">🔄</div>
+                            <strong>Universal Parser</strong>
+                            <p style="font-size: 0.9rem; color: var(--marriott-gray);">Standardizes data</p>
+                        </div>
+                        <div>
+                            <div style="font-size: 2rem; margin-bottom: 0.5rem;">🔍</div>
+                            <strong>Conflict Detector</strong>
+                            <p style="font-size: 0.9rem; color: var(--marriott-gray);">Cross-cloud analysis</p>
+                        </div>
+                        <div>
+                            <div style="font-size: 2rem; margin-bottom: 0.5rem;">📊</div>
+                            <strong>Hierarchy Builder</strong>
+                            <p style="font-size: 0.9rem; color: var(--marriott-gray);">Container management</p>
+                        </div>
+                        <div>
+                            <div style="font-size: 2rem; margin-bottom: 0.5rem;">📋</div>
+                            <strong>Report Generator</strong>
+                            <p style="font-size: 0.9rem; color: var(--marriott-gray);">Actionable insights</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Storage Layer -->
+                <div class="layer">
+                    <div class="layer-title">Storage Layer</div>
+                    <div style="text-align: center; padding: 2rem;">
+                        <div style="font-size: 3rem; margin-bottom: 1rem;">🗄️</div>
+                        <h3>InfoBlox IPAM</h3>
+                        <p style="color: var(--marriott-gray);">Single Source of Truth - All Networks from All Sources</p>
+                        <div style="display: flex; justify-content: center; gap: 2rem; margin-top: 1rem;">
+                            <span>✓ Source Attribution</span>
+                            <span>✓ Conflict Tracking</span>
+                            <span>✓ Audit Trail</span>
+                            <span>✓ Tag Management</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Architecture Section -->
+        <section id="architecture" class="section">
+            <h2>System Architecture</h2>
+            
+            <div class="components-grid">
+                <div class="component-card">
+                    <div class="component-header">
+                        <div class="component-icon">🔌</div>
+                        <div>
+                            <div class="component-title">Cloud Adapters</div>
+                            <div style="font-size: 0.9rem; color: var(--marriott-gray);">Pluggable connectors</div>
+                        </div>
+                    </div>
+                    <p>Standardized interface for each cloud provider:</p>
+                    <ul class="component-features">
+                        <li>Export network data</li>
+                        <li>Handle authentication</li>
+                        <li>Transform to common format</li>
+                        <li>Manage API rate limits</li>
+                    </ul>
+                </div>
+
+                <div class="component-card">
+                    <div class="component-header">
+                        <div class="component-icon">🔄</div>
+                        <div>
+                            <div class="component-title">Sync Engine</div>
+                            <div style="font-size: 0.9rem; color: var(--marriott-gray);">Core processing</div>
+                        </div>
+                    </div>
+                    <p>Cloud-agnostic synchronization logic:</p>
+                    <ul class="component-features">
+                        <li>Universal data model</li>
+                        <li>Conflict detection</li>
+                        <li>Change tracking</li>
+                        <li>Transaction management</li>
+                    </ul>
+                </div>
+
+                <div class="component-card">
+                    <div class="component-header">
+                        <div class="component-icon">📊</div>
+                        <div>
+                            <div class="component-title">Analytics Engine</div>
+                            <div style="font-size: 0.9rem; color: var(--marriott-gray);">Intelligence layer</div>
+                        </div>
+                    </div>
+                    <p>Cross-cloud network analysis:</p>
+                    <ul class="component-features">
+                        <li>Overlap detection</li>
+                        <li>Hierarchy optimization</li>
+                        <li>Orphan identification</li>
+                        <li>Compliance checking</li>
+                    </ul>
+                </div>
+
+                <div class="component-card">
+                    <div class="component-header">
+                        <div class="component-icon">📑</div>
+                        <div>
+                            <div class="component-title">Report Generator</div>
+                            <div style="font-size: 0.9rem; color: var(--marriott-gray);">Output management</div>
+                        </div>
+                    </div>
+                    <p>Multi-format reporting system:</p>
+                    <ul class="component-features">
+                        <li>HTML dashboards</li>
+                        <li>CSV bulk data</li>
+                        <li>JSON for APIs</li>
+                        <li>Email alerts</li>
+                    </ul>
+                </div>
+
+                <div class="component-card">
+                    <div class="component-header">
+                        <div class="component-icon">🛡️</div>
+                        <div>
+                            <div class="component-title">Security Module</div>
+                            <div style="font-size: 0.9rem; color: var(--marriott-gray);">Access control</div>
+                        </div>
+                    </div>
+                    <p>Multi-layer security implementation:</p>
+                    <ul class="component-features">
+                        <li>Per-cloud authentication</li>
+                        <li>Role-based access</li>
+                        <li>Audit logging</li>
+                        <li>Encryption at rest/transit</li>
+                    </ul>
+                </div>
+
+                <div class="component-card">
+                    <div class="component-header">
+                        <div class="component-icon">🔧</div>
+                        <div>
+                            <div class="component-title">API Gateway</div>
+                            <div style="font-size: 0.9rem; color: var(--marriott-gray);">Integration layer</div>
+                        </div>
+                    </div>
+                    <p>RESTful API for integrations:</p>
+                    <ul class="component-features">
+                        <li>Trigger sync operations</li>
+                        <li>Query network data</li>
+                        <li>Webhook notifications</li>
+                        <li>Third-party integrations</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Data Flow Section -->
+        <section id="dataflow" class="section">
+            <h2>Detailed Data Flow Process</h2>
+            
+            <div class="flow-container">
+                <div class="flow-step">
+                    <div class="flow-step-number">1</div>
+                    <h3>Multi-Cloud Data Collection Phase</h3>
+                    <p>Parallel data extraction from all cloud providers and on-premises systems:</p>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem; margin-top: 1.5rem;">
+                        <div style="background: #fff3e0; padding: 1rem; border-radius: 8px; border-left: 4px solid var(--aws-orange);">
+                            <strong style="color: var(--aws-orange);">AWS</strong>
+                            <ul style="font-size: 0.9rem; margin-top: 0.5rem; list-style: none; padding: 0;">
+                                <li>• VPC Details</li>
+                                <li>• Subnet CIDRs</li>
+                                <li>• Route Tables</li>
+                                <li>• Security Groups</li>
+                                <li>• Tags & Metadata</li>
+                            </ul>
+                            <div style="margin-top: 0.5rem; font-size: 0.8rem; color: var(--marriott-gray);">
+                                API: EC2 DescribeVpcs
+                            </div>
+                        </div>
+                        <div style="background: #e3f2fd; padding: 1rem; border-radius: 8px; border-left: 4px solid var(--azure-blue);">
+                            <strong style="color: var(--azure-blue);">Azure</strong>
+                            <ul style="font-size: 0.9rem; margin-top: 0.5rem; list-style: none; padding: 0;">
+                                <li>• VNet Configuration</li>
+                                <li>• Address Spaces</li>
+                                <li>• Peering Info</li>
+                                <li>• Resource Groups</li>
+                                <li>• Azure Tags</li>
+                            </ul>
+                            <div style="margin-top: 0.5rem; font-size: 0.8rem; color: var(--marriott-gray);">
+                                API: Network/virtualNetworks
+                            </div>
+                        </div>
+                        <div style="background: #e8f0fe; padding: 1rem; border-radius: 8px; border-left: 4px solid var(--gcp-blue);">
+                            <strong style="color: var(--gcp-blue);">GCP</strong>
+                            <ul style="font-size: 0.9rem; margin-top: 0.5rem; list-style: none; padding: 0;">
+                                <li>• VPC Networks</li>
+                                <li>• Subnet Ranges</li>
+                                <li>• Firewall Rules</li>
+                                <li>• Project IDs</li>
+                                <li>• Labels</li>
+                            </ul>
+                            <div style="margin-top: 0.5rem; font-size: 0.8rem; color: var(--marriott-gray);">
+                                API: compute.networks.list
+                            </div>
+                        </div>
+                        <div style="background: #fff3e0; padding: 1rem; border-radius: 8px; border-left: 4px solid var(--alibaba-orange);">
+                            <strong style="color: var(--alibaba-orange);">Alibaba</strong>
+                            <ul style="font-size: 0.9rem; margin-top: 0.5rem; list-style: none; padding: 0;">
+                                <li>• VPC Info</li>
+                                <li>• VSwitches</li>
+                                <li>• Route Entries</li>
+                                <li>• Region Data</li>
+                                <li>• Resource Tags</li>
+                            </ul>
+                            <div style="margin-top: 0.5rem; font-size: 0.8rem; color: var(--marriott-gray);">
+                                API: DescribeVpcs
+                            </div>
+                        </div>
+                        <div style="background: #f5f5f5; padding: 1rem; border-radius: 8px; border-left: 4px solid var(--onprem-gray);">
+                            <strong style="color: var(--onprem-gray);">On-Premises</strong>
+                            <ul style="font-size: 0.9rem; margin-top: 0.5rem; list-style: none; padding: 0;">
+                                <li>• DC Networks</li>
+                                <li>• VLAN Info</li>
+                                <li>• Legacy Subnets</li>
+                                <li>• CMDB Data</li>
+                                <li>• Custom Fields</li>
+                            </ul>
+                            <div style="margin-top: 0.5rem; font-size: 0.8rem; color: var(--marriott-gray);">
+                                Source: IPAM/Excel/CSV
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flow-step">
+                    <div class="flow-step-number">2</div>
+                    <h3>Data Transformation & Enrichment</h3>
+                    <p>Convert heterogeneous data formats into standardized network model:</p>
+                    <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 2rem; margin-top: 1.5rem;">
+                        <div>
+                            <h4 style="color: var(--marriott-red); margin-bottom: 1rem;">Input Processing</h4>
+                            <div style="background: white; padding: 1rem; border-radius: 8px; border: 1px solid #e0e0e0;">
+                                <strong>Format Detection</strong>
+                                <ul style="font-size: 0.9rem; margin-top: 0.5rem;">
+                                    <li>JSON parsing (AWS/GCP)</li>
+                                    <li>CSV processing (Azure/On-Prem)</li>
+                                    <li>XML handling (Legacy)</li>
+                                    <li>API response mapping</li>
+                                </ul>
+                            </div>
+                            <div style="background: white; padding: 1rem; border-radius: 8px; border: 1px solid #e0e0e0; margin-top: 1rem;">
+                                <strong>Data Validation</strong>
+                                <ul style="font-size: 0.9rem; margin-top: 0.5rem;">
+                                    <li>CIDR format verification</li>
+                                    <li>Source attribution</li>
+                                    <li>Tag normalization</li>
+                                    <li>Duplicate detection</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div>
+                            <h4 style="color: var(--marriott-red); margin-bottom: 1rem;">Unified Network Model</h4>
+                            <pre style="background: var(--marriott-light-gray); padding: 1.5rem; border-radius: 8px; overflow-x: auto; font-size: 0.9rem;">
+{
+    "network_id": "net-2024-07-20-001",
+    "cidr": "10.100.0.0/16",
+    "source": {
+        "provider": "AWS",
+        "region": "us-east-1",
+        "account_id": "123456789012",
+        "resource_id": "vpc-0a1b2c3d4e5f6g7h8"
+    },
+    "attributes": {
+        "name": "production-vpc-east",
+        "environment": "Production",
+        "created_date": "2024-01-15T08:30:00Z",
+        "last_modified": "2024-07-20T10:45:00Z"
+    },
+    "tags": {
+        "Owner": "Platform Team",
+        "CostCenter": "IT-001",
+        "Application": "CoreServices",
+        "Compliance": "PCI-DSS"
+    },
+    "hierarchy": {
+        "parent": null,
+        "children": ["10.100.1.0/24", "10.100.2.0/24"],
+        "type": "container"
+    },
+    "validation": {
+        "status": "valid",
+        "last_seen": "2024-07-20T14:30:00Z",
+        "sync_status": "pending"
+    }
+}</pre>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flow-step">
+                    <div class="flow-step-number">3</div>
+                    <h3>Intelligent Analysis Engine</h3>
+                    <p>Multi-dimensional analysis comparing all sources against InfoBlox current state:</p>
+                    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; margin-top: 1.5rem;">
+                        <div style="background: white; padding: 1.5rem; border-radius: 8px; border: 2px solid var(--marriott-red);">
+                            <h4 style="color: var(--marriott-red); margin-bottom: 1rem;">🔍 Conflict Detection Matrix</h4>
+                            <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 0.5rem; font-size: 0.8rem; text-align: center;">
+                                <div style="background: var(--marriott-light-gray); padding: 0.5rem; font-weight: bold;">Source</div>
+                                <div style="background: #fff3e0; padding: 0.5rem;">AWS</div>
+                                <div style="background: #e3f2fd; padding: 0.5rem;">Azure</div>
+                                <div style="background: #e8f0fe; padding: 0.5rem;">GCP</div>
+                                <div style="background: #f5f5f5; padding: 0.5rem;">On-Prem</div>
+                                
+                                <div style="background: #fff3e0; padding: 0.5rem;">AWS</div>
+                                <div style="background: #f0f0f0; padding: 0.5rem;">-</div>
+                                <div style="background: #ffebee; padding: 0.5rem;">247</div>
+                                <div style="background: #fff3e0; padding: 0.5rem;">183</div>
+                                <div style="background: #ffebee; padding: 0.5rem;">412</div>
+                                
+                                <div style="background: #e3f2fd; padding: 0.5rem;">Azure</div>
+                                <div style="background: #ffebee; padding: 0.5rem;">247</div>
+                                <div style="background: #f0f0f0; padding: 0.5rem;">-</div>
+                                <div style="background: #fff3e0; padding: 0.5rem;">95</div>
+                                <div style="background: #ffebee; padding: 0.5rem;">523</div>
+                                
+                                <div style="background: #e8f0fe; padding: 0.5rem;">GCP</div>
+                                <div style="background: #fff3e0; padding: 0.5rem;">183</div>
+                                <div style="background: #fff3e0; padding: 0.5rem;">95</div>
+                                <div style="background: #f0f0f0; padding: 0.5rem;">-</div>
+                                <div style="background: #fff3e0; padding: 0.5rem;">156</div>
+                                
+                                <div style="background: #f5f5f5; padding: 0.5rem;">On-Prem</div>
+                                <div style="background: #ffebee; padding: 0.5rem;">412</div>
+                                <div style="background: #ffebee; padding: 0.5rem;">523</div>
+                                <div style="background: #fff3e0; padding: 0.5rem;">156</div>
+                                <div style="background: #f0f0f0; padding: 0.5rem;">-</div>
+                            </div>
+                            <p style="font-size: 0.8rem; color: var(--marriott-gray); margin-top: 1rem;">
+                                Numbers indicate conflict checks performed between sources
+                            </p>
+                        </div>
+                        <div style="background: white; padding: 1.5rem; border-radius: 8px; border: 2px solid var(--marriott-red);">
+                            <h4 style="color: var(--marriott-red); margin-bottom: 1rem;">📊 Analysis Operations</h4>
+                            <div style="display: grid; gap: 0.5rem;">
+                                <div style="display: flex; align-items: center; gap: 1rem;">
+                                    <div style="width: 40px; height: 40px; background: #e8f5e9; border-radius: 50%; display: flex; align-items: center; justify-content: center;">✓</div>
+                                    <div>
+                                        <strong>Exact Match Detection</strong>
+                                        <div style="font-size: 0.8rem; color: var(--marriott-gray);">Same CIDR across sources</div>
+                                    </div>
+                                </div>
+                                <div style="display: flex; align-items: center; gap: 1rem;">
+                                    <div style="width: 40px; height: 40px; background: #fff3e0; border-radius: 50%; display: flex; align-items: center; justify-content: center;">⚠️</div>
+                                    <div>
+                                        <strong>Overlap Identification</strong>
+                                        <div style="font-size: 0.8rem; color: var(--marriott-gray);">Partial CIDR conflicts</div>
+                                    </div>
+                                </div>
+                                <div style="display: flex; align-items: center; gap: 1rem;">
+                                    <div style="width: 40px; height: 40px; background: #e3f2fd; border-radius: 50%; display: flex; align-items: center; justify-content: center;">📁</div>
+                                    <div>
+                                        <strong>Hierarchy Building</strong>
+                                        <div style="font-size: 0.8rem; color: var(--marriott-gray);">Container relationships</div>
+                                    </div>
+                                </div>
+                                <div style="display: flex; align-items: center; gap: 1rem;">
+                                    <div style="width: 40px; height: 40px; background: #ffebee; border-radius: 50%; display: flex; align-items: center; justify-content: center;">🔍</div>
+                                    <div>
+                                        <strong>Orphan Detection</strong>
+                                        <div style="font-size: 0.8rem; color: var(--marriott-gray);">Missing from source</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div style="margin-top: 2rem;">
+                        <h4 style="color: var(--marriott-red); margin-bottom: 1rem;">Conflict Resolution Rules</h4>
+                        <table style="width: 100%; border-collapse: collapse;">
+                            <thead>
+                                <tr style="background: var(--marriott-dark); color: white;">
+                                    <th style="padding: 0.75rem; text-align: left;">Conflict Type</th>
+                                    <th style="padding: 0.75rem; text-align: left;">Example Scenario</th>
+                                    <th style="padding: 0.75rem; text-align: left;">Automated Action</th>
+                                    <th style="padding: 0.75rem; text-align: left;">Manual Review</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr style="background: white;">
+                                    <td style="padding: 0.75rem; border: 1px solid #e0e0e0;">Exact Match</td>
+                                    <td style="padding: 0.75rem; border: 1px solid #e0e0e0;">AWS 10.0.0.0/16 = Azure 10.0.0.0/16</td>
+                                    <td style="padding: 0.75rem; border: 1px solid #e0e0e0;">Block creation</td>
+                                    <td style="padding: 0.75rem; border: 1px solid #e0e0e0;">Ownership decision</td>
+                                </tr>
+                                <tr style="background: #f9f9f9;">
+                                    <td style="padding: 0.75rem; border: 1px solid #e0e0e0;">Contains</td>
+                                    <td style="padding: 0.75rem; border: 1px solid #e0e0e0;">On-Prem 10.0.0.0/8 ⊃ AWS 10.1.0.0/16</td>
+                                    <td style="padding: 0.75rem; border: 1px solid #e0e0e0;">Create hierarchy</td>
+                                    <td style="padding: 0.75rem; border: 1px solid #e0e0e0;">Verify intent</td>
+                                </tr>
+                                <tr style="background: white;">
+                                    <td style="padding: 0.75rem; border: 1px solid #e0e0e0;">Overlaps</td>
+                                    <td style="padding: 0.75rem; border: 1px solid #e0e0e0;">GCP 10.0.0.0/16 ∩ Alibaba 10.0.128.0/17</td>
+                                    <td style="padding: 0.75rem; border: 1px solid #e0e0e0;">Flag conflict</td>
+                                    <td style="padding: 0.75rem; border: 1px solid #e0e0e0;">Redesign required</td>
+                                </tr>
+                                <tr style="background: #f9f9f9;">
+                                    <td style="padding: 0.75rem; border: 1px solid #e0e0e0;">Orphaned</td>
+                                    <td style="padding: 0.75rem; border: 1px solid #e0e0e0;">AWS network in InfoBlox, not in export</td>
+                                    <td style="padding: 0.75rem; border: 1px solid #e0e0e0;">Mark for review</td>
+                                    <td style="padding: 0.75rem; border: 1px solid #e0e0e0;">Deletion approval</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="flow-step">
+                    <div class="flow-step-number">4</div>
+                    <h3>InfoBlox Synchronization Process</h3>
+                    <p>Intelligent updates to InfoBlox maintaining data integrity and audit trail:</p>
+                    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 1.5rem;">
+                        <div style="background: #e8f5e9; padding: 1.5rem; border-radius: 8px; text-align: center;">
+                            <div style="font-size: 3rem; margin-bottom: 0.5rem;">✅</div>
+                            <h4 style="color: #2e7d32;">Safe Operations</h4>
+                            <ul style="list-style: none; padding: 0; font-size: 0.9rem; text-align: left;">
+                                <li>• Create new networks</li>
+                                <li>• Update attributes</li>
+                                <li>• Add missing tags</li>
+                                <li>• Build containers</li>
+                            </ul>
+                            <div style="margin-top: 1rem; padding: 0.5rem; background: white; border-radius: 4px;">
+                                <strong style="color: #2e7d32;">1,247</strong> operations
+                            </div>
+                        </div>
+                        <div style="background: #fff3e0; padding: 1.5rem; border-radius: 8px; text-align: center;">
+                            <div style="font-size: 3rem; margin-bottom: 0.5rem;">⚠️</div>
+                            <h4 style="color: #f57c00;">Review Required</h4>
+                            <ul style="list-style: none; padding: 0; font-size: 0.9rem; text-align: left;">
+                                <li>• Conflict resolution</li>
+                                <li>• Orphan handling</li>
+                                <li>• Tag conflicts</li>
+                                <li>• Manual approval</li>
+                            </ul>
+                            <div style="margin-top: 1rem; padding: 0.5rem; background: white; border-radius: 4px;">
+                                <strong style="color: #f57c00;">89</strong> items
+                            </div>
+                        </div>
+                        <div style="background: #e3f2fd; padding: 1.5rem; border-radius: 8px; text-align: center;">
+                            <div style="font-size: 3rem; margin-bottom: 0.5rem;">📊</div>
+                            <h4 style="color: #1976d2;">Reports Generated</h4>
+                            <ul style="list-style: none; padding: 0; font-size: 0.9rem; text-align: left;">
+                                <li>• Analysis summary</li>
+                                <li>• Conflict details</li>
+                                <li>• Change log</li>
+                                <li>• Audit trail</li>
+                            </ul>
+                            <div style="margin-top: 1rem; padding: 0.5rem; background: white; border-radius: 4px;">
+                                <strong style="color: #1976d2;">5</strong> reports
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flow-step">
+                    <div class="flow-step-number">5</div>
+                    <h3>Continuous Monitoring & Feedback</h3>
+                    <p>Real-time monitoring and alerting for network changes:</p>
+                    <div style="background: white; padding: 2rem; border-radius: 8px; border: 1px solid #e0e0e0; margin-top: 1.5rem;">
+                        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; text-align: center;">
+                            <div>
+                                <div style="font-size: 2.5rem; color: var(--marriott-red); margin-bottom: 0.5rem;">📈</div>
+                                <strong>Performance Metrics</strong>
+                                <ul style="list-style: none; padding: 0; font-size: 0.9rem; margin-top: 0.5rem;">
+                                    <li>Sync duration: 4.7min</li>
+                                    <li>Networks/sec: 312</li>
+                                    <li>API calls: 1,847</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <div style="font-size: 2.5rem; color: var(--marriott-red); margin-bottom: 0.5rem;">🔔</div>
+                                <strong>Alert Channels</strong>
+                                <ul style="list-style: none; padding: 0; font-size: 0.9rem; margin-top: 0.5rem;">
+                                    <li>Email notifications</li>
+                                    <li>Slack integration</li>
+                                    <li>SNMP traps</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <div style="font-size: 2.5rem; color: var(--marriott-red); margin-bottom: 0.5rem;">📝</div>
+                                <strong>Audit Trail</strong>
+                                <ul style="list-style: none; padding: 0; font-size: 0.9rem; margin-top: 0.5rem;">
+                                    <li>User attribution</li>
+                                    <li>Change history</li>
+                                    <li>Rollback capability</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <div style="font-size: 2.5rem; color: var(--marriott-red); margin-bottom: 0.5rem;">🔄</div>
+                                <strong>Sync Schedule</strong>
+                                <ul style="list-style: none; padding: 0; font-size: 0.9rem; margin-top: 0.5rem;">
+                                    <li>Hourly: Critical</li>
+                                    <li>Daily: Standard</li>
+                                    <li>On-demand: Manual</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="margin-top: 3rem; background: var(--marriott-light-gray); padding: 2rem; border-radius: 12px;">
+                <h3 style="text-align: center; color: var(--marriott-dark); margin-bottom: 2rem;">End-to-End Data Flow Summary</h3>
+                <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem;">
+                    <div style="text-align: center; flex: 1;">
+                        <div style="font-size: 2rem;">☁️</div>
+                        <strong>5 Sources</strong>
+                        <div style="font-size: 0.8rem; color: var(--marriott-gray);">Multi-cloud + On-prem</div>
+                    </div>
+                    <div style="font-size: 2rem; color: var(--marriott-red);">→</div>
+                    <div style="text-align: center; flex: 1;">
+                        <div style="font-size: 2rem;">🔄</div>
+                        <strong>9,477 Networks</strong>
+                        <div style="font-size: 0.8rem; color: var(--marriott-gray);">Processed</div>
+                    </div>
+                    <div style="font-size: 2rem; color: var(--marriott-red);">→</div>
+                    <div style="text-align: center; flex: 1;">
+                        <div style="font-size: 2rem;">🔍</div>
+                        <strong>1,089 Conflicts</strong>
+                        <div style="font-size: 0.8rem; color: var(--marriott-gray);">Detected</div>
+                    </div>
+                    <div style="font-size: 2rem; color: var(--marriott-red);">→</div>
+                    <div style="text-align: center; flex: 1;">
+                        <div style="font-size: 2rem;">✅</div>
+                        <strong>8,388 Updates</strong>
+                        <div style="font-size: 0.8rem; color: var(--marriott-gray);">Applied</div>
+                    </div>
+                    <div style="font-size: 2rem; color: var(--marriott-red);">→</div>
+                    <div style="text-align: center; flex: 1;">
+                        <div style="font-size: 2rem;">🗄️</div>
+                        <strong>InfoBlox</strong>
+                        <div style="font-size: 0.8rem; color: var(--marriott-gray);">Single Truth</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Components Section -->
+        <section id="components" class="section">
+            <h2>Component Details</h2>
+            
+            <div class="architecture-diagram">
+                <h3>Component Interaction Diagram</h3>
+                
+                <div class="data-flow-visual">
+                    <!-- Cloud Sources -->
+                    <div class="data-node" style="top: 20px; left: 50px;">
+                        <strong>AWS Adapter</strong><br>
+                        <small>VPC Export</small>
+                    </div>
+                    <div class="data-node" style="top: 20px; left: 250px;">
+                        <strong>Azure Adapter</strong><br>
+                        <small>VNet Export</small>
+                    </div>
+                    <div class="data-node" style="top: 20px; left: 450px;">
+                        <strong>GCP Adapter</strong><br>
+                        <small>VPC Export</small>
+                    </div>
+                    <div class="data-node" style="top: 20px; left: 650px;">
+                        <strong>Alibaba Adapter</strong><br>
+                        <small>VPC Export</small>
+                    </div>
+                    <div class="data-node" style="top: 20px; left: 850px;">
+                        <strong>OnPrem Adapter</strong><br>
+                        <small>CMDB Export</small>
+                    </div>
+                    
+                    <!-- Central Processing -->
+                    <div class="data-node" style="top: 150px; left: 400px; width: 300px; background: var(--marriott-light-gray);">
+                        <strong>Universal Parser</strong><br>
+                        <small>Standardizes all inputs</small>
+                    </div>
+                    
+                    <!-- Analysis Components -->
+                    <div class="data-node" style="top: 280px; left: 150px;">
+                        <strong>Conflict Detector</strong><br>
+                        <small>Cross-cloud analysis</small>
+                    </div>
+                    <div class="data-node" style="top: 280px; left: 400px;">
+                        <strong>Hierarchy Builder</strong><br>
+                        <small>Container logic</small>
+                    </div>
+                    <div class="data-node" style="top: 280px; left: 650px;">
+                        <strong>Tag Manager</strong><br>
+                        <small>Metadata handling</small>
+                    </div>
+                    
+                    <!-- Lines connecting components -->
+                    <div class="data-line" style="top: 80px; left: 125px; width: 300px; transform: rotate(20deg);"></div>
+                    <div class="data-line" style="top: 80px; left: 325px; width: 200px; transform: rotate(10deg);"></div>
+                    <div class="data-line" style="top: 80px; left: 525px; width: 200px; transform: rotate(-10deg);"></div>
+                    <div class="data-line" style="top: 80px; left: 725px; width: 300px; transform: rotate(-20deg);"></div>
+                    
+                    <!-- Animated data packets -->
+                    <div class="data-packet" style="top: 100px; left: 150px; animation-delay: 0s;"></div>
+                    <div class="data-packet" style="top: 100px; left: 350px; animation-delay: 0.5s;"></div>
+                    <div class="data-packet" style="top: 100px; left: 550px; animation-delay: 1s;"></div>
+                    <div class="data-packet" style="top: 100px; left: 750px; animation-delay: 1.5s;"></div>
+                </div>
+            </div>
+
+            <h3>Key Component Interfaces</h3>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 2rem;">
+                <div>
+                    <h4>Cloud Adapter Interface</h4>
+                    <pre style="background: var(--marriott-light-gray); padding: 1rem; border-radius: 4px;">
+interface CloudAdapter {
+    exportNetworks(): Network[]
+    getSourceIdentifier(): string
+    authenticate(): Promise&lt;void&gt;
+    getLastSyncTime(): Date
+}</pre>
+                </div>
+                <div>
+                    <h4>Network Model</h4>
+                    <pre style="background: var(--marriott-light-gray); padding: 1rem; border-radius: 4px;">
+interface Network {
+    cidr: string
+    source: CloudProvider
+    sourceId: string
+    name: string
+    tags: Map&lt;string, string&gt;
+    metadata: any
+}</pre>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Deployment Section -->
+        <section id="deployment" class="section">
+            <h2>Deployment Options</h2>
+            
+            <div class="deployment-options">
+                <div class="deployment-card">
+                    <div class="deployment-header">
+                        <h3>Containerized Deployment</h3>
+                    </div>
+                    <div class="deployment-content">
+                        <div class="deployment-diagram">
+                            <div style="text-align: center;">
+                                <div style="font-size: 3rem;">🐳</div>
+                                <p>Docker / Kubernetes</p>
+                            </div>
+                        </div>
+                        <h4>Architecture:</h4>
+                        <ul>
+                            <li>Microservices in containers</li>
+                            <li>Kubernetes orchestration</li>
+                            <li>Auto-scaling based on load</li>
+                            <li>Health checks and monitoring</li>
+                        </ul>
+                        <h4>Benefits:</h4>
+                        <ul>
+                            <li>Scalable and resilient</li>
+                            <li>Easy updates and rollbacks</li>
+                            <li>Resource isolation</li>
+                            <li>Cloud-native deployment</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="deployment-card">
+                    <div class="deployment-header">
+                        <h3>Serverless Deployment</h3>
+                    </div>
+                    <div class="deployment-content">
+                        <div class="deployment-diagram">
+                            <div style="text-align: center;">
+                                <div style="font-size: 3rem;">⚡</div>
+                                <p>Lambda / Functions</p>
+                            </div>
+                        </div>
+                        <h4>Architecture:</h4>
+                        <ul>
+                            <li>Event-driven functions</li>
+                            <li>Scheduled executions</li>
+                            <li>API Gateway frontend</li>
+                            <li>Managed services</li>
+                        </ul>
+                        <h4>Benefits:</h4>
+                        <ul>
+                            <li>No infrastructure management</li>
+                            <li>Pay-per-execution</li>
+                            <li>Automatic scaling</li>
+                            <li>Built-in high availability</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="deployment-card">
+                    <div class="deployment-header">
+                        <h3>On-Premises Deployment</h3>
+                    </div>
+                    <div class="deployment-content">
+                        <div class="deployment-diagram">
+                            <div style="text-align: center;">
+                                <div style="font-size: 3rem;">🖥️</div>
+                                <p>VM / Physical Server</p>
+                            </div>
+                        </div>
+                        <h4>Architecture:</h4>
+                        <ul>
+                            <li>Traditional VM deployment</li>
+                            <li>Load balancer frontend</li>
+                            <li>Database backend</li>
+                            <li>Scheduled cron jobs</li>
+                        </ul>
+                        <h4>Benefits:</h4>
+                        <ul>
+                            <li>Full control over infrastructure</li>
+                            <li>Data remains on-premises</li>
+                            <li>Predictable performance</li>
+                            <li>Integration with existing systems</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <h3 style="margin-top: 3rem;">Deployment Requirements</h3>
+            <div style="background: var(--marriott-light-gray); padding: 2rem; border-radius: 8px;">
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
+                    <div>
+                        <h4>Minimum Resources</h4>
+                        <ul>
+                            <li>CPU: 4 cores</li>
+                            <li>Memory: 8GB RAM</li>
+                            <li>Storage: 50GB</li>
+                            <li>Network: 100Mbps</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4>Software Requirements</h4>
+                        <ul>
+                            <li>Python 3.9+</li>
+                            <li>Docker 20.10+</li>
+                            <li>PostgreSQL 13+</li>
+                            <li>Redis 6.0+</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4>Network Access</h4>
+                        <ul>
+                            <li>Cloud provider APIs</li>
+                            <li>InfoBlox API endpoint</li>
+                            <li>Outbound HTTPS (443)</li>
+                            <li>Internal services</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        function showSection(sectionId) {
+            // Hide all sections
+            document.querySelectorAll('.section').forEach(section => {
+                section.classList.remove('active');
+            });
+            
+            // Remove active class from all tabs
+            document.querySelectorAll('.nav-tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Show selected section
+            document.getElementById(sectionId).classList.add('active');
+            
+            // Mark tab as active
+            event.target.classList.add('active');
+        }
+
+        // Add hover effects to cloud boxes
+        document.querySelectorAll('.cloud-box').forEach(box => {
+            box.addEventListener('mouseenter', function() {
+                this.style.transform = 'scale(1.05)';
+            });
+            box.addEventListener('mouseleave', function() {
+                this.style.transform = 'scale(1)';
+            });
+        });
+
+        // Animate data flow on scroll
+        let animated = false;
+        window.addEventListener('scroll', function() {
+            const dataFlow = document.querySelector('.data-flow-visual');
+            if (dataFlow && !animated) {
+                const rect = dataFlow.getBoundingClientRect();
+                if (rect.top < window.innerHeight && rect.bottom > 0) {
+                    animated = true;
+                    // Trigger animations
+                    document.querySelectorAll('.data-packet').forEach((packet, index) => {
+                        packet.style.animationDelay = `${index * 0.5}s`;
+                    });
+                }
+            }
+        });
+    </script>
+</body>
+</html>
